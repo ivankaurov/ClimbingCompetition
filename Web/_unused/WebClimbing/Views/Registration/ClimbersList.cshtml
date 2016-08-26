@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Comp_ClimberTeam>
+@{
+    CompetitionModel comp = ViewBag.Comp;
+    int colCount = 8;
+    if (comp.Lead)
+    {
+        colCount++;
+    }
+    if(comp.Speed) 
+    {
+        colCount++;
+    }
+    if(comp.Boulder) 
+    {
+        colCount++;
+    }
+    String editorSpacer, editorLoader;
+}
+@Html.Hidden("compId", comp.Iid, new { id = "compId" })
+<table>
+    <thead>
+    <tr>
+        <td></td>
+        <td>
+            @Html.DisplayNameFor(m => m.Climber.ClimberName)
+        </td>
+        <td>
+            @Html.DisplayNameFor(m => m.Climber.Person.YearOfBirth)
+        </td>
+        <td>
+            @Html.DisplayNameFor(m => m.Climber.Qf)
+        </td>
+        <td>
+            @Html.DisplayNameFor(m => m.Climber.Person.GenderProperty)
+        </td>
+        <td>
+            @Html.DisplayNameFor(m => m.Climber.CompAgeGroup)
+        </td>
+        <td>
+            @Html.DisplayNameFor(m => m.Region)
+        </td>
+        @if (comp.Lead)
+        {
+            <td>
+                @Html.DisplayNameFor(m => m.Climber.Lead)
+            </td>
+        }
+        @if (comp.Speed)
+        {
+            <td>
+                @Html.DisplayNameFor(m => m.Climber.Speed)
+            </td>
+        }
+        @if (comp.Boulder)
+        {
+            <td>
+                @Html.DisplayNameFor(m => m.Climber.Boulder)
+            </td>
+        }
+        <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach (var clm in Model)
+        {
+            editorSpacer = String.Format("editorSpacer{0}", clm.Iid);
+            editorLoader = String.Format("editorLoader{0}", clm.Iid);
+            <tr>
+            <td>
+                @(++i)
+                @Html.HiddenFor(m => clm.Iid)
+            </td>
+            <td>@Html.DisplayFor(m => clm.Climber.ClimberName)</td>
+            <td>@Html.DisplayFor(m => clm.Climber.Person.YearOfBirth)</td>
+            <td>@clm.Climber.Qf.GetFriendlyValue()</td>
+            <td>@clm.Climber.Person.GenderProperty.GetFriendlyValue()</td>
+            <td>@Html.DisplayFor(m => clm.Climber.CompAgeGroup.AgeGroup.SecretaryName)</td>
+            <td>@Html.DisplayFor(m => clm.Region.Name)</td>
+            @if (comp.Lead)
+            {
+                <td>@clm.Climber.Lead.GetFriendlyValue()</td>
+            }
+            @if (comp.Speed)
+            {
+                <td>@clm.Climber.Speed.GetFriendlyValue()</td>
+            }
+            @if (comp.Boulder)
+            {
+                <td>@clm.Climber.Boulder.GetFriendlyValue()</td>
+            }
+            <td>
+                <button onclick="btnEditClimber_Click('@clm.Iid')" id="@String.Format("btnEditClimber{0}", clm.Iid)">Правка</button>
+                <div id="@editorLoader" style="display:none">
+                    <img src="~/Images/ajax-loader.gif" />
+                    Идет загрузка...
+                </div>
+            </td>
+            </tr>
+            <tr>
+                <td colspan="@colCount" id="@editorSpacer" style="display:none"></td>
+            </tr>
+        }
+    </tbody>
+</table>

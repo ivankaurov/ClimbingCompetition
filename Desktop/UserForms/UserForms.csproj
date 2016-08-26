@@ -1,0 +1,725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D81A5019-F636-4980-B1E1-4AAA4DB8C5A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClimbingCompetition</RootNamespace>
+    <AssemblyName>UserForms</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;FULL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;FULL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\General\ClimbingCompetition.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;FULL</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;FULL</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClimber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClimber.designer.cs">
+      <DependentUpon>AddClimber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="All_Lists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="All_Lists.designer.cs">
+      <DependentUpon>All_Lists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="appSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>appSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseListForm.Designer.cs">
+      <DependentUpon>BaseListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BoulderingTimer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClimbingService.cs" />
+    <Compile Include="ClimbingTimer.cs" />
+    <Compile Include="EditTopo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditTopo.Designer.cs">
+      <DependentUpon>EditTopo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FindOtherLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindOtherLists.Designer.cs">
+      <DependentUpon>FindOtherLists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IClimbingTimer.cs" />
+    <Compile Include="ListHeaderStrings.en-US.Designer.cs">
+      <DependentUpon>ListHeaderStrings.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="dsClimbing.cs">
+      <DependentUpon>dsClimbing.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsMultiBouder.cs">
+      <DependentUpon>DsMultiBouder.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsMultiBouder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsMultiBouder.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IExceptionLogger.cs" />
+    <Compile Include="LeadStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LeadStart.Designer.cs">
+      <DependentUpon>LeadStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MultiRouteBoulder.cs" />
+    <Compile Include="NextRoundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NextRoundForm.Designer.cs">
+      <DependentUpon>NextRoundForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineUpdater.cs" />
+    <Compile Include="OnlineUpdater2.Climbers.cs" />
+    <Compile Include="OnlineUpdater2.cs" />
+    <Compile Include="OnlineUpdater2.Lists.cs" />
+    <Compile Include="PBClimber.cs" />
+    <Compile Include="PBHoster.cs" />
+    <Compile Include="CombinedResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAct.designer.cs">
+      <DependentUpon>CreateAct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataFromSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataFromSystem.Designer.cs">
+      <DependentUpon>DataFromSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsClimbing.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsClimbing.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelWorkingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExcelWorkingForm.Designer.cs">
+      <DependentUpon>ExcelWorkingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IvanovoSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IvanovoSet.Designer.cs">
+      <DependentUpon>IvanovoSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Judges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Judges.designer.cs">
+      <DependentUpon>Judges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PointsSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PointsSettingsForm.Designer.cs">
+      <DependentUpon>PointsSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PositionsEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PositionsEditForm.Designer.cs">
+      <DependentUpon>PositionsEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCreationBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCreationBar.Designer.cs">
+      <DependentUpon>ReportCreationBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Result2routes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Result2routes.Designer.cs">
+      <DependentUpon>Result2routes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultListBoulder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultListBoulder.Designer.cs">
+      <DependentUpon>ResultListBoulder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultListLead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultListLead.Designer.cs">
+      <DependentUpon>ResultListLead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListHeaderStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListHeaderStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResultListQf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultListQf.Designer.cs">
+      <DependentUpon>ResultListQf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultListSpeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultListSpeed.Designer.cs">
+      <DependentUpon>ResultListSpeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecureStringToStringConverter.cs" />
+    <Compile Include="SecurityOperations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectTeamType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SerialPortConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SerialPortConfig.Designer.cs">
+      <DependentUpon>SerialPortConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceHelper.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowFinalResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowFinalResults.Designer.cs">
+      <DependentUpon>ShowFinalResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sorting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sorting.Designer.cs">
+      <DependentUpon>Sorting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SourceSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SourceSelect.Designer.cs">
+      <DependentUpon>SourceSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpeedFinals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpeedFinals.Designer.cs">
+      <DependentUpon>SpeedFinals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpeedSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpeedSystem.Designer.cs">
+      <DependentUpon>SpeedSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpeedSystemHelper.cs" />
+    <Compile Include="StartList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartList.Designer.cs">
+      <DependentUpon>StartList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaticClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TeamResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamResults.Designer.cs">
+      <DependentUpon>TeamResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimerControl.Designer.cs">
+      <DependentUpon>TimerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TmeWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TmeWorkForm.Designer.cs">
+      <DependentUpon>TmeWorkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationClass.cs" />
+    <Compile Include="Web References\WebServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CopyData.sql" />
+    <Content Include="MultiRouteBoulder.sql" />
+    <Content Include="Templates\fsr_banner.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\P_Kord.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="OnlineUpdater2.ContinuousUpdate.cs" />
+    <None Include="..\..\General\ClimbingCompetition.snk">
+      <Link>ClimbingCompetition.snk</Link>
+    </None>
+    <None Include="Web References\WebServices\BoulderResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebServices\ClimbingWebService.disco" />
+    <None Include="Resources\Exchange.bmp" />
+    <None Include="Resources\restore.bmp" />
+    <None Include="Resources\rollback.bmp" />
+    <Content Include="Sound\01-осталась одна минута.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sound\02-приготовиться к переходу.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sound\03-переход.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebServices\ClimbingWebService.wsdl" />
+    <None Include="Web References\WebServices\LeadResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebServices\ListHeader.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebServices\ONLClimberLinkSerializable.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebServices\ONLCompetitionSerializable.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebServices\ONLGroupSerializable.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebServices\ONLTeamSerializable.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebServices\PairingValueOfStringString.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebServices\SpeedResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\ClimbingCompetition.Common\ClimbingCompetition.Common.csproj">
+      <Project>{6eb0774e-0ad5-45cb-b6f4-d29155d4e899}</Project>
+      <Name>ClimbingCompetition.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Crypto\Crypto.csproj">
+      <Project>{9fbd4ca9-28a6-4d7b-ba4d-eb335645583b}</Project>
+      <Name>Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Extensions\Extensions.csproj">
+      <Project>{5d4b25c9-3f4d-4f4d-be76-cce4a4f052d3}</Project>
+      <Name>Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPF.Common\WPF.Common.csproj">
+      <Project>{f12a4b6c-fea9-4696-abea-77e5d89156cf}</Project>
+      <Name>WPF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClimbingCompetition.Client\ClimbingCompetition.Client.csproj">
+      <Project>{9b559011-3fc7-4fc8-8454-52afdd6e99bf}</Project>
+      <Name>ClimbingCompetition.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SortingLib\SortingLib.csproj">
+      <Project>{6FB6DF2C-51A4-4F87-B592-17173885D49E}</Project>
+      <Name>SortingLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpeedData\SpeedData.csproj">
+      <Project>{EFF1511E-7746-406A-BCF9-439171EC2DCD}</Project>
+      <Name>SpeedData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validate\Validate.csproj">
+      <Project>{548DE521-ECFE-44DC-9535-1B30711B5B13}</Project>
+      <Name>Validate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlApiClient\XmlApiClient.csproj">
+      <Project>{8E3E9383-0C30-4170-9FA9-270D803DCBAF}</Project>
+      <Name>XmlApiClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\XmlApiData\XmlApiData.csproj">
+      <Project>{EECFD1C6-D0C6-4241-9B62-31D3AB47DC87}</Project>
+      <Name>XmlApiData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="appSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>appSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsClimbing.xsc">
+      <DependentUpon>dsClimbing.xsd</DependentUpon>
+    </None>
+    <None Include="dsClimbing.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsClimbing.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsClimbing.xss">
+      <DependentUpon>dsClimbing.xsd</DependentUpon>
+    </None>
+    <None Include="DsMultiBouder.xsc">
+      <DependentUpon>DsMultiBouder.xsd</DependentUpon>
+    </None>
+    <None Include="DsMultiBouder.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsMultiBouder.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsMultiBouder.xss">
+      <DependentUpon>DsMultiBouder.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\DelImage.bmp" />
+    <None Include="Resources\ExcelImage.bmp" />
+    <None Include="Resources\PushBack.bmp" />
+    <None Include="Resources\PushFront.bmp" />
+    <None Include="Resources\PushMiddle.bmp" />
+    <None Include="Resources\Refresh.bmp" />
+    <None Include="Resources\SecondRoute.bmp" />
+    <None Include="Resources\FileSave.png" />
+    <Content Include="Templates\Книга.xlt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\badges.dot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="All_Lists.resx">
+      <DependentUpon>All_Lists.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseListForm.resx">
+      <DependentUpon>BaseListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditTopo.en.resx">
+      <DependentUpon>EditTopo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditTopo.resx">
+      <DependentUpon>EditTopo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindOtherLists.resx">
+      <DependentUpon>FindOtherLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListHeaderStrings.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ListHeaderStrings.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataFromSystem.resx">
+      <DependentUpon>DataFromSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IvanovoSet.resx">
+      <DependentUpon>IvanovoSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Judges.resx">
+      <DependentUpon>Judges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeadStart.resx">
+      <DependentUpon>LeadStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PointsSettingsForm.resx">
+      <DependentUpon>PointsSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Result2routes.resx">
+      <DependentUpon>Result2routes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultListBoulder.resx">
+      <DependentUpon>ResultListBoulder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultListLead.resx">
+      <DependentUpon>ResultListLead.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListHeaderStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ListHeaderStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultListQf.resx">
+      <DependentUpon>ResultListQf.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultListSpeed.resx">
+      <DependentUpon>ResultListSpeed.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityOperations.resx">
+      <DependentUpon>SecurityOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectTeamType.resx">
+      <DependentUpon>SelectTeamType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.en.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowFinalResults.resx">
+      <DependentUpon>ShowFinalResults.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sorting.resx">
+      <DependentUpon>Sorting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpeedFinals.resx">
+      <DependentUpon>SpeedFinals.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpeedSystem.resx">
+      <DependentUpon>SpeedSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartList.resx">
+      <DependentUpon>StartList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamResults.resx">
+      <DependentUpon>TeamResults.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimerControl.resx">
+      <DependentUpon>TimerControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:1191/ClimbingWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebServices\</RelPath>
+      <UpdateFromURL>http://localhost:1191/ClimbingWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UserForms_WebServices_ClimbingWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+</Project>

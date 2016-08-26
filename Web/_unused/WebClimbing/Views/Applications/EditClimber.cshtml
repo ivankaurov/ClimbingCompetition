@@ -1,0 +1,76 @@
+﻿@model ClimberApplication
+@{
+    CompetitionModel comp = ViewBag.Comp;
+    bool allowEditName = ((bool?)ViewBag.AllowEditName) ?? false;
+    object htmlAttr = allowEditName ? null : new { @readonly = "readonly" };
+    uint i = ViewBag.Index;
+    var items = new ClimberApplication[i + 1];
+    items[i] = Model;
+    String itemsPrefix = String.Format("items[{0}].", i);
+}
+
+<div class="edit-climber">
+    <h3>@Model.ModelHeader</h3>
+    @Html.Hidden("items.Index", i)
+    @Html.HiddenFor(mbox => items[i].ApplicationId)
+    @Html.HiddenFor(mbox => items[i].ModelHeader)
+    <table>
+        <tr>
+            <td>@Html.LabelFor(mbox => mbox.Surname)</td>
+            <td>@Html.TextBoxFor(mbox => items[i].Surname, htmlAttr)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(mbox => mbox.Name)</td>
+            <td>@Html.TextBoxFor(mbox => items[i].Name)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(mbox=>mbox.GenderP)</td>
+            <td>@Html.EnumDropDownList(itemsPrefix + "GenderP", Model.GenderP, htmlAttr: htmlAttr)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(mbox => mbox.YearOfBirth)</td>
+            <td>
+                @if (allowEditName)
+                {
+                    @Html.EditorFor(m => items[i].YearOfBirth)
+                }
+                else
+                {
+                    @Html.TextBoxFor(m => items[i].YearOfBirth, htmlAttr)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(mbox => mbox.Qf)</td>
+            <td>@Html.EnumDropDownList(itemsPrefix + "Qf", Model.Qf, htmlAttr: htmlAttr)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(mbox => mbox.GroupName)</td>
+            <td>@Model.GroupName</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center" style="font-weight:bold">Участие в видах</td>
+        </tr>
+        @if (comp.Lead)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(mbox => mbox.Lead)</td>
+                <td>@Html.EnumDropDownList(itemsPrefix + "Lead", Model.Lead)</td>
+            </tr>
+        }
+        @if (comp.Speed)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(mbox => mbox.Speed)</td>
+                <td>@Html.EnumDropDownList(itemsPrefix + "Speed", Model.Speed)</td>
+            </tr>
+        }
+        @if (comp.Boulder)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(mbox => mbox.Boulder)</td>
+                <td>@Html.EnumDropDownList(itemsPrefix + "Boulder", Model.Boulder)</td>
+            </tr>
+        }
+    </table>
+</div>

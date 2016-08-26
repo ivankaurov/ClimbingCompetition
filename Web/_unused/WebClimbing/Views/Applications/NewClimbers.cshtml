@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ClimberApplication>
+@{
+    String divId = "newclimbersformPanel";
+    long compId = ViewBag.CompId;
+    long regionId = ViewBag.RegionId;
+    int index = 0;
+}
+<div class="new-climbers-div" id="@divId">
+    @using (Ajax.BeginForm("SaveNewClimbers",
+        new
+        {
+            compId = compId,
+            regionId = regionId,
+            divId = divId
+        },
+            new AjaxOptions
+            {
+                Confirm = "Подать заявку?",
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = divId,
+                LoadingElementId = "ajaxNewClimber",
+                OnBegin = "newClimbersAppStarted",
+                OnFailure = "newClimbersAppFailed",
+                OnSuccess = "newClimbersAppSucceded"
+            }, new { @id = "newClimbersForm" }))
+    {
+        <div id="ajaxNewClimber" style="display:none">
+            Идет проверка поданной заявки
+        </div>
+        <div id="newClimbersFormList">
+        @Html.ValidationSummary(false)
+        @if (Model == null)
+        {
+            <div>
+                @Html.Action("EditClimber", new { index = index++, compId = compId })
+                <input type="button" class="cancel-one-climber hide-when-apply" value="Удалить заявку" />
+            </div>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div>
+                    @Html.Action("EditClimberFromModel", new { index = index++, compId = compId, model = item })
+                    <input type="button" class="cancel-one-climber hide-when-apply" value="Удалить заявку" />
+                </div>
+            }
+        }
+        </div>
+        <a href="#addnewclimber" id="addnewclimber" class="hide-when-apply">Добавить участника</a>
+        <input type="submit" value="Подать заявку" class="hide-when-apply" />
+        <input type="button" value="Отмена" class="hide-when-apply" onclick="cancelNewAppClick()" />
+    }
+    @Html.Hidden("newNextIndex", index)
+</div>

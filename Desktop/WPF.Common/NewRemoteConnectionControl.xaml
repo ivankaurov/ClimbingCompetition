@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ClimbingCompetition.WPF.NewRemoteConnectionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClimbingCompetition.WPF"
+             mc:Ignorable="d" Height="Auto" Width="Auto"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Label>Адрес WEB служб</Label>
+        <TextBox Margin="3" Grid.Column="1" Grid.ColumnSpan="2" MinWidth="400" Text="{Binding Path=Address, Mode=TwoWay}" />
+
+        <Label Grid.Row="1">Пароль</Label>
+        <PasswordBox Margin="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Name="pbxPassword" PasswordChanged="pbxPassword_PasswordChanged"  />
+
+        <Label Grid.Row="2">Соревнования</Label>
+        <ComboBox Margin="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                  Name="cbSelectCompetitions" SelectedValue="{Binding Path=Competition, Mode=TwoWay}"
+                  DropDownOpened="cbSelectCompetitions_DropDownOpened"/>
+
+        <Button Margin="3,3,0,3" Grid.Row="3" HorizontalAlignment="Left" Name="btnOK" MinWidth="70" IsDefault="True" Click="btnOK_Click">OK</Button>
+        <Button Margin="3" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Name="btnCancel" MinWidth="70" IsCancel="True" Click="btnCancel_Click">Cancel</Button>
+    </Grid>
+</UserControl>

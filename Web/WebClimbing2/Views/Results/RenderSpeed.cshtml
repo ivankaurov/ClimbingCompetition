@@ -1,0 +1,75 @@
+﻿@model ClimbingEntities.Lists.ListHeader
+@using Extensions
+@{ 
+    bool showPrevRound = Model.ListType == ClimbingCompetition.Common.ListType.SpeedQualy2
+        && (Model.Rules & ClimbingCompetition.Common.Rules.BestRouteInQf) == ClimbingCompetition.Common.Rules.BestRouteInQf
+        && Model.PreviousRound != null;
+
+}
+<table>
+    <thead>
+        <tr>
+            <td>Место</td>
+            <td>Фамилия, Имя</td>
+            <td>Г.р.</td>
+            <td>Команда</td>
+            <td>Разряд</td>
+            @if (showPrevRound)
+            {
+                <td>@Model.PreviousRound.RoundName</td>
+            }
+            <td>Трасса 1</td>
+            <td>Трасса 2</td>
+            @if(showPrevRound)
+            {
+                <td>Квал.2 Итог</td>
+            }
+            <td>Итог</td>
+            <td>Ст.№</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var m in Model.PreloadedSortedResults.OfType<ClimbingEntities.Lists.ListLineSpeed>())
+        {
+            <tr
+                @switch(m.Qf)
+                    {
+                        case ClimbingCompetition.Common.NextRoundQf.Qualified:
+                            @:style="background-color:lightgreen"
+                            break;
+                        case ClimbingCompetition.Common.NextRoundQf.LuckyLooser:
+                            @:style="background-color:lightblue"
+                            break;
+                    }
+                >
+                <td>@m.PosText</td>
+                <td>@m.Climber.Person.FullName</td>
+                <td>@m.Climber.Person.YearOfBirth</td>
+                <td>@m.Climber.Team</td>
+                <td>@m.Climber.Qf.EnumFriendlyValue()</td>
+                @if (showPrevRound)
+                {
+                    <td>
+                        @{
+                            var pR = m.PreviousRoundResult();
+                        }
+                        @if(pR != null)
+                        {
+                            @:@pR.ResText
+                        }
+                    </td>
+                }
+                <td>@m.Route1Text</td>
+                <td>@m.Route2Text</td>
+                <td>@m.ResText</td>
+                @if (showPrevRound)
+                {
+                    <td>
+                        @m.BestRecord.ResText
+                    </td>
+                }
+                <td>@m.Start</td>
+            </tr>
+        }
+    </tbody>
+</table>

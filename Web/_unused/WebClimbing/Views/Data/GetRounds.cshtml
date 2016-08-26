@@ -1,0 +1,33 @@
+﻿@{
+    String divId = "resultlist";
+    object htmlAttr = new { onchange = "$(this.form).submit()" };
+}
+<div id="@ViewBag.DivID">
+@using (Ajax.BeginForm("GetList", new { divId = divId },
+    new AjaxOptions
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = divId,
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "ajax-loadr"
+    }))
+{
+    <fieldset>
+        <img src="~/Images/orderedList0.png" alt="Загрузка..." style="display:none" id="ajax-loadr" />
+        <div class="editor-label">
+            <label for="reg_select">Раунд:</label> 
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("id", (SelectList)ViewBag.Rounds, htmlAttr)
+        </div>
+    </fieldset>
+}
+@if (ViewBag.SelectedRound != null)
+{
+    @Html.Action("GetList", new { id = ViewBag.SelectedRound, divId = divId })
+}
+else
+{
+    <div id="@divId" />
+}
+</div>

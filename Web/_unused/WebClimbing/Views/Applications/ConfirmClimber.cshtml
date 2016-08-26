@@ -1,0 +1,126 @@
+﻿@model ClimberApplication
+@{
+    CompetitionModel comp = ViewBag.Comp;
+    String divId = ViewBag.DivId;
+    String loadingDiv = divId + "_ajaxloader";
+    long regionId = ViewBag.RegionId;
+}
+@if (!Model.IsNew)
+{
+    @:<div id="@divId" class="edit-climber-div">
+}
+@using (Ajax.BeginForm("ConfirmClimber", new { compId = comp.Iid, regionId = regionId, divId = divId }, new AjaxOptions
+{
+    Confirm = null,
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = loadingDiv,
+    UpdateTargetId = divId,
+    OnFailure = "appSaveFailed",
+    OnSuccess = "appSaveSucceded"
+}))
+{
+    <div id="@loadingDiv" style="display:none">
+        <img src="~/Images/orderedList0.png" alt="Загрузка..."/>
+        Идет проверка поданной заявки
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th style="font-weight:bold"></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr>
+            <td colspan="2" align="center">
+                <h4>Проверьте данные участника</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>Действие</td>
+            <td>@(Model.IsNew ? "Добавление" : (Model.IsDel ? "Удаление" : "Замена"))</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.DisplayName)</td>
+            <td>
+                @Html.DisplayFor(m => m.DisplayName)
+                @Html.HiddenFor(m => m.Surname)
+                @Html.HiddenFor(m => m.Name)
+                @Html.HiddenFor(m => m.IsDel)
+                @Html.HiddenFor(m => m.ApplicationId)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.YearOfBirth)</td>
+            <td>
+                @Html.DisplayFor(m => m.AgeChange)
+                @Html.HiddenFor(m => m.YearOfBirth)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.GenderP)</td>
+            <td>
+                @Html.DisplayFor(m => m.GenderChange)
+                @Html.HiddenFor(m => m.GenderP)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.Qf)</td>
+            <td>
+                @Model.Qf.GetFriendlyValue()
+                @Html.HiddenFor(m => m.Qf)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.GroupName)</td>
+            <td>@Html.DisplayFor(m => m.GroupName)</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">Участие в видах</td>
+        </tr>
+        @if (comp.Lead)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(m => m.Lead)</td>
+                <td>
+                    @Model.Lead.GetFriendlyValue()
+                    @Html.HiddenFor(m => m.Lead)
+                </td>
+            </tr>
+        }
+        @if (comp.Speed)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(m => m.Speed)</td>
+                <td>
+                    @Model.Speed.GetFriendlyValue()
+                    @Html.HiddenFor(m => m.Speed)
+                </td>
+            </tr>
+        }
+        @if (comp.Boulder)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(m => m.Boulder)</td>
+                <td>
+                    @Model.Boulder.GetFriendlyValue()
+                    @Html.HiddenFor(m => m.Boulder)
+                </td>
+            </tr>
+        }
+        <tr>
+            <td style="font-weight:normal" align="left">
+                <input type="submit" value="Подтвердить" />
+            </td>
+            <td align="right">
+                <input type="button" class="hide-row-button" value="Отменить" />
+            </td>
+        </tr>
+    </table>
+    
+    
+}
+@if (!Model.IsNew)
+{
+    @:</div>
+}

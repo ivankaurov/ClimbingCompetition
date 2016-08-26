@@ -1,0 +1,56 @@
+﻿@{
+    CompetitionModel comp = ViewBag.Comp;
+    ViewBag.Title = "Заявки на " + comp.ShortName;
+    SelectList groupsList = (SelectList)ViewBag.Groups;
+    SelectList regionsList = (SelectList)ViewBag.Regions;
+    String regionName = ViewBag.RegionName;
+    String divId = "applist";
+    object htmlAttr = new { onchange = "$(this.form).submit()" };
+    bool multiReg = (regionsList.Count() > 1);
+}
+@section scripts {
+    <script src="~/Scripts/ControllerScriptis/Applications.js" type="text/jscript"></script>
+}
+<h2>@ViewBag.Title</h2>
+<div id="dataLoading" style="display:none">
+    Идет загрузка данных с сервера
+    <img src="~/Images/orderedList0.png" alt="Загрузка..." />
+</div>
+@using (Ajax.BeginForm("Applications", new { id = comp.Iid, divId = divId, showDiv = true }, new AjaxOptions
+{
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = "ajaxloader",
+    UpdateTargetId = divId,
+    OnFailure = "applicationLoadFailed",
+    OnSuccess = "setClickEvents"
+}, new
+{
+    @class = WebClimbing.Controllers.ApplicationsController.CLS_HIDE_WHEN_EDIT
+}))
+{
+    <img src="~/Images/orderedList0.png" alt="Загрузка..." style="display:none" id="ajaxloader" />
+    <p>
+        Группа: @Html.DropDownList("groupId", groupsList, "все группы", htmlAttr)
+    </p>
+    <p>
+        Регион:
+        @if (multiReg)
+        {
+            @Html.DropDownList("regionId", regionsList, String.Empty, htmlAttr)
+        }
+        else
+        {
+            @regionName
+            @Html.Hidden("regionId", regionsList.SelectedValue)
+        }
+    </p>
+}
+@if (multiReg)
+{
+    <div id="@divId"></div>
+}
+else
+{
+    @Html.Action("Applications", new { id = comp.Iid, divId = divId, regionId = regionsList.SelectedValue })
+}

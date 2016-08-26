@@ -1,0 +1,49 @@
+﻿@using WebClimbing.Models
+@model IEnumerable<WebClimbing.Models.UserAuthentication.UserProfileModel>
+
+@{
+    ViewBag.Title = "Пользователи";
+    String divId = "usersdiv";
+    ClimbingContext db = ViewBag.Db;
+    object htmlAttr = new { onchange = "$(this.form).submit()" };
+    DbResult? dbRes = ViewBag.Result;
+    String dbResult;
+    if (dbRes == null)
+    {
+        dbResult = String.Empty;
+    }
+    else
+    {
+        switch(dbRes.Value)
+        {
+            case DbResult.Error:
+                dbResult = "Ошибка правки";
+                break;
+            case DbResult.Created:
+                dbResult = "Пользователь создан";
+                break;
+            case DbResult.Updated:
+                dbResult = "Пользователь обновлен";
+                break;
+            default:
+                dbResult = String.Empty;
+                break;
+        }        
+    }       
+    }
+@if (!String.IsNullOrEmpty(dbResult))
+{
+    <p class="message-success">@dbResult</p>
+}
+@using (Ajax.BeginForm("UserList", new { divId = divId }, new AjaxOptions
+{
+    HttpMethod = "GET",
+    LoadingElementId = "ajaxloader",
+    UpdateTargetId = divId,
+    InsertionMode = InsertionMode.Replace
+}))
+{
+    <img src="~/Images/orderedList0.png" alt="Загрузка..." style="display:none" id="ajaxloader" />
+    <p>Регион: @Html.DropDownList("parentRegion", (SelectList)ViewBag.Regions, htmlAttr)</p>
+}
+@Html.Action("UserList", new { parentRegion = ViewBag.Region, divId = divId })

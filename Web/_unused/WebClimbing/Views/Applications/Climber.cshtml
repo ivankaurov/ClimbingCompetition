@@ -1,0 +1,171 @@
+﻿@model ClimberApplication
+@{
+    CompetitionModel comp = ViewBag.Comp;
+    String divId = ViewBag.DivId;
+    String loadingDiv = divId + "_ajaxloader";
+    long regionId = ViewBag.RegionId;
+    bool displayValidation;
+    try { displayValidation = ViewBag.DisplayValidation; }
+    catch { displayValidation = false; }
+    bool allowEditName = ViewBag.AllowEditName;
+}
+
+@if (!Model.IsNew)
+{
+    @:<div id="@divId" class="edit-climber-div">
+}
+
+@using (Ajax.BeginForm("SaveClimber", new { compId = comp.Iid, regionId = regionId, divId = divId }, new AjaxOptions
+{
+    Confirm = null,
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = loadingDiv,
+    UpdateTargetId = divId,
+    OnComplete = "appConfirmCompleted",
+    OnBegin = "appConfirmStarted"
+}))
+{
+    <div id="@loadingDiv" style="display:none">
+        <img src="~/Images/orderedList0.png" alt="Загрузка..."/>
+        Идет проверка поданной заявки
+    </div>
+    if (displayValidation)
+    {
+        @Html.ValidationSummary(true)
+    }
+    <table>
+        <tr>
+            <td colspan="2" align="left">
+                <h3>
+                    @Model.ModelHeader
+                    @Html.HiddenFor(m => m.ModelHeader)
+                </h3>
+                @Html.HiddenFor(m => m.ApplicationId, new { @class = "del-climber-hidden" })
+                @Html.Hidden("newApp", Model.IsNew, new { @class = "new-app" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Surname)</td>
+            <td>
+                @if (allowEditName)
+                {
+                    @Html.EditorFor(m => m.Surname)
+                    if (displayValidation)
+                    {
+                        @Html.ValidationMessageFor(m => m.Surname)
+                    }
+                }
+                else
+                {
+                    @Html.HiddenFor(m => m.Surname)
+                    @Html.DisplayFor(m => m.Surname)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Name)</td>
+            <td>
+                @if (allowEditName)
+                {
+                    @Html.EditorFor(m => m.Name)
+                    if (displayValidation)
+                    {
+                        @Html.ValidationMessageFor(m => m.Name)
+                    }
+                }
+                else
+                {
+                    @Html.HiddenFor(m => m.Surname)
+                    @Html.DisplayFor(m => m.Surname)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.GenderP)</td>
+            <td>
+                @if (allowEditName)
+                {
+                    @Html.EnumDropDownList("GenderP", Model.GenderP, String.Empty)
+                    if (displayValidation)
+                    {
+                        @Html.ValidationMessageFor(m => m.GenderP)
+                    }
+                }
+                else
+                {
+                    @Html.HiddenFor(m => m.GenderP)
+                    @Model.GenderP.GetFriendlyValue()
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.YearOfBirth)</td>
+            <td>
+                @if (allowEditName)
+                {
+                    @Html.EditorFor(m => m.YearOfBirth, new { @type = "number" })
+                    if (displayValidation)
+                    {
+                        @Html.ValidationMessageFor(m => m.YearOfBirth)
+                    }
+                }
+                else
+                {
+                    @Html.HiddenFor(m => m.YearOfBirth)
+                    @Html.DisplayFor(m => m.YearOfBirth)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Qf)</td>
+            <td>
+                @Html.EnumDropDownList("Qf", Model.Qf, "<не указан>")
+                @if (displayValidation)
+                {
+                    @Html.ValidationMessageFor(m => Model.Qf)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.GroupName)</td>
+            <td>@Html.DisplayFor(m => m.GroupName)</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">Участие в видах</td>
+        </tr>
+        @if (comp.Lead)
+        {
+            <tr>
+                <td>@Html.LabelFor(m => m.Lead)</td>
+                <td>@Html.EnumDropDownList("Lead", Model.Lead)</td>
+            </tr>
+        }
+        @if (comp.Speed)
+        {
+            <tr>
+                <td>@Html.LabelFor(m => m.Speed)</td>
+                <td>@Html.EnumDropDownList("Speed", Model.Speed)</td>
+            </tr>
+        }
+        @if (comp.Boulder)
+        {
+            <tr>
+                <td>@Html.LabelFor(m => m.Boulder)</td>
+                <td>@Html.EnumDropDownList("Boulder", Model.Boulder)</td>
+            </tr>
+        }
+    </table>
+    <a href="#" class="hide-row-button">Отмена</a>
+    if (!Model.IsNew)
+    {
+        <br />
+        <a href="#" class="del-climber-button">Удалить участника</a>
+    }
+    <br />
+    <input type="submit" value="Сохранить" />
+}
+@if (!Model.IsNew)
+{
+    @:</div>
+}

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebClimbing.Models.AgeGroupModelWrapper>
+@{
+    ViewBag.Title = "Confirm";
+}
+
+<h2>Confirm</h2>
+@using (Html.BeginForm("Confirm", "AgeGroups", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+     <table width="100%" id="tbl">
+        <tr>
+            <th>№</th>
+            <th>@Html.DisplayNameFor(m => m.Value.FullName)</th>
+            <th>@Html.DisplayNameFor(m => m.Value.SecretaryName)</th>
+            <th>@Html.DisplayNameFor(m => m.Value.GenderCode)</th>
+            <th>@Html.DisplayNameFor(m => m.Value.MinAge)</th>
+            <th>@Html.DisplayNameFor(m => m.Value.MaxAge)</th>
+            <th>@Html.DisplayNameFor(m => m.Confirmed)</th>
+        </tr>
+        @{
+          var listModel = Model.ToArray();
+        }
+        @for(int i = 0; i < listModel.Length; i++)
+        {
+        <tr>
+            <td>
+                @Html.HiddenFor(m => listModel[i].Value.Iid)
+                @Html.HiddenFor(m => listModel[i].IsNew)
+                @Html.HiddenFor(m => listModel[i].ToDelete)
+                @if (listModel[i].ToDelete)
+                {
+                    @:Удалить
+                }
+                else if (listModel[i].IsNew)
+                {
+                    @:Добавить
+                }
+                else
+                {
+                    @(i + 1)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(m => listModel[i].FullNameChange)
+                @Html.HiddenFor(m => listModel[i].Value.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => listModel[i].SecretaryNameChange)
+                @Html.HiddenFor(m => listModel[i].Value.SecretaryName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => listModel[i].GenderChange)
+                @Html.HiddenFor(m => listModel[i].Value.GenderCode)
+            </td>
+            <td>
+                @Html.DisplayFor(m => listModel[i].MinAgeChange)
+                @Html.HiddenFor(m => listModel[i].Value.MinAge)
+            </td>
+            <td>
+                @Html.DisplayFor(m => listModel[i].MaxAgeChange)
+                @Html.HiddenFor(m => listModel[i].Value.MaxAge)
+            </td>
+            <td>
+                @Html.CheckBoxFor(m => listModel[i].Confirmed)
+            </td>
+        </tr>
+        }
+    </table>
+    <input type="submit" value="Сохранить" />
+    <input type="submit" value="Назад" name="Back" />
+}
+

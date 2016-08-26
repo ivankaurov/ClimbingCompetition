@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="ClimbingPresentation.PhotoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClimbingPresentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="63" d:DesignWidth="63">
+    <Grid Name="grdMain">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <local:ClimberPres x:Name="clmPresentation" Grid.Column="0" Grid.Row="0"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+        <GridSplitter Grid.Row="1" Grid.Column="0" Height="3" HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch" Background="Transparent" Grid.ColumnSpan="3" />
+        <local:ClimberResults x:Name="clmResults" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" />
+        <GridSplitter Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                      Grid.RowSpan="3" Background="Transparent" Width="3" />
+        <local:ClimberPicture x:Name="clmPhoto" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Top"
+                              VerticalContentAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
+    </Grid>
+</UserControl>

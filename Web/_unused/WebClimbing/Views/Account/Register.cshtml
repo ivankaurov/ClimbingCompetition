@@ -1,0 +1,38 @@
+﻿@using WebClimbing;
+@using WebClimbing.Models;
+@using WebClimbing.Models.UserAuthentication;
+@using System.Linq;
+@model UserRegistrationModel
+@{
+    ViewBag.Title = "Новый пользователь";
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+@using (Html.BeginForm("Register", "Account"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    <fieldset>
+        <legend>Данные пользователя</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Region)
+                @Html.DropDownList("Region", (SelectList)ViewBag.Regions)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Email)
+                @Html.EditorFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </li>
+        </ol>
+        <input type="submit" value="Создать пользователя" />
+    </fieldset>
+}
+

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebClimbing.Models.Comp_AgeGroupEdit>
+<div id="grp_edit">
+<img src="~/Images/orderedList8.png" id="ajax_load" alt="Loading..." style="display:none" />
+@if (ViewBag.Scs)
+{
+    <p class="message-success">Данные обновлены</p>
+}
+@using (Ajax.BeginForm("Groups", new { id = ViewBag.Iid },
+    new AjaxOptions()
+{
+    Confirm = "Подтвердить?",
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "grp_edit",
+    LoadingElementId = "ajax_load",
+    OnFailure = "groupSaveFailed",
+    OnComplete = "groupSaveCompleted"
+}))
+{
+    @Html.ValidationSummary(false)
+<table>
+    <tr>
+        <th></th>
+        <th>@Html.DisplayNameFor(m => m.Name)</th>
+        <th>@Html.DisplayNameFor(m => m.Confirmed)</th>
+    </tr>
+@{
+    var data = Model.ToList();
+}
+    @for (int i = 0; i < data.Count; i++)
+    {
+        <tr>
+            <td>
+                @(i + 1)
+                @Html.HiddenFor(m => data[i].GroupId)
+            </td>
+            <td>
+                @Html.DisplayFor(m => data[i].Name)
+                @Html.HiddenFor(m => data[i].Name)
+            </td>
+            <td>
+                @Html.CheckBoxFor(m => data[i].Confirmed)
+            </td>
+        </tr>
+    }
+</table>
+<input type="submit" value="Сохранить группы" />
+}
+</div>

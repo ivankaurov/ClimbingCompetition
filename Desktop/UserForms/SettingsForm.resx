@@ -1,0 +1,1602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rbSpeedNo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="rbSpeedNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 90</value>
+  </data>
+  <data name="rbSpeedNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 17</value>
+  </data>
+  <data name="rbSpeedNo.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rbSpeedNo.Text" xml:space="preserve">
+    <value>Без использования системы</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedNo.Name" xml:space="preserve">
+    <value>rbSpeedNo</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedNo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedNo.Parent" xml:space="preserve">
+    <value>gbSpeedSystem</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedNo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedIvanovo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbSpeedIvanovo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 66</value>
+  </data>
+  <data name="rbSpeedIvanovo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 17</value>
+  </data>
+  <data name="rbSpeedIvanovo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedIvanovo.Text" xml:space="preserve">
+    <value>"Баурок - Иваново"</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedIvanovo.Name" xml:space="preserve">
+    <value>rbSpeedIvanovo</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedIvanovo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedIvanovo.Parent" xml:space="preserve">
+    <value>gbSpeedSystem</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedIvanovo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rbSpeedEKO.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbSpeedEKO.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 43</value>
+  </data>
+  <data name="rbSpeedEKO.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 17</value>
+  </data>
+  <data name="rbSpeedEKO.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedEKO.Text" xml:space="preserve">
+    <value>"е-Спорт" г. Екатеринбург (стар. вар-т)</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedEKO.Name" xml:space="preserve">
+    <value>rbSpeedEKO</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedEKO.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedEKO.Parent" xml:space="preserve">
+    <value>gbSpeedSystem</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedEKO.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rbSpeedEKB.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbSpeedEKB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 20</value>
+  </data>
+  <data name="rbSpeedEKB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 17</value>
+  </data>
+  <data name="rbSpeedEKB.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedEKB.Text" xml:space="preserve">
+    <value>"е-Спорт" г. Екатеринбург</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedEKB.Name" xml:space="preserve">
+    <value>rbSpeedEKB</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedEKB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedEKB.Parent" xml:space="preserve">
+    <value>gbSpeedSystem</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedEKB.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="gbSpeedSystem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="gbSpeedSystem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 118</value>
+  </data>
+  <data name="gbSpeedSystem.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gbSpeedSystem.Text" xml:space="preserve">
+    <value>Тип скоростной системы</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedSystem.Name" xml:space="preserve">
+    <value>gbSpeedSystem</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedSystem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedSystem.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedSystem.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 463</value>
+  </data>
+  <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 30</value>
+  </data>
+  <data name="btnOK.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;btnOK.Name" xml:space="preserve">
+    <value>btnOK</value>
+  </data>
+  <data name="&gt;&gt;btnOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>630, 463</value>
+  </data>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 30</value>
+  </data>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="rbNumRow.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbNumRow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 43</value>
+  </data>
+  <data name="rbNumRow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 17</value>
+  </data>
+  <data name="rbNumRow.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbNumRow.Text" xml:space="preserve">
+    <value>Номера подряд</value>
+  </data>
+  <data name="&gt;&gt;rbNumRow.Name" xml:space="preserve">
+    <value>rbNumRow</value>
+  </data>
+  <data name="&gt;&gt;rbNumRow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbNumRow.Parent" xml:space="preserve">
+    <value>gbAutoNumber</value>
+  </data>
+  <data name="&gt;&gt;rbNumRow.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbNumGroup.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbNumGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 20</value>
+  </data>
+  <data name="rbNumGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 17</value>
+  </data>
+  <data name="rbNumGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbNumGroup.Text" xml:space="preserve">
+    <value>По группам</value>
+  </data>
+  <data name="&gt;&gt;rbNumGroup.Name" xml:space="preserve">
+    <value>rbNumGroup</value>
+  </data>
+  <data name="&gt;&gt;rbNumGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbNumGroup.Parent" xml:space="preserve">
+    <value>gbAutoNumber</value>
+  </data>
+  <data name="&gt;&gt;rbNumGroup.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbAutoNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 136</value>
+  </data>
+  <data name="gbAutoNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 71</value>
+  </data>
+  <data name="gbAutoNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="gbAutoNumber.Text" xml:space="preserve">
+    <value>Автоформирование номеров</value>
+  </data>
+  <data name="&gt;&gt;gbAutoNumber.Name" xml:space="preserve">
+    <value>gbAutoNumber</value>
+  </data>
+  <data name="&gt;&gt;gbAutoNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbAutoNumber.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbAutoNumber.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="rbShowFlashBTH.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbShowFlashBTH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 64</value>
+  </data>
+  <data name="rbShowFlashBTH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 17</value>
+  </data>
+  <data name="rbShowFlashBTH.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbShowFlashBTH.Text" xml:space="preserve">
+    <value>Показывать у судьи и на проекторе</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashBTH.Name" xml:space="preserve">
+    <value>rbShowFlashBTH</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashBTH.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashBTH.Parent" xml:space="preserve">
+    <value>gbShowFlash</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashBTH.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbShowFlashADM.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbShowFlashADM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 41</value>
+  </data>
+  <data name="rbShowFlashADM.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 17</value>
+  </data>
+  <data name="rbShowFlashADM.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbShowFlashADM.Text" xml:space="preserve">
+    <value>Показывать только у судьи</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashADM.Name" xml:space="preserve">
+    <value>rbShowFlashADM</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashADM.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashADM.Parent" xml:space="preserve">
+    <value>gbShowFlash</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashADM.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rbShowFlashNOT.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbShowFlashNOT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 18</value>
+  </data>
+  <data name="rbShowFlashNOT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>295, 17</value>
+  </data>
+  <data name="rbShowFlashNOT.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbShowFlashNOT.Text" xml:space="preserve">
+    <value>Не показывать неотстартовавших на одной из трасс</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashNOT.Name" xml:space="preserve">
+    <value>rbShowFlashNOT</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashNOT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashNOT.Parent" xml:space="preserve">
+    <value>gbShowFlash</value>
+  </data>
+  <data name="&gt;&gt;rbShowFlashNOT.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gbShowFlash.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 214</value>
+  </data>
+  <data name="gbShowFlash.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 96</value>
+  </data>
+  <data name="gbShowFlash.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="gbShowFlash.Text" xml:space="preserve">
+    <value>Показ протокола квалификации трудности</value>
+  </data>
+  <data name="&gt;&gt;gbShowFlash.Name" xml:space="preserve">
+    <value>gbShowFlash</value>
+  </data>
+  <data name="&gt;&gt;gbShowFlash.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbShowFlash.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbShowFlash.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="cbPointsForFalls.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbPointsForFalls.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 84</value>
+  </data>
+  <data name="cbPointsForFalls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 17</value>
+  </data>
+  <data name="cbPointsForFalls.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="cbPointsForFalls.Text" xml:space="preserve">
+    <value>Присваивать баллы СРЫВам в скорости</value>
+  </data>
+  <data name="&gt;&gt;cbPointsForFalls.Name" xml:space="preserve">
+    <value>cbPointsForFalls</value>
+  </data>
+  <data name="&gt;&gt;cbPointsForFalls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbPointsForFalls.Parent" xml:space="preserve">
+    <value>gbPointsSettings</value>
+  </data>
+  <data name="&gt;&gt;cbPointsForFalls.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbSharePoints.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSharePoints.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 63</value>
+  </data>
+  <data name="cbSharePoints.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 17</value>
+  </data>
+  <data name="cbSharePoints.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="cbSharePoints.Text" xml:space="preserve">
+    <value>Делить очки между одинаковыми местами</value>
+  </data>
+  <data name="&gt;&gt;cbSharePoints.Name" xml:space="preserve">
+    <value>cbSharePoints</value>
+  </data>
+  <data name="&gt;&gt;cbSharePoints.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSharePoints.Parent" xml:space="preserve">
+    <value>gbPointsSettings</value>
+  </data>
+  <data name="&gt;&gt;cbSharePoints.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnSetPoints.Location" type="System.Drawing.Point, System.Drawing">
+    <value>225, 11</value>
+  </data>
+  <data name="btnSetPoints.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 46</value>
+  </data>
+  <data name="btnSetPoints.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnSetPoints.Text" xml:space="preserve">
+    <value>Настройка таблицы очков</value>
+  </data>
+  <data name="&gt;&gt;btnSetPoints.Name" xml:space="preserve">
+    <value>btnSetPoints</value>
+  </data>
+  <data name="&gt;&gt;btnSetPoints.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSetPoints.Parent" xml:space="preserve">
+    <value>gbPointsSettings</value>
+  </data>
+  <data name="&gt;&gt;btnSetPoints.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbOnly75.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbOnly75.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 40</value>
+  </data>
+  <data name="cbOnly75.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 17</value>
+  </data>
+  <data name="cbOnly75.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="cbOnly75.Text" xml:space="preserve">
+    <value>Баллы получают 75% участников</value>
+  </data>
+  <data name="&gt;&gt;cbOnly75.Name" xml:space="preserve">
+    <value>cbOnly75</value>
+  </data>
+  <data name="&gt;&gt;cbOnly75.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbOnly75.Parent" xml:space="preserve">
+    <value>gbPointsSettings</value>
+  </data>
+  <data name="&gt;&gt;cbOnly75.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbSetLessOne.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSetLessOne.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 19</value>
+  </data>
+  <data name="cbSetLessOne.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 17</value>
+  </data>
+  <data name="cbSetLessOne.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="cbSetLessOne.Text" xml:space="preserve">
+    <value>Присваивать менее 1 балла</value>
+  </data>
+  <data name="&gt;&gt;cbSetLessOne.Name" xml:space="preserve">
+    <value>cbSetLessOne</value>
+  </data>
+  <data name="&gt;&gt;cbSetLessOne.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSetLessOne.Parent" xml:space="preserve">
+    <value>gbPointsSettings</value>
+  </data>
+  <data name="&gt;&gt;cbSetLessOne.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="gbPointsSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>359, 90</value>
+  </data>
+  <data name="gbPointsSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>341, 107</value>
+  </data>
+  <data name="gbPointsSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="gbPointsSettings.Text" xml:space="preserve">
+    <value>Настройки присвоения очков</value>
+  </data>
+  <data name="&gt;&gt;gbPointsSettings.Name" xml:space="preserve">
+    <value>gbPointsSettings</value>
+  </data>
+  <data name="&gt;&gt;gbPointsSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbPointsSettings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbPointsSettings.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="rbPts.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbPts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 43</value>
+  </data>
+  <data name="rbPts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>265, 17</value>
+  </data>
+  <data name="rbPts.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbPts.Text" xml:space="preserve">
+    <value>Сведение по среднему арифметическому мест</value>
+  </data>
+  <data name="&gt;&gt;rbPts.Name" xml:space="preserve">
+    <value>rbPts</value>
+  </data>
+  <data name="&gt;&gt;rbPts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbPts.Parent" xml:space="preserve">
+    <value>gb2groups</value>
+  </data>
+  <data name="&gt;&gt;rbPts.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbPlace.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbPlace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 20</value>
+  </data>
+  <data name="rbPlace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 17</value>
+  </data>
+  <data name="rbPlace.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbPlace.Text" xml:space="preserve">
+    <value>Сведение по занятому месту</value>
+  </data>
+  <data name="&gt;&gt;rbPlace.Name" xml:space="preserve">
+    <value>rbPlace</value>
+  </data>
+  <data name="&gt;&gt;rbPlace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbPlace.Parent" xml:space="preserve">
+    <value>gb2groups</value>
+  </data>
+  <data name="&gt;&gt;rbPlace.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gb2groups.Location" type="System.Drawing.Point, System.Drawing">
+    <value>360, 12</value>
+  </data>
+  <data name="gb2groups.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 72</value>
+  </data>
+  <data name="gb2groups.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="gb2groups.Text" xml:space="preserve">
+    <value>Сведение 2х групп в трудности и боулдеринге</value>
+  </data>
+  <data name="&gt;&gt;gb2groups.Name" xml:space="preserve">
+    <value>gb2groups</value>
+  </data>
+  <data name="&gt;&gt;gb2groups.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gb2groups.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gb2groups.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 91</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Частота смены экрана:</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>gbListShowSet</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbListShowMoveNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 91</value>
+  </data>
+  <data name="cbListShowMoveNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="cbListShowMoveNext.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;cbListShowMoveNext.Name" xml:space="preserve">
+    <value>cbListShowMoveNext</value>
+  </data>
+  <data name="&gt;&gt;cbListShowMoveNext.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbListShowMoveNext.Parent" xml:space="preserve">
+    <value>gbListShowSet</value>
+  </data>
+  <data name="&gt;&gt;cbListShowMoveNext.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbListShowRefresh.Items" xml:space="preserve">
+    <value>5 сек.</value>
+  </data>
+  <data name="cbListShowRefresh.Items1" xml:space="preserve">
+    <value>10 сек.</value>
+  </data>
+  <data name="cbListShowRefresh.Items2" xml:space="preserve">
+    <value>15 сек.</value>
+  </data>
+  <data name="cbListShowRefresh.Items3" xml:space="preserve">
+    <value>20 сек.</value>
+  </data>
+  <data name="cbListShowRefresh.Items4" xml:space="preserve">
+    <value>30 сек.</value>
+  </data>
+  <data name="cbListShowRefresh.Items5" xml:space="preserve">
+    <value>1 мин.</value>
+  </data>
+  <data name="cbListShowRefresh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 64</value>
+  </data>
+  <data name="cbListShowRefresh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="cbListShowRefresh.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cbListShowRefresh.Name" xml:space="preserve">
+    <value>cbListShowRefresh</value>
+  </data>
+  <data name="&gt;&gt;cbListShowRefresh.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbListShowRefresh.Parent" xml:space="preserve">
+    <value>gbListShowSet</value>
+  </data>
+  <data name="&gt;&gt;cbListShowRefresh.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 64</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Частота обновления:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>gbListShowSet</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 19</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Скорость бегущей строки:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>gbListShowSet</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="trackBarTextLineSpeed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 19</value>
+  </data>
+  <data name="trackBarTextLineSpeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 45</value>
+  </data>
+  <data name="trackBarTextLineSpeed.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;trackBarTextLineSpeed.Name" xml:space="preserve">
+    <value>trackBarTextLineSpeed</value>
+  </data>
+  <data name="&gt;&gt;trackBarTextLineSpeed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;trackBarTextLineSpeed.Parent" xml:space="preserve">
+    <value>gbListShowSet</value>
+  </data>
+  <data name="&gt;&gt;trackBarTextLineSpeed.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="gbListShowSet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>359, 203</value>
+  </data>
+  <data name="gbListShowSet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>341, 118</value>
+  </data>
+  <data name="gbListShowSet.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="gbListShowSet.Text" xml:space="preserve">
+    <value>Настройки программы ListShow</value>
+  </data>
+  <data name="&gt;&gt;gbListShowSet.Name" xml:space="preserve">
+    <value>gbListShowSet</value>
+  </data>
+  <data name="&gt;&gt;gbListShowSet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbListShowSet.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbListShowSet.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="rbQfSpeedLast.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbQfSpeedLast.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 43</value>
+  </data>
+  <data name="rbQfSpeedLast.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 17</value>
+  </data>
+  <data name="rbQfSpeedLast.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rbQfSpeedLast.Text" xml:space="preserve">
+    <value>Вторая попытка</value>
+  </data>
+  <data name="&gt;&gt;rbQfSpeedLast.Name" xml:space="preserve">
+    <value>rbQfSpeedLast</value>
+  </data>
+  <data name="&gt;&gt;rbQfSpeedLast.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbQfSpeedLast.Parent" xml:space="preserve">
+    <value>gbSpeedQualy</value>
+  </data>
+  <data name="&gt;&gt;rbQfSpeedLast.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbQfSpeedBest.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbQfSpeedBest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="rbQfSpeedBest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 17</value>
+  </data>
+  <data name="rbQfSpeedBest.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbQfSpeedBest.Text" xml:space="preserve">
+    <value>Лучшая попытка</value>
+  </data>
+  <data name="&gt;&gt;rbQfSpeedBest.Name" xml:space="preserve">
+    <value>rbQfSpeedBest</value>
+  </data>
+  <data name="&gt;&gt;rbQfSpeedBest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbQfSpeedBest.Parent" xml:space="preserve">
+    <value>gbSpeedQualy</value>
+  </data>
+  <data name="&gt;&gt;rbQfSpeedBest.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbSpeedQualy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>385, 429</value>
+  </data>
+  <data name="gbSpeedQualy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 71</value>
+  </data>
+  <data name="gbSpeedQualy.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="gbSpeedQualy.Text" xml:space="preserve">
+    <value>Квалификация скорости</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedQualy.Name" xml:space="preserve">
+    <value>gbSpeedQualy</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedQualy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedQualy.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedQualy.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="rbSpeedWR.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbSpeedWR.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 65</value>
+  </data>
+  <data name="rbSpeedWR.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 17</value>
+  </data>
+  <data name="rbSpeedWR.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedWR.Text" xml:space="preserve">
+    <value>Эталон IFSC</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedWR.Name" xml:space="preserve">
+    <value>rbSpeedWR</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedWR.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedWR.Parent" xml:space="preserve">
+    <value>gbSpeedRules</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedWR.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedBest.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbSpeedBest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 42</value>
+  </data>
+  <data name="rbSpeedBest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 17</value>
+  </data>
+  <data name="rbSpeedBest.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedBest.Text" xml:space="preserve">
+    <value>Лучшая из 2х трасс</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedBest.Name" xml:space="preserve">
+    <value>rbSpeedBest</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedBest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedBest.Parent" xml:space="preserve">
+    <value>gbSpeedRules</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedBest.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rbSpeedSum.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbSpeedSum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
+  </data>
+  <data name="rbSpeedSum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 17</value>
+  </data>
+  <data name="rbSpeedSum.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedSum.Text" xml:space="preserve">
+    <value>Сумма 2х трасс</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSum.Name" xml:space="preserve">
+    <value>rbSpeedSum</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSum.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSum.Parent" xml:space="preserve">
+    <value>gbSpeedRules</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSum.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gbSpeedRules.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 327</value>
+  </data>
+  <data name="gbSpeedRules.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 96</value>
+  </data>
+  <data name="gbSpeedRules.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="gbSpeedRules.Text" xml:space="preserve">
+    <value>Правила скорости</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedRules.Name" xml:space="preserve">
+    <value>gbSpeedRules</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedRules.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedRules.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedRules.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="rbSpeedSchemaInternational.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbSpeedSchemaInternational.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 41</value>
+  </data>
+  <data name="rbSpeedSchemaInternational.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 17</value>
+  </data>
+  <data name="rbSpeedSchemaInternational.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedSchemaInternational.Text" xml:space="preserve">
+    <value>Международная</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSchemaInternational.Name" xml:space="preserve">
+    <value>rbSpeedSchemaInternational</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSchemaInternational.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSchemaInternational.Parent" xml:space="preserve">
+    <value>gbSpeedSchema</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSchemaInternational.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedSchemaNational.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbSpeedSchemaNational.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 20</value>
+  </data>
+  <data name="rbSpeedSchemaNational.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 17</value>
+  </data>
+  <data name="rbSpeedSchemaNational.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbSpeedSchemaNational.Text" xml:space="preserve">
+    <value>Российская</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSchemaNational.Name" xml:space="preserve">
+    <value>rbSpeedSchemaNational</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSchemaNational.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSchemaNational.Parent" xml:space="preserve">
+    <value>gbSpeedSchema</value>
+  </data>
+  <data name="&gt;&gt;rbSpeedSchemaNational.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbSpeedSchema.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 317</value>
+  </data>
+  <data name="gbSpeedSchema.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 70</value>
+  </data>
+  <data name="gbSpeedSchema.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="gbSpeedSchema.Text" xml:space="preserve">
+    <value>Схема скорости</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedSchema.Name" xml:space="preserve">
+    <value>gbSpeedSchema</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedSchema.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedSchema.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbSpeedSchema.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbOneListExcel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbOneListExcel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 19</value>
+  </data>
+  <data name="cbOneListExcel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 17</value>
+  </data>
+  <data name="cbOneListExcel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="cbOneListExcel.Text" xml:space="preserve">
+    <value>Протоколы на одном листе</value>
+  </data>
+  <data name="&gt;&gt;cbOneListExcel.Name" xml:space="preserve">
+    <value>cbOneListExcel</value>
+  </data>
+  <data name="&gt;&gt;cbOneListExcel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbOneListExcel.Parent" xml:space="preserve">
+    <value>gbLists</value>
+  </data>
+  <data name="&gt;&gt;cbOneListExcel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbShowNewQF.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbShowNewQF.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 42</value>
+  </data>
+  <data name="cbShowNewQF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 17</value>
+  </data>
+  <data name="cbShowNewQF.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="cbShowNewQF.Text" xml:space="preserve">
+    <value>Включить графу "Выполенение разрядов"</value>
+  </data>
+  <data name="&gt;&gt;cbShowNewQF.Name" xml:space="preserve">
+    <value>cbShowNewQF</value>
+  </data>
+  <data name="&gt;&gt;cbShowNewQF.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbShowNewQF.Parent" xml:space="preserve">
+    <value>gbLists</value>
+  </data>
+  <data name="&gt;&gt;cbShowNewQF.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbLists.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 317</value>
+  </data>
+  <data name="gbLists.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 67</value>
+  </data>
+  <data name="gbLists.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="gbLists.Text" xml:space="preserve">
+    <value>Настройка печати протоколов</value>
+  </data>
+  <data name="&gt;&gt;gbLists.Name" xml:space="preserve">
+    <value>gbLists</value>
+  </data>
+  <data name="&gt;&gt;gbLists.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbLists.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbLists.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbPreQfClimb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbPreQfClimb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 67</value>
+  </data>
+  <data name="cbPreQfClimb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 17</value>
+  </data>
+  <data name="cbPreQfClimb.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="cbPreQfClimb.Text" xml:space="preserve">
+    <value>ПреКв. уч-ки лезут</value>
+  </data>
+  <data name="&gt;&gt;cbPreQfClimb.Name" xml:space="preserve">
+    <value>cbPreQfClimb</value>
+  </data>
+  <data name="&gt;&gt;cbPreQfClimb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbPreQfClimb.Parent" xml:space="preserve">
+    <value>gbNewRules</value>
+  </data>
+  <data name="&gt;&gt;cbPreQfClimb.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbSpeedTwoWins.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSpeedTwoWins.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 43</value>
+  </data>
+  <data name="cbSpeedTwoWins.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 17</value>
+  </data>
+  <data name="cbSpeedTwoWins.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="cbSpeedTwoWins.Text" xml:space="preserve">
+    <value>Скорость до 2х побед</value>
+  </data>
+  <data name="&gt;&gt;cbSpeedTwoWins.Name" xml:space="preserve">
+    <value>cbSpeedTwoWins</value>
+  </data>
+  <data name="&gt;&gt;cbSpeedTwoWins.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSpeedTwoWins.Parent" xml:space="preserve">
+    <value>gbNewRules</value>
+  </data>
+  <data name="&gt;&gt;cbSpeedTwoWins.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbLeaveTrains.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbLeaveTrains.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 19</value>
+  </data>
+  <data name="cbLeaveTrains.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 17</value>
+  </data>
+  <data name="cbLeaveTrains.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="cbLeaveTrains.Text" xml:space="preserve">
+    <value>Не отрезать "паровозы"</value>
+  </data>
+  <data name="&gt;&gt;cbLeaveTrains.Name" xml:space="preserve">
+    <value>cbLeaveTrains</value>
+  </data>
+  <data name="&gt;&gt;cbLeaveTrains.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbLeaveTrains.Parent" xml:space="preserve">
+    <value>gbNewRules</value>
+  </data>
+  <data name="&gt;&gt;cbLeaveTrains.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbSetPosToFalls.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSetPosToFalls.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 87</value>
+  </data>
+  <data name="cbSetPosToFalls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 17</value>
+  </data>
+  <data name="cbSetPosToFalls.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="cbSetPosToFalls.Text" xml:space="preserve">
+    <value>Проставлять место СРЫВам</value>
+  </data>
+  <data name="&gt;&gt;cbSetPosToFalls.Name" xml:space="preserve">
+    <value>cbSetPosToFalls</value>
+  </data>
+  <data name="&gt;&gt;cbSetPosToFalls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSetPosToFalls.Parent" xml:space="preserve">
+    <value>gbNewRules</value>
+  </data>
+  <data name="&gt;&gt;cbSetPosToFalls.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbCombinedNew.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbCombinedNew.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 67</value>
+  </data>
+  <data name="cbCombinedNew.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 17</value>
+  </data>
+  <data name="cbCombinedNew.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="cbCombinedNew.Text" xml:space="preserve">
+    <value>Многоборье по новым правилам</value>
+  </data>
+  <data name="&gt;&gt;cbCombinedNew.Name" xml:space="preserve">
+    <value>cbCombinedNew</value>
+  </data>
+  <data name="&gt;&gt;cbCombinedNew.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbCombinedNew.Parent" xml:space="preserve">
+    <value>gbNewRules</value>
+  </data>
+  <data name="&gt;&gt;cbCombinedNew.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cbLeadTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbLeadTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 43</value>
+  </data>
+  <data name="cbLeadTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 17</value>
+  </data>
+  <data name="cbLeadTime.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="cbLeadTime.Text" xml:space="preserve">
+    <value>Учитывать время в трудности</value>
+  </data>
+  <data name="&gt;&gt;cbLeadTime.Name" xml:space="preserve">
+    <value>cbLeadTime</value>
+  </data>
+  <data name="&gt;&gt;cbLeadTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbLeadTime.Parent" xml:space="preserve">
+    <value>gbNewRules</value>
+  </data>
+  <data name="&gt;&gt;cbLeadTime.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cb40sec.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cb40sec.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 19</value>
+  </data>
+  <data name="cb40sec.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 17</value>
+  </data>
+  <data name="cb40sec.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="cb40sec.Text" xml:space="preserve">
+    <value>Вкл. 40 секунд в контр.время</value>
+  </data>
+  <data name="&gt;&gt;cb40sec.Name" xml:space="preserve">
+    <value>cb40sec</value>
+  </data>
+  <data name="&gt;&gt;cb40sec.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cb40sec.Parent" xml:space="preserve">
+    <value>gbNewRules</value>
+  </data>
+  <data name="&gt;&gt;cb40sec.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="gbNewRules.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 390</value>
+  </data>
+  <data name="gbNewRules.Size" type="System.Drawing.Size, System.Drawing">
+    <value>360, 110</value>
+  </data>
+  <data name="gbNewRules.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="gbNewRules.Text" xml:space="preserve">
+    <value>Правила</value>
+  </data>
+  <data name="&gt;&gt;gbNewRules.Name" xml:space="preserve">
+    <value>gbNewRules</value>
+  </data>
+  <data name="&gt;&gt;gbNewRules.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbNewRules.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbNewRules.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 65</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 13</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Выделенный зацеп:</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>gbTopoColors</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 25</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Зацеп:</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>gbTopoColors</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnTopoSelectedHold.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTopoSelectedHold.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 59</value>
+  </data>
+  <data name="btnTopoSelectedHold.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 23</value>
+  </data>
+  <data name="btnTopoSelectedHold.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnTopoSelectedHold.Name" xml:space="preserve">
+    <value>btnTopoSelectedHold</value>
+  </data>
+  <data name="&gt;&gt;btnTopoSelectedHold.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnTopoSelectedHold.Parent" xml:space="preserve">
+    <value>gbTopoColors</value>
+  </data>
+  <data name="&gt;&gt;btnTopoSelectedHold.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnTopoHold.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="btnTopoHold.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 23</value>
+  </data>
+  <data name="btnTopoHold.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnTopoHold.Name" xml:space="preserve">
+    <value>btnTopoHold</value>
+  </data>
+  <data name="&gt;&gt;btnTopoHold.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnTopoHold.Parent" xml:space="preserve">
+    <value>gbTopoColors</value>
+  </data>
+  <data name="&gt;&gt;btnTopoHold.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="gbTopoColors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>541, 327</value>
+  </data>
+  <data name="gbTopoColors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 96</value>
+  </data>
+  <data name="gbTopoColors.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="gbTopoColors.Text" xml:space="preserve">
+    <value>Цвета схемы</value>
+  </data>
+  <data name="&gt;&gt;gbTopoColors.Name" xml:space="preserve">
+    <value>gbTopoColors</value>
+  </data>
+  <data name="&gt;&gt;gbTopoColors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbTopoColors.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbTopoColors.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>713, 503</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Настройки базы данных</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SettingsForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

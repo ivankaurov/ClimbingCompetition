@@ -1,0 +1,1402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsClimbing" targetNamespace="http://tempuri.org/dsClimbing.xsd" xmlns:mstns="http://tempuri.org/dsClimbing.xsd" xmlns="http://tempuri.org/dsClimbing.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="8" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=localhost;Initial Catalog=test_climbing;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Public" Name="toshiba-kaurov.test_climbing.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(local);Initial Catalog=climbing;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Public" Name="ivank.climbing.dbo1" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=localhost;Initial Catalog=EVclimbing;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="ivank.EVclimbing.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=localhost;Initial Catalog=fullTest;Persist Security Info=True;User ID=sa;Password=climbing" IsAppSettingsProperty="false" Modifier="Public" Name="netbook.fullTest.dbo1" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(local);Initial Catalog=testOnlineDB;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Public" Name="toshiba-kaurov.testOnlineDB.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(local);Initial Catalog=ClimbingCompetition;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="netbook-asus.ClimbingCompetition.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(local);Initial Catalog=nv2011test;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="toshiba-kaurov.nv2011test.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(local)\sql2008;Initial Catalog=testdb;Persist Security Info=True;User ID=sa;Password=sa" IsAppSettingsProperty="false" Modifier="Assembly" Name="jserver\sql2008.testdb.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(local);Initial Catalog=nv2012;Persist Security Info=True;User ID=sa;Password=sa" IsAppSettingsProperty="false" Modifier="Assembly" Name="jserver.nv2012.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PhotoLocalTableAdapter" GeneratorDataComponentClassName="PhotoLocalTableAdapter" Name="PhotoLocal" UserDataComponentName="PhotoLocalTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ivank.climbing.dbo1" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     p.iid, p.photo, p.name, p.surname, g.name AS gr_name
+FROM         Participants AS p WITH (nolock) INNER JOIN
+                      Groups AS g WITH (nolock) ON g.iid = p.group_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="photo" DataSetColumn="photo" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="surname" DataSetColumn="surname" />
+              <Mapping SourceColumn="gr_name" DataSetColumn="gr_name" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ivank.climbing.dbo1" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByIid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIid" GeneratorSourceName="FillByIid" GetMethodModifier="Public" GetMethodName="GetDataByIid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIid" UserSourceName="FillByIid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     p.iid, p.name, p.photo, p.surname, g.name AS gr_name
+FROM         Participants AS p WITH (nolock) INNER JOIN
+                      Groups AS g WITH (nolock) ON g.iid = p.group_id
+WHERE     (p.iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="iid" ColumnName="iid" DataSourceName="climbing.dbo.Participants" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ivank.climbing.dbo1" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillWhereNotNull" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataWhereNotNull" GeneratorSourceName="FillWhereNotNull" GetMethodModifier="Public" GetMethodName="GetDataWhereNotNull" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataWhereNotNull" UserSourceName="FillWhereNotNull">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     p.iid, p.photo, p.name, p.surname, g.name AS gr_name
+FROM         Participants AS p WITH (nolock) INNER JOIN
+                      Groups AS g WITH (nolock) ON g.iid = p.group_id
+WHERE     (p.photo IS NOT NULL)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PhotoRemoteTableAdapter" GeneratorDataComponentClassName="PhotoRemoteTableAdapter" Name="PhotoRemote" UserDataComponentName="PhotoRemoteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="toshiba-kaurov.test_climbing.dbo" DbObjectName="test_climbing.dbo.ONLclimbers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [ONLclimbers] WHERE (([iid] = @Original_iid))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [ONLclimbers] ([iid], [photo]) VALUES (@iid, @photo);
+SELECT iid, photo FROM ONLclimbers WITH (nolock) WHERE (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@photo" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="photo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        iid, photo
+FROM            ONLclimbers WITH (nolock)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [ONLclimbers] SET [iid] = @iid, [photo] = @photo WHERE (([iid] = @Original_iid));
+SELECT iid, photo FROM ONLclimbers WITH (nolock) WHERE (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@photo" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="photo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="photo" DataSetColumn="photo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="toshiba-kaurov.test_climbing.dbo" DbObjectName="test_climbing.dbo.ONLclimbers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByIid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIid" GeneratorSourceName="FillByIid" GetMethodModifier="Public" GetMethodName="GetDataByIid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIid" UserSourceName="FillByIid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        iid, photo
+FROM            ONLclimbers WITH (nolock)
+WHERE        (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="iid" ColumnName="iid" DataSourceName="test_climbing.dbo.ONLclimbers" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ONLclimbersTableAdapter" GeneratorDataComponentClassName="ONLclimbersTableAdapter" Name="ONLclimbers" UserDataComponentName="ONLclimbersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="toshiba-kaurov.testOnlineDB.dbo" DbObjectName="testOnlineDB.dbo.ONLclimbers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        iid, surname, name, age, genderFemale, qf, team_id, group_id, lead, speed, boulder, rankingLead, rankingSpeed, rankingBoulder, vk, nopoints, photo, phLoaded, 
+                         is_del
+FROM            ONLclimbers WITH (nolock)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="surname" DataSetColumn="surname" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="age" DataSetColumn="age" />
+              <Mapping SourceColumn="qf" DataSetColumn="qf" />
+              <Mapping SourceColumn="team_id" DataSetColumn="team_id" />
+              <Mapping SourceColumn="group_id" DataSetColumn="group_id" />
+              <Mapping SourceColumn="rankingLead" DataSetColumn="rankingLead" />
+              <Mapping SourceColumn="rankingSpeed" DataSetColumn="rankingSpeed" />
+              <Mapping SourceColumn="rankingBoulder" DataSetColumn="rankingBoulder" />
+              <Mapping SourceColumn="vk" DataSetColumn="vk" />
+              <Mapping SourceColumn="nopoints" DataSetColumn="nopoints" />
+              <Mapping SourceColumn="photo" DataSetColumn="photo" />
+              <Mapping SourceColumn="phLoaded" DataSetColumn="phLoaded" />
+              <Mapping SourceColumn="genderFemale" DataSetColumn="genderFemale" />
+              <Mapping SourceColumn="is_del" DataSetColumn="is_del" />
+              <Mapping SourceColumn="lead" DataSetColumn="lead" />
+              <Mapping SourceColumn="speed" DataSetColumn="speed" />
+              <Mapping SourceColumn="boulder" DataSetColumn="boulder" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="toshiba-kaurov.testOnlineDB.dbo" DbObjectName="testOnlineDB.dbo.ONLclimbers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByIsDel" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIsDel" GeneratorSourceName="FillByIsDel" GetMethodModifier="Public" GetMethodName="GetDataByIsDel" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIsDel" UserSourceName="FillByIsDel">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        iid, surname, name, age, genderFemale, qf, team_id, group_id, lead, speed, boulder, rankingLead, rankingSpeed, rankingBoulder, vk, nopoints, photo, phLoaded, 
+                         is_del
+FROM            ONLclimbers WITH (nolock)
+WHERE        (is_del = @P_bIsDel)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="P_bIsDel" ColumnName="is_del" DataSourceName="testOnlineDB.dbo.ONLclimbers" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@P_bIsDel" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="is_del" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ONLteamsTableAdapter" GeneratorDataComponentClassName="ONLteamsTableAdapter" Name="ONLteams" UserDataComponentName="ONLteamsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ivank.climbing.dbo1" DbObjectName="climbing.dbo.ONLteams" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     iid, name
+FROM         ONLteams WITH (nolock)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ONLGroupsTableAdapter" GeneratorDataComponentClassName="ONLGroupsTableAdapter" Name="ONLGroups" UserDataComponentName="ONLGroupsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ivank.climbing.dbo1" DbObjectName="climbing.dbo.ONLGroups" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     iid, name, oldYear, youngYear, genderFemale
+FROM         ONLGroups WITH (nolock)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="oldYear" DataSetColumn="oldYear" />
+              <Mapping SourceColumn="youngYear" DataSetColumn="youngYear" />
+              <Mapping SourceColumn="genderFemale" DataSetColumn="genderFemale" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="judgeDataTableAdapter" GeneratorDataComponentClassName="judgeDataTableAdapter" Name="judgeData" UserDataComponentName="judgeDataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="toshiba-kaurov.test_climbing.dbo" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     jw.surname + CASE jw.name WHEN '' THEN '' ELSE ' ' + jw.name END + CASE jw.patronimic WHEN '' THEN '' ELSE ' ' + jw.patronimic END AS full_name,
+                       jw.pos, j.photo
+FROM         judgeView AS jw WITH (nolock) INNER JOIN
+                      judges AS j WITH (nolock) ON j.iid = jw.iid
+ORDER BY full_name, jw.pos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="full_name" DataSetColumn="full_name" />
+              <Mapping SourceColumn="pos" DataSetColumn="pos" />
+              <Mapping SourceColumn="photo" DataSetColumn="photo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="toshiba-kaurov.test_climbing.dbo" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByIid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIid" GeneratorSourceName="FillByIid" GetMethodModifier="Public" GetMethodName="GetDataByIid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIid" UserSourceName="FillByIid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     jw.surname + CASE jw.name WHEN '' THEN '' ELSE ' ' + jw.name END + CASE jw.patronimic WHEN '' THEN '' ELSE ' ' + jw.patronimic END AS full_name,
+                       jw.pos, j.photo
+FROM         judgeView AS jw WITH (nolock) INNER JOIN
+                      judges AS j WITH (nolock) ON j.iid = jw.iid
+WHERE     (jw.iid = @iid)
+ORDER BY full_name, jw.pos</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="iid" ColumnName="iid" DataSourceName="climbing.dbo.judgeView" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="toshiba-kaurov.test_climbing.dbo" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillForBadges" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataForBadges" GeneratorSourceName="FillForBadges" GetMethodModifier="Public" GetMethodName="GetDataForBadges" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataForBadges" UserSourceName="FillForBadges">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tmp.full_name, tmp.pos, j.photo
+FROM            (SELECT DISTINCT 
+                                                    j.iid, j.surname + CASE j.name WHEN '' THEN '' ELSE ' ' + j.name END + CASE j.patronimic WHEN '' THEN '' ELSE ' ' + j.patronimic END AS full_name, 
+                                                    p.name AS pos
+                          FROM            judges AS j WITH (nolock) INNER JOIN
+                                                    JudgePos AS jp WITH (nolock) ON jp.judge_id = j.iid INNER JOIN
+                                                    positions AS p WITH (nolock) ON p.iid = jp.pos_id AND p.forBadge = 1
+                          UNION ALL
+                          SELECT DISTINCT 
+                                                   j.iid, j.surname + CASE j.name WHEN '' THEN '' ELSE ' ' + j.name END + CASE j.patronimic WHEN '' THEN '' ELSE ' ' + j.patronimic END AS full_name, 
+                                                   'Судья' AS pos
+                          FROM            judges AS j WITH (nolock) LEFT OUTER JOIN
+                                                   JudgePos AS jp WITH (nolock) ON jp.judge_id = j.iid LEFT OUTER JOIN
+                                                   positions AS p WITH (nolock) ON p.iid = jp.pos_id
+                          WHERE        (NOT EXISTS
+                                                       (SELECT        jpI.iid, jpI.judge_id, jpI.pos_id, jpI.changed, pI.iid AS Expr1, pI.name, pI.changed AS Expr2, pI.forBadge
+                                                         FROM            JudgePos AS jpI WITH (nolock) INNER JOIN
+                                                                                   positions AS pI WITH (nolock) ON pI.iid = jpI.pos_id
+                                                         WHERE        (jpI.judge_id = j.iid) AND (pI.forBadge = 1)))) AS tmp INNER JOIN
+                         judges AS j WITH (nolock) ON j.iid = tmp.iid</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="toshiba-kaurov.test_climbing.dbo" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillForBadgesByIid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataForBadgesByIid" GeneratorSourceName="FillForBadgesByIid" GetMethodModifier="Public" GetMethodName="GetDataForBadgesByIid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataForBadgesByIid" UserSourceName="FillForBadgesByIid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tmp.full_name, tmp.pos, j.photo
+FROM            (SELECT DISTINCT 
+                                                    j.iid, j.surname + CASE j.name WHEN '' THEN '' ELSE ' ' + j.name END + CASE j.patronimic WHEN '' THEN '' ELSE ' ' + j.patronimic END AS full_name, 
+                                                    p.name AS pos
+                          FROM            judges AS j WITH (nolock) INNER JOIN
+                                                    JudgePos AS jp WITH (nolock) ON jp.judge_id = j.iid INNER JOIN
+                                                    positions AS p WITH (nolock) ON p.iid = jp.pos_id AND p.forBadge = 1
+                          UNION ALL
+                          SELECT DISTINCT 
+                                                   j.iid, j.surname + CASE j.name WHEN '' THEN '' ELSE ' ' + j.name END + CASE j.patronimic WHEN '' THEN '' ELSE ' ' + j.patronimic END AS full_name, 
+                                                   'Судья' AS pos
+                          FROM            judges AS j WITH (nolock) LEFT OUTER JOIN
+                                                   JudgePos AS jp WITH (nolock) ON jp.judge_id = j.iid LEFT OUTER JOIN
+                                                   positions AS p WITH (nolock) ON p.iid = jp.pos_id
+                          WHERE        (NOT EXISTS
+                                                       (SELECT        jpI.iid, jpI.judge_id, jpI.pos_id, jpI.changed, pI.iid AS Expr1, pI.name, pI.changed AS Expr2, pI.forBadge
+                                                         FROM            JudgePos AS jpI WITH (nolock) INNER JOIN
+                                                                                   positions AS pI WITH (nolock) ON pI.iid = jpI.pos_id
+                                                         WHERE        (jpI.judge_id = j.iid) AND (pI.forBadge = 1)))) AS tmp INNER JOIN
+                         judges AS j WITH (nolock) ON j.iid = tmp.iid
+WHERE        (j.iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="iid" ColumnName="iid" DataSourceName="test_climbing.dbo.judges" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ONLjudgesTableAdapter" GeneratorDataComponentClassName="ONLjudgesTableAdapter" Name="ONLjudges" UserDataComponentName="ONLjudgesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ivank.climbing.dbo1" DbObjectName="climbing.dbo.ONLjudges" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     iid, surname, name, patronimic, category, city, photo
+FROM         ONLjudges WITH (nolock)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="surname" DataSetColumn="surname" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="patronimic" DataSetColumn="patronimic" />
+              <Mapping SourceColumn="category" DataSetColumn="category" />
+              <Mapping SourceColumn="city" DataSetColumn="city" />
+              <Mapping SourceColumn="photo" DataSetColumn="photo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="positionsTableAdapter" GeneratorDataComponentClassName="positionsTableAdapter" Name="positions" UserDataComponentName="positionsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="toshiba-kaurov.test_climbing.dbo" DbObjectName="test_climbing.dbo.positions" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [positions] WHERE (([iid] = @Original_iid) AND ([name] = @Original_Должность) AND ([forBadge] = @Original_Для_впечатывания_в_бейджики))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Должность" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Должность" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Для_впечатывания_в_бейджики" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Для впечатывания в бейджики" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [positions] ([iid], [name], [forBadge]) VALUES (@iid, @Должность, @Для_впечатывания_в_бейджики);
+SELECT iid, name AS Должность, forBadge AS [Для впечатывания в бейджики] FROM positions WITH (nolock) WHERE (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Должность" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Должность" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Для_впечатывания_в_бейджики" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Для впечатывания в бейджики" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        iid, name AS Должность, forBadge AS [Для впечатывания в бейджики]
+FROM            positions WITH (nolock)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [positions] SET [iid] = @iid, [name] = @Должность, [forBadge] = @Для_впечатывания_в_бейджики WHERE (([iid] = @Original_iid) AND ([name] = @Original_Должность) AND ([forBadge] = @Original_Для_впечатывания_в_бейджики));
+SELECT iid, name AS Должность, forBadge AS [Для впечатывания в бейджики] FROM positions WITH (nolock) WHERE (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Должность" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Должность" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Для_впечатывания_в_бейджики" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Для впечатывания в бейджики" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Должность" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Должность" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Для_впечатывания_в_бейджики" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Для впечатывания в бейджики" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="Должность" DataSetColumn="Должность" />
+              <Mapping SourceColumn="Для впечатывания в бейджики" DataSetColumn="Для впечатывания в бейджики" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PointsTableAdapter" GeneratorDataComponentClassName="PointsTableAdapter" Name="Points" UserDataComponentName="PointsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ivank.EVclimbing.dbo" DbObjectName="EVclimbing.dbo.Points" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Points] WHERE (([pos] = @Original_Место) AND ([pts] = @Original_Очки))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Место" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Место" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Очки" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Очки" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Points] ([pos], [pts]) VALUES (@Место, @Очки);
+SELECT pos AS Место, pts AS Очки FROM Points WHERE (pos = @pos) ORDER BY Место</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Место" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Место" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Очки" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Очки" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="pos" ColumnName="pos" DataSourceName="EVclimbing.dbo.Points" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@pos" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Место" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT     pos AS Место, pts AS Очки
+FROM         Points
+WHERE     (pos &gt; 0) AND (pts &gt; 0)
+ORDER BY Место</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Points] SET [pos] = @Место, [pts] = @Очки WHERE (([pos] = @Original_Место) AND ([pts] = @Original_Очки));
+SELECT pos AS Место, pts AS Очки FROM Points WHERE (pos = @pos) ORDER BY Место</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Место" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Место" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Очки" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Очки" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Место" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Место" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Очки" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Очки" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="pos" ColumnName="pos" DataSourceName="EVclimbing.dbo.Points" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@pos" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Место" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Место" DataSetColumn="Место" />
+              <Mapping SourceColumn="Очки" DataSetColumn="Очки" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="climbersToUpdateTableAdapter" GeneratorDataComponentClassName="climbersToUpdateTableAdapter" Name="climbersToUpdate" UserDataComponentName="climbersToUpdateTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="jserver.nv2012.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     p.iid, p.name, p.surname, p.age, p.genderFemale, p.qf, p.team_id, p.group_id, p.rankingLead, p.rankingSpeed, p.rankingBoulder, p.vk, p.noPoints, 
+                      p.lateAppl, p.lead, p.speed, p.boulder, p.photo, p.changed, g.name AS group_name, g.oldYear AS group_oldYear, g.youngYear AS group_youngYear, 
+                      g.minQf AS group_minQf, g.genderFemale AS group_genderFemale, t.Guest AS team_Guest, t.name AS team_name, t.pos AS team_ranking, p.license
+FROM         Participants AS p WITH (nolock) INNER JOIN
+                      Groups AS g WITH (nolock) ON g.iid = p.group_id INNER JOIN
+                      Teams AS t WITH (nolock) ON t.iid = p.team_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="surname" DataSetColumn="surname" />
+              <Mapping SourceColumn="age" DataSetColumn="age" />
+              <Mapping SourceColumn="genderFemale" DataSetColumn="genderFemale" />
+              <Mapping SourceColumn="qf" DataSetColumn="qf" />
+              <Mapping SourceColumn="team_id" DataSetColumn="team_id" />
+              <Mapping SourceColumn="group_id" DataSetColumn="group_id" />
+              <Mapping SourceColumn="rankingLead" DataSetColumn="rankingLead" />
+              <Mapping SourceColumn="rankingSpeed" DataSetColumn="rankingSpeed" />
+              <Mapping SourceColumn="rankingBoulder" DataSetColumn="rankingBoulder" />
+              <Mapping SourceColumn="vk" DataSetColumn="vk" />
+              <Mapping SourceColumn="noPoints" DataSetColumn="noPoints" />
+              <Mapping SourceColumn="lateAppl" DataSetColumn="lateAppl" />
+              <Mapping SourceColumn="lead" DataSetColumn="lead" />
+              <Mapping SourceColumn="speed" DataSetColumn="speed" />
+              <Mapping SourceColumn="boulder" DataSetColumn="boulder" />
+              <Mapping SourceColumn="photo" DataSetColumn="photo" />
+              <Mapping SourceColumn="changed" DataSetColumn="changed" />
+              <Mapping SourceColumn="group_name" DataSetColumn="group_name" />
+              <Mapping SourceColumn="group_oldYear" DataSetColumn="group_oldYear" />
+              <Mapping SourceColumn="group_youngYear" DataSetColumn="group_youngYear" />
+              <Mapping SourceColumn="group_minQf" DataSetColumn="group_minQf" />
+              <Mapping SourceColumn="group_genderFemale" DataSetColumn="group_genderFemale" />
+              <Mapping SourceColumn="team_Guest" DataSetColumn="team_Guest" />
+              <Mapping SourceColumn="team_name" DataSetColumn="team_name" />
+              <Mapping SourceColumn="team_ranking" DataSetColumn="team_ranking" />
+              <Mapping SourceColumn="license" DataSetColumn="license" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="netbook-asus.ClimbingCompetition.dbo" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByChanged" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByChanged" GeneratorSourceName="FillByChanged" GetMethodModifier="Public" GetMethodName="GetDataByChanged" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByChanged" UserSourceName="FillByChanged">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     p.iid, p.name, p.surname, p.age, p.genderFemale, p.qf, p.team_id, p.group_id, p.rankingLead, p.rankingSpeed, p.rankingBoulder, p.vk, p.noPoints, 
+                      p.lateAppl, p.lead, p.speed, p.boulder, p.photo, p.changed, g.name AS group_name, g.oldYear AS group_oldYear, g.youngYear AS group_youngYear, 
+                      g.minQf AS group_minQf, g.genderFemale AS group_genderFemale, t.Guest AS team_Guest, t.name AS team_name, t.pos AS team_ranking, p.license
+FROM         Participants AS p WITH (nolock) INNER JOIN
+                      Groups AS g WITH (nolock) ON g.iid = p.group_id INNER JOIN
+                      Teams AS t WITH (nolock) ON t.iid = p.team_id
+WHERE     (p.changed = @changed)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="changed" ColumnName="changed" DataSourceName="" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@changed" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="changed" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="logic_transactionsTableAdapter" GeneratorDataComponentClassName="logic_transactionsTableAdapter" Name="logic_transactions" UserDataComponentName="logic_transactionsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="toshiba-kaurov.nv2011test.dbo" DbObjectName="nv2011test.dbo.logic_transactions" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [logic_transactions] WHERE (([iid] = @Original_iid) AND ([tran_date] = @Original_tran_date) AND ([obj_table] = @Original_obj_table) AND ([obj_id] = @Original_obj_id) AND ([host] = @Original_host) AND ([is_active] = @Original_is_active))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_tran_date" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="tran_date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_obj_table" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="obj_table" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_obj_id" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="obj_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_host" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="host" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_is_active" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="is_active" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [logic_transactions] ([iid], [tran_date], [obj_table], [obj_id], [host], [is_active]) VALUES (@iid, @tran_date, @obj_table, @obj_id, @host, @is_active);
+SELECT iid, tran_date, obj_table, obj_id, host, is_active FROM logic_transactions WITH (nolock) WHERE (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@tran_date" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="tran_date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@obj_table" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="obj_table" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@obj_id" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="obj_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@host" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="host" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@is_active" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="is_active" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        iid, tran_date, obj_table, obj_id, host, is_active
+FROM            logic_transactions WITH (nolock)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [logic_transactions] SET [iid] = @iid, [tran_date] = @tran_date, [obj_table] = @obj_table, [obj_id] = @obj_id, [host] = @host, [is_active] = @is_active WHERE (([iid] = @Original_iid) AND ([tran_date] = @Original_tran_date) AND ([obj_table] = @Original_obj_table) AND ([obj_id] = @Original_obj_id) AND ([host] = @Original_host) AND ([is_active] = @Original_is_active));
+SELECT iid, tran_date, obj_table, obj_id, host, is_active FROM logic_transactions WITH (nolock) WHERE (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@tran_date" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="tran_date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@obj_table" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="obj_table" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@obj_id" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="obj_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@host" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="host" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@is_active" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="is_active" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_tran_date" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="tran_date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_obj_table" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="obj_table" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_obj_id" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="obj_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_host" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="host" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_is_active" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="is_active" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="tran_date" DataSetColumn="tran_date" />
+              <Mapping SourceColumn="obj_table" DataSetColumn="obj_table" />
+              <Mapping SourceColumn="obj_id" DataSetColumn="obj_id" />
+              <Mapping SourceColumn="host" DataSetColumn="host" />
+              <Mapping SourceColumn="is_active" DataSetColumn="is_active" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="logic_transaction_dataTableAdapter" GeneratorDataComponentClassName="logic_transaction_dataTableAdapter" Name="logic_transaction_data" UserDataComponentName="logic_transaction_dataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="toshiba-kaurov.nv2011test.dbo" DbObjectName="nv2011test.dbo.logic_transaction_data" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [logic_transaction_data] WHERE (([iid] = @Original_iid) AND ([iid_line] = @Original_iid_line) AND ([action] = @Original_action) AND ([table_name] = @Original_table_name) AND ([table_id] = @Original_table_id) AND ([mod_col] = @Original_mod_col) AND ([iid_col] = @Original_iid_col) AND ([iid_modified] = @Original_iid_modified) AND ([order_insert] = @Original_order_insert))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_iid_line" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid_line" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_action" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="action" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_table_name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="table_name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_table_id" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="table_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_mod_col" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="mod_col" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_iid_col" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="iid_col" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_iid_modified" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="iid_modified" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_order_insert" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="order_insert" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [logic_transaction_data] ([iid], [iid_line], [action], [table_name], [table_id], [mod_col], [iid_col], [old_value], [new_value], [iid_modified], [default_conversion], [def_conv_new], [order_insert]) VALUES (@iid, @iid_line, @action, @table_name, @table_id, @mod_col, @iid_col, @old_value, @new_value, @iid_modified, @default_conversion, @def_conv_new, @order_insert);
+SELECT iid, iid_line, action, table_name, table_id, mod_col, iid_col, old_value, new_value, iid_modified, default_conversion, def_conv_new, order_insert FROM logic_transaction_data WITH (nolock) WHERE (iid_line = @iid_line)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@iid_line" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid_line" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@action" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="action" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@table_name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="table_name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@table_id" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="table_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@mod_col" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="mod_col" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@iid_col" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="iid_col" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@old_value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="old_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@new_value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="new_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@iid_modified" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="iid_modified" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@default_conversion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="default_conversion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@def_conv_new" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="def_conv_new" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@order_insert" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="order_insert" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        iid, iid_line, action, table_name, table_id, mod_col, iid_col, old_value, new_value, iid_modified, default_conversion, def_conv_new, order_insert
+FROM            logic_transaction_data WITH (nolock)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [logic_transaction_data] SET [iid] = @iid, [iid_line] = @iid_line, [action] = @action, [table_name] = @table_name, [table_id] = @table_id, [mod_col] = @mod_col, [iid_col] = @iid_col, [old_value] = @old_value, [new_value] = @new_value, [iid_modified] = @iid_modified, [default_conversion] = @default_conversion, [def_conv_new] = @def_conv_new, [order_insert] = @order_insert WHERE (([iid] = @Original_iid) AND ([iid_line] = @Original_iid_line) AND ([action] = @Original_action) AND ([table_name] = @Original_table_name) AND ([table_id] = @Original_table_id) AND ([mod_col] = @Original_mod_col) AND ([iid_col] = @Original_iid_col) AND ([iid_modified] = @Original_iid_modified) AND ([order_insert] = @Original_order_insert));
+SELECT iid, iid_line, action, table_name, table_id, mod_col, iid_col, old_value, new_value, iid_modified, default_conversion, def_conv_new, order_insert FROM logic_transaction_data WITH (nolock) WHERE (iid_line = @iid_line)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@iid_line" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid_line" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@action" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="action" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@table_name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="table_name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@table_id" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="table_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@mod_col" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="mod_col" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@iid_col" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="iid_col" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@old_value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="old_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@new_value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="new_value" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@iid_modified" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="iid_modified" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@default_conversion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="default_conversion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@def_conv_new" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="def_conv_new" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@order_insert" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="order_insert" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_iid_line" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="iid_line" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_action" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="action" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_table_name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="table_name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@Original_table_id" Precision="0" ProviderType="BigInt" Scale="0" Size="0" SourceColumn="table_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_mod_col" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="mod_col" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_iid_col" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="iid_col" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_iid_modified" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="iid_modified" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_order_insert" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="order_insert" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="iid_line" DataSetColumn="iid_line" />
+              <Mapping SourceColumn="action" DataSetColumn="action" />
+              <Mapping SourceColumn="table_name" DataSetColumn="table_name" />
+              <Mapping SourceColumn="table_id" DataSetColumn="table_id" />
+              <Mapping SourceColumn="mod_col" DataSetColumn="mod_col" />
+              <Mapping SourceColumn="iid_col" DataSetColumn="iid_col" />
+              <Mapping SourceColumn="old_value" DataSetColumn="old_value" />
+              <Mapping SourceColumn="new_value" DataSetColumn="new_value" />
+              <Mapping SourceColumn="iid_modified" DataSetColumn="iid_modified" />
+              <Mapping SourceColumn="default_conversion" DataSetColumn="default_conversion" />
+              <Mapping SourceColumn="def_conv_new" DataSetColumn="def_conv_new" />
+              <Mapping SourceColumn="order_insert" DataSetColumn="order_insert" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="toshiba-kaurov.nv2011test.dbo" DbObjectName="nv2011test.dbo.logic_transaction_data" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByTranIid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByTranIid" GeneratorSourceName="FillByTranIid" GetMethodModifier="Public" GetMethodName="GetDataByTranIid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByTranIid" UserSourceName="FillByTranIid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        iid, iid_line, action, table_name, table_id, mod_col, iid_col, old_value, new_value, iid_modified, default_conversion, def_conv_new, order_insert
+FROM            logic_transaction_data WITH (nolock)
+WHERE        (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="iid" ColumnName="iid" DataSourceName="nv2011test.dbo.logic_transaction_data" DataTypeServer="bigint" DbType="Int64" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="BigInt" Scale="0" Size="8" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="listsTableAdapter" GeneratorDataComponentClassName="listsTableAdapter" Name="lists" UserDataComponentName="listsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="jserver\sql2008.testdb.dbo" DbObjectName="testdb.dbo.lists" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [lists] WHERE (([iid] = @Original_iid) AND ((@IsNull_group_id = 1 AND [group_id] IS NULL) OR ([group_id] = @Original_group_id)) AND ([listType] = @Original_listType) AND ([style] = @Original_style) AND ([round] = @Original_round) AND ((@IsNull_quote = 1 AND [quote] IS NULL) OR ([quote] = @Original_quote)) AND ([allowView] = @Original_allowView) AND ([workFinished] = @Original_workFinished) AND ((@IsNull_prev_round = 1 AND [prev_round] IS NULL) OR ([prev_round] = @Original_prev_round)) AND ((@IsNull_next_round = 1 AND [next_round] IS NULL) OR ([next_round] = @Original_next_round)) AND ((@IsNull_nowClimbing = 1 AND [nowClimbing] IS NULL) OR ([nowClimbing] = @Original_nowClimbing)) AND ((@IsNull_nowClimbingTmp = 1 AND [nowClimbingTmp] IS NULL) OR ([nowClimbingTmp] = @Original_nowClimbingTmp)) AND ((@IsNull_nowClimbing3 = 1 AND [nowClimbing3] IS NULL) OR ([nowClimbing3] = @Original_nowClimbing3)) AND ((@IsNull_climbingTime = 1 AND [climbingTime] IS NULL) OR ([climbingTime] = @Original_climbingTime)) AND ((@IsNull_routeNumber = 1 AND [routeNumber] IS NULL) OR ([routeNumber] = @Original_routeNumber)) AND ([showPhoto] = @Original_showPhoto) AND ([online] = @Original_online) AND ((@IsNull_judge_id = 1 AND [judge_id] IS NULL) OR ([judge_id] = @Original_judge_id)) AND ((@IsNull_isolationOpen = 1 AND [isolationOpen] IS NULL) OR ([isolationOpen] = @Original_isolationOpen)) AND ((@IsNull_isolationClose = 1 AND [isolationClose] IS NULL) OR ([isolationClose] = @Original_isolationClose)) AND ((@IsNull_observation = 1 AND [observation] IS NULL) OR ([observation] = @Original_observation)) AND ((@IsNull_start = 1 AND [start] IS NULL) OR ([start] = @Original_start)) AND ((@IsNull_routesetter_id = 1 AND [routesetter_id] IS NULL) OR ([routesetter_id] = @Original_routesetter_id)) AND ((@IsNull_iid_parent = 1 AND [iid_parent] IS NULL) OR ([iid_parent] = @Original_iid_parent)) AND ([changed] = @Original_changed) AND ([projNum] = @Original_projNum) AND ((@IsNull_IsLocked = 1 AND [IsLocked] IS NULL) OR ([IsLocked] = @Original_IsLocked)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_group_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_group_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_listType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="listType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_style" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="style" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_round" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="round" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_quote" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="quote" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_quote" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="quote" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_allowView" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="allowView" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_workFinished" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="workFinished" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_prev_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prev_round" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_prev_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prev_round" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_next_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="next_round" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_next_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="next_round" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nowClimbing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nowClimbing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nowClimbingTmp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbingTmp" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nowClimbingTmp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbingTmp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nowClimbing3" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing3" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nowClimbing3" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_climbingTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="climbingTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_climbingTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="climbingTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_routeNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routeNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_routeNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routeNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_showPhoto" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="showPhoto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_online" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="online" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_judge_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="judge_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_judge_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="judge_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_isolationOpen" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="isolationOpen" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_isolationOpen" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="isolationOpen" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_isolationClose" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="isolationClose" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_isolationClose" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="isolationClose" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_observation" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="observation" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_observation" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="observation" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_start" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="start" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_start" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="start" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_routesetter_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routesetter_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_routesetter_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routesetter_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_iid_parent" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid_parent" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_iid_parent" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid_parent" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_changed" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="changed" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_projNum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="projNum" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IsLocked" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IsLocked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_IsLocked" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="IsLocked" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [lists] ([iid], [group_id], [listType], [style], [round], [quote], [allowView], [workFinished], [prev_round], [next_round], [nowClimbing], [nowClimbingTmp], [nowClimbing3], [climbingTime], [routeNumber], [showPhoto], [online], [judge_id], [isolationOpen], [isolationClose], [observation], [start], [routesetter_id], [iid_parent], [changed], [projNum], [IsLocked]) VALUES (@iid, @group_id, @listType, @style, @round, @quote, @allowView, @workFinished, @prev_round, @next_round, @nowClimbing, @nowClimbingTmp, @nowClimbing3, @climbingTime, @routeNumber, @showPhoto, @online, @judge_id, @isolationOpen, @isolationClose, @observation, @start, @routesetter_id, @iid_parent, @changed, @projNum, @IsLocked);
+SELECT iid, group_id, listType, style, round, quote, allowView, workFinished, prev_round, next_round, nowClimbing, nowClimbingTmp, nowClimbing3, climbingTime, routeNumber, showPhoto, online, judge_id, isolationOpen, isolationClose, observation, start, routesetter_id, iid_parent, changed, projNum, IsLocked FROM lists WITH (nolock) WHERE (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@group_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@listType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="listType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@style" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="style" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@round" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="round" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@quote" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="quote" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@allowView" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="allowView" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@workFinished" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="workFinished" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@prev_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prev_round" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@next_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="next_round" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nowClimbing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nowClimbingTmp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbingTmp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nowClimbing3" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@climbingTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="climbingTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@routeNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routeNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@showPhoto" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="showPhoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@online" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="online" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@judge_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="judge_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@isolationOpen" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="isolationOpen" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@isolationClose" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="isolationClose" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@observation" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="observation" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@start" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="start" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@routesetter_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routesetter_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@iid_parent" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid_parent" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@changed" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="changed" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@projNum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="projNum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@IsLocked" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="IsLocked" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     iid, group_id, listType, style, round, quote, allowView, workFinished, prev_round, next_round, nowClimbing, nowClimbingTmp, nowClimbing3, climbingTime, 
+                      routeNumber, showPhoto, online, judge_id, isolationOpen, isolationClose, observation, start, routesetter_id, iid_parent, changed, projNum, IsLocked
+FROM         lists WITH (nolock)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [lists] SET [iid] = @iid, [group_id] = @group_id, [listType] = @listType, [style] = @style, [round] = @round, [quote] = @quote, [allowView] = @allowView, [workFinished] = @workFinished, [prev_round] = @prev_round, [next_round] = @next_round, [nowClimbing] = @nowClimbing, [nowClimbingTmp] = @nowClimbingTmp, [nowClimbing3] = @nowClimbing3, [climbingTime] = @climbingTime, [routeNumber] = @routeNumber, [showPhoto] = @showPhoto, [online] = @online, [judge_id] = @judge_id, [isolationOpen] = @isolationOpen, [isolationClose] = @isolationClose, [observation] = @observation, [start] = @start, [routesetter_id] = @routesetter_id, [iid_parent] = @iid_parent, [changed] = @changed, [projNum] = @projNum, [IsLocked] = @IsLocked WHERE (([iid] = @Original_iid) AND ((@IsNull_group_id = 1 AND [group_id] IS NULL) OR ([group_id] = @Original_group_id)) AND ([listType] = @Original_listType) AND ([style] = @Original_style) AND ([round] = @Original_round) AND ((@IsNull_quote = 1 AND [quote] IS NULL) OR ([quote] = @Original_quote)) AND ([allowView] = @Original_allowView) AND ([workFinished] = @Original_workFinished) AND ((@IsNull_prev_round = 1 AND [prev_round] IS NULL) OR ([prev_round] = @Original_prev_round)) AND ((@IsNull_next_round = 1 AND [next_round] IS NULL) OR ([next_round] = @Original_next_round)) AND ((@IsNull_nowClimbing = 1 AND [nowClimbing] IS NULL) OR ([nowClimbing] = @Original_nowClimbing)) AND ((@IsNull_nowClimbingTmp = 1 AND [nowClimbingTmp] IS NULL) OR ([nowClimbingTmp] = @Original_nowClimbingTmp)) AND ((@IsNull_nowClimbing3 = 1 AND [nowClimbing3] IS NULL) OR ([nowClimbing3] = @Original_nowClimbing3)) AND ((@IsNull_climbingTime = 1 AND [climbingTime] IS NULL) OR ([climbingTime] = @Original_climbingTime)) AND ((@IsNull_routeNumber = 1 AND [routeNumber] IS NULL) OR ([routeNumber] = @Original_routeNumber)) AND ([showPhoto] = @Original_showPhoto) AND ([online] = @Original_online) AND ((@IsNull_judge_id = 1 AND [judge_id] IS NULL) OR ([judge_id] = @Original_judge_id)) AND ((@IsNull_isolationOpen = 1 AND [isolationOpen] IS NULL) OR ([isolationOpen] = @Original_isolationOpen)) AND ((@IsNull_isolationClose = 1 AND [isolationClose] IS NULL) OR ([isolationClose] = @Original_isolationClose)) AND ((@IsNull_observation = 1 AND [observation] IS NULL) OR ([observation] = @Original_observation)) AND ((@IsNull_start = 1 AND [start] IS NULL) OR ([start] = @Original_start)) AND ((@IsNull_routesetter_id = 1 AND [routesetter_id] IS NULL) OR ([routesetter_id] = @Original_routesetter_id)) AND ((@IsNull_iid_parent = 1 AND [iid_parent] IS NULL) OR ([iid_parent] = @Original_iid_parent)) AND ([changed] = @Original_changed) AND ([projNum] = @Original_projNum) AND ((@IsNull_IsLocked = 1 AND [IsLocked] IS NULL) OR ([IsLocked] = @Original_IsLocked)));
+SELECT iid, group_id, listType, style, round, quote, allowView, workFinished, prev_round, next_round, nowClimbing, nowClimbingTmp, nowClimbing3, climbingTime, routeNumber, showPhoto, online, judge_id, isolationOpen, isolationClose, observation, start, routesetter_id, iid_parent, changed, projNum, IsLocked FROM lists WITH (nolock) WHERE (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@group_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@listType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="listType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@style" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="style" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@round" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="round" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@quote" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="quote" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@allowView" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="allowView" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@workFinished" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="workFinished" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@prev_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prev_round" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@next_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="next_round" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nowClimbing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nowClimbingTmp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbingTmp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nowClimbing3" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@climbingTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="climbingTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@routeNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routeNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@showPhoto" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="showPhoto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@online" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="online" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@judge_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="judge_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@isolationOpen" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="isolationOpen" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@isolationClose" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="isolationClose" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@observation" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="observation" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@start" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="start" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@routesetter_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routesetter_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@iid_parent" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid_parent" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@changed" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="changed" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@projNum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="projNum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@IsLocked" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="IsLocked" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_iid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_group_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_group_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_listType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="listType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_style" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="style" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_round" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="round" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_quote" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="quote" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_quote" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="quote" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_allowView" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="allowView" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_workFinished" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="workFinished" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_prev_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prev_round" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_prev_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="prev_round" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_next_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="next_round" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_next_round" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="next_round" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nowClimbing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nowClimbing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nowClimbingTmp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbingTmp" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nowClimbingTmp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbingTmp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nowClimbing3" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing3" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nowClimbing3" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nowClimbing3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_climbingTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="climbingTime" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_climbingTime" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="climbingTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_routeNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routeNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_routeNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routeNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_showPhoto" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="showPhoto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_online" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="online" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_judge_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="judge_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_judge_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="judge_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_isolationOpen" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="isolationOpen" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_isolationOpen" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="isolationOpen" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_isolationClose" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="isolationClose" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_isolationClose" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="isolationClose" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_observation" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="observation" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_observation" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="observation" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_start" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="start" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_start" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="start" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_routesetter_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routesetter_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_routesetter_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="routesetter_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_iid_parent" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid_parent" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_iid_parent" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iid_parent" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_changed" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="changed" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_projNum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="projNum" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IsLocked" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IsLocked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_IsLocked" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="IsLocked" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iid" DataSetColumn="iid" />
+              <Mapping SourceColumn="group_id" DataSetColumn="group_id" />
+              <Mapping SourceColumn="listType" DataSetColumn="listType" />
+              <Mapping SourceColumn="style" DataSetColumn="style" />
+              <Mapping SourceColumn="round" DataSetColumn="round" />
+              <Mapping SourceColumn="quote" DataSetColumn="quote" />
+              <Mapping SourceColumn="allowView" DataSetColumn="allowView" />
+              <Mapping SourceColumn="workFinished" DataSetColumn="workFinished" />
+              <Mapping SourceColumn="prev_round" DataSetColumn="prev_round" />
+              <Mapping SourceColumn="next_round" DataSetColumn="next_round" />
+              <Mapping SourceColumn="nowClimbing" DataSetColumn="nowClimbing" />
+              <Mapping SourceColumn="nowClimbingTmp" DataSetColumn="nowClimbingTmp" />
+              <Mapping SourceColumn="nowClimbing3" DataSetColumn="nowClimbing3" />
+              <Mapping SourceColumn="climbingTime" DataSetColumn="climbingTime" />
+              <Mapping SourceColumn="routeNumber" DataSetColumn="routeNumber" />
+              <Mapping SourceColumn="showPhoto" DataSetColumn="showPhoto" />
+              <Mapping SourceColumn="online" DataSetColumn="online" />
+              <Mapping SourceColumn="judge_id" DataSetColumn="judge_id" />
+              <Mapping SourceColumn="isolationOpen" DataSetColumn="isolationOpen" />
+              <Mapping SourceColumn="isolationClose" DataSetColumn="isolationClose" />
+              <Mapping SourceColumn="observation" DataSetColumn="observation" />
+              <Mapping SourceColumn="start" DataSetColumn="start" />
+              <Mapping SourceColumn="routesetter_id" DataSetColumn="routesetter_id" />
+              <Mapping SourceColumn="iid_parent" DataSetColumn="iid_parent" />
+              <Mapping SourceColumn="changed" DataSetColumn="changed" />
+              <Mapping SourceColumn="projNum" DataSetColumn="projNum" />
+              <Mapping SourceColumn="IsLocked" DataSetColumn="IsLocked" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="jserver\sql2008.testdb.dbo" DbObjectName="testdb.dbo.lists" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByIid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIid" GeneratorSourceName="FillByIid" GetMethodModifier="Public" GetMethodName="GetDataByIid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIid" UserSourceName="FillByIid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     iid, group_id, listType, style, round, quote, allowView, workFinished, prev_round, next_round, nowClimbing, nowClimbingTmp, nowClimbing3, climbingTime, 
+                      routeNumber, showPhoto, online, judge_id, isolationOpen, isolationClose, observation, start, routesetter_id, iid_parent, changed, projNum, IsLocked
+FROM         lists WITH (nolock)
+WHERE     (iid = @iid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="iid" ColumnName="iid" DataSourceName="testdb.dbo.lists" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@iid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="iid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsClimbing" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsClimbing" msprop:Generator_UserDSName="dsClimbing">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PhotoLocal" msprop:Generator_UserTableName="PhotoLocal" msprop:Generator_RowEvArgName="PhotoLocalRowChangeEvent" msprop:Generator_TableVarName="tablePhotoLocal" msprop:Generator_TablePropName="PhotoLocal" msprop:Generator_RowDeletingName="PhotoLocalRowDeleting" msprop:Generator_RowChangingName="PhotoLocalRowChanging" msprop:Generator_RowDeletedName="PhotoLocalRowDeleted" msprop:Generator_RowEvHandlerName="PhotoLocalRowChangeEventHandler" msprop:Generator_RowChangedName="PhotoLocalRowChanged" msprop:Generator_TableClassName="PhotoLocalDataTable" msprop:Generator_RowClassName="PhotoLocalRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
+              <xs:element name="photo" msprop:Generator_ColumnVarNameInTable="columnphoto" msprop:Generator_ColumnPropNameInRow="photo" msprop:Generator_ColumnPropNameInTable="photoColumn" msprop:Generator_UserColumnName="photo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="surname" msprop:Generator_ColumnVarNameInTable="columnsurname" msprop:Generator_ColumnPropNameInRow="surname" msprop:Generator_ColumnPropNameInTable="surnameColumn" msprop:Generator_UserColumnName="surname">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gr_name" msprop:Generator_ColumnVarNameInTable="columngr_name" msprop:Generator_ColumnPropNameInRow="gr_name" msprop:Generator_ColumnPropNameInTable="gr_nameColumn" msprop:Generator_UserColumnName="gr_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PhotoRemote" msprop:Generator_UserTableName="PhotoRemote" msprop:Generator_RowEvArgName="PhotoRemoteRowChangeEvent" msprop:Generator_TableVarName="tablePhotoRemote" msprop:Generator_TablePropName="PhotoRemote" msprop:Generator_RowDeletingName="PhotoRemoteRowDeleting" msprop:Generator_RowChangingName="PhotoRemoteRowChanging" msprop:Generator_RowDeletedName="PhotoRemoteRowDeleted" msprop:Generator_RowEvHandlerName="PhotoRemoteRowChangeEventHandler" msprop:Generator_RowChangedName="PhotoRemoteRowChanged" msprop:Generator_TableClassName="PhotoRemoteDataTable" msprop:Generator_RowClassName="PhotoRemoteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
+              <xs:element name="photo" msprop:Generator_ColumnVarNameInTable="columnphoto" msprop:Generator_ColumnPropNameInRow="photo" msprop:Generator_ColumnPropNameInTable="photoColumn" msprop:Generator_UserColumnName="photo" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ONLclimbers" msprop:Generator_UserTableName="ONLclimbers" msprop:Generator_RowEvArgName="ONLclimbersRowChangeEvent" msprop:Generator_TableVarName="tableONLclimbers" msprop:Generator_TablePropName="ONLclimbers" msprop:Generator_RowDeletingName="ONLclimbersRowDeleting" msprop:Generator_RowChangingName="ONLclimbersRowChanging" msprop:Generator_RowDeletedName="ONLclimbersRowDeleted" msprop:Generator_RowEvHandlerName="ONLclimbersRowChangeEventHandler" msprop:Generator_RowChangedName="ONLclimbersRowChanged" msprop:Generator_TableClassName="ONLclimbersDataTable" msprop:Generator_RowClassName="ONLclimbersRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
+              <xs:element name="surname" msprop:Generator_ColumnVarNameInTable="columnsurname" msprop:Generator_ColumnPropNameInRow="surname" msprop:Generator_ColumnPropNameInTable="surnameColumn" msprop:Generator_UserColumnName="surname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="age" msprop:Generator_ColumnVarNameInTable="columnage" msprop:Generator_ColumnPropNameInRow="age" msprop:Generator_ColumnPropNameInTable="ageColumn" msprop:Generator_UserColumnName="age" type="xs:int" minOccurs="0" />
+              <xs:element name="qf" msprop:Generator_ColumnVarNameInTable="columnqf" msprop:Generator_ColumnPropNameInRow="qf" msprop:Generator_ColumnPropNameInTable="qfColumn" msprop:Generator_UserColumnName="qf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="team_id" msprop:Generator_ColumnVarNameInTable="columnteam_id" msprop:Generator_ColumnPropNameInRow="team_id" msprop:Generator_ColumnPropNameInTable="team_idColumn" msprop:Generator_UserColumnName="team_id" type="xs:int" minOccurs="0" />
+              <xs:element name="group_id" msprop:Generator_ColumnVarNameInTable="columngroup_id" msprop:Generator_ColumnPropNameInRow="group_id" msprop:Generator_ColumnPropNameInTable="group_idColumn" msprop:Generator_UserColumnName="group_id" type="xs:int" minOccurs="0" />
+              <xs:element name="rankingLead" msprop:Generator_ColumnVarNameInTable="columnrankingLead" msprop:Generator_ColumnPropNameInRow="rankingLead" msprop:Generator_ColumnPropNameInTable="rankingLeadColumn" msprop:Generator_UserColumnName="rankingLead" type="xs:int" minOccurs="0" />
+              <xs:element name="rankingSpeed" msprop:Generator_ColumnVarNameInTable="columnrankingSpeed" msprop:Generator_ColumnPropNameInRow="rankingSpeed" msprop:Generator_ColumnPropNameInTable="rankingSpeedColumn" msprop:Generator_UserColumnName="rankingSpeed" type="xs:int" minOccurs="0" />
+              <xs:element name="rankingBoulder" msprop:Generator_ColumnVarNameInTable="columnrankingBoulder" msprop:Generator_ColumnPropNameInRow="rankingBoulder" msprop:Generator_ColumnPropNameInTable="rankingBoulderColumn" msprop:Generator_UserColumnName="rankingBoulder" type="xs:int" minOccurs="0" />
+              <xs:element name="vk" msprop:Generator_ColumnVarNameInTable="columnvk" msprop:Generator_ColumnPropNameInRow="vk" msprop:Generator_ColumnPropNameInTable="vkColumn" msprop:Generator_UserColumnName="vk" type="xs:boolean" />
+              <xs:element name="nopoints" msprop:Generator_ColumnVarNameInTable="columnnopoints" msprop:Generator_ColumnPropNameInRow="nopoints" msprop:Generator_ColumnPropNameInTable="nopointsColumn" msprop:Generator_UserColumnName="nopoints" type="xs:boolean" />
+              <xs:element name="photo" msprop:Generator_ColumnVarNameInTable="columnphoto" msprop:Generator_ColumnPropNameInRow="photo" msprop:Generator_ColumnPropNameInTable="photoColumn" msprop:Generator_UserColumnName="photo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="phLoaded" msprop:Generator_ColumnVarNameInTable="columnphLoaded" msprop:Generator_ColumnPropNameInRow="phLoaded" msprop:Generator_ColumnPropNameInTable="phLoadedColumn" msprop:Generator_UserColumnName="phLoaded" type="xs:boolean" />
+              <xs:element name="genderFemale" msprop:Generator_ColumnVarNameInTable="columngenderFemale" msprop:Generator_ColumnPropNameInRow="genderFemale" msprop:Generator_ColumnPropNameInTable="genderFemaleColumn" msprop:Generator_UserColumnName="genderFemale" type="xs:boolean" />
+              <xs:element name="is_del" msprop:Generator_ColumnVarNameInTable="columnis_del" msprop:Generator_ColumnPropNameInRow="is_del" msprop:Generator_ColumnPropNameInTable="is_delColumn" msprop:Generator_UserColumnName="is_del" type="xs:boolean" />
+              <xs:element name="lead" msprop:Generator_ColumnVarNameInTable="columnlead" msprop:Generator_ColumnPropNameInRow="lead" msprop:Generator_ColumnPropNameInTable="leadColumn" msprop:Generator_UserColumnName="lead" type="xs:boolean" />
+              <xs:element name="speed" msprop:Generator_ColumnVarNameInTable="columnspeed" msprop:Generator_ColumnPropNameInRow="speed" msprop:Generator_ColumnPropNameInTable="speedColumn" msprop:Generator_UserColumnName="speed" type="xs:boolean" />
+              <xs:element name="boulder" msprop:Generator_ColumnVarNameInTable="columnboulder" msprop:Generator_ColumnPropNameInRow="boulder" msprop:Generator_ColumnPropNameInTable="boulderColumn" msprop:Generator_UserColumnName="boulder" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ONLteams" msprop:Generator_UserTableName="ONLteams" msprop:Generator_RowEvArgName="ONLteamsRowChangeEvent" msprop:Generator_TableVarName="tableONLteams" msprop:Generator_TablePropName="ONLteams" msprop:Generator_RowDeletingName="ONLteamsRowDeleting" msprop:Generator_RowChangingName="ONLteamsRowChanging" msprop:Generator_RowDeletedName="ONLteamsRowDeleted" msprop:Generator_RowEvHandlerName="ONLteamsRowChangeEventHandler" msprop:Generator_RowChangedName="ONLteamsRowChanged" msprop:Generator_TableClassName="ONLteamsDataTable" msprop:Generator_RowClassName="ONLteamsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ONLGroups" msprop:Generator_UserTableName="ONLGroups" msprop:Generator_RowEvArgName="ONLGroupsRowChangeEvent" msprop:Generator_TableVarName="tableONLGroups" msprop:Generator_TablePropName="ONLGroups" msprop:Generator_RowDeletingName="ONLGroupsRowDeleting" msprop:Generator_RowChangingName="ONLGroupsRowChanging" msprop:Generator_RowDeletedName="ONLGroupsRowDeleted" msprop:Generator_RowEvHandlerName="ONLGroupsRowChangeEventHandler" msprop:Generator_RowChangedName="ONLGroupsRowChanged" msprop:Generator_TableClassName="ONLGroupsDataTable" msprop:Generator_RowClassName="ONLGroupsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="oldYear" msprop:Generator_ColumnVarNameInTable="columnoldYear" msprop:Generator_ColumnPropNameInRow="oldYear" msprop:Generator_ColumnPropNameInTable="oldYearColumn" msprop:Generator_UserColumnName="oldYear" type="xs:int" />
+              <xs:element name="youngYear" msprop:Generator_ColumnVarNameInTable="columnyoungYear" msprop:Generator_ColumnPropNameInRow="youngYear" msprop:Generator_ColumnPropNameInTable="youngYearColumn" msprop:Generator_UserColumnName="youngYear" type="xs:int" />
+              <xs:element name="genderFemale" msprop:Generator_ColumnVarNameInTable="columngenderFemale" msprop:Generator_ColumnPropNameInRow="genderFemale" msprop:Generator_ColumnPropNameInTable="genderFemaleColumn" msprop:Generator_UserColumnName="genderFemale" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="judgeData" msprop:Generator_UserTableName="judgeData" msprop:Generator_RowEvArgName="judgeDataRowChangeEvent" msprop:Generator_TableVarName="tablejudgeData" msprop:Generator_TablePropName="judgeData" msprop:Generator_RowDeletingName="judgeDataRowDeleting" msprop:Generator_RowChangingName="judgeDataRowChanging" msprop:Generator_RowDeletedName="judgeDataRowDeleted" msprop:Generator_RowEvHandlerName="judgeDataRowChangeEventHandler" msprop:Generator_RowChangedName="judgeDataRowChanged" msprop:Generator_TableClassName="judgeDataDataTable" msprop:Generator_RowClassName="judgeDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="full_name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfull_name" msprop:Generator_ColumnPropNameInRow="full_name" msprop:Generator_ColumnPropNameInTable="full_nameColumn" msprop:Generator_UserColumnName="full_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="767" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pos" msprop:Generator_ColumnVarNameInTable="columnpos" msprop:Generator_ColumnPropNameInRow="pos" msprop:Generator_ColumnPropNameInTable="posColumn" msprop:Generator_UserColumnName="pos">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="photo" msprop:Generator_ColumnVarNameInTable="columnphoto" msprop:Generator_ColumnPropNameInRow="photo" msprop:Generator_ColumnPropNameInTable="photoColumn" msprop:Generator_UserColumnName="photo" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ONLjudges" msprop:Generator_UserTableName="ONLjudges" msprop:Generator_RowEvArgName="ONLjudgesRowChangeEvent" msprop:Generator_TableVarName="tableONLjudges" msprop:Generator_TablePropName="ONLjudges" msprop:Generator_RowDeletingName="ONLjudgesRowDeleting" msprop:Generator_RowChangingName="ONLjudgesRowChanging" msprop:Generator_RowDeletedName="ONLjudgesRowDeleted" msprop:Generator_RowEvHandlerName="ONLjudgesRowChangeEventHandler" msprop:Generator_RowChangedName="ONLjudgesRowChanged" msprop:Generator_TableClassName="ONLjudgesDataTable" msprop:Generator_RowClassName="ONLjudgesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
+              <xs:element name="surname" msprop:Generator_ColumnVarNameInTable="columnsurname" msprop:Generator_ColumnPropNameInRow="surname" msprop:Generator_ColumnPropNameInTable="surnameColumn" msprop:Generator_UserColumnName="surname">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="patronimic" msprop:Generator_ColumnVarNameInTable="columnpatronimic" msprop:Generator_ColumnPropNameInRow="patronimic" msprop:Generator_ColumnPropNameInTable="patronimicColumn" msprop:Generator_UserColumnName="patronimic">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="category" msprop:Generator_ColumnVarNameInTable="columncategory" msprop:Generator_ColumnPropNameInRow="category" msprop:Generator_ColumnPropNameInTable="categoryColumn" msprop:Generator_UserColumnName="category">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="city" msprop:Generator_ColumnVarNameInTable="columncity" msprop:Generator_ColumnPropNameInRow="city" msprop:Generator_ColumnPropNameInTable="cityColumn" msprop:Generator_UserColumnName="city">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="photo" msprop:Generator_ColumnVarNameInTable="columnphoto" msprop:Generator_ColumnPropNameInRow="photo" msprop:Generator_ColumnPropNameInTable="photoColumn" msprop:Generator_UserColumnName="photo" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="positions" msprop:Generator_UserTableName="positions" msprop:Generator_RowEvArgName="positionsRowChangeEvent" msprop:Generator_TableVarName="tablepositions" msprop:Generator_TablePropName="positions" msprop:Generator_RowDeletingName="positionsRowDeleting" msprop:Generator_RowChangingName="positionsRowChanging" msprop:Generator_RowDeletedName="positionsRowDeleted" msprop:Generator_RowEvHandlerName="positionsRowChangeEventHandler" msprop:Generator_RowChangedName="positionsRowChanged" msprop:Generator_TableClassName="positionsDataTable" msprop:Generator_RowClassName="positionsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
+              <xs:element name="Должность" msprop:Generator_ColumnVarNameInTable="columnДолжность" msprop:Generator_ColumnPropNameInRow="Должность" msprop:Generator_ColumnPropNameInTable="ДолжностьColumn" msprop:Generator_UserColumnName="Должность" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Для_x0020_впечатывания_x0020_в_x0020_бейджики" msprop:Generator_ColumnVarNameInTable="columnДля_впечатывания_в_бейджики" msprop:Generator_ColumnPropNameInRow="Для_впечатывания_в_бейджики" msprop:Generator_ColumnPropNameInTable="Для_впечатывания_в_бейджикиColumn" msprop:Generator_UserColumnName="Для впечатывания в бейджики" type="xs:boolean" default="false" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Points" msprop:Generator_UserTableName="Points" msprop:Generator_RowEvArgName="PointsRowChangeEvent" msprop:Generator_TableVarName="tablePoints" msprop:Generator_TablePropName="Points" msprop:Generator_RowDeletingName="PointsRowDeleting" msprop:Generator_RowChangingName="PointsRowChanging" msprop:Generator_RowDeletedName="PointsRowDeleted" msprop:Generator_RowEvHandlerName="PointsRowChangeEventHandler" msprop:Generator_RowChangedName="PointsRowChanged" msprop:Generator_TableClassName="PointsDataTable" msprop:Generator_RowClassName="PointsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Место" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnМесто" msprop:Generator_ColumnPropNameInRow="Место" msprop:Generator_ColumnPropNameInTable="МестоColumn" msprop:Generator_UserColumnName="Место" type="xs:int" />
+              <xs:element name="Очки" msprop:Generator_ColumnVarNameInTable="columnОчки" msprop:Generator_ColumnPropNameInRow="Очки" msprop:Generator_ColumnPropNameInTable="ОчкиColumn" msprop:Generator_UserColumnName="Очки" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="climbersToUpdate" msprop:Generator_TableClassName="climbersToUpdateDataTable" msprop:Generator_TableVarName="tableclimbersToUpdate" msprop:Generator_TablePropName="climbersToUpdate" msprop:Generator_RowDeletingName="climbersToUpdateRowDeleting" msprop:Generator_UserTableName="climbersToUpdate" msprop:Generator_RowChangingName="climbersToUpdateRowChanging" msprop:Generator_RowEvHandlerName="climbersToUpdateRowChangeEventHandler" msprop:Generator_RowDeletedName="climbersToUpdateRowDeleted" msprop:Generator_RowEvArgName="climbersToUpdateRowChangeEvent" msprop:Generator_RowChangedName="climbersToUpdateRowChanged" msprop:Generator_RowClassName="climbersToUpdateRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="surname" msprop:Generator_ColumnVarNameInTable="columnsurname" msprop:Generator_ColumnPropNameInRow="surname" msprop:Generator_ColumnPropNameInTable="surnameColumn" msprop:Generator_UserColumnName="surname">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="age" msprop:Generator_ColumnVarNameInTable="columnage" msprop:Generator_ColumnPropNameInRow="age" msprop:Generator_ColumnPropNameInTable="ageColumn" msprop:Generator_UserColumnName="age" type="xs:int" minOccurs="0" />
+              <xs:element name="genderFemale" msprop:Generator_ColumnVarNameInTable="columngenderFemale" msprop:Generator_ColumnPropNameInRow="genderFemale" msprop:Generator_ColumnPropNameInTable="genderFemaleColumn" msprop:Generator_UserColumnName="genderFemale" type="xs:boolean" />
+              <xs:element name="qf" msprop:Generator_ColumnVarNameInTable="columnqf" msprop:Generator_ColumnPropNameInRow="qf" msprop:Generator_ColumnPropNameInTable="qfColumn" msprop:Generator_UserColumnName="qf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="team_id" msprop:Generator_ColumnVarNameInTable="columnteam_id" msprop:Generator_ColumnPropNameInRow="team_id" msprop:Generator_ColumnPropNameInTable="team_idColumn" msprop:Generator_UserColumnName="team_id" type="xs:int" />
+              <xs:element name="group_id" msprop:Generator_ColumnVarNameInTable="columngroup_id" msprop:Generator_ColumnPropNameInRow="group_id" msprop:Generator_ColumnPropNameInTable="group_idColumn" msprop:Generator_UserColumnName="group_id" type="xs:int" />
+              <xs:element name="rankingLead" msprop:Generator_ColumnVarNameInTable="columnrankingLead" msprop:Generator_ColumnPropNameInRow="rankingLead" msprop:Generator_ColumnPropNameInTable="rankingLeadColumn" msprop:Generator_UserColumnName="rankingLead" type="xs:int" minOccurs="0" />
+              <xs:element name="rankingSpeed" msprop:Generator_ColumnVarNameInTable="columnrankingSpeed" msprop:Generator_ColumnPropNameInRow="rankingSpeed" msprop:Generator_ColumnPropNameInTable="rankingSpeedColumn" msprop:Generator_UserColumnName="rankingSpeed" type="xs:int" minOccurs="0" />
+              <xs:element name="rankingBoulder" msprop:Generator_ColumnVarNameInTable="columnrankingBoulder" msprop:Generator_ColumnPropNameInRow="rankingBoulder" msprop:Generator_ColumnPropNameInTable="rankingBoulderColumn" msprop:Generator_UserColumnName="rankingBoulder" type="xs:int" minOccurs="0" />
+              <xs:element name="vk" msprop:Generator_ColumnVarNameInTable="columnvk" msprop:Generator_ColumnPropNameInRow="vk" msprop:Generator_ColumnPropNameInTable="vkColumn" msprop:Generator_UserColumnName="vk" type="xs:boolean" />
+              <xs:element name="noPoints" msprop:Generator_ColumnVarNameInTable="columnnoPoints" msprop:Generator_ColumnPropNameInRow="noPoints" msprop:Generator_ColumnPropNameInTable="noPointsColumn" msprop:Generator_UserColumnName="noPoints" type="xs:boolean" />
+              <xs:element name="lateAppl" msprop:Generator_ColumnVarNameInTable="columnlateAppl" msprop:Generator_ColumnPropNameInRow="lateAppl" msprop:Generator_ColumnPropNameInTable="lateApplColumn" msprop:Generator_UserColumnName="lateAppl" type="xs:boolean" />
+              <xs:element name="lead" msprop:Generator_ColumnVarNameInTable="columnlead" msprop:Generator_ColumnPropNameInRow="lead" msprop:Generator_ColumnPropNameInTable="leadColumn" msprop:Generator_UserColumnName="lead" type="xs:short" />
+              <xs:element name="speed" msprop:Generator_ColumnVarNameInTable="columnspeed" msprop:Generator_ColumnPropNameInRow="speed" msprop:Generator_ColumnPropNameInTable="speedColumn" msprop:Generator_UserColumnName="speed" type="xs:short" />
+              <xs:element name="boulder" msprop:Generator_ColumnVarNameInTable="columnboulder" msprop:Generator_ColumnPropNameInRow="boulder" msprop:Generator_ColumnPropNameInTable="boulderColumn" msprop:Generator_UserColumnName="boulder" type="xs:short" />
+              <xs:element name="photo" msprop:Generator_ColumnVarNameInTable="columnphoto" msprop:Generator_ColumnPropNameInRow="photo" msprop:Generator_ColumnPropNameInTable="photoColumn" msprop:Generator_UserColumnName="photo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="changed" msprop:Generator_ColumnVarNameInTable="columnchanged" msprop:Generator_ColumnPropNameInRow="changed" msprop:Generator_ColumnPropNameInTable="changedColumn" msprop:Generator_UserColumnName="changed" type="xs:boolean" />
+              <xs:element name="group_name" msprop:Generator_ColumnVarNameInTable="columngroup_name" msprop:Generator_ColumnPropNameInRow="group_name" msprop:Generator_ColumnPropNameInTable="group_nameColumn" msprop:Generator_UserColumnName="group_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="group_oldYear" msprop:Generator_ColumnVarNameInTable="columngroup_oldYear" msprop:Generator_ColumnPropNameInRow="group_oldYear" msprop:Generator_ColumnPropNameInTable="group_oldYearColumn" msprop:Generator_UserColumnName="group_oldYear" type="xs:int" />
+              <xs:element name="group_youngYear" msprop:Generator_ColumnVarNameInTable="columngroup_youngYear" msprop:Generator_ColumnPropNameInRow="group_youngYear" msprop:Generator_ColumnPropNameInTable="group_youngYearColumn" msprop:Generator_UserColumnName="group_youngYear" type="xs:int" />
+              <xs:element name="group_minQf" msprop:Generator_ColumnVarNameInTable="columngroup_minQf" msprop:Generator_ColumnPropNameInRow="group_minQf" msprop:Generator_ColumnPropNameInTable="group_minQfColumn" msprop:Generator_UserColumnName="group_minQf" type="xs:int" />
+              <xs:element name="group_genderFemale" msprop:Generator_ColumnVarNameInTable="columngroup_genderFemale" msprop:Generator_ColumnPropNameInRow="group_genderFemale" msprop:Generator_ColumnPropNameInTable="group_genderFemaleColumn" msprop:Generator_UserColumnName="group_genderFemale" type="xs:boolean" />
+              <xs:element name="team_Guest" msprop:Generator_ColumnVarNameInTable="columnteam_Guest" msprop:Generator_ColumnPropNameInRow="team_Guest" msprop:Generator_ColumnPropNameInTable="team_GuestColumn" msprop:Generator_UserColumnName="team_Guest" type="xs:boolean" />
+              <xs:element name="team_name" msprop:Generator_ColumnVarNameInTable="columnteam_name" msprop:Generator_ColumnPropNameInRow="team_name" msprop:Generator_ColumnPropNameInTable="team_nameColumn" msprop:Generator_UserColumnName="team_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="team_ranking" msprop:Generator_ColumnVarNameInTable="columnteam_ranking" msprop:Generator_ColumnPropNameInRow="team_ranking" msprop:Generator_ColumnPropNameInTable="team_rankingColumn" msprop:Generator_UserColumnName="team_ranking" type="xs:int" minOccurs="0" />
+              <xs:element name="license" msprop:Generator_ColumnVarNameInTable="columnlicense" msprop:Generator_ColumnPropNameInRow="license" msprop:Generator_ColumnPropNameInTable="licenseColumn" msprop:Generator_UserColumnName="license" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="logic_transactions" msprop:Generator_TableClassName="logic_transactionsDataTable" msprop:Generator_TableVarName="tablelogic_transactions" msprop:Generator_TablePropName="logic_transactions" msprop:Generator_RowDeletingName="logic_transactionsRowDeleting" msprop:Generator_UserTableName="logic_transactions" msprop:Generator_RowChangingName="logic_transactionsRowChanging" msprop:Generator_RowEvHandlerName="logic_transactionsRowChangeEventHandler" msprop:Generator_RowDeletedName="logic_transactionsRowDeleted" msprop:Generator_RowEvArgName="logic_transactionsRowChangeEvent" msprop:Generator_RowChangedName="logic_transactionsRowChanged" msprop:Generator_RowClassName="logic_transactionsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:long" />
+              <xs:element name="tran_date" msprop:Generator_ColumnVarNameInTable="columntran_date" msprop:Generator_ColumnPropNameInRow="tran_date" msprop:Generator_ColumnPropNameInTable="tran_dateColumn" msprop:Generator_UserColumnName="tran_date" type="xs:dateTime" />
+              <xs:element name="obj_table" msprop:Generator_ColumnVarNameInTable="columnobj_table" msprop:Generator_ColumnPropNameInRow="obj_table" msprop:Generator_ColumnPropNameInTable="obj_tableColumn" msprop:Generator_UserColumnName="obj_table">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="obj_id" msprop:Generator_ColumnVarNameInTable="columnobj_id" msprop:Generator_ColumnPropNameInRow="obj_id" msprop:Generator_ColumnPropNameInTable="obj_idColumn" msprop:Generator_UserColumnName="obj_id" type="xs:long" />
+              <xs:element name="host" msprop:Generator_ColumnVarNameInTable="columnhost" msprop:Generator_ColumnPropNameInRow="host" msprop:Generator_ColumnPropNameInTable="hostColumn" msprop:Generator_UserColumnName="host">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="is_active" msprop:Generator_ColumnVarNameInTable="columnis_active" msprop:Generator_ColumnPropNameInRow="is_active" msprop:Generator_ColumnPropNameInTable="is_activeColumn" msprop:Generator_UserColumnName="is_active" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="logic_transaction_data" msprop:Generator_TableClassName="logic_transaction_dataDataTable" msprop:Generator_TableVarName="tablelogic_transaction_data" msprop:Generator_TablePropName="logic_transaction_data" msprop:Generator_RowDeletingName="logic_transaction_dataRowDeleting" msprop:Generator_UserTableName="logic_transaction_data" msprop:Generator_RowChangingName="logic_transaction_dataRowChanging" msprop:Generator_RowEvHandlerName="logic_transaction_dataRowChangeEventHandler" msprop:Generator_RowDeletedName="logic_transaction_dataRowDeleted" msprop:Generator_RowEvArgName="logic_transaction_dataRowChangeEvent" msprop:Generator_RowChangedName="logic_transaction_dataRowChanged" msprop:Generator_RowClassName="logic_transaction_dataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:long" />
+              <xs:element name="iid_line" msprop:Generator_ColumnVarNameInTable="columniid_line" msprop:Generator_ColumnPropNameInRow="iid_line" msprop:Generator_ColumnPropNameInTable="iid_lineColumn" msprop:Generator_UserColumnName="iid_line" type="xs:long" />
+              <xs:element name="action" msprop:Generator_ColumnVarNameInTable="columnaction" msprop:Generator_ColumnPropNameInRow="action" msprop:Generator_ColumnPropNameInTable="actionColumn" msprop:Generator_UserColumnName="action">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="table_name" msprop:Generator_ColumnVarNameInTable="columntable_name" msprop:Generator_ColumnPropNameInRow="table_name" msprop:Generator_ColumnPropNameInTable="table_nameColumn" msprop:Generator_UserColumnName="table_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="table_id" msprop:Generator_ColumnVarNameInTable="columntable_id" msprop:Generator_ColumnPropNameInRow="table_id" msprop:Generator_ColumnPropNameInTable="table_idColumn" msprop:Generator_UserColumnName="table_id" type="xs:long" />
+              <xs:element name="mod_col" msprop:Generator_ColumnVarNameInTable="columnmod_col" msprop:Generator_ColumnPropNameInRow="mod_col" msprop:Generator_ColumnPropNameInTable="mod_colColumn" msprop:Generator_UserColumnName="mod_col">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="iid_col" msprop:Generator_ColumnVarNameInTable="columniid_col" msprop:Generator_ColumnPropNameInRow="iid_col" msprop:Generator_ColumnPropNameInTable="iid_colColumn" msprop:Generator_UserColumnName="iid_col">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="old_value" msprop:Generator_ColumnVarNameInTable="columnold_value" msprop:Generator_ColumnPropNameInRow="old_value" msprop:Generator_ColumnPropNameInTable="old_valueColumn" msprop:Generator_UserColumnName="old_value" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="new_value" msprop:Generator_ColumnVarNameInTable="columnnew_value" msprop:Generator_ColumnPropNameInRow="new_value" msprop:Generator_ColumnPropNameInTable="new_valueColumn" msprop:Generator_UserColumnName="new_value" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="iid_modified" msprop:Generator_ColumnVarNameInTable="columniid_modified" msprop:Generator_ColumnPropNameInRow="iid_modified" msprop:Generator_ColumnPropNameInTable="iid_modifiedColumn" msprop:Generator_UserColumnName="iid_modified" type="xs:boolean" />
+              <xs:element name="default_conversion" msprop:Generator_ColumnVarNameInTable="columndefault_conversion" msprop:Generator_ColumnPropNameInRow="default_conversion" msprop:Generator_ColumnPropNameInTable="default_conversionColumn" msprop:Generator_UserColumnName="default_conversion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="def_conv_new" msprop:Generator_ColumnVarNameInTable="columndef_conv_new" msprop:Generator_ColumnPropNameInRow="def_conv_new" msprop:Generator_ColumnPropNameInTable="def_conv_newColumn" msprop:Generator_UserColumnName="def_conv_new" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="order_insert" msprop:Generator_ColumnVarNameInTable="columnorder_insert" msprop:Generator_ColumnPropNameInRow="order_insert" msprop:Generator_ColumnPropNameInTable="order_insertColumn" msprop:Generator_UserColumnName="order_insert" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="lists" msprop:Generator_TableClassName="listsDataTable" msprop:Generator_TableVarName="tablelists" msprop:Generator_TablePropName="lists" msprop:Generator_RowDeletingName="listsRowDeleting" msprop:Generator_UserTableName="lists" msprop:Generator_RowChangingName="listsRowChanging" msprop:Generator_RowEvHandlerName="listsRowChangeEventHandler" msprop:Generator_RowDeletedName="listsRowDeleted" msprop:Generator_RowEvArgName="listsRowChangeEvent" msprop:Generator_RowChangedName="listsRowChanged" msprop:Generator_RowClassName="listsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iid" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
+              <xs:element name="group_id" msprop:Generator_ColumnVarNameInTable="columngroup_id" msprop:Generator_ColumnPropNameInRow="group_id" msprop:Generator_ColumnPropNameInTable="group_idColumn" msprop:Generator_UserColumnName="group_id" type="xs:int" minOccurs="0" />
+              <xs:element name="listType" msprop:Generator_ColumnVarNameInTable="columnlistType" msprop:Generator_ColumnPropNameInRow="listType" msprop:Generator_ColumnPropNameInTable="listTypeColumn" msprop:Generator_UserColumnName="listType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="style" msprop:Generator_ColumnVarNameInTable="columnstyle" msprop:Generator_ColumnPropNameInRow="style" msprop:Generator_ColumnPropNameInTable="styleColumn" msprop:Generator_UserColumnName="style">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="round" msprop:Generator_ColumnVarNameInTable="columnround" msprop:Generator_ColumnPropNameInRow="round" msprop:Generator_ColumnPropNameInTable="roundColumn" msprop:Generator_UserColumnName="round">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote" msprop:Generator_ColumnVarNameInTable="columnquote" msprop:Generator_ColumnPropNameInRow="quote" msprop:Generator_ColumnPropNameInTable="quoteColumn" msprop:Generator_UserColumnName="quote" type="xs:int" minOccurs="0" />
+              <xs:element name="allowView" msprop:Generator_ColumnVarNameInTable="columnallowView" msprop:Generator_ColumnPropNameInRow="allowView" msprop:Generator_ColumnPropNameInTable="allowViewColumn" msprop:Generator_UserColumnName="allowView" type="xs:boolean" />
+              <xs:element name="workFinished" msprop:Generator_ColumnVarNameInTable="columnworkFinished" msprop:Generator_ColumnPropNameInRow="workFinished" msprop:Generator_ColumnPropNameInTable="workFinishedColumn" msprop:Generator_UserColumnName="workFinished" type="xs:boolean" />
+              <xs:element name="prev_round" msprop:Generator_ColumnVarNameInTable="columnprev_round" msprop:Generator_ColumnPropNameInRow="prev_round" msprop:Generator_ColumnPropNameInTable="prev_roundColumn" msprop:Generator_UserColumnName="prev_round" type="xs:int" minOccurs="0" />
+              <xs:element name="next_round" msprop:Generator_ColumnVarNameInTable="columnnext_round" msprop:Generator_ColumnPropNameInRow="next_round" msprop:Generator_ColumnPropNameInTable="next_roundColumn" msprop:Generator_UserColumnName="next_round" type="xs:int" minOccurs="0" />
+              <xs:element name="nowClimbing" msprop:Generator_ColumnVarNameInTable="columnnowClimbing" msprop:Generator_ColumnPropNameInRow="nowClimbing" msprop:Generator_ColumnPropNameInTable="nowClimbingColumn" msprop:Generator_UserColumnName="nowClimbing" type="xs:int" minOccurs="0" />
+              <xs:element name="nowClimbingTmp" msprop:Generator_ColumnVarNameInTable="columnnowClimbingTmp" msprop:Generator_ColumnPropNameInRow="nowClimbingTmp" msprop:Generator_ColumnPropNameInTable="nowClimbingTmpColumn" msprop:Generator_UserColumnName="nowClimbingTmp" type="xs:int" minOccurs="0" />
+              <xs:element name="nowClimbing3" msprop:Generator_ColumnVarNameInTable="columnnowClimbing3" msprop:Generator_ColumnPropNameInRow="nowClimbing3" msprop:Generator_ColumnPropNameInTable="nowClimbing3Column" msprop:Generator_UserColumnName="nowClimbing3" type="xs:int" minOccurs="0" />
+              <xs:element name="climbingTime" msprop:Generator_ColumnVarNameInTable="columnclimbingTime" msprop:Generator_ColumnPropNameInRow="climbingTime" msprop:Generator_ColumnPropNameInTable="climbingTimeColumn" msprop:Generator_UserColumnName="climbingTime" type="xs:int" minOccurs="0" />
+              <xs:element name="routeNumber" msprop:Generator_ColumnVarNameInTable="columnrouteNumber" msprop:Generator_ColumnPropNameInRow="routeNumber" msprop:Generator_ColumnPropNameInTable="routeNumberColumn" msprop:Generator_UserColumnName="routeNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="showPhoto" msprop:Generator_ColumnVarNameInTable="columnshowPhoto" msprop:Generator_ColumnPropNameInRow="showPhoto" msprop:Generator_ColumnPropNameInTable="showPhotoColumn" msprop:Generator_UserColumnName="showPhoto" type="xs:boolean" />
+              <xs:element name="online" msprop:Generator_ColumnVarNameInTable="columnonline" msprop:Generator_ColumnPropNameInRow="online" msprop:Generator_ColumnPropNameInTable="onlineColumn" msprop:Generator_UserColumnName="online" type="xs:boolean" />
+              <xs:element name="judge_id" msprop:Generator_ColumnVarNameInTable="columnjudge_id" msprop:Generator_ColumnPropNameInRow="judge_id" msprop:Generator_ColumnPropNameInTable="judge_idColumn" msprop:Generator_UserColumnName="judge_id" type="xs:int" minOccurs="0" />
+              <xs:element name="isolationOpen" msprop:Generator_ColumnVarNameInTable="columnisolationOpen" msprop:Generator_ColumnPropNameInRow="isolationOpen" msprop:Generator_ColumnPropNameInTable="isolationOpenColumn" msprop:Generator_UserColumnName="isolationOpen" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="isolationClose" msprop:Generator_ColumnVarNameInTable="columnisolationClose" msprop:Generator_ColumnPropNameInRow="isolationClose" msprop:Generator_ColumnPropNameInTable="isolationCloseColumn" msprop:Generator_UserColumnName="isolationClose" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="observation" msprop:Generator_ColumnVarNameInTable="columnobservation" msprop:Generator_ColumnPropNameInRow="observation" msprop:Generator_ColumnPropNameInTable="observationColumn" msprop:Generator_UserColumnName="observation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="start" msprop:Generator_ColumnVarNameInTable="columnstart" msprop:Generator_ColumnPropNameInRow="start" msprop:Generator_ColumnPropNameInTable="startColumn" msprop:Generator_UserColumnName="start" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="routesetter_id" msprop:Generator_ColumnVarNameInTable="columnroutesetter_id" msprop:Generator_ColumnPropNameInRow="routesetter_id" msprop:Generator_ColumnPropNameInTable="routesetter_idColumn" msprop:Generator_UserColumnName="routesetter_id" type="xs:int" minOccurs="0" />
+              <xs:element name="iid_parent" msprop:Generator_ColumnVarNameInTable="columniid_parent" msprop:Generator_ColumnPropNameInRow="iid_parent" msprop:Generator_ColumnPropNameInTable="iid_parentColumn" msprop:Generator_UserColumnName="iid_parent" type="xs:int" minOccurs="0" />
+              <xs:element name="changed" msprop:Generator_ColumnVarNameInTable="columnchanged" msprop:Generator_ColumnPropNameInRow="changed" msprop:Generator_ColumnPropNameInTable="changedColumn" msprop:Generator_UserColumnName="changed" type="xs:boolean" />
+              <xs:element name="projNum" msprop:Generator_ColumnVarNameInTable="columnprojNum" msprop:Generator_ColumnPropNameInRow="projNum" msprop:Generator_ColumnPropNameInTable="projNumColumn" msprop:Generator_UserColumnName="projNum" type="xs:int" />
+              <xs:element name="IsLocked" msprop:Generator_ColumnVarNameInTable="columnIsLocked" msprop:Generator_ColumnPropNameInRow="IsLocked" msprop:Generator_ColumnPropNameInTable="IsLockedColumn" msprop:Generator_UserColumnName="IsLocked" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PhotoLocal" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:unique name="PhotoRemote_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PhotoRemote" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:unique name="ONLclimbers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ONLclimbers" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:unique name="ONLteams_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ONLteams" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:unique name="ONLGroups_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ONLGroups" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:unique name="ONLjudges_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ONLjudges" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:unique name="positions_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:positions" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:unique name="Points_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Points" />
+      <xs:field xpath="mstns:Место" />
+    </xs:unique>
+    <xs:unique name="climbersToUpdate_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:climbersToUpdate" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:unique name="logic_transactions_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:logic_transactions" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:unique name="logic_transaction_data_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:logic_transaction_data" />
+      <xs:field xpath="mstns:iid_line" />
+    </xs:unique>
+    <xs:unique name="lists_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:lists" />
+      <xs:field xpath="mstns:iid" />
+    </xs:unique>
+    <xs:keyref name="FK_logic_transactions_logic_transaction_data" refer="logic_transactions_Constraint1" msprop:rel_Generator_UserChildTable="logic_transaction_data" msprop:rel_Generator_ChildPropName="Getlogic_transaction_dataRows" msprop:rel_Generator_UserParentTable="logic_transactions" msprop:rel_Generator_UserRelationName="FK_logic_transactions_logic_transaction_data" msprop:rel_Generator_RelationVarName="relationFK_logic_transactions_logic_transaction_data" msprop:rel_Generator_ParentPropName="logic_transactionsRow" msdata:AcceptRejectRule="Cascade">
+      <xs:selector xpath=".//mstns:logic_transaction_data" />
+      <xs:field xpath="mstns:iid" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>

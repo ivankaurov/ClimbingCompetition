@@ -1,0 +1,2534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="web_DebugModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="web_DebugModelStoreContainer">
+          <EntitySet Name="ONLBoulder" EntityType="web_DebugModel.Store.ONLBoulder" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLboulderRoutes" EntityType="web_DebugModel.Store.ONLboulderRoutes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLClimberCompLink" EntityType="web_DebugModel.Store.ONLClimberCompLink" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLclimbers" EntityType="web_DebugModel.Store.ONLclimbers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLCompetitionBinaryParams" EntityType="web_DebugModel.Store.ONLCompetitionBinaryParams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLCompetitionParams" EntityType="web_DebugModel.Store.ONLCompetitionParams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLCompetitions" EntityType="web_DebugModel.Store.ONLCompetitions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLGroups" EntityType="web_DebugModel.Store.ONLGroups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLGroupsCompLink" EntityType="web_DebugModel.Store.ONLGroupsCompLink" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLlead" EntityType="web_DebugModel.Store.ONLlead" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLlistdata" EntityType="web_DebugModel.Store.ONLlistdata" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLlists" EntityType="web_DebugModel.Store.ONLlists" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLLog" EntityType="web_DebugModel.Store.ONLLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLLogDetails" EntityType="web_DebugModel.Store.ONLLogDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLoperations" EntityType="web_DebugModel.Store.ONLoperations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLqfList" EntityType="web_DebugModel.Store.ONLqfList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLrankings" EntityType="web_DebugModel.Store.ONLrankings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLspeed" EntityType="web_DebugModel.Store.ONLspeed" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLTeamGroupCompLink" EntityType="web_DebugModel.Store.ONLTeamGroupCompLink" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLTeamGroups" EntityType="web_DebugModel.Store.ONLTeamGroups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLteams" EntityType="web_DebugModel.Store.ONLteams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLTeamsCompLink" EntityType="web_DebugModel.Store.ONLTeamsCompLink" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLuserRoles" EntityType="web_DebugModel.Store.ONLuserRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ONLusers" EntityType="web_DebugModel.Store.ONLusers" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__ONLBoulde__iid_l__59063A47" Association="web_DebugModel.Store.FK__ONLBoulde__iid_l__59063A47">
+            <End Role="ONLlistdata" EntitySet="ONLlistdata" />
+            <End Role="ONLBoulder" EntitySet="ONLBoulder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLboulde__iid_p__5FB337D6" Association="web_DebugModel.Store.FK__ONLboulde__iid_p__5FB337D6">
+            <End Role="ONLBoulder" EntitySet="ONLBoulder" />
+            <End Role="ONLboulderRoutes" EntitySet="ONLboulderRoutes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLlead__iid_lin__48CFD27E" Association="web_DebugModel.Store.FK__ONLlead__iid_lin__48CFD27E">
+            <End Role="ONLlistdata" EntitySet="ONLlistdata" />
+            <End Role="ONLlead" EntitySet="ONLlead" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLlistdata__iid__3F466844" Association="web_DebugModel.Store.FK__ONLlistdata__iid__3F466844">
+            <End Role="ONLlists" EntitySet="ONLlists" />
+            <End Role="ONLlistdata" EntitySet="ONLlistdata" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLlists__group___36B12243" Association="web_DebugModel.Store.FK__ONLlists__group___36B12243">
+            <End Role="ONLGroups" EntitySet="ONLGroups" />
+            <End Role="ONLlists" EntitySet="ONLlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLoperat__user___74AE54BC" Association="web_DebugModel.Store.FK__ONLoperat__user___74AE54BC">
+            <End Role="ONLusers" EntitySet="ONLusers" />
+            <End Role="ONLoperations" EntitySet="ONLoperations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLrankin__group__03F0984C" Association="web_DebugModel.Store.FK__ONLrankin__group__03F0984C">
+            <End Role="ONLGroups" EntitySet="ONLGroups" />
+            <End Role="ONLrankings" EntitySet="ONLrankings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLrankin__team___04E4BC85" Association="web_DebugModel.Store.FK__ONLrankin__team___04E4BC85">
+            <End Role="ONLteams" EntitySet="ONLteams" />
+            <End Role="ONLrankings" EntitySet="ONLrankings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLspeed__iid_li__5070F446" Association="web_DebugModel.Store.FK__ONLspeed__iid_li__5070F446">
+            <End Role="ONLlistdata" EntitySet="ONLlistdata" />
+            <End Role="ONLspeed" EntitySet="ONLspeed" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLTeamGr__comp___1B5E0D89" Association="web_DebugModel.Store.FK__ONLTeamGr__comp___1B5E0D89">
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+            <End Role="ONLTeamGroupCompLink" EntitySet="ONLTeamGroupCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLTeamGr__teamg__1C5231C2" Association="web_DebugModel.Store.FK__ONLTeamGr__teamg__1C5231C2">
+            <End Role="ONLTeamGroups" EntitySet="ONLTeamGroups" />
+            <End Role="ONLTeamGroupCompLink" EntitySet="ONLTeamGroupCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLTeamsC__quota__1975C517" Association="web_DebugModel.Store.FK__ONLTeamsC__quota__1975C517">
+            <End Role="ONLTeamGroups" EntitySet="ONLTeamGroups" />
+            <End Role="ONLTeamsCompLink" EntitySet="ONLTeamsCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLuserRo__user___6EF57B66" Association="web_DebugModel.Store.FK__ONLuserRo__user___6EF57B66">
+            <End Role="ONLusers" EntitySet="ONLusers" />
+            <End Role="ONLuserRoles" EntitySet="ONLuserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLusers__team_i__6477ECF3" Association="web_DebugModel.Store.FK__ONLusers__team_i__6477ECF3">
+            <End Role="ONLteams" EntitySet="ONLteams" />
+            <End Role="ONLusers" EntitySet="ONLusers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLClimberCompLink" Association="web_DebugModel.Store.FK_ONLClimberCompLink_ONLClimberCompLink">
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLink" />
+            <End Role="ONLClimberCompLink1" EntitySet="ONLClimberCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLclimbers" Association="web_DebugModel.Store.FK_ONLClimberCompLink_ONLclimbers">
+            <End Role="ONLclimbers" EntitySet="ONLclimbers" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLCompetitions" Association="web_DebugModel.Store.FK_ONLClimberCompLink_ONLCompetitions">
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLGroups" Association="web_DebugModel.Store.FK_ONLClimberCompLink_ONLGroups">
+            <End Role="ONLGroups" EntitySet="ONLGroups" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLoperations" Association="web_DebugModel.Store.FK_ONLClimberCompLink_ONLoperations">
+            <End Role="ONLoperations" EntitySet="ONLoperations" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLteams" Association="web_DebugModel.Store.FK_ONLClimberCompLink_ONLteams">
+            <End Role="ONLteams" EntitySet="ONLteams" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLCompetitionBinaryParams_ONLCompetitionParams" Association="web_DebugModel.Store.FK_ONLCompetitionBinaryParams_ONLCompetitionParams">
+            <End Role="ONLCompetitionParams" EntitySet="ONLCompetitionParams" />
+            <End Role="ONLCompetitionBinaryParams" EntitySet="ONLCompetitionBinaryParams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLCompetitionParams_ONLCompetitions" Association="web_DebugModel.Store.FK_ONLCompetitionParams_ONLCompetitions">
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+            <End Role="ONLCompetitionParams" EntitySet="ONLCompetitionParams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLCompetitions_ONLTeamGroups" Association="web_DebugModel.Store.FK_ONLCompetitions_ONLTeamGroups">
+            <End Role="ONLTeamGroups" EntitySet="ONLTeamGroups" />
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLGroupsCompLink_ONLCompetitions" Association="web_DebugModel.Store.FK_ONLGroupsCompLink_ONLCompetitions">
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+            <End Role="ONLGroupsCompLink" EntitySet="ONLGroupsCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLGroupsCompLink_ONLGroups" Association="web_DebugModel.Store.FK_ONLGroupsCompLink_ONLGroups">
+            <End Role="ONLGroups" EntitySet="ONLGroups" />
+            <End Role="ONLGroupsCompLink" EntitySet="ONLGroupsCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLGroupsCompLink_ONLqfList" Association="web_DebugModel.Store.FK_ONLGroupsCompLink_ONLqfList">
+            <End Role="ONLqfList" EntitySet="ONLqfList" />
+            <End Role="ONLGroupsCompLink" EntitySet="ONLGroupsCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLlistdata_ONLClimberCompLink" Association="web_DebugModel.Store.FK_ONLlistdata_ONLClimberCompLink">
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLink" />
+            <End Role="ONLlistdata" EntitySet="ONLlistdata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLlists_ONLCompetitions" Association="web_DebugModel.Store.FK_ONLlists_ONLCompetitions">
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+            <End Role="ONLlists" EntitySet="ONLlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLLogDetails_ONLLog" Association="web_DebugModel.Store.FK_ONLLogDetails_ONLLog">
+            <End Role="ONLLog" EntitySet="ONLLog" />
+            <End Role="ONLLogDetails" EntitySet="ONLLogDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLoperations_ONLCompetitions" Association="web_DebugModel.Store.FK_ONLoperations_ONLCompetitions">
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+            <End Role="ONLoperations" EntitySet="ONLoperations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLrankings_ONLCompetitions" Association="web_DebugModel.Store.FK_ONLrankings_ONLCompetitions">
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+            <End Role="ONLrankings" EntitySet="ONLrankings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLteams_ONLTeamGroups" Association="web_DebugModel.Store.FK_ONLteams_ONLTeamGroups">
+            <End Role="ONLTeamGroups" EntitySet="ONLTeamGroups" />
+            <End Role="ONLteams" EntitySet="ONLteams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLTeamsCompLink_ONLCompetitions" Association="web_DebugModel.Store.FK_ONLTeamsCompLink_ONLCompetitions">
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+            <End Role="ONLTeamsCompLink" EntitySet="ONLTeamsCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLTeamsCompLink_ONLteams" Association="web_DebugModel.Store.FK_ONLTeamsCompLink_ONLteams">
+            <End Role="ONLteams" EntitySet="ONLteams" />
+            <End Role="ONLTeamsCompLink" EntitySet="ONLTeamsCompLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLuserRoles_ONLCompetitions" Association="web_DebugModel.Store.FK_ONLuserRoles_ONLCompetitions">
+            <End Role="ONLCompetitions" EntitySet="ONLCompetitions" />
+            <End Role="ONLuserRoles" EntitySet="ONLuserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ONLBoulder">
+          <Key>
+            <PropertyRef Name="idPK" />
+          </Key>
+          <Property Name="idPK" Type="bigint" Nullable="false" />
+          <Property Name="iid_line" Type="bigint" Nullable="false" />
+          <Property Name="T" Type="int" />
+          <Property Name="Ta" Type="int" />
+          <Property Name="B" Type="int" />
+          <Property Name="Ba" Type="int" />
+          <Property Name="nya" Type="bit" Nullable="false" />
+          <Property Name="disq" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ONLboulderRoutes">
+          <Key>
+            <PropertyRef Name="iid_line" />
+          </Key>
+          <Property Name="iid_line" Type="bigint" Nullable="false" />
+          <Property Name="iid_parent" Type="bigint" Nullable="false" />
+          <Property Name="routeN" Type="int" Nullable="false" />
+          <Property Name="topA" Type="int" />
+          <Property Name="bonusA" Type="int" />
+        </EntityType>
+        <EntityType Name="ONLClimberCompLink">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="climber_id" Type="int" Nullable="false" />
+          <Property Name="comp_id" Type="bigint" Nullable="false" />
+          <Property Name="secretary_id" Type="int" Nullable="false" />
+          <Property Name="group_id" Type="int" Nullable="false" />
+          <Property Name="team_id" Type="int" Nullable="false" />
+          <Property Name="qf" Type="varchar(max)" Nullable="false" />
+          <Property Name="lead" Type="smallint" Nullable="false" />
+          <Property Name="speed" Type="smallint" Nullable="false" />
+          <Property Name="boulder" Type="smallint" Nullable="false" />
+          <Property Name="rankingLead" Type="int" />
+          <Property Name="rankingSpeed" Type="int" />
+          <Property Name="rankingBoulder" Type="int" />
+          <Property Name="vk" Type="bit" Nullable="false" />
+          <Property Name="nopoints" Type="bit" Nullable="false" />
+          <Property Name="appl_type" Type="varchar(max)" Nullable="false" />
+          <Property Name="is_changeble" Type="bit" Nullable="false" />
+          <Property Name="queue_pos" Type="int" Nullable="false" />
+          <Property Name="sys_date_create" Type="datetime" Nullable="false" />
+          <Property Name="sys_date_update" Type="datetime" Nullable="false" />
+          <Property Name="state" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="updOpIid" Type="bigint" />
+          <Property Name="replacementID" Type="bigint" />
+          <Property Name="queue_Lead" Type="int" Nullable="false" />
+          <Property Name="queue_Speed" Type="int" Nullable="false" />
+          <Property Name="queue_Boulder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ONLclimbers">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="int" Nullable="false" />
+          <Property Name="surname" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="genderFemale" Type="bit" Nullable="false" />
+          <Property Name="birthdate" Type="datetime" Nullable="false" />
+          <Property Name="photo" Type="image" />
+          <Property Name="phLoaded" Type="bit" Nullable="false" />
+          <Property Name="is_del" Type="bit" Nullable="false" />
+          <Property Name="age" Type="int" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="ONLCompetitionBinaryParams">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="paramValue" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ONLCompetitionParams">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="comp_id" Type="bigint" Nullable="false" />
+          <Property Name="ParamName" Type="varchar(max)" Nullable="false" />
+          <Property Name="ParamValue" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ONLCompetitions">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="short_name" Type="varchar(max)" />
+          <Property Name="place" Type="varchar(max)" />
+          <Property Name="date" Type="varchar(max)" />
+          <Property Name="default_group" Type="int" />
+        </EntityType>
+        <EntityType Name="ONLGroups">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="oldYear" Type="int" Nullable="false" />
+          <Property Name="youngYear" Type="int" Nullable="false" />
+          <Property Name="genderFemale" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ONLGroupsCompLink">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="group_id" Type="int" Nullable="false" />
+          <Property Name="comp_id" Type="bigint" Nullable="false" />
+          <Property Name="minQf" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ONLlead">
+          <Key>
+            <PropertyRef Name="idPK" />
+          </Key>
+          <Property Name="idPK" Type="bigint" Nullable="false" />
+          <Property Name="iid_line" Type="bigint" Nullable="false" />
+          <Property Name="res" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ONLlistdata">
+          <Key>
+            <PropertyRef Name="iid_line" />
+          </Key>
+          <Property Name="iid" Type="int" Nullable="false" />
+          <Property Name="iid_line" Type="bigint" Nullable="false" />
+          <Property Name="climber_id" Type="bigint" Nullable="false" />
+          <Property Name="start" Type="int" />
+          <Property Name="res" Type="bigint" />
+          <Property Name="preQf" Type="bit" Nullable="false" />
+          <Property Name="pos" Type="int" />
+        </EntityType>
+        <EntityType Name="ONLlists">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="int" Nullable="false" />
+          <Property Name="secretary_id" Type="int" Nullable="false" />
+          <Property Name="comp_id" Type="bigint" Nullable="false" />
+          <Property Name="listType" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="style" Type="varchar" MaxLength="50" />
+          <Property Name="group_id" Type="int" />
+          <Property Name="round" Type="varchar" MaxLength="255" />
+          <Property Name="routeNumber" Type="int" />
+          <Property Name="live" Type="bit" Nullable="false" />
+          <Property Name="quote" Type="int" Nullable="false" />
+          <Property Name="prevRound" Type="int" />
+          <Property Name="iid_parent" Type="int" />
+          <Property Name="start_time" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="roundFinished" Type="bit" Nullable="false" />
+          <Property Name="lastUpd" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ONLLog">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="username" Type="varchar(max)" Nullable="false" />
+          <Property Name="hostname" Type="varchar(max)" Nullable="false" />
+          <Property Name="operationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ONLLogDetails">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="op_id" Type="bigint" Nullable="false" />
+          <Property Name="Action" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="OldPK_value" Type="varchar(max)" />
+          <Property Name="NewPK_value" Type="varchar(max)" />
+          <Property Name="TableName" Type="varchar(max)" Nullable="false" />
+          <Property Name="ColumnName" Type="varchar(max)" Nullable="false" />
+          <Property Name="OldValue" Type="varchar(max)" />
+          <Property Name="NewValue" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ONLoperations">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="comp_id" Type="bigint" Nullable="false" />
+          <Property Name="user_id" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="op_date" Type="datetime" Nullable="false" />
+          <Property Name="state" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ONLqfList">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="int" Nullable="false" />
+          <Property Name="qf" Type="varchar" Nullable="false" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="ONLrankings">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="comp_id" Type="bigint" Nullable="false" />
+          <Property Name="climber" Type="varchar(max)" Nullable="false" />
+          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="style" Type="varchar(max)" Nullable="false" />
+          <Property Name="group_id" Type="int" Nullable="false" />
+          <Property Name="team_id" Type="int" Nullable="false" />
+          <Property Name="pos" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ONLspeed">
+          <Key>
+            <PropertyRef Name="idPK" />
+          </Key>
+          <Property Name="idPK" Type="bigint" Nullable="false" />
+          <Property Name="iid_line" Type="bigint" Nullable="false" />
+          <Property Name="r1" Type="varchar" MaxLength="50" />
+          <Property Name="r2" Type="varchar" MaxLength="50" />
+          <Property Name="res" Type="varchar" MaxLength="50" />
+          <Property Name="qf" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ONLTeamGroupCompLink">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="comp_id" Type="bigint" />
+          <Property Name="teamgroup_id" Type="int" />
+          <Property Name="quota_style_total" Type="int" Nullable="false" />
+          <Property Name="iid" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ONLTeamGroups">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ONLteams">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="int" Nullable="false" />
+          <Property Name="group_id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ONLTeamsCompLink">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="team_id" Type="int" Nullable="false" />
+          <Property Name="comp_id" Type="bigint" Nullable="false" />
+          <Property Name="secretary_id" Type="int" Nullable="false" />
+          <Property Name="ranking_pos" Type="int" Nullable="false" />
+          <Property Name="quota_group" Type="int" />
+        </EntityType>
+        <EntityType Name="ONLuserRoles">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="bigint" Nullable="false" />
+          <Property Name="comp_id" Type="bigint" />
+          <Property Name="user_id" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="notifSent" Type="varchar(max)" />
+          <Property Name="role_id" Type="varchar" Nullable="false" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="ONLusers">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="password" Type="varchar" Nullable="false" />
+          <Property Name="team_id" Type="int" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="chief" Type="varchar" MaxLength="255" />
+          <Property Name="creationDate" Type="datetime" />
+          <Property Name="loginDate" Type="datetime" />
+          <Property Name="lastForgPassword" Type="datetime" />
+          <Property Name="messageToSend" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ONLBoulde__iid_l__59063A47">
+          <End Role="ONLlistdata" Type="web_DebugModel.Store.ONLlistdata" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLBoulder" Type="web_DebugModel.Store.ONLBoulder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLlistdata">
+              <PropertyRef Name="iid_line" />
+            </Principal>
+            <Dependent Role="ONLBoulder">
+              <PropertyRef Name="iid_line" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLboulde__iid_p__5FB337D6">
+          <End Role="ONLBoulder" Type="web_DebugModel.Store.ONLBoulder" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLboulderRoutes" Type="web_DebugModel.Store.ONLboulderRoutes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLBoulder">
+              <PropertyRef Name="idPK" />
+            </Principal>
+            <Dependent Role="ONLboulderRoutes">
+              <PropertyRef Name="iid_parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLlead__iid_lin__48CFD27E">
+          <End Role="ONLlistdata" Type="web_DebugModel.Store.ONLlistdata" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLlead" Type="web_DebugModel.Store.ONLlead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLlistdata">
+              <PropertyRef Name="iid_line" />
+            </Principal>
+            <Dependent Role="ONLlead">
+              <PropertyRef Name="iid_line" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLlistdata__iid__3F466844">
+          <End Role="ONLlists" Type="web_DebugModel.Store.ONLlists" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLlistdata" Type="web_DebugModel.Store.ONLlistdata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLlists">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLlistdata">
+              <PropertyRef Name="iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLlists__group___36B12243">
+          <End Role="ONLGroups" Type="web_DebugModel.Store.ONLGroups" Multiplicity="0..1" />
+          <End Role="ONLlists" Type="web_DebugModel.Store.ONLlists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLGroups">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLlists">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLoperat__user___74AE54BC">
+          <End Role="ONLusers" Type="web_DebugModel.Store.ONLusers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLoperations" Type="web_DebugModel.Store.ONLoperations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLusers">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLoperations">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLrankin__group__03F0984C">
+          <End Role="ONLGroups" Type="web_DebugModel.Store.ONLGroups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLrankings" Type="web_DebugModel.Store.ONLrankings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLGroups">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLrankings">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLrankin__team___04E4BC85">
+          <End Role="ONLteams" Type="web_DebugModel.Store.ONLteams" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLrankings" Type="web_DebugModel.Store.ONLrankings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLteams">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLrankings">
+              <PropertyRef Name="team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLspeed__iid_li__5070F446">
+          <End Role="ONLlistdata" Type="web_DebugModel.Store.ONLlistdata" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLspeed" Type="web_DebugModel.Store.ONLspeed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLlistdata">
+              <PropertyRef Name="iid_line" />
+            </Principal>
+            <Dependent Role="ONLspeed">
+              <PropertyRef Name="iid_line" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLTeamGr__comp___1B5E0D89">
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="0..1" />
+          <End Role="ONLTeamGroupCompLink" Type="web_DebugModel.Store.ONLTeamGroupCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitions">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamGroupCompLink">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLTeamGr__teamg__1C5231C2">
+          <End Role="ONLTeamGroups" Type="web_DebugModel.Store.ONLTeamGroups" Multiplicity="0..1" />
+          <End Role="ONLTeamGroupCompLink" Type="web_DebugModel.Store.ONLTeamGroupCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLTeamGroups">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamGroupCompLink">
+              <PropertyRef Name="teamgroup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLTeamsC__quota__1975C517">
+          <End Role="ONLTeamGroups" Type="web_DebugModel.Store.ONLTeamGroups" Multiplicity="0..1" />
+          <End Role="ONLTeamsCompLink" Type="web_DebugModel.Store.ONLTeamsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLTeamGroups">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamsCompLink">
+              <PropertyRef Name="quota_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLuserRo__user___6EF57B66">
+          <End Role="ONLusers" Type="web_DebugModel.Store.ONLusers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLuserRoles" Type="web_DebugModel.Store.ONLuserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLusers">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLuserRoles">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLusers__team_i__6477ECF3">
+          <End Role="ONLteams" Type="web_DebugModel.Store.ONLteams" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLusers" Type="web_DebugModel.Store.ONLusers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLteams">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLusers">
+              <PropertyRef Name="team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLClimberCompLink">
+          <End Role="ONLClimberCompLink" Type="web_DebugModel.Store.ONLClimberCompLink" Multiplicity="0..1" />
+          <End Role="ONLClimberCompLink1" Type="web_DebugModel.Store.ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLClimberCompLink">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink1">
+              <PropertyRef Name="replacementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLclimbers">
+          <End Role="ONLclimbers" Type="web_DebugModel.Store.ONLclimbers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLClimberCompLink" Type="web_DebugModel.Store.ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLclimbers">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="climber_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLCompetitions">
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLClimberCompLink" Type="web_DebugModel.Store.ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitions">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLGroups">
+          <End Role="ONLGroups" Type="web_DebugModel.Store.ONLGroups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLClimberCompLink" Type="web_DebugModel.Store.ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLGroups">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLoperations">
+          <End Role="ONLoperations" Type="web_DebugModel.Store.ONLoperations" Multiplicity="0..1" />
+          <End Role="ONLClimberCompLink" Type="web_DebugModel.Store.ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLoperations">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="updOpIid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLteams">
+          <End Role="ONLteams" Type="web_DebugModel.Store.ONLteams" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLClimberCompLink" Type="web_DebugModel.Store.ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLteams">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLCompetitionBinaryParams_ONLCompetitionParams">
+          <End Role="ONLCompetitionParams" Type="web_DebugModel.Store.ONLCompetitionParams" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLCompetitionBinaryParams" Type="web_DebugModel.Store.ONLCompetitionBinaryParams" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitionParams">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLCompetitionBinaryParams">
+              <PropertyRef Name="iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLCompetitionParams_ONLCompetitions">
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLCompetitionParams" Type="web_DebugModel.Store.ONLCompetitionParams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitions">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLCompetitionParams">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLCompetitions_ONLTeamGroups">
+          <End Role="ONLTeamGroups" Type="web_DebugModel.Store.ONLTeamGroups" Multiplicity="0..1" />
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLTeamGroups">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLCompetitions">
+              <PropertyRef Name="default_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLGroupsCompLink_ONLCompetitions">
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLGroupsCompLink" Type="web_DebugModel.Store.ONLGroupsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitions">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLGroupsCompLink">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLGroupsCompLink_ONLGroups">
+          <End Role="ONLGroups" Type="web_DebugModel.Store.ONLGroups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLGroupsCompLink" Type="web_DebugModel.Store.ONLGroupsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLGroups">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLGroupsCompLink">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLGroupsCompLink_ONLqfList">
+          <End Role="ONLqfList" Type="web_DebugModel.Store.ONLqfList" Multiplicity="1" />
+          <End Role="ONLGroupsCompLink" Type="web_DebugModel.Store.ONLGroupsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLqfList">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLGroupsCompLink">
+              <PropertyRef Name="minQf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLlistdata_ONLClimberCompLink">
+          <End Role="ONLClimberCompLink" Type="web_DebugModel.Store.ONLClimberCompLink" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLlistdata" Type="web_DebugModel.Store.ONLlistdata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLClimberCompLink">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLlistdata">
+              <PropertyRef Name="climber_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLlists_ONLCompetitions">
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="1" />
+          <End Role="ONLlists" Type="web_DebugModel.Store.ONLlists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitions">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLlists">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLLogDetails_ONLLog">
+          <End Role="ONLLog" Type="web_DebugModel.Store.ONLLog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLLogDetails" Type="web_DebugModel.Store.ONLLogDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLLog">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLLogDetails">
+              <PropertyRef Name="op_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLoperations_ONLCompetitions">
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLoperations" Type="web_DebugModel.Store.ONLoperations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitions">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLoperations">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLrankings_ONLCompetitions">
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLrankings" Type="web_DebugModel.Store.ONLrankings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitions">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLrankings">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLteams_ONLTeamGroups">
+          <End Role="ONLTeamGroups" Type="web_DebugModel.Store.ONLTeamGroups" Multiplicity="0..1" />
+          <End Role="ONLteams" Type="web_DebugModel.Store.ONLteams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLTeamGroups">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLteams">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLTeamsCompLink_ONLCompetitions">
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLTeamsCompLink" Type="web_DebugModel.Store.ONLTeamsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitions">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamsCompLink">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLTeamsCompLink_ONLteams">
+          <End Role="ONLteams" Type="web_DebugModel.Store.ONLteams" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLTeamsCompLink" Type="web_DebugModel.Store.ONLTeamsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLteams">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamsCompLink">
+              <PropertyRef Name="team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLuserRoles_ONLCompetitions">
+          <End Role="ONLCompetitions" Type="web_DebugModel.Store.ONLCompetitions" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ONLuserRoles" Type="web_DebugModel.Store.ONLuserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitions">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLuserRoles">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="web_DebugModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ONLBoulders" EntityType="web_DebugModel.ONLBoulder" />
+          <EntitySet Name="ONLboulderRoutes" EntityType="web_DebugModel.ONLboulderRoute" />
+          <EntitySet Name="ONLClimberCompLinks" EntityType="web_DebugModel.ONLClimberCompLink" />
+          <EntitySet Name="ONLclimbers" EntityType="web_DebugModel.ONLclimber" />
+          <EntitySet Name="ONLCompetitionBinaryParams" EntityType="web_DebugModel.ONLCompetitionBinaryParam" />
+          <EntitySet Name="ONLCompetitionParams" EntityType="web_DebugModel.ONLCompetitionParam" />
+          <EntitySet Name="ONLCompetitions" EntityType="web_DebugModel.ONLCompetition" />
+          <EntitySet Name="ONLGroups" EntityType="web_DebugModel.ONLGroup" />
+          <EntitySet Name="ONLGroupsCompLinks" EntityType="web_DebugModel.ONLGroupsCompLink" />
+          <EntitySet Name="ONLleads" EntityType="web_DebugModel.ONLlead" />
+          <EntitySet Name="ONLlistdatas" EntityType="web_DebugModel.ONLlistdata" />
+          <EntitySet Name="ONLlists" EntityType="web_DebugModel.ONLlist" />
+          <EntitySet Name="ONLLogs" EntityType="web_DebugModel.ONLLog" />
+          <EntitySet Name="ONLLogDetails" EntityType="web_DebugModel.ONLLogDetail" />
+          <EntitySet Name="ONLoperations" EntityType="web_DebugModel.ONLoperation" />
+          <EntitySet Name="ONLqfLists" EntityType="web_DebugModel.ONLqfList" />
+          <EntitySet Name="ONLrankings" EntityType="web_DebugModel.ONLranking" />
+          <EntitySet Name="ONLspeeds" EntityType="web_DebugModel.ONLspeed" />
+          <EntitySet Name="ONLTeamGroupCompLinks" EntityType="web_DebugModel.ONLTeamGroupCompLink" />
+          <EntitySet Name="ONLTeamGroups" EntityType="web_DebugModel.ONLTeamGroup" />
+          <EntitySet Name="ONLteams" EntityType="web_DebugModel.ONLteam" />
+          <EntitySet Name="ONLTeamsCompLinks" EntityType="web_DebugModel.ONLTeamsCompLink" />
+          <EntitySet Name="ONLuserRoles" EntityType="web_DebugModel.ONLuserRole" />
+          <EntitySet Name="ONLusers" EntityType="web_DebugModel.ONLuser" />
+          <AssociationSet Name="FK__ONLBoulde__iid_l__59063A47" Association="web_DebugModel.FK__ONLBoulde__iid_l__59063A47">
+            <End Role="ONLlistdata" EntitySet="ONLlistdatas" />
+            <End Role="ONLBoulder" EntitySet="ONLBoulders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLboulde__iid_p__5FB337D6" Association="web_DebugModel.FK__ONLboulde__iid_p__5FB337D6">
+            <End Role="ONLBoulder" EntitySet="ONLBoulders" />
+            <End Role="ONLboulderRoute" EntitySet="ONLboulderRoutes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLClimberCompLink" Association="web_DebugModel.FK_ONLClimberCompLink_ONLClimberCompLink">
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLinks" />
+            <End Role="ONLClimberCompLink1" EntitySet="ONLClimberCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLclimbers" Association="web_DebugModel.FK_ONLClimberCompLink_ONLclimbers">
+            <End Role="ONLclimber" EntitySet="ONLclimbers" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLCompetitions" Association="web_DebugModel.FK_ONLClimberCompLink_ONLCompetitions">
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLGroups" Association="web_DebugModel.FK_ONLClimberCompLink_ONLGroups">
+            <End Role="ONLGroup" EntitySet="ONLGroups" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLoperations" Association="web_DebugModel.FK_ONLClimberCompLink_ONLoperations">
+            <End Role="ONLoperation" EntitySet="ONLoperations" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLClimberCompLink_ONLteams" Association="web_DebugModel.FK_ONLClimberCompLink_ONLteams">
+            <End Role="ONLteam" EntitySet="ONLteams" />
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLlistdata_ONLClimberCompLink" Association="web_DebugModel.FK_ONLlistdata_ONLClimberCompLink">
+            <End Role="ONLClimberCompLink" EntitySet="ONLClimberCompLinks" />
+            <End Role="ONLlistdata" EntitySet="ONLlistdatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLCompetitionBinaryParams_ONLCompetitionParams" Association="web_DebugModel.FK_ONLCompetitionBinaryParams_ONLCompetitionParams">
+            <End Role="ONLCompetitionParam" EntitySet="ONLCompetitionParams" />
+            <End Role="ONLCompetitionBinaryParam" EntitySet="ONLCompetitionBinaryParams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLCompetitionParams_ONLCompetitions" Association="web_DebugModel.FK_ONLCompetitionParams_ONLCompetitions">
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+            <End Role="ONLCompetitionParam" EntitySet="ONLCompetitionParams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLTeamGr__comp___1B5E0D89" Association="web_DebugModel.FK__ONLTeamGr__comp___1B5E0D89">
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+            <End Role="ONLTeamGroupCompLink" EntitySet="ONLTeamGroupCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLCompetitions_ONLTeamGroups" Association="web_DebugModel.FK_ONLCompetitions_ONLTeamGroups">
+            <End Role="ONLTeamGroup" EntitySet="ONLTeamGroups" />
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLGroupsCompLink_ONLCompetitions" Association="web_DebugModel.FK_ONLGroupsCompLink_ONLCompetitions">
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+            <End Role="ONLGroupsCompLink" EntitySet="ONLGroupsCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLlists_ONLCompetitions" Association="web_DebugModel.FK_ONLlists_ONLCompetitions">
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+            <End Role="ONLlist" EntitySet="ONLlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLoperations_ONLCompetitions" Association="web_DebugModel.FK_ONLoperations_ONLCompetitions">
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+            <End Role="ONLoperation" EntitySet="ONLoperations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLrankings_ONLCompetitions" Association="web_DebugModel.FK_ONLrankings_ONLCompetitions">
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+            <End Role="ONLranking" EntitySet="ONLrankings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLTeamsCompLink_ONLCompetitions" Association="web_DebugModel.FK_ONLTeamsCompLink_ONLCompetitions">
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+            <End Role="ONLTeamsCompLink" EntitySet="ONLTeamsCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLuserRoles_ONLCompetitions" Association="web_DebugModel.FK_ONLuserRoles_ONLCompetitions">
+            <End Role="ONLCompetition" EntitySet="ONLCompetitions" />
+            <End Role="ONLuserRole" EntitySet="ONLuserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLlists__group___36B12243" Association="web_DebugModel.FK__ONLlists__group___36B12243">
+            <End Role="ONLGroup" EntitySet="ONLGroups" />
+            <End Role="ONLlist" EntitySet="ONLlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLrankin__group__03F0984C" Association="web_DebugModel.FK__ONLrankin__group__03F0984C">
+            <End Role="ONLGroup" EntitySet="ONLGroups" />
+            <End Role="ONLranking" EntitySet="ONLrankings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLGroupsCompLink_ONLGroups" Association="web_DebugModel.FK_ONLGroupsCompLink_ONLGroups">
+            <End Role="ONLGroup" EntitySet="ONLGroups" />
+            <End Role="ONLGroupsCompLink" EntitySet="ONLGroupsCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLGroupsCompLink_ONLqfList" Association="web_DebugModel.FK_ONLGroupsCompLink_ONLqfList">
+            <End Role="ONLqfList" EntitySet="ONLqfLists" />
+            <End Role="ONLGroupsCompLink" EntitySet="ONLGroupsCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLlead__iid_lin__48CFD27E" Association="web_DebugModel.FK__ONLlead__iid_lin__48CFD27E">
+            <End Role="ONLlistdata" EntitySet="ONLlistdatas" />
+            <End Role="ONLlead" EntitySet="ONLleads" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLlistdata__iid__3F466844" Association="web_DebugModel.FK__ONLlistdata__iid__3F466844">
+            <End Role="ONLlist" EntitySet="ONLlists" />
+            <End Role="ONLlistdata" EntitySet="ONLlistdatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLspeed__iid_li__5070F446" Association="web_DebugModel.FK__ONLspeed__iid_li__5070F446">
+            <End Role="ONLlistdata" EntitySet="ONLlistdatas" />
+            <End Role="ONLspeed" EntitySet="ONLspeeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLLogDetails_ONLLog" Association="web_DebugModel.FK_ONLLogDetails_ONLLog">
+            <End Role="ONLLog" EntitySet="ONLLogs" />
+            <End Role="ONLLogDetail" EntitySet="ONLLogDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLoperat__user___74AE54BC" Association="web_DebugModel.FK__ONLoperat__user___74AE54BC">
+            <End Role="ONLuser" EntitySet="ONLusers" />
+            <End Role="ONLoperation" EntitySet="ONLoperations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLrankin__team___04E4BC85" Association="web_DebugModel.FK__ONLrankin__team___04E4BC85">
+            <End Role="ONLteam" EntitySet="ONLteams" />
+            <End Role="ONLranking" EntitySet="ONLrankings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLTeamGr__teamg__1C5231C2" Association="web_DebugModel.FK__ONLTeamGr__teamg__1C5231C2">
+            <End Role="ONLTeamGroup" EntitySet="ONLTeamGroups" />
+            <End Role="ONLTeamGroupCompLink" EntitySet="ONLTeamGroupCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLTeamsC__quota__1975C517" Association="web_DebugModel.FK__ONLTeamsC__quota__1975C517">
+            <End Role="ONLTeamGroup" EntitySet="ONLTeamGroups" />
+            <End Role="ONLTeamsCompLink" EntitySet="ONLTeamsCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLteams_ONLTeamGroups" Association="web_DebugModel.FK_ONLteams_ONLTeamGroups">
+            <End Role="ONLTeamGroup" EntitySet="ONLTeamGroups" />
+            <End Role="ONLteam" EntitySet="ONLteams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLusers__team_i__6477ECF3" Association="web_DebugModel.FK__ONLusers__team_i__6477ECF3">
+            <End Role="ONLteam" EntitySet="ONLteams" />
+            <End Role="ONLuser" EntitySet="ONLusers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ONLTeamsCompLink_ONLteams" Association="web_DebugModel.FK_ONLTeamsCompLink_ONLteams">
+            <End Role="ONLteam" EntitySet="ONLteams" />
+            <End Role="ONLTeamsCompLink" EntitySet="ONLTeamsCompLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ONLuserRo__user___6EF57B66" Association="web_DebugModel.FK__ONLuserRo__user___6EF57B66">
+            <End Role="ONLuser" EntitySet="ONLusers" />
+            <End Role="ONLuserRole" EntitySet="ONLuserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ONLBoulder">
+          <Key>
+            <PropertyRef Name="idPK" />
+          </Key>
+          <Property Type="Int64" Name="idPK" Nullable="false" />
+          <Property Type="Int64" Name="iid_line" Nullable="false" />
+          <Property Type="Int32" Name="T" />
+          <Property Type="Int32" Name="Ta" />
+          <Property Type="Int32" Name="B" />
+          <Property Type="Int32" Name="Ba" />
+          <Property Type="Boolean" Name="nya" Nullable="false" />
+          <Property Type="Boolean" Name="disq" Nullable="false" />
+          <NavigationProperty Name="ONLlistdata" Relationship="web_DebugModel.FK__ONLBoulde__iid_l__59063A47" FromRole="ONLBoulder" ToRole="ONLlistdata" />
+          <NavigationProperty Name="ONLboulderRoutes" Relationship="web_DebugModel.FK__ONLboulde__iid_p__5FB337D6" FromRole="ONLBoulder" ToRole="ONLboulderRoute" />
+        </EntityType>
+        <EntityType Name="ONLboulderRoute">
+          <Key>
+            <PropertyRef Name="iid_line" />
+          </Key>
+          <Property Type="Int64" Name="iid_line" Nullable="false" />
+          <Property Type="Int64" Name="iid_parent" Nullable="false" />
+          <Property Type="Int32" Name="routeN" Nullable="false" />
+          <Property Type="Int32" Name="topA" />
+          <Property Type="Int32" Name="bonusA" />
+          <NavigationProperty Name="ONLBoulder" Relationship="web_DebugModel.FK__ONLboulde__iid_p__5FB337D6" FromRole="ONLboulderRoute" ToRole="ONLBoulder" />
+        </EntityType>
+        <EntityType Name="ONLClimberCompLink">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="Int32" Name="climber_id" Nullable="false" />
+          <Property Type="Int64" Name="comp_id" Nullable="false" />
+          <Property Type="Int32" Name="secretary_id" Nullable="false" />
+          <Property Type="Int32" Name="group_id" Nullable="false" />
+          <Property Type="Int32" Name="team_id" Nullable="false" />
+          <Property Type="String" Name="qf" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="lead" Nullable="false" />
+          <Property Type="Int16" Name="speed" Nullable="false" />
+          <Property Type="Int16" Name="boulder" Nullable="false" />
+          <Property Type="Int32" Name="rankingLead" />
+          <Property Type="Int32" Name="rankingSpeed" />
+          <Property Type="Int32" Name="rankingBoulder" />
+          <Property Type="Boolean" Name="vk" Nullable="false" />
+          <Property Type="Boolean" Name="nopoints" Nullable="false" />
+          <Property Type="String" Name="appl_type" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="is_changeble" Nullable="false" />
+          <Property Type="Int32" Name="queue_pos" Nullable="false" />
+          <Property Type="DateTime" Name="sys_date_create" Nullable="false" />
+          <Property Type="DateTime" Name="sys_date_update" Nullable="false" />
+          <Property Type="String" Name="state" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int64" Name="updOpIid" />
+          <Property Type="Int64" Name="replacementID" />
+          <Property Type="Int32" Name="queue_Lead" Nullable="false" />
+          <Property Type="Int32" Name="queue_Speed" Nullable="false" />
+          <Property Type="Int32" Name="queue_Boulder" Nullable="false" />
+          <NavigationProperty Name="ONLClimberCompLink1" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLClimberCompLink" FromRole="ONLClimberCompLink" ToRole="ONLClimberCompLink1" />
+          <NavigationProperty Name="ONLClimberCompLink2" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLClimberCompLink" FromRole="ONLClimberCompLink1" ToRole="ONLClimberCompLink" />
+          <NavigationProperty Name="ONLclimber" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLclimbers" FromRole="ONLClimberCompLink" ToRole="ONLclimber" />
+          <NavigationProperty Name="ONLCompetition" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLCompetitions" FromRole="ONLClimberCompLink" ToRole="ONLCompetition" />
+          <NavigationProperty Name="ONLGroup" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLGroups" FromRole="ONLClimberCompLink" ToRole="ONLGroup" />
+          <NavigationProperty Name="ONLoperation" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLoperations" FromRole="ONLClimberCompLink" ToRole="ONLoperation" />
+          <NavigationProperty Name="ONLteam" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLteams" FromRole="ONLClimberCompLink" ToRole="ONLteam" />
+          <NavigationProperty Name="ONLlistdatas" Relationship="web_DebugModel.FK_ONLlistdata_ONLClimberCompLink" FromRole="ONLClimberCompLink" ToRole="ONLlistdata" />
+        </EntityType>
+        <EntityType Name="ONLclimber">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int32" Name="iid" Nullable="false" />
+          <Property Type="String" Name="surname" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="genderFemale" Nullable="false" />
+          <Property Type="DateTime" Name="birthdate" Nullable="false" />
+          <Property Type="Binary" Name="photo" MaxLength="Max" FixedLength="false" />
+          <Property Type="Boolean" Name="phLoaded" Nullable="false" />
+          <Property Type="Boolean" Name="is_del" Nullable="false" />
+          <Property Type="Int32" Name="age" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="ONLClimberCompLinks" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLclimbers" FromRole="ONLclimber" ToRole="ONLClimberCompLink" />
+        </EntityType>
+        <EntityType Name="ONLCompetitionBinaryParam">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="Binary" Name="paramValue" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="ONLCompetitionParam" Relationship="web_DebugModel.FK_ONLCompetitionBinaryParams_ONLCompetitionParams" FromRole="ONLCompetitionBinaryParam" ToRole="ONLCompetitionParam" />
+        </EntityType>
+        <EntityType Name="ONLCompetitionParam">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="Int64" Name="comp_id" Nullable="false" />
+          <Property Type="String" Name="ParamName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ParamValue" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ONLCompetitionBinaryParam" Relationship="web_DebugModel.FK_ONLCompetitionBinaryParams_ONLCompetitionParams" FromRole="ONLCompetitionParam" ToRole="ONLCompetitionBinaryParam" />
+          <NavigationProperty Name="ONLCompetition" Relationship="web_DebugModel.FK_ONLCompetitionParams_ONLCompetitions" FromRole="ONLCompetitionParam" ToRole="ONLCompetition" />
+        </EntityType>
+        <EntityType Name="ONLCompetition">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="String" Name="name" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="short_name" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="place" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="date" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="default_group" />
+          <NavigationProperty Name="ONLClimberCompLinks" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLCompetitions" FromRole="ONLCompetition" ToRole="ONLClimberCompLink" />
+          <NavigationProperty Name="ONLCompetitionParams" Relationship="web_DebugModel.FK_ONLCompetitionParams_ONLCompetitions" FromRole="ONLCompetition" ToRole="ONLCompetitionParam" />
+          <NavigationProperty Name="ONLTeamGroupCompLinks" Relationship="web_DebugModel.FK__ONLTeamGr__comp___1B5E0D89" FromRole="ONLCompetition" ToRole="ONLTeamGroupCompLink" />
+          <NavigationProperty Name="ONLTeamGroup" Relationship="web_DebugModel.FK_ONLCompetitions_ONLTeamGroups" FromRole="ONLCompetition" ToRole="ONLTeamGroup" />
+          <NavigationProperty Name="ONLGroupsCompLinks" Relationship="web_DebugModel.FK_ONLGroupsCompLink_ONLCompetitions" FromRole="ONLCompetition" ToRole="ONLGroupsCompLink" />
+          <NavigationProperty Name="ONLlists" Relationship="web_DebugModel.FK_ONLlists_ONLCompetitions" FromRole="ONLCompetition" ToRole="ONLlist" />
+          <NavigationProperty Name="ONLoperations" Relationship="web_DebugModel.FK_ONLoperations_ONLCompetitions" FromRole="ONLCompetition" ToRole="ONLoperation" />
+          <NavigationProperty Name="ONLrankings" Relationship="web_DebugModel.FK_ONLrankings_ONLCompetitions" FromRole="ONLCompetition" ToRole="ONLranking" />
+          <NavigationProperty Name="ONLTeamsCompLinks" Relationship="web_DebugModel.FK_ONLTeamsCompLink_ONLCompetitions" FromRole="ONLCompetition" ToRole="ONLTeamsCompLink" />
+          <NavigationProperty Name="ONLuserRoles" Relationship="web_DebugModel.FK_ONLuserRoles_ONLCompetitions" FromRole="ONLCompetition" ToRole="ONLuserRole" />
+        </EntityType>
+        <EntityType Name="ONLGroup">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int32" Name="iid" Nullable="false" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="oldYear" Nullable="false" />
+          <Property Type="Int32" Name="youngYear" Nullable="false" />
+          <Property Type="Boolean" Name="genderFemale" Nullable="false" />
+          <NavigationProperty Name="ONLClimberCompLinks" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLGroups" FromRole="ONLGroup" ToRole="ONLClimberCompLink" />
+          <NavigationProperty Name="ONLlists" Relationship="web_DebugModel.FK__ONLlists__group___36B12243" FromRole="ONLGroup" ToRole="ONLlist" />
+          <NavigationProperty Name="ONLrankings" Relationship="web_DebugModel.FK__ONLrankin__group__03F0984C" FromRole="ONLGroup" ToRole="ONLranking" />
+          <NavigationProperty Name="ONLGroupsCompLinks" Relationship="web_DebugModel.FK_ONLGroupsCompLink_ONLGroups" FromRole="ONLGroup" ToRole="ONLGroupsCompLink" />
+        </EntityType>
+        <EntityType Name="ONLGroupsCompLink">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="Int32" Name="group_id" Nullable="false" />
+          <Property Type="Int64" Name="comp_id" Nullable="false" />
+          <Property Type="Int32" Name="minQf" Nullable="false" />
+          <NavigationProperty Name="ONLCompetition" Relationship="web_DebugModel.FK_ONLGroupsCompLink_ONLCompetitions" FromRole="ONLGroupsCompLink" ToRole="ONLCompetition" />
+          <NavigationProperty Name="ONLGroup" Relationship="web_DebugModel.FK_ONLGroupsCompLink_ONLGroups" FromRole="ONLGroupsCompLink" ToRole="ONLGroup" />
+          <NavigationProperty Name="ONLqfList" Relationship="web_DebugModel.FK_ONLGroupsCompLink_ONLqfList" FromRole="ONLGroupsCompLink" ToRole="ONLqfList" />
+        </EntityType>
+        <EntityType Name="ONLlead">
+          <Key>
+            <PropertyRef Name="idPK" />
+          </Key>
+          <Property Type="Int64" Name="idPK" Nullable="false" />
+          <Property Type="Int64" Name="iid_line" Nullable="false" />
+          <Property Type="String" Name="res" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ONLlistdata" Relationship="web_DebugModel.FK__ONLlead__iid_lin__48CFD27E" FromRole="ONLlead" ToRole="ONLlistdata" />
+        </EntityType>
+        <EntityType Name="ONLlistdata">
+          <Key>
+            <PropertyRef Name="iid_line" />
+          </Key>
+          <Property Type="Int32" Name="iid" Nullable="false" />
+          <Property Type="Int64" Name="iid_line" Nullable="false" />
+          <Property Type="Int64" Name="climber_id" Nullable="false" />
+          <Property Type="Int32" Name="start" />
+          <Property Type="Int64" Name="res" />
+          <Property Type="Boolean" Name="preQf" Nullable="false" />
+          <Property Type="Int32" Name="pos" />
+          <NavigationProperty Name="ONLBoulders" Relationship="web_DebugModel.FK__ONLBoulde__iid_l__59063A47" FromRole="ONLlistdata" ToRole="ONLBoulder" />
+          <NavigationProperty Name="ONLClimberCompLink" Relationship="web_DebugModel.FK_ONLlistdata_ONLClimberCompLink" FromRole="ONLlistdata" ToRole="ONLClimberCompLink" />
+          <NavigationProperty Name="ONLleads" Relationship="web_DebugModel.FK__ONLlead__iid_lin__48CFD27E" FromRole="ONLlistdata" ToRole="ONLlead" />
+          <NavigationProperty Name="ONLlist" Relationship="web_DebugModel.FK__ONLlistdata__iid__3F466844" FromRole="ONLlistdata" ToRole="ONLlist" />
+          <NavigationProperty Name="ONLspeeds" Relationship="web_DebugModel.FK__ONLspeed__iid_li__5070F446" FromRole="ONLlistdata" ToRole="ONLspeed" />
+        </EntityType>
+        <EntityType Name="ONLlist">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int32" Name="iid" Nullable="false" />
+          <Property Type="Int32" Name="secretary_id" Nullable="false" />
+          <Property Type="Int64" Name="comp_id" Nullable="false" />
+          <Property Type="String" Name="listType" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="style" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="group_id" />
+          <Property Type="String" Name="round" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="routeNumber" />
+          <Property Type="Boolean" Name="live" Nullable="false" />
+          <Property Type="Int32" Name="quote" Nullable="false" />
+          <Property Type="Int32" Name="prevRound" />
+          <Property Type="Int32" Name="iid_parent" />
+          <Property Type="String" Name="start_time" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="roundFinished" Nullable="false" />
+          <Property Type="DateTime" Name="lastUpd" />
+          <NavigationProperty Name="ONLCompetition" Relationship="web_DebugModel.FK_ONLlists_ONLCompetitions" FromRole="ONLlist" ToRole="ONLCompetition" />
+          <NavigationProperty Name="ONLGroup" Relationship="web_DebugModel.FK__ONLlists__group___36B12243" FromRole="ONLlist" ToRole="ONLGroup" />
+          <NavigationProperty Name="ONLlistdatas" Relationship="web_DebugModel.FK__ONLlistdata__iid__3F466844" FromRole="ONLlist" ToRole="ONLlistdata" />
+        </EntityType>
+        <EntityType Name="ONLLog">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="hostname" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="operationDate" Nullable="false" />
+          <NavigationProperty Name="ONLLogDetails" Relationship="web_DebugModel.FK_ONLLogDetails_ONLLog" FromRole="ONLLog" ToRole="ONLLogDetail" />
+        </EntityType>
+        <EntityType Name="ONLLogDetail">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="Int64" Name="op_id" Nullable="false" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="OldPK_value" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NewPK_value" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TableName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ColumnName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OldValue" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NewValue" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ONLLog" Relationship="web_DebugModel.FK_ONLLogDetails_ONLLog" FromRole="ONLLogDetail" ToRole="ONLLog" />
+        </EntityType>
+        <EntityType Name="ONLoperation">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="Int64" Name="comp_id" Nullable="false" />
+          <Property Type="String" Name="user_id" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="op_date" Nullable="false" />
+          <Property Type="Int32" Name="state" Nullable="false" />
+          <NavigationProperty Name="ONLClimberCompLinks" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLoperations" FromRole="ONLoperation" ToRole="ONLClimberCompLink" />
+          <NavigationProperty Name="ONLCompetition" Relationship="web_DebugModel.FK_ONLoperations_ONLCompetitions" FromRole="ONLoperation" ToRole="ONLCompetition" />
+          <NavigationProperty Name="ONLuser" Relationship="web_DebugModel.FK__ONLoperat__user___74AE54BC" FromRole="ONLoperation" ToRole="ONLuser" />
+        </EntityType>
+        <EntityType Name="ONLqfList">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int32" Name="iid" Nullable="false" />
+          <Property Type="String" Name="qf" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ONLGroupsCompLinks" Relationship="web_DebugModel.FK_ONLGroupsCompLink_ONLqfList" FromRole="ONLqfList" ToRole="ONLGroupsCompLink" />
+        </EntityType>
+        <EntityType Name="ONLranking">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="Int64" Name="comp_id" Nullable="false" />
+          <Property Type="String" Name="climber" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="age" Nullable="false" />
+          <Property Type="String" Name="style" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="group_id" Nullable="false" />
+          <Property Type="Int32" Name="team_id" Nullable="false" />
+          <Property Type="Int32" Name="pos" Nullable="false" />
+          <NavigationProperty Name="ONLCompetition" Relationship="web_DebugModel.FK_ONLrankings_ONLCompetitions" FromRole="ONLranking" ToRole="ONLCompetition" />
+          <NavigationProperty Name="ONLGroup" Relationship="web_DebugModel.FK__ONLrankin__group__03F0984C" FromRole="ONLranking" ToRole="ONLGroup" />
+          <NavigationProperty Name="ONLteam" Relationship="web_DebugModel.FK__ONLrankin__team___04E4BC85" FromRole="ONLranking" ToRole="ONLteam" />
+        </EntityType>
+        <EntityType Name="ONLspeed">
+          <Key>
+            <PropertyRef Name="idPK" />
+          </Key>
+          <Property Type="Int64" Name="idPK" Nullable="false" />
+          <Property Type="Int64" Name="iid_line" Nullable="false" />
+          <Property Type="String" Name="r1" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="r2" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="res" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="qf" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ONLlistdata" Relationship="web_DebugModel.FK__ONLspeed__iid_li__5070F446" FromRole="ONLspeed" ToRole="ONLlistdata" />
+        </EntityType>
+        <EntityType Name="ONLTeamGroupCompLink">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="comp_id" />
+          <Property Type="Int32" Name="teamgroup_id" />
+          <Property Type="Int32" Name="quota_style_total" Nullable="false" />
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <NavigationProperty Name="ONLCompetition" Relationship="web_DebugModel.FK__ONLTeamGr__comp___1B5E0D89" FromRole="ONLTeamGroupCompLink" ToRole="ONLCompetition" />
+          <NavigationProperty Name="ONLTeamGroup" Relationship="web_DebugModel.FK__ONLTeamGr__teamg__1C5231C2" FromRole="ONLTeamGroupCompLink" ToRole="ONLTeamGroup" />
+        </EntityType>
+        <EntityType Name="ONLTeamGroup">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int32" Name="iid" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ONLCompetitions" Relationship="web_DebugModel.FK_ONLCompetitions_ONLTeamGroups" FromRole="ONLTeamGroup" ToRole="ONLCompetition" />
+          <NavigationProperty Name="ONLTeamGroupCompLinks" Relationship="web_DebugModel.FK__ONLTeamGr__teamg__1C5231C2" FromRole="ONLTeamGroup" ToRole="ONLTeamGroupCompLink" />
+          <NavigationProperty Name="ONLTeamsCompLinks" Relationship="web_DebugModel.FK__ONLTeamsC__quota__1975C517" FromRole="ONLTeamGroup" ToRole="ONLTeamsCompLink" />
+          <NavigationProperty Name="ONLteams" Relationship="web_DebugModel.FK_ONLteams_ONLTeamGroups" FromRole="ONLTeamGroup" ToRole="ONLteam" />
+        </EntityType>
+        <EntityType Name="ONLteam">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int32" Name="iid" Nullable="false" />
+          <Property Type="Int32" Name="group_id" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ONLClimberCompLinks" Relationship="web_DebugModel.FK_ONLClimberCompLink_ONLteams" FromRole="ONLteam" ToRole="ONLClimberCompLink" />
+          <NavigationProperty Name="ONLrankings" Relationship="web_DebugModel.FK__ONLrankin__team___04E4BC85" FromRole="ONLteam" ToRole="ONLranking" />
+          <NavigationProperty Name="ONLTeamGroup" Relationship="web_DebugModel.FK_ONLteams_ONLTeamGroups" FromRole="ONLteam" ToRole="ONLTeamGroup" />
+          <NavigationProperty Name="ONLusers" Relationship="web_DebugModel.FK__ONLusers__team_i__6477ECF3" FromRole="ONLteam" ToRole="ONLuser" />
+          <NavigationProperty Name="ONLTeamsCompLinks" Relationship="web_DebugModel.FK_ONLTeamsCompLink_ONLteams" FromRole="ONLteam" ToRole="ONLTeamsCompLink" />
+        </EntityType>
+        <EntityType Name="ONLTeamsCompLink">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="Int32" Name="team_id" Nullable="false" />
+          <Property Type="Int64" Name="comp_id" Nullable="false" />
+          <Property Type="Int32" Name="secretary_id" Nullable="false" />
+          <Property Type="Int32" Name="ranking_pos" Nullable="false" />
+          <Property Type="Int32" Name="quota_group" />
+          <NavigationProperty Name="ONLCompetition" Relationship="web_DebugModel.FK_ONLTeamsCompLink_ONLCompetitions" FromRole="ONLTeamsCompLink" ToRole="ONLCompetition" />
+          <NavigationProperty Name="ONLTeamGroup" Relationship="web_DebugModel.FK__ONLTeamsC__quota__1975C517" FromRole="ONLTeamsCompLink" ToRole="ONLTeamGroup" />
+          <NavigationProperty Name="ONLteam" Relationship="web_DebugModel.FK_ONLTeamsCompLink_ONLteams" FromRole="ONLTeamsCompLink" ToRole="ONLteam" />
+        </EntityType>
+        <EntityType Name="ONLuserRole">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="Int64" Name="iid" Nullable="false" />
+          <Property Type="Int64" Name="comp_id" />
+          <Property Type="String" Name="user_id" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="notifSent" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="role_id" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ONLCompetition" Relationship="web_DebugModel.FK_ONLuserRoles_ONLCompetitions" FromRole="ONLuserRole" ToRole="ONLCompetition" />
+          <NavigationProperty Name="ONLuser" Relationship="web_DebugModel.FK__ONLuserRo__user___6EF57B66" FromRole="ONLuserRole" ToRole="ONLuser" />
+        </EntityType>
+        <EntityType Name="ONLuser">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Type="String" Name="iid" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="team_id" />
+          <Property Type="String" Name="email" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="chief" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="creationDate" />
+          <Property Type="DateTime" Name="loginDate" />
+          <Property Type="DateTime" Name="lastForgPassword" />
+          <Property Type="String" Name="messageToSend" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ONLoperations" Relationship="web_DebugModel.FK__ONLoperat__user___74AE54BC" FromRole="ONLuser" ToRole="ONLoperation" />
+          <NavigationProperty Name="ONLteam" Relationship="web_DebugModel.FK__ONLusers__team_i__6477ECF3" FromRole="ONLuser" ToRole="ONLteam" />
+          <NavigationProperty Name="ONLuserRoles" Relationship="web_DebugModel.FK__ONLuserRo__user___6EF57B66" FromRole="ONLuser" ToRole="ONLuserRole" />
+        </EntityType>
+        <Association Name="FK__ONLBoulde__iid_l__59063A47">
+          <End Type="web_DebugModel.ONLlistdata" Role="ONLlistdata" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLBoulder" Role="ONLBoulder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLlistdata">
+              <PropertyRef Name="iid_line" />
+            </Principal>
+            <Dependent Role="ONLBoulder">
+              <PropertyRef Name="iid_line" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLboulde__iid_p__5FB337D6">
+          <End Type="web_DebugModel.ONLBoulder" Role="ONLBoulder" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLboulderRoute" Role="ONLboulderRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLBoulder">
+              <PropertyRef Name="idPK" />
+            </Principal>
+            <Dependent Role="ONLboulderRoute">
+              <PropertyRef Name="iid_parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLClimberCompLink">
+          <End Type="web_DebugModel.ONLClimberCompLink" Role="ONLClimberCompLink" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLClimberCompLink" Role="ONLClimberCompLink1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLClimberCompLink">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink1">
+              <PropertyRef Name="replacementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLclimbers">
+          <End Type="web_DebugModel.ONLclimber" Role="ONLclimber" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLClimberCompLink" Role="ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLclimber">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="climber_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLCompetitions">
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLClimberCompLink" Role="ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetition">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLGroups">
+          <End Type="web_DebugModel.ONLGroup" Role="ONLGroup" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLClimberCompLink" Role="ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLGroup">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLoperations">
+          <End Type="web_DebugModel.ONLoperation" Role="ONLoperation" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLClimberCompLink" Role="ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLoperation">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="updOpIid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLClimberCompLink_ONLteams">
+          <End Type="web_DebugModel.ONLteam" Role="ONLteam" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLClimberCompLink" Role="ONLClimberCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLteam">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLClimberCompLink">
+              <PropertyRef Name="team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLlistdata_ONLClimberCompLink">
+          <End Type="web_DebugModel.ONLClimberCompLink" Role="ONLClimberCompLink" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLlistdata" Role="ONLlistdata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLClimberCompLink">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLlistdata">
+              <PropertyRef Name="climber_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLCompetitionBinaryParams_ONLCompetitionParams">
+          <End Type="web_DebugModel.ONLCompetitionParam" Role="ONLCompetitionParam" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLCompetitionBinaryParam" Role="ONLCompetitionBinaryParam" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetitionParam">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLCompetitionBinaryParam">
+              <PropertyRef Name="iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLCompetitionParams_ONLCompetitions">
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLCompetitionParam" Role="ONLCompetitionParam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetition">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLCompetitionParam">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLTeamGr__comp___1B5E0D89">
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLTeamGroupCompLink" Role="ONLTeamGroupCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetition">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamGroupCompLink">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLCompetitions_ONLTeamGroups">
+          <End Type="web_DebugModel.ONLTeamGroup" Role="ONLTeamGroup" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLTeamGroup">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLCompetition">
+              <PropertyRef Name="default_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLGroupsCompLink_ONLCompetitions">
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLGroupsCompLink" Role="ONLGroupsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetition">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLGroupsCompLink">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLlists_ONLCompetitions">
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLlist" Role="ONLlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetition">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLlist">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLoperations_ONLCompetitions">
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLoperation" Role="ONLoperation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetition">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLoperation">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLrankings_ONLCompetitions">
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLranking" Role="ONLranking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetition">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLranking">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLTeamsCompLink_ONLCompetitions">
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLTeamsCompLink" Role="ONLTeamsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetition">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamsCompLink">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLuserRoles_ONLCompetitions">
+          <End Type="web_DebugModel.ONLCompetition" Role="ONLCompetition" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLuserRole" Role="ONLuserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLCompetition">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLuserRole">
+              <PropertyRef Name="comp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLlists__group___36B12243">
+          <End Type="web_DebugModel.ONLGroup" Role="ONLGroup" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLlist" Role="ONLlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLGroup">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLlist">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLrankin__group__03F0984C">
+          <End Type="web_DebugModel.ONLGroup" Role="ONLGroup" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLranking" Role="ONLranking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLGroup">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLranking">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLGroupsCompLink_ONLGroups">
+          <End Type="web_DebugModel.ONLGroup" Role="ONLGroup" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLGroupsCompLink" Role="ONLGroupsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLGroup">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLGroupsCompLink">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLGroupsCompLink_ONLqfList">
+          <End Type="web_DebugModel.ONLqfList" Role="ONLqfList" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLGroupsCompLink" Role="ONLGroupsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLqfList">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLGroupsCompLink">
+              <PropertyRef Name="minQf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLlead__iid_lin__48CFD27E">
+          <End Type="web_DebugModel.ONLlistdata" Role="ONLlistdata" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLlead" Role="ONLlead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLlistdata">
+              <PropertyRef Name="iid_line" />
+            </Principal>
+            <Dependent Role="ONLlead">
+              <PropertyRef Name="iid_line" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLlistdata__iid__3F466844">
+          <End Type="web_DebugModel.ONLlist" Role="ONLlist" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLlistdata" Role="ONLlistdata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLlist">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLlistdata">
+              <PropertyRef Name="iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLspeed__iid_li__5070F446">
+          <End Type="web_DebugModel.ONLlistdata" Role="ONLlistdata" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLspeed" Role="ONLspeed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLlistdata">
+              <PropertyRef Name="iid_line" />
+            </Principal>
+            <Dependent Role="ONLspeed">
+              <PropertyRef Name="iid_line" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLLogDetails_ONLLog">
+          <End Type="web_DebugModel.ONLLog" Role="ONLLog" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLLogDetail" Role="ONLLogDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLLog">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLLogDetail">
+              <PropertyRef Name="op_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLoperat__user___74AE54BC">
+          <End Type="web_DebugModel.ONLuser" Role="ONLuser" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLoperation" Role="ONLoperation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLuser">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLoperation">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLrankin__team___04E4BC85">
+          <End Type="web_DebugModel.ONLteam" Role="ONLteam" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLranking" Role="ONLranking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLteam">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLranking">
+              <PropertyRef Name="team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLTeamGr__teamg__1C5231C2">
+          <End Type="web_DebugModel.ONLTeamGroup" Role="ONLTeamGroup" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLTeamGroupCompLink" Role="ONLTeamGroupCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLTeamGroup">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamGroupCompLink">
+              <PropertyRef Name="teamgroup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLTeamsC__quota__1975C517">
+          <End Type="web_DebugModel.ONLTeamGroup" Role="ONLTeamGroup" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLTeamsCompLink" Role="ONLTeamsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLTeamGroup">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamsCompLink">
+              <PropertyRef Name="quota_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLteams_ONLTeamGroups">
+          <End Type="web_DebugModel.ONLTeamGroup" Role="ONLTeamGroup" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLteam" Role="ONLteam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLTeamGroup">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLteam">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLusers__team_i__6477ECF3">
+          <End Type="web_DebugModel.ONLteam" Role="ONLteam" Multiplicity="0..1" />
+          <End Type="web_DebugModel.ONLuser" Role="ONLuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLteam">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLuser">
+              <PropertyRef Name="team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ONLTeamsCompLink_ONLteams">
+          <End Type="web_DebugModel.ONLteam" Role="ONLteam" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLTeamsCompLink" Role="ONLTeamsCompLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLteam">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLTeamsCompLink">
+              <PropertyRef Name="team_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ONLuserRo__user___6EF57B66">
+          <End Type="web_DebugModel.ONLuser" Role="ONLuser" Multiplicity="1" />
+          <End Type="web_DebugModel.ONLuserRole" Role="ONLuserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ONLuser">
+              <PropertyRef Name="iid" />
+            </Principal>
+            <Dependent Role="ONLuserRole">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="web_DebugModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="ONLBoulders">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLBoulder">
+              <MappingFragment StoreEntitySet="ONLBoulder">
+                <ScalarProperty Name="disq" ColumnName="disq" />
+                <ScalarProperty Name="nya" ColumnName="nya" />
+                <ScalarProperty Name="Ba" ColumnName="Ba" />
+                <ScalarProperty Name="B" ColumnName="B" />
+                <ScalarProperty Name="Ta" ColumnName="Ta" />
+                <ScalarProperty Name="T" ColumnName="T" />
+                <ScalarProperty Name="iid_line" ColumnName="iid_line" />
+                <ScalarProperty Name="idPK" ColumnName="idPK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLboulderRoutes">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLboulderRoute">
+              <MappingFragment StoreEntitySet="ONLboulderRoutes">
+                <ScalarProperty Name="bonusA" ColumnName="bonusA" />
+                <ScalarProperty Name="topA" ColumnName="topA" />
+                <ScalarProperty Name="routeN" ColumnName="routeN" />
+                <ScalarProperty Name="iid_parent" ColumnName="iid_parent" />
+                <ScalarProperty Name="iid_line" ColumnName="iid_line" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLClimberCompLinks">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLClimberCompLink">
+              <MappingFragment StoreEntitySet="ONLClimberCompLink">
+                <ScalarProperty Name="queue_Boulder" ColumnName="queue_Boulder" />
+                <ScalarProperty Name="queue_Speed" ColumnName="queue_Speed" />
+                <ScalarProperty Name="queue_Lead" ColumnName="queue_Lead" />
+                <ScalarProperty Name="replacementID" ColumnName="replacementID" />
+                <ScalarProperty Name="updOpIid" ColumnName="updOpIid" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="sys_date_update" ColumnName="sys_date_update" />
+                <ScalarProperty Name="sys_date_create" ColumnName="sys_date_create" />
+                <ScalarProperty Name="queue_pos" ColumnName="queue_pos" />
+                <ScalarProperty Name="is_changeble" ColumnName="is_changeble" />
+                <ScalarProperty Name="appl_type" ColumnName="appl_type" />
+                <ScalarProperty Name="nopoints" ColumnName="nopoints" />
+                <ScalarProperty Name="vk" ColumnName="vk" />
+                <ScalarProperty Name="rankingBoulder" ColumnName="rankingBoulder" />
+                <ScalarProperty Name="rankingSpeed" ColumnName="rankingSpeed" />
+                <ScalarProperty Name="rankingLead" ColumnName="rankingLead" />
+                <ScalarProperty Name="boulder" ColumnName="boulder" />
+                <ScalarProperty Name="speed" ColumnName="speed" />
+                <ScalarProperty Name="lead" ColumnName="lead" />
+                <ScalarProperty Name="qf" ColumnName="qf" />
+                <ScalarProperty Name="team_id" ColumnName="team_id" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="secretary_id" ColumnName="secretary_id" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="climber_id" ColumnName="climber_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLclimbers">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLclimber">
+              <MappingFragment StoreEntitySet="ONLclimbers">
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="is_del" ColumnName="is_del" />
+                <ScalarProperty Name="phLoaded" ColumnName="phLoaded" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="genderFemale" ColumnName="genderFemale" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLCompetitionBinaryParams">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLCompetitionBinaryParam">
+              <MappingFragment StoreEntitySet="ONLCompetitionBinaryParams">
+                <ScalarProperty Name="paramValue" ColumnName="paramValue" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLCompetitionParams">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLCompetitionParam">
+              <MappingFragment StoreEntitySet="ONLCompetitionParams">
+                <ScalarProperty Name="ParamValue" ColumnName="ParamValue" />
+                <ScalarProperty Name="ParamName" ColumnName="ParamName" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLCompetitions">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLCompetition">
+              <MappingFragment StoreEntitySet="ONLCompetitions">
+                <ScalarProperty Name="default_group" ColumnName="default_group" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="short_name" ColumnName="short_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLGroups">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLGroup">
+              <MappingFragment StoreEntitySet="ONLGroups">
+                <ScalarProperty Name="genderFemale" ColumnName="genderFemale" />
+                <ScalarProperty Name="youngYear" ColumnName="youngYear" />
+                <ScalarProperty Name="oldYear" ColumnName="oldYear" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLGroupsCompLinks">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLGroupsCompLink">
+              <MappingFragment StoreEntitySet="ONLGroupsCompLink">
+                <ScalarProperty Name="minQf" ColumnName="minQf" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLleads">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLlead">
+              <MappingFragment StoreEntitySet="ONLlead">
+                <ScalarProperty Name="res" ColumnName="res" />
+                <ScalarProperty Name="iid_line" ColumnName="iid_line" />
+                <ScalarProperty Name="idPK" ColumnName="idPK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLlistdatas">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLlistdata">
+              <MappingFragment StoreEntitySet="ONLlistdata">
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="preQf" ColumnName="preQf" />
+                <ScalarProperty Name="res" ColumnName="res" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="climber_id" ColumnName="climber_id" />
+                <ScalarProperty Name="iid_line" ColumnName="iid_line" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLlists">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLlist">
+              <MappingFragment StoreEntitySet="ONLlists">
+                <ScalarProperty Name="lastUpd" ColumnName="lastUpd" />
+                <ScalarProperty Name="roundFinished" ColumnName="roundFinished" />
+                <ScalarProperty Name="start_time" ColumnName="start_time" />
+                <ScalarProperty Name="iid_parent" ColumnName="iid_parent" />
+                <ScalarProperty Name="prevRound" ColumnName="prevRound" />
+                <ScalarProperty Name="quote" ColumnName="quote" />
+                <ScalarProperty Name="live" ColumnName="live" />
+                <ScalarProperty Name="routeNumber" ColumnName="routeNumber" />
+                <ScalarProperty Name="round" ColumnName="round" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="style" ColumnName="style" />
+                <ScalarProperty Name="listType" ColumnName="listType" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="secretary_id" ColumnName="secretary_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLLogs">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLLog">
+              <MappingFragment StoreEntitySet="ONLLog">
+                <ScalarProperty Name="operationDate" ColumnName="operationDate" />
+                <ScalarProperty Name="hostname" ColumnName="hostname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLLogDetails">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLLogDetail">
+              <MappingFragment StoreEntitySet="ONLLogDetails">
+                <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+                <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+                <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="NewPK_value" ColumnName="NewPK_value" />
+                <ScalarProperty Name="OldPK_value" ColumnName="OldPK_value" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="op_id" ColumnName="op_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLoperations">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLoperation">
+              <MappingFragment StoreEntitySet="ONLoperations">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="op_date" ColumnName="op_date" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLqfLists">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLqfList">
+              <MappingFragment StoreEntitySet="ONLqfList">
+                <ScalarProperty Name="qf" ColumnName="qf" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLrankings">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLranking">
+              <MappingFragment StoreEntitySet="ONLrankings">
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="team_id" ColumnName="team_id" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="style" ColumnName="style" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="climber" ColumnName="climber" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLspeeds">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLspeed">
+              <MappingFragment StoreEntitySet="ONLspeed">
+                <ScalarProperty Name="qf" ColumnName="qf" />
+                <ScalarProperty Name="res" ColumnName="res" />
+                <ScalarProperty Name="r2" ColumnName="r2" />
+                <ScalarProperty Name="r1" ColumnName="r1" />
+                <ScalarProperty Name="iid_line" ColumnName="iid_line" />
+                <ScalarProperty Name="idPK" ColumnName="idPK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLTeamGroupCompLinks">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLTeamGroupCompLink">
+              <MappingFragment StoreEntitySet="ONLTeamGroupCompLink">
+                <ScalarProperty Name="iid" ColumnName="iid" />
+                <ScalarProperty Name="quota_style_total" ColumnName="quota_style_total" />
+                <ScalarProperty Name="teamgroup_id" ColumnName="teamgroup_id" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLTeamGroups">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLTeamGroup">
+              <MappingFragment StoreEntitySet="ONLTeamGroups">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLteams">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLteam">
+              <MappingFragment StoreEntitySet="ONLteams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLTeamsCompLinks">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLTeamsCompLink">
+              <MappingFragment StoreEntitySet="ONLTeamsCompLink">
+                <ScalarProperty Name="quota_group" ColumnName="quota_group" />
+                <ScalarProperty Name="ranking_pos" ColumnName="ranking_pos" />
+                <ScalarProperty Name="secretary_id" ColumnName="secretary_id" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="team_id" ColumnName="team_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLuserRoles">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLuserRole">
+              <MappingFragment StoreEntitySet="ONLuserRoles">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="notifSent" ColumnName="notifSent" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ONLusers">
+            <EntityTypeMapping TypeName="web_DebugModel.ONLuser">
+              <MappingFragment StoreEntitySet="ONLusers">
+                <ScalarProperty Name="messageToSend" ColumnName="messageToSend" />
+                <ScalarProperty Name="lastForgPassword" ColumnName="lastForgPassword" />
+                <ScalarProperty Name="loginDate" ColumnName="loginDate" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="chief" ColumnName="chief" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="team_id" ColumnName="team_id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="iid" ColumnName="iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ClimbingEntityModel">
+        <EntityTypeShape EntityType="web_DebugModel.ONLBoulder" Width="1.5" PointX="15.75" PointY="15.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLboulderRoute" Width="1.5" PointX="18" PointY="15.5" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLClimberCompLink" Width="1.5" PointX="8.25" PointY="19.25" Height="7.5570279947916674" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLclimber" Width="1.5" PointX="6" PointY="31.625" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLCompetitionBinaryParam" Width="1.5" PointX="7.5" PointY="28.625" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLCompetitionParam" Width="1.5" PointX="5.25" PointY="28.375" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLCompetition" Width="1.5" PointX="3" PointY="19.125" Height="4.0956022135416674" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLGroup" Width="1.5" PointX="3" PointY="14.75" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLGroupsCompLink" Width="1.5" PointX="5.25" PointY="20" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLlead" Width="1.5" PointX="15.75" PointY="18.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLlistdata" Width="1.5" PointX="13.5" PointY="17.75" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLlist" Width="1.5" PointX="5.25" PointY="13.875" Height="4.48020507812501" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLLog" Width="1.5" PointX="0.75" PointY="1.5" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLLogDetail" Width="1.5" PointX="3" PointY="1" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLoperation" Width="1.5" PointX="10.5" PointY="22" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLqfList" Width="1.5" PointX="3" PointY="12.375" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLranking" Width="1.5" PointX="11.25" PointY="25.5" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLspeed" Width="1.5" PointX="15.75" PointY="21.25" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLTeamGroupCompLink" Width="1.5" PointX="8.25" PointY="15.625" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLTeamGroup" Width="1.5" PointX="0.75" PointY="22.25" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLteam" Width="1.5" PointX="3" PointY="24.5" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLTeamsCompLink" Width="1.5" PointX="11.25" PointY="17.625" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLuserRole" Width="1.5" PointX="13.5" PointY="22.125" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="web_DebugModel.ONLuser" Width="1.5" PointX="5.25" PointY="24" Height="3.5186979166666674" />
+        <AssociationConnector Association="web_DebugModel.FK__ONLBoulde__iid_l__59063A47" >
+          <ConnectorPoint PointX="15" PointY="17.908396809895834" />
+          <ConnectorPoint PointX="15.75" PointY="17.908396809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLboulde__iid_p__5FB337D6" >
+          <ConnectorPoint PointX="17.25" PointY="16.586293945312498" />
+          <ConnectorPoint PointX="18" PointY="16.586293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLClimberCompLink_ONLClimberCompLink" >
+          <ConnectorPoint PointX="8.7819230769230767" PointY="26.807027994791667" />
+          <ConnectorPoint PointX="8.7819230769230767" PointY="27.057027994791667" />
+          <ConnectorPoint PointX="9.2284615384615378" PointY="27.057027994791667" />
+          <ConnectorPoint PointX="9.2284615384615378" PointY="26.807027994791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLClimberCompLink_ONLclimbers" >
+          <ConnectorPoint PointX="7.125" PointY="31.625" />
+          <ConnectorPoint PointX="7.125" PointY="23.182444661458334" />
+          <ConnectorPoint PointX="8.25" PointY="23.182444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLClimberCompLink_ONLCompetitions" >
+          <ConnectorPoint PointX="4.5" PointY="19.59375" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="19.59375" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="19.59375" />
+          <ConnectorPoint PointX="8.25" PointY="19.59375" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLClimberCompLink_ONLGroups" >
+          <ConnectorPoint PointX="4.5" PointY="17.442952725961533" />
+          <ConnectorPoint PointX="4.6910744349011217" PointY="17.634027160862654" />
+          <ConnectorPoint PointX="4.8089255650988791" PointY="17.751878291060411" />
+          <ConnectorPoint PointX="4.96875" PointY="17.911702725961533" />
+          <ConnectorPoint PointX="4.96875" PointY="22.773664492187507" />
+          <ConnectorPoint PointX="5.072916666666667" PointY="22.773664492187507" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="22.773664492187507" />
+          <ConnectorPoint PointX="8.25" PointY="22.773664492187507" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLClimberCompLink_ONLoperations" >
+          <ConnectorPoint PointX="10.5" PointY="23.278595377604162" />
+          <ConnectorPoint PointX="9.75" PointY="23.278595377604162" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLClimberCompLink_ONLteams" >
+          <ConnectorPoint PointX="4.5" PointY="25.778595377604162" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="25.778595377604162" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="25.778595377604162" />
+          <ConnectorPoint PointX="4.875" PointY="25.778595377604162" />
+          <ConnectorPoint PointX="4.875" PointY="23.591224830729161" />
+          <ConnectorPoint PointX="5.072916666666667" PointY="23.591224830729161" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="23.591224830729161" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="23.591224830729161" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="23.591224830729161" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="23.591224830729161" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="23.591224830729161" />
+          <ConnectorPoint PointX="8.25" PointY="23.591224830729161" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLlistdata_ONLClimberCompLink" >
+          <ConnectorPoint PointX="9.75" PointY="20.756694335937496" />
+          <ConnectorPoint PointX="10.041666666666666" PointY="20.756694335937496" />
+          <ConnectorPoint PointX="10.208333333333334" PointY="20.756694335937496" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="20.756694335937496" />
+          <ConnectorPoint PointX="11.083333333333334" PointY="20.756694335937496" />
+          <ConnectorPoint PointX="13.5" PointY="20.756694335937496" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLCompetitionBinaryParams_ONLCompetitionParams" >
+          <ConnectorPoint PointX="6.75" PointY="29.422841796874998" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="29.422841796874998" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="29.422841796874998" />
+          <ConnectorPoint PointX="7.5" PointY="29.422841796874998" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLCompetitionParams_ONLCompetitions" >
+          <ConnectorPoint PointX="4.5" PointY="23.158293521233976" />
+          <ConnectorPoint PointX="5.0625" PointY="23.720793521233976" />
+          <ConnectorPoint PointX="5.0625" PointY="29.461293945312505" />
+          <ConnectorPoint PointX="5.25" PointY="29.461293945312505" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLTeamGr__comp___1B5E0D89" >
+          <ConnectorPoint PointX="4.5" PointY="19.15153746153846" />
+          <ConnectorPoint PointX="4.90153746153846" PointY="18.75" />
+          <ConnectorPoint PointX="5.010416666666667" PointY="18.75" />
+          <ConnectorPoint PointX="5.177083333333333" PointY="18.75" />
+          <ConnectorPoint PointX="8.5104146666666658" PointY="18.75" />
+          <ConnectorPoint PointX="8.6770813333333336" PointY="18.75" />
+          <ConnectorPoint PointX="9" PointY="18.75" />
+          <ConnectorPoint PointX="9" PointY="17.79758789062501" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLCompetitions_ONLTeamGroups" >
+          <ConnectorPoint PointX="2.25" PointY="22.735301106770834" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="22.735301106770834" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="22.735301106770834" />
+          <ConnectorPoint PointX="3" PointY="22.735301106770834" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLGroupsCompLink_ONLCompetitions" >
+          <ConnectorPoint PointX="4.5" PointY="21.182444661458334" />
+          <ConnectorPoint PointX="4.885416666666667" PointY="21.182444661458334" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="21.182444661458334" />
+          <ConnectorPoint PointX="5.25" PointY="21.182444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLlists_ONLCompetitions" >
+          <ConnectorPoint PointX="4.5" PointY="19.13307592307692" />
+          <ConnectorPoint PointX="4.81607443490112" PointY="18.817001488175798" />
+          <ConnectorPoint PointX="5.0276755650988791" PointY="18.605400357978041" />
+          <ConnectorPoint PointX="5.03125" PointY="18.60182592307692" />
+          <ConnectorPoint PointX="5.03125" PointY="16.115102539062505" />
+          <ConnectorPoint PointX="5.25" PointY="16.115102539062505" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLoperations_ONLCompetitions" >
+          <ConnectorPoint PointX="3.75" PointY="19.125" />
+          <ConnectorPoint PointX="3.75" PointY="18.875" />
+          <ConnectorPoint PointX="4.6747425897435866" PointY="18.874999999999996" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="18.875" />
+          <ConnectorPoint PointX="8.5104146666666658" PointY="18.875" />
+          <ConnectorPoint PointX="8.6770813333333336" PointY="18.875" />
+          <ConnectorPoint PointX="10.125" PointY="18.875" />
+          <ConnectorPoint PointX="10.125" PointY="22.608045688802086" />
+          <ConnectorPoint PointX="10.5" PointY="22.608045688802086" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLrankings_ONLCompetitions" >
+          <ConnectorPoint PointX="3.75" PointY="23.220602213541667" />
+          <ConnectorPoint PointX="3.75" PointY="24.25" />
+          <ConnectorPoint PointX="4.75" PointY="24.25" />
+          <ConnectorPoint PointX="4.75" PointY="27.768697916666667" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="27.768697916666667" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="27.768697916666667" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="27.768697916666667" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="27.768697916666667" />
+          <ConnectorPoint PointX="10.875" PointY="27.768697916666667" />
+          <ConnectorPoint PointX="10.875" PointY="27.067047526041662" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="27.067047526041662" />
+          <ConnectorPoint PointX="11.083333333333334" PointY="27.067047526041662" />
+          <ConnectorPoint PointX="11.25" PointY="27.067047526041662" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLTeamsCompLink_ONLCompetitions" >
+          <ConnectorPoint PointX="4.5" PointY="19.15625" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="19.15625" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="19.15625" />
+          <ConnectorPoint PointX="10.041666666666666" PointY="19.15625" />
+          <ConnectorPoint PointX="10.208333333333334" PointY="19.15625" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="19.15625" />
+          <ConnectorPoint PointX="11.083333333333334" PointY="19.15625" />
+          <ConnectorPoint PointX="11.25" PointY="19.15625" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLuserRoles_ONLCompetitions" >
+          <ConnectorPoint PointX="4.156252" PointY="23.220602213541667" />
+          <ConnectorPoint PointX="4.156252" PointY="23.470602213541667" />
+          <ConnectorPoint PointX="4.7289753589743588" PointY="23.470602213541667" />
+          <ConnectorPoint PointX="4.8956420256410249" PointY="23.470602213541667" />
+          <ConnectorPoint PointX="5.072916666666667" PointY="23.470602213541667" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="23.470602213541667" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="23.470602213541667" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="23.470602213541667" />
+          <ConnectorPoint PointX="8" PointY="23.470602213541667" />
+          <ConnectorPoint PointX="8" PointY="27.307027994791667" />
+          <ConnectorPoint PointX="8.0416666666666661" PointY="27.307027994791667" />
+          <ConnectorPoint PointX="8.2083333333333339" PointY="27.307027994791667" />
+          <ConnectorPoint PointX="10.666666666666666" PointY="27.307027994791667" />
+          <ConnectorPoint PointX="10.958333333333334" PointY="27.307027994791667" />
+          <ConnectorPoint PointX="11" PointY="27.307027994791667" />
+          <ConnectorPoint PointX="11" PointY="25.25" />
+          <ConnectorPoint PointX="11.041666666666666" PointY="25.25" />
+          <ConnectorPoint PointX="11.208333333333334" PointY="25.25" />
+          <ConnectorPoint PointX="11.916666666666666" PointY="25.25" />
+          <ConnectorPoint PointX="12.083333333333334" PointY="25.25" />
+          <ConnectorPoint PointX="13.125" PointY="25.25" />
+          <ConnectorPoint PointX="13.125" PointY="23.307444661458334" />
+          <ConnectorPoint PointX="13.5" PointY="23.307444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLlists__group___36B12243" >
+          <ConnectorPoint PointX="4.5" PointY="15.370051269531253" />
+          <ConnectorPoint PointX="5.010416666666667" PointY="15.370051269531253" />
+          <ConnectorPoint PointX="5.177083333333333" PointY="15.370051269531253" />
+          <ConnectorPoint PointX="5.25" PointY="15.370051269531253" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLrankin__group__03F0984C" >
+          <ConnectorPoint PointX="4.5" PointY="16.434771728515624" />
+          <ConnectorPoint PointX="4.75" PointY="16.434771728515624" />
+          <ConnectorPoint PointX="4.75" PointY="18.60520507812501" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="18.60520507812501" />
+          <ConnectorPoint PointX="5.177083333333333" PointY="18.60520507812501" />
+          <ConnectorPoint PointX="8.5104146666666658" PointY="18.60520507812501" />
+          <ConnectorPoint PointX="8.6770813333333336" PointY="18.60520507812501" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="18.60520507812501" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="18.60520507812501" />
+          <ConnectorPoint PointX="11" PointY="18.60520507812501" />
+          <ConnectorPoint PointX="11" PointY="21.75" />
+          <ConnectorPoint PointX="12.25" PointY="21.75" />
+          <ConnectorPoint PointX="12.25" PointY="24.875" />
+          <ConnectorPoint PointX="12" PointY="24.875" />
+          <ConnectorPoint PointX="12" PointY="25.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLGroupsCompLink_ONLGroups" >
+          <ConnectorPoint PointX="4.47576923076923" PointY="17.499492187499996" />
+          <ConnectorPoint PointX="4.6910744349011217" PointY="17.714797391631887" />
+          <ConnectorPoint PointX="4.8089255650988791" PointY="17.832648521829643" />
+          <ConnectorPoint PointX="4.875" PointY="17.898722956730765" />
+          <ConnectorPoint PointX="4.875" PointY="20.559970330729172" />
+          <ConnectorPoint PointX="4.885416666666667" PointY="20.559970330729172" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="20.559970330729172" />
+          <ConnectorPoint PointX="5.25" PointY="20.559970330729172" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLGroupsCompLink_ONLqfList" >
+          <ConnectorPoint PointX="4.5" PointY="13.93952874759615" />
+          <ConnectorPoint PointX="5.09375" PointY="14.53327874759615" />
+          <ConnectorPoint PointX="5.09375" PointY="21.804918992187496" />
+          <ConnectorPoint PointX="5.25" PointY="21.804918992187496" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLlead__iid_lin__48CFD27E" >
+          <ConnectorPoint PointX="15" PointY="19.643992513020834" />
+          <ConnectorPoint PointX="15.75" PointY="19.643992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLlistdata__iid__3F466844" >
+          <ConnectorPoint PointX="6.75" PointY="14.71875" />
+          <ConnectorPoint PointX="14.25" PointY="14.71875" />
+          <ConnectorPoint PointX="14.25" PointY="17.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLspeed__iid_li__5070F446" >
+          <ConnectorPoint PointX="15" PointY="21.07639648437501" />
+          <ConnectorPoint PointX="15.375" PointY="21.45139648437501" />
+          <ConnectorPoint PointX="15.375" PointY="20.875" />
+          <ConnectorPoint PointX="15.75" PointY="21.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLLogDetails_ONLLog" >
+          <ConnectorPoint PointX="2.25" PointY="2.4901432291666623" />
+          <ConnectorPoint PointX="3" PointY="2.4901432291666623" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLoperat__user___74AE54BC" >
+          <ConnectorPoint PointX="6.75" PointY="25.759348958333334" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="25.759348958333334" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="25.759348958333334" />
+          <ConnectorPoint PointX="7.75" PointY="25.759348958333334" />
+          <ConnectorPoint PointX="7.75" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="8.2083333333333339" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="8.6985897435897428" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="8.86525641025641" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="9.1451282051282039" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="9.3117948717948718" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="10.666666666666666" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="10.833333333333334" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="11.083333333333334" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="11.125" PointY="26.932027994791667" />
+          <ConnectorPoint PointX="11.125" PointY="25" />
+          <ConnectorPoint PointX="11.499999500000001" PointY="25" />
+          <ConnectorPoint PointX="11.499999500000001" PointY="24.557190755208325" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLrankin__team___04E4BC85" >
+          <ConnectorPoint PointX="3.75" PointY="27.057190755208325" />
+          <ConnectorPoint PointX="3.75" PointY="28.040598958333334" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="28.040598958333334" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="28.040598958333334" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="28.040598958333334" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="28.040598958333334" />
+          <ConnectorPoint PointX="11.25" PointY="28.040598958333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLTeamGr__teamg__1C5231C2" >
+          <ConnectorPoint PointX="2.25" PointY="23.610196498697917" />
+          <ConnectorPoint PointX="2.75" PointY="23.610196498697917" />
+          <ConnectorPoint PointX="2.75" PointY="19" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="19" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="19" />
+          <ConnectorPoint PointX="4.5497425897435866" PointY="19" />
+          <ConnectorPoint PointX="4.7348707948717932" PointY="19" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="19" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="19" />
+          <ConnectorPoint PointX="8.593748" PointY="19" />
+          <ConnectorPoint PointX="8.593748" PointY="17.79758789062501" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLTeamsC__quota__1975C517" >
+          <ConnectorPoint PointX="1.5" PointY="22.25" />
+          <ConnectorPoint PointX="1.5" PointY="18.51145507812501" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="18.511455078125007" />
+          <ConnectorPoint PointX="5.177083333333333" PointY="18.51145507812501" />
+          <ConnectorPoint PointX="8.5104146666666658" PointY="18.51145507812501" />
+          <ConnectorPoint PointX="8.6770813333333336" PointY="18.51145507812501" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="18.51145507812501" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="18.51145507812501" />
+          <ConnectorPoint PointX="11.25" PointY="18.51145507812501" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLteams_ONLTeamGroups" >
+          <ConnectorPoint PointX="1.5" PointY="24.42258789062501" />
+          <ConnectorPoint PointX="1.5" PointY="25.778595377604162" />
+          <ConnectorPoint PointX="3" PointY="25.778595377604162" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLusers__team_i__6477ECF3" >
+          <ConnectorPoint PointX="4.5" PointY="25.076797688802081" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="25.076797688802081" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="25.076797688802081" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="25.076797688802081" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="25.076797688802081" />
+          <ConnectorPoint PointX="5.25" PointY="25.076797688802081" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK_ONLTeamsCompLink_ONLteams" >
+          <ConnectorPoint PointX="4.5" PointY="24.532306692307689" />
+          <ConnectorPoint PointX="4.8160744349011209" PointY="24.216232257406567" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="24.09838112720881" />
+          <ConnectorPoint PointX="5.0035744349011209" PointY="24.028732257406567" />
+          <ConnectorPoint PointX="5.1214255650988791" PointY="23.91088112720881" />
+          <ConnectorPoint PointX="5.15625" PointY="23.876056692307689" />
+          <ConnectorPoint PointX="5.15625" PointY="18.677602539062505" />
+          <ConnectorPoint PointX="8.5104146666666658" PointY="18.677602539062505" />
+          <ConnectorPoint PointX="8.6770813333333336" PointY="18.677602539062505" />
+          <ConnectorPoint PointX="11.25" PointY="18.677602539062505" />
+        </AssociationConnector>
+        <AssociationConnector Association="web_DebugModel.FK__ONLuserRo__user___6EF57B66" >
+          <ConnectorPoint PointX="6.75" PointY="24.848422479166672" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="24.848422479166672" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="24.848422479166672" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="24.848422479166672" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="24.848422479166672" />
+          <ConnectorPoint PointX="8.125" PointY="24.848422479166672" />
+          <ConnectorPoint PointX="8.125" PointY="27.432027994791667" />
+          <ConnectorPoint PointX="10.75" PointY="27.432027994791667" />
+          <ConnectorPoint PointX="10.75" PointY="25.375" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="25.375" />
+          <ConnectorPoint PointX="11.208333333333334" PointY="25.375" />
+          <ConnectorPoint PointX="11.916666666666666" PointY="25.375" />
+          <ConnectorPoint PointX="12.083333333333334" PointY="25.375" />
+          <ConnectorPoint PointX="14.25" PointY="25.375" />
+          <ConnectorPoint PointX="14.25" PointY="24.489889322916667" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

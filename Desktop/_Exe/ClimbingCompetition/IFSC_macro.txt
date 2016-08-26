@@ -1,0 +1,16 @@
+﻿Sub f()
+For i = 6 To 42
+    Cells(i, 2) = (i - 5)
+    Cells(i, 3) = Cells(i, 3) + " " + Cells(i, 4)
+    Cells(i, 4) = Cells(i, 5)
+    Cells(i, 5) = ""
+    For k = 7 To 9
+        Cells(i, k) = ""
+    Next k
+    Cells(i, 7) = ""
+    Cells(i, 10) = "+"
+    Cells(i, 11) = ""
+    Cells(i, 12) = ""
+    Cells(i, 13) = (i - 5)
+Next i
+End Sub

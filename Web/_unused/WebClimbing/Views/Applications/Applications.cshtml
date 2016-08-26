@@ -1,0 +1,147 @@
+﻿@model IEnumerable<ClimberApplication>
+@{
+    String divId = ViewBag.DivId;
+    String lineDivId, lineLoadDivId;
+    CompetitionModel comp = ViewBag.Comp;
+    RegionModel region = ViewBag.Region;
+    int i = 0;
+    int colCount = 8;
+    if(comp.Lead) {
+        colCount++;
+    }
+    if(comp.Speed) {
+        colCount++;
+    }
+    if(comp.Boulder) {
+        colCount++;
+    }
+    bool allowAdd = ViewBag.AllowAdd;
+    bool allowEdit = ViewBag.AllowEdit;
+    bool showDiv = !String.IsNullOrEmpty(divId);
+}
+@if (showDiv)
+{
+    @:<div id="@divId" class="apps-full-list">
+}
+
+@if (Model != null)
+{
+    <h3>@String.Format("Заявка на {0} от {1}", comp.Name, region.Name)</h3>
+    <div class="climber-app-table" id="appsTable">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>@Html.DisplayNameFor(m => m.Surname)</th>
+                    <th>@Html.DisplayNameFor(m => m.Name)</th>
+                    <th>@Html.DisplayNameFor(m => m.GenderP)</th>
+                    <th>@Html.DisplayNameFor(m => m.YearOfBirth)</th>
+                    <th>@Html.DisplayNameFor(m => m.Qf)</th>
+                    <th>@Html.DisplayNameFor(m => m.GroupName)</th>
+                    @if (comp.Lead)
+                    {
+                        <th>@Html.DisplayNameFor(m => m.Lead)</th>
+                    }
+                    @if (comp.Speed)
+                    {
+                        <th>@Html.DisplayNameFor(m => m.Speed)</th>
+                    }
+                    @if (comp.Boulder)
+                    {
+                        <th>@Html.DisplayNameFor(m => m.Boulder)</th>
+                    }
+                    @if (allowEdit)
+                    {
+                        <th></th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    {
+                        lineDivId = String.Format("appLine{0}", item.ApplicationId.Value);
+                        lineLoadDivId = lineDivId + "ajax";
+                    }
+                    <tr>
+                        <td>@(++i)</td>
+                        <td>@Html.DisplayFor(m => item.Surname)</td>
+                        <td>@Html.DisplayFor(m => item.Name)</td>
+                        <td>@item.GenderP.GetFriendlyValue()</td>
+                        <td>@Html.DisplayFor(m => item.YearOfBirth)</td>
+                        <td>@item.Qf.GetFriendlyValue()</td>
+                        <td>@Html.DisplayFor(m => item.GroupName)</td>
+                        @if (comp.Lead)
+                        {
+                            <td>@item.Lead.GetFriendlyValue()</td>
+                        }
+                        @if (comp.Speed)
+                        {
+                            <td>@item.Speed.GetFriendlyValue()</td>
+                        }
+                        @if (comp.Boulder)
+                        {
+                            <td>@item.Boulder.GetFriendlyValue()</td>
+                        }
+                        @if (allowEdit)
+                        {
+                        <td>
+                            @Ajax.ActionLink("Правка", "Climber",
+                            new
+                            {
+                                climberId = item.ApplicationId,
+                                compId = comp.Iid,
+                                divId = lineDivId + "_target",
+                                regionId = region.Iid
+                            },
+                            new AjaxOptions
+                            {
+                                HttpMethod = "GET",
+                                InsertionMode = InsertionMode.Replace,
+                                UpdateTargetId = lineDivId,
+                                LoadingElementId = lineLoadDivId,
+                                OnSuccess = "editPanelShown",
+                                OnFailure = "loadClimberFailed",
+                                OnBegin = "loadClimberStarted"
+                            },
+                            new
+                            {
+                                @class = WebClimbing.Controllers.ApplicationsController.CLS_HIDE_WHEN_EDIT
+                            })
+                        </td>
+                        }
+                    </tr>
+                    if (allowEdit)
+                    {
+                    <tr>
+                        <td colspan="@colCount" align="left" valign="top">
+                            <div id="@lineLoadDivId" style="display:none" class="ajax-load-climber">
+                                <img src="~/Images/orderedList0.png" alt="Загрузка..."/>
+                                    Идет загрузка заявки
+                            </div>
+                            <div id="@lineDivId" />
+                        </td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    @Html.Hidden("compId", comp.Iid)
+    @Html.Hidden("regionId", region.Iid)
+    @Html.Hidden("groupId", (int?)ViewBag.GroupId)
+    <div id="newClimbersPanel" style="display:none"></div>
+    if (allowAdd)
+    {
+    <p>
+        <input type="button" value="Новая заявка" class="@(WebClimbing.Controllers.ApplicationsController.CLS_HIDE_WHEN_EDIT)" onclick="addClimbersClick()" />
+    @*
+        <a href="#newClimberButton" id="newClimberButton" class="new-climber-button @(WebClimbing.Controllers.ApplicationsController.CLS_HIDE_WHEN_EDIT)">Добавить участника</a>
+    *@
+    </p>
+    }
+}
+@if (showDiv)
+{
+    @:</div>
+}

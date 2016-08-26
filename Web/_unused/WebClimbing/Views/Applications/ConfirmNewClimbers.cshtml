@@ -1,0 +1,129 @@
+﻿@model IEnumerable<ClimberApplication>
+@{
+    String divId = ViewBag.DivId;
+    CompetitionModel comp = (new ClimbingContext()).Competitions.Find(ViewBag.CompId);
+    long regionId = ViewBag.Regionid;
+    int styleCount = 0;
+    if (comp.Lead) {
+        styleCount++;
+    }
+    if(comp.Speed) {
+        styleCount++;
+    }
+    if(comp.Boulder) {
+        styleCount++;
+    }
+    var items = Model.ToArray();
+}
+<div id="@divId" class="newClimbersConfirmDiv">
+    <form action="ConfirmNewClimbers" method="post" id="confirmClimbersForm">
+        @Html.Hidden("compId", comp.Iid)
+        @Html.Hidden("regionId", regionId)
+    @*
+    @using (Ajax.BeginForm("ConfirmNewClimbers", "Applications",
+        new
+        {
+            divId = divId,
+            compId = comp.Iid,
+            regionId = regionId
+        },
+            new AjaxOptions
+            {
+                HttpMethod = "POST",
+                Confirm = "Подать заявку?",
+                LoadingElementId = "ajaxconfirm",
+                OnBegin = "newClimbersConfirmStarted",
+                OnFailure = "newClimbersConfirmFailed",
+                OnSuccess = "newClimbersConfirmSucceded"
+            }))
+    {*@
+        <h3>Проверьте поданную заявку</h3>
+        <ul id="confirmErrors" class="message-error" style="display:none">
+        </ul>
+        @Html.ValidationSummary(false)
+        <table>
+            <thead>
+                <tr>
+                    <td rowspan="2"></td>
+                    <td rowspan="2">@Html.DisplayNameFor(m => m.DisplayName)</td>
+                    <td rowspan="2">@Html.DisplayNameFor(m => m.GenderP)</td>
+                    <td rowspan="2">@Html.DisplayNameFor(m => m.YearOfBirth)</td>
+                    <td rowspan="2">@Html.DisplayNameFor(m => m.Qf)</td>
+                    <td rowspan="2">@Html.DisplayNameFor(m => m.GroupName)</td>
+                    <td colspan="@styleCount">Участие в видах</td>
+                    <td rowspan="2">@Html.DisplayNameFor(m => m.Confirmed)</td>
+                </tr>
+                <tr>
+                    @if (comp.Lead)
+                    {
+                        <td>@Html.DisplayNameFor(m => m.Lead)</td>
+                    }
+                    @if (comp.Speed)
+                    {
+                        <td>@Html.DisplayNameFor(m => m.Speed)</td>
+                    }
+                    @if (comp.Boulder)
+                    {
+                        <td>@Html.DisplayNameFor(m => m.Boulder)</td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < items.Length; i++)
+                {
+                    <tr>
+                        <td>
+                            @(i + 1)
+                            @Html.Hidden(String.Format("items[{0}].Index", i))
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => items[i].DisplayName)
+                            @Html.HiddenFor(m => items[i].Surname)
+                            @Html.HiddenFor(m => items[i].Name)
+                        </td>
+                        <td>
+                            @items[i].GenderP.GetFriendlyValue()
+                            @Html.HiddenFor(m => items[i].GenderP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => items[i].YearOfBirth)
+                            @Html.HiddenFor(m => items[i].YearOfBirth)
+                        </td>
+                        <td>
+                            @items[i].Qf.GetFriendlyValue()
+                            @Html.HiddenFor(m => items[i].Qf)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => items[i].GroupName)
+                        </td>
+                        @if (comp.Lead)
+                        {
+                            <td>
+                                @items[i].Lead.GetFriendlyValue()
+                                @Html.HiddenFor(m => items[i].Lead)
+                            </td>
+                        }
+                        @if (comp.Speed)
+                        {
+                            <td>
+                                @items[i].Speed.GetFriendlyValue()
+                                @Html.HiddenFor(m => items[i].Speed)
+                            </td>
+                        }
+                        @if (comp.Boulder)
+                        {
+                            <td>
+                                @items[i].Boulder.GetFriendlyValue()
+                                @Html.HiddenFor(m => items[i].Boulder)
+                            </td>
+                        }
+                        <td>@Html.CheckBoxFor(m => items[i].Confirmed, new { @class = "hide-when-apply" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input type="button" value="Подать заявку" class="hide-when-apply" onclick="newClimbersConfirmSubmit();" />
+        <a href="#cancelConfirmed" id="cancelConfirmed" class="hide-when-apply" onclick="newClimbersConfirmCancel();">Назад</a>
+    @*}*@
+    </form>
+</div>

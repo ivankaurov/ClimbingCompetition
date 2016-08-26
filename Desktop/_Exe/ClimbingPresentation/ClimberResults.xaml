@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="ClimbingPresentation.ClimberResults"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClimbingPresentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="30">
+    <UserControl.Resources>
+        <local:FontStyleConverter x:Key="FSConv" DefaultW="Normal" HeaderW="Bold" />
+    </UserControl.Resources>
+    <ListView Name="lstResView">
+        <ListView.Resources>
+            <ControlTemplate x:Key="Default" TargetType="{x:Type ListViewItem}">
+                <Border BorderBrush="Black" BorderThickness="2" Margin="2" CornerRadius="8">
+                    <Label FontSize="15" FontWeight="{Binding Converter={StaticResource FSConv}}">
+                        <GridViewRowPresenter Columns="{TemplateBinding GridView.ColumnCollection}"
+                                                      Content="{TemplateBinding Content}" />
+                    </Label>
+                </Border>
+            </ControlTemplate>
+        </ListView.Resources>
+        <ListView.ItemContainerStyle>
+            <Style TargetType="{x:Type ListViewItem}">
+                <Setter Property="Template" Value="{StaticResource Default}" />
+                <Setter Property="Control.Padding" Value="0" />
+                <Style.Triggers>
+                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                        <Setter Property="ListBoxItem.Background" Value="Transparent" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ListView.ItemContainerStyle>
+        <ListView.View>
+            <GridView>
+                <GridView.ColumnHeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                       FontSize="15" FontFamily="Comic Sans MS" Text="{Binding}" />
+                    </DataTemplate>
+                </GridView.ColumnHeaderTemplate>
+                <GridView.Columns>
+                    <GridViewColumn Header="Раунд"
+                                            DisplayMemberBinding="{Binding Path=[0]}" />
+                    <GridViewColumn Header="Результат"
+                                            DisplayMemberBinding="{Binding Path=[1]}" />
+                    <GridViewColumn Header="Место"
+                                            DisplayMemberBinding="{Binding Path=[2]}" />
+                </GridView.Columns>
+            </GridView>
+        </ListView.View>
+    </ListView>
+</UserControl>

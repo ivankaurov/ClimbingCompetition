@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Регионы";
+    String divId = "regionsdata";
+    object attr = new { onchange = "$(this.form).submit()" };
+    SelectList regions = ViewBag.Regions;
+}
+
+<h2>Список регионов</h2>
+@if (ViewBag.AllowGlobal)
+{
+    @Html.ActionLink("Администраторы БД", "GlobalAdmins")
+}
+@using (Ajax.BeginForm("RegList", new { divId = divId }, new AjaxOptions
+{
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = "ajaxloader",
+    UpdateTargetId = divId
+}))
+{
+    @Html.DropDownList("region", regions, "Россия", attr)
+}
+@Html.Action("RegList", new { region = regions.SelectedValue, divId = divId })

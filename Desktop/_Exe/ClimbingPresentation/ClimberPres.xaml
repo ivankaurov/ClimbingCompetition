@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="ClimbingPresentation.ClimberPres"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ClimbingPresentation"
+             xmlns:ls="clr-namespace:ListShow;assembly=ListShow"
+             mc:Ignorable="d" d:DesignHeight="30" d:DesignWidth="30">
+    <UserControl.Resources>
+        <Style x:Key="lblStyle">
+            <Setter Property="Control.FontSize" Value="20" />
+            <Setter Property="Control.FontFamily" Value="Comic Sans MS" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.Margin" Value="5" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Name="mainPanel">
+        <Label Name="lblName" Style="{StaticResource lblStyle}">
+            <Binding Path="Name" />
+        </Label>
+        <Label Name="lblTeam" Style="{StaticResource lblStyle}">
+            <Binding Path="Team" />
+        </Label>
+        <Label Name="lblGroup" Style="{StaticResource lblStyle}">
+            <Binding Path="Group" />
+        </Label>
+        <Label Style="{StaticResource lblStyle}">
+            <StackPanel Orientation="Horizontal">
+                <Label>
+                    <Binding Path="Age" />
+                </Label>
+                <Label>г.р.</Label>
+            </StackPanel>
+        </Label>
+        <Label Style="{StaticResource lblStyle}">
+            <StackPanel Orientation="Horizontal">
+                <Label>Разряд:</Label>
+                <Label>
+                    <Binding Path="Qf" />
+                </Label>
+            </StackPanel>
+        </Label>
+    </StackPanel>
+</UserControl>

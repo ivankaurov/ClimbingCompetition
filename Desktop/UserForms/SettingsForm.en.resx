@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="rbSpeedNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 17</value>
+  </data>
+  <data name="rbSpeedNo.Text" xml:space="preserve">
+    <value>No automatic chrono</value>
+  </data>
+  <data name="rbSpeedIvanovo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 17</value>
+  </data>
+  <data name="rbSpeedIvanovo.Text" xml:space="preserve">
+    <value>"Baurock-Ivanovo"</value>
+  </data>
+  <data name="rbSpeedEKO.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 17</value>
+  </data>
+  <data name="rbSpeedEKO.Text" xml:space="preserve">
+    <value>"e-Sport" Ekaterinburg (old)</value>
+  </data>
+  <data name="rbSpeedEKB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 17</value>
+  </data>
+  <data name="rbSpeedEKB.Text" xml:space="preserve">
+    <value>"e-Sport" Ekaterinburg</value>
+  </data>
+  <data name="gbSpeedSystem.Text" xml:space="preserve">
+    <value>Chrono type</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="gbAutoNumber.Text" xml:space="preserve">
+    <value>Bib number auto-assignment</value>
+  </data>
+  <data name="rbNumRow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 17</value>
+  </data>
+  <data name="rbNumRow.Text" xml:space="preserve">
+    <value>Direct</value>
+  </data>
+  <data name="rbNumGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 17</value>
+  </data>
+  <data name="rbNumGroup.Text" xml:space="preserve">
+    <value>Group-based</value>
+  </data>
+  <data name="gbShowFlash.Text" xml:space="preserve">
+    <value>Lead qualificaion show mod.</value>
+  </data>
+  <data name="rbShowFlashBTH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 17</value>
+  </data>
+  <data name="rbShowFlashBTH.Text" xml:space="preserve">
+    <value>Show unfinished climbers everywhere</value>
+  </data>
+  <data name="rbShowFlashADM.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 17</value>
+  </data>
+  <data name="rbShowFlashADM.Text" xml:space="preserve">
+    <value>Show unfinished climbers only at the judges monitor</value>
+  </data>
+  <data name="rbShowFlashNOT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 17</value>
+  </data>
+  <data name="rbShowFlashNOT.Text" xml:space="preserve">
+    <value>Show only those who completed all routes</value>
+  </data>
+  <data name="gbPointsSettings.Text" xml:space="preserve">
+    <value>Points setting rules</value>
+  </data>
+  <data name="cbSharePoints.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 17</value>
+  </data>
+  <data name="cbSharePoints.Text" xml:space="preserve">
+    <value>Share points in ties</value>
+  </data>
+  <data name="btnSetPoints.Text" xml:space="preserve">
+    <value>Points table settings</value>
+  </data>
+  <data name="cbOnly75.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 17</value>
+  </data>
+  <data name="cbOnly75.Text" xml:space="preserve">
+    <value>75% with points</value>
+  </data>
+  <data name="cbSetLessOne.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 17</value>
+  </data>
+  <data name="cbSetLessOne.Text" xml:space="preserve">
+    <value>Set less than one point</value>
+  </data>
+  <data name="gb2groups.Text" xml:space="preserve">
+    <value>Lead and boulder two-group combination</value>
+  </data>
+  <data name="rbPts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 17</value>
+  </data>
+  <data name="rbPts.Text" xml:space="preserve">
+    <value>By mean of places</value>
+  </data>
+  <data name="rbPlace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 17</value>
+  </data>
+  <data name="rbPlace.Text" xml:space="preserve">
+    <value>By place</value>
+  </data>
+  <data name="gbListShowSet.Text" xml:space="preserve">
+    <value>ListShow program settings</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Screen change frequency:</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Refresh frequency:</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Text line speed (slow-fast):</value>
+  </data>
+  <data name="gbSpeedQualy.Text" xml:space="preserve">
+    <value>Speed qualification settings</value>
+  </data>
+  <data name="rbQfSpeedLast.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 17</value>
+  </data>
+  <data name="rbQfSpeedLast.Text" xml:space="preserve">
+    <value>Second try</value>
+  </data>
+  <data name="rbQfSpeedBest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 17</value>
+  </data>
+  <data name="rbQfSpeedBest.Text" xml:space="preserve">
+    <value>Best try</value>
+  </data>
+  <data name="gbSpeedRules.Text" xml:space="preserve">
+    <value>Speed rules</value>
+  </data>
+  <data name="rbSpeedWR.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 17</value>
+  </data>
+  <data name="rbSpeedWR.Text" xml:space="preserve">
+    <value>IFSC WR rules</value>
+  </data>
+  <data name="rbSpeedBest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 17</value>
+  </data>
+  <data name="rbSpeedBest.Text" xml:space="preserve">
+    <value>Best route</value>
+  </data>
+  <data name="rbSpeedSum.Text" xml:space="preserve">
+    <value>Classic (2 routes)</value>
+  </data>
+  <data name="gbSpeedSchema.Text" xml:space="preserve">
+    <value>Speed pairing</value>
+  </data>
+  <data name="rbSpeedSchemaInternational.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 17</value>
+  </data>
+  <data name="rbSpeedSchemaInternational.Text" xml:space="preserve">
+    <value>IFSC</value>
+  </data>
+  <data name="rbSpeedSchemaNational.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <data name="rbSpeedSchemaNational.Text" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="cbOneListExcel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 17</value>
+  </data>
+  <data name="cbOneListExcel.Text" xml:space="preserve">
+    <value>List on one sheet</value>
+  </data>
+  <data name="cbShowNewQF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 17</value>
+  </data>
+  <data name="cbShowNewQF.Text" xml:space="preserve">
+    <value>Include "New QF" column</value>
+  </data>
+  <data name="gbLists.Text" xml:space="preserve">
+    <value>List printing settings</value>
+  </data>
+  <data name="gbNewRules.Text" xml:space="preserve">
+    <value>Rules</value>
+  </data>
+  <data name="cbLeaveTrains.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 17</value>
+  </data>
+  <data name="cbLeaveTrains.Text" xml:space="preserve">
+    <value>Do not cut "ties"</value>
+  </data>
+  <data name="cbSetPosToFalls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 17</value>
+  </data>
+  <data name="cbSetPosToFalls.Text" xml:space="preserve">
+    <value>Set position for DNF in speed</value>
+  </data>
+  <data name="cbCombinedNew.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 17</value>
+  </data>
+  <data name="cbCombinedNew.Text" xml:space="preserve">
+    <value>2012 rules for the combined</value>
+  </data>
+  <data name="cbLeadTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 17</value>
+  </data>
+  <data name="cbLeadTime.Text" xml:space="preserve">
+    <value>"Speed" in lead climbing</value>
+  </data>
+  <data name="cb40sec.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 17</value>
+  </data>
+  <data name="cb40sec.Text" xml:space="preserve">
+    <value>Include 40sec. in climbing time</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Database settings</value>
+  </data>
+</root>

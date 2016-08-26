@@ -1,0 +1,156 @@
+﻿@model ClimberApplication
+@{
+    CompetitionModel comp = ViewBag.Comp;
+    List<RegionModel> regions = ViewBag.RegionList;
+    long? selectedRegionId = ViewBag.DefaultRegionId;
+    //SelectList slRegions = new SelectList(regions, "Iid", "Name", selectedRegionId);
+        
+    int i = ViewBag.Index;
+
+    bool allowEditName = ((ViewBag.AllowEditName == null) ? true : (bool)ViewBag.AllowEditName);
+    
+    object htmlAttrName, htmlAttrSurname, htmlAttrGender, htmlAttrYear,
+        htmlAttrQf = new { @id = String.Format("qf_{0}", i) };
+    if(allowEditName)
+    {
+        htmlAttrName = new
+        {
+            @readonly = "readonly",
+            @onkeyup = String.Format("surnameChanged({0})", i),
+            @id = String.Format("name_{0}", i)
+        };
+        htmlAttrSurname = new
+        {
+            @readonly = "readonly",
+            @onkeyup = String.Format("surnameChanged({0})", i),
+            @id = String.Format("surname_{0}", i)
+        };
+        htmlAttrGender = new
+        {
+            @readonly = "readonly",
+            @id = String.Format("gender_{0}", i)
+        };
+        htmlAttrYear = new
+        {
+            @readonly = "readonly",
+            @id = String.Format("year_{0}", i)
+        };
+    }
+    else
+    {
+        htmlAttrName = new
+        {
+            @onkeyup = String.Format("surnameChanged({0})", i),
+            @id = String.Format("name_{0}", i)
+        };
+        htmlAttrSurname = new
+        {
+            @onkeyup = String.Format("surnameChanged({0})", i),
+            @id = String.Format("surname_{0}", i)
+        };
+        htmlAttrGender = new
+        {
+            @id = String.Format("gender_{0}", i)
+        };
+        htmlAttrYear = new
+        {
+            @id = String.Format("year_{0}", i)
+        };
+    }
+    
+    var data = new ClimberApplication[i + 1];
+    data[i] = Model;
+    String itemsPrefix = String.Format("data[{0}].", i);
+    String divId = String.Format("div_edit_{0}", i);
+}
+
+<div class="edit-climber" id="@divId">
+    <h3>@Model.ModelHeader</h3>
+    @Html.Hidden("data.Index", i)
+    @Html.HiddenFor(mbox => data[i].ApplicationId)
+    @Html.HiddenFor(mbox => data[i].ModelHeader)
+    <table>
+        <tr>
+            <td>@Html.LabelFor(mbox => mbox.Surname)</td>
+            <td>@Html.TextBoxFor(mbox => data[i].Surname, htmlAttrSurname)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(mbox => mbox.Name)</td>
+            <td>@Html.TextBoxFor(mbox => data[i].Name, htmlAttrName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(mbox=>mbox.GenderP)</td>
+            <td>@Html.EnumDropDownList(itemsPrefix + "GenderP", Model.GenderP, htmlAttr: htmlAttrGender, nullValueString:"<Пол>")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(mbox => mbox.YearOfBirth)</td>
+            <td>
+                @if (allowEditName)
+                {
+                    @Html.EditorFor(m => data[i].YearOfBirth, htmlAttrYear)
+                }
+                else
+                {
+                    @Html.TextBoxFor(m => data[i].YearOfBirth, htmlAttrYear)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Team)</td>
+            <td>
+                @if (allowEditName)
+                {
+                    
+                    if(regions.Count==1)
+                    {
+                        @regions[0].Name
+                        Model.TeamId = regions[0].Iid;
+                        @Html.HiddenFor(m => data[i].TeamId)
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(m => data[i].TeamId, new SelectList(regions, "Iid", "Name", data[i].TeamId ?? selectedRegionId), "<Команда>")
+                    }
+                }
+                else
+                {
+                    @Model.Team.Name
+                    @Html.HiddenFor(m => data[i].TeamId)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(mbox => mbox.Qf)</td>
+            <td>@Html.EnumDropDownList(itemsPrefix + "Qf", Model.Qf, htmlAttr: htmlAttrQf, nullValueString: "<Разряд>")</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(mbox => mbox.GroupName)</td>
+            <td>@Model.GroupName</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center" style="font-weight:bold">Участие в видах</td>
+        </tr>
+        @if (comp.Lead)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(mbox => mbox.Lead)</td>
+                <td>@Html.EnumDropDownList(itemsPrefix + "Lead", Model.Lead)</td>
+            </tr>
+        }
+        @if (comp.Speed)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(mbox => mbox.Speed)</td>
+                <td>@Html.EnumDropDownList(itemsPrefix + "Speed", Model.Speed)</td>
+            </tr>
+        }
+        @if (comp.Boulder)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(mbox => mbox.Boulder)</td>
+                <td>@Html.EnumDropDownList(itemsPrefix + "Boulder", Model.Boulder)</td>
+            </tr>
+        }
+    </table>
+    <button onclick="$('#@divId').remove()">Отмена</button>
+</div>

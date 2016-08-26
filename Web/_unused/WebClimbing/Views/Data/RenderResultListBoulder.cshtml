@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BoulderResultLine>
+@{
+    ListHeaderModel header = ViewBag.Header;
+    ViewBag.Title = String.Format("{0}{1} {2}{3}", header.Live ? "Live! " : String.Empty, header.Round,
+                       header.GroupId == null ? String.Empty : (header.Group.AgeGroup.SecretaryName + " "), header.Style);
+}
+<div id="@ViewBag.DivID">
+<h2>@ViewBag.Title</h2>
+<table>
+    <tr>
+        <th rowspan="2">@Html.DisplayNameFor(model => model.PosText)</th>
+        <th rowspan="2">@Html.DisplayNameFor(model => model.Climber)</th>
+        <th rowspan="2">@Html.DisplayNameFor(model => model.Climber.TeamList)</th>
+        <th rowspan="2">@Html.DisplayNameFor(model => model.Climber.Age)</th>
+        <th rowspan="2">@Html.DisplayNameFor(model => model.Climber.Qf)</th>
+        @for (int i = 1; i <= (header.RouteQuantity ?? 0); i++)
+        {
+            <th colspan="2">@String.Format("Трасса {0}", i)</th>
+        }
+        <th rowspan="2">@Html.DisplayNameFor(model=> model.Top)</th>
+        <th rowspan="2">@Html.DisplayNameFor(model=> model.TopAttempts)</th>
+        <th rowspan="2">@Html.DisplayNameFor(model=> model.Bonus)</th>
+        <th rowspan="2">@Html.DisplayNameFor(model=> model.BonusAttempts)</th>
+        <th rowspan="2">@Html.DisplayNameFor(model=> model.StartNumber)</th>
+    </tr>
+    <tr>
+        @for (int i = 1; i <= (header.RouteQuantity ?? 0); i++)
+        {
+            <th>Top</th>
+            <th>Bonus</th>
+        }
+    </tr>
+    @foreach (var item in Model.Where(r=>!r.PreQf))
+    {
+        <tr class="@(String.IsNullOrEmpty(item.Qf)?String.Empty:"qf")">
+            <td>@Html.DisplayFor(m => item.PosText)</td>
+            <td>@Html.DisplayFor(m => item.Climber.ClimberName)</td>
+            <td>@Html.DisplayFor(m => item.Climber.TeamList)</td>
+            <td>@Html.DisplayFor(m => item.Climber.Age)</td>
+            <td>@item.Climber.Qf.GetFriendlyValue()</td>
+            @for (int i = 1; i <= (header.RouteQuantity ?? 0); i++)
+            {
+                var route = item.Routes.FirstOrDefault(r => r.Route == i);
+                if (route == null)
+                {
+                    <td></td>
+                    <td></td>
+                }
+                else
+                {
+                    <td>@Html.DisplayFor(m => route.Top)</td>
+                    <td>@Html.DisplayFor(m => route.Bonus)</td>
+                }
+            }
+            @if (item.ResultTypeValue == ResultType.HasResult)
+            {
+                <td>@Html.DisplayFor(m => item.Top)</td>
+                <td>@Html.DisplayFor(m => item.TopAttempts)</td>
+                <td>@Html.DisplayFor(m => item.Bonus)</td>
+                <td>@Html.DisplayFor(m => item.BonusAttempts)</td>
+            }
+            else
+            {
+                <td colspan="4">@item.ResultTypeValue.GetFriendlyValue()</td>
+            }
+            <td>@Html.DisplayFor(m => item.StartNumber)</td>
+        </tr>
+    }
+</table>
+</div>

@@ -1,0 +1,42 @@
+﻿@model WebClimbing.Models.UserAuthentication.UserProfileModel
+@{
+    ViewBag.Title = "Удалить пользователя";
+}
+
+<h2>@ViewBag.Title</h2>
+@Html.ValidationSummary(true)
+<h3>Вы уверены, что хотите удалить этого пользователя?</h3>
+<p class="message-error">@ViewBag.ErrorMessage</p>
+<fieldset>
+    <legend>Удалить?</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Region)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Region.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.AntiForgeryToken()
+        @Html.Hidden("id", Model.Iid)
+        <input type="submit" value="Удалить" />
+    </p>
+}
+@Html.ActionLink("К списку пользователей", "Index")

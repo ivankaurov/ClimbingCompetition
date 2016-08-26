@@ -1,0 +1,1907 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://climbing-competition.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://climbing-competition.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://climbing-competition.org/">
+      <s:element name="ValidateAdminPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateAdminPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateAdminPasswordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paramName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParamValueResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBinaryParamsStringParamValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBinaryParamsStringParamValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBinaryParamsStringParamValuesResult" type="tns:ArrayOfPairingValueOfStringString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPairingValueOfStringString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PairingValueOfStringString" nillable="true" type="tns:PairingValueOfStringString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PairingValueOfStringString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Value1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBinaryParamValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paramName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBinaryParamValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBinaryParamValueResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCompetitions">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllCompetitionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCompetitionsResult" type="tns:ArrayOfONLCompetitionSerializable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfONLCompetitionSerializable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ONLCompetitionSerializable" nillable="true" type="tns:ONLCompetitionSerializable" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ONLCompetitionSerializable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Params" type="tns:ArrayOfONLCompetitionParamSerializable" />
+          <s:element minOccurs="0" maxOccurs="1" name="Competition" type="tns:ONLCompetition" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfONLCompetitionParamSerializable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ONLCompetitionParamSerializable" nillable="true" type="tns:ONLCompetitionParamSerializable" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ONLCompetitionParamSerializable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BinaryValue" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ONLCompetition">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="iid" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="short_name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="place" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="default_group" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ONLTeamGroupReference" type="tns:EntityReferenceOfONLTeamGroup" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityObject" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StructuralObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StructuralObject" abstract="true" />
+      <s:complexType name="EntityKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EntitySetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityContainerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityKeyValues" type="tns:ArrayOfEntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfONLTeamGroup">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReference" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RelatedEnd">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RelatedEnd" abstract="true" />
+      <s:element name="GetTeamsForCompetition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ONLTeamSerializable">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Iid" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="SecretaryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RankingPos" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GroupID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GroupSet" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfONLTeamSerializable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ONLTeamSerializable" nillable="true" type="tns:ONLTeamSerializable" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTeamsForCompetitionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTeamsForCompetitionResult" type="tns:ArrayOfONLTeamSerializable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsForCompetition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ONLGroupSerializable">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Iid" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="minQf" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="yearOld" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="yearYoung" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GenderFemale" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfONLGroupSerializable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ONLGroupSerializable" nillable="true" type="tns:ONLGroupSerializable" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGroupsForCompetitionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsForCompetitionResult" type="tns:ArrayOfONLGroupSerializable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClimber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="climberID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="GetPhoto" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ONLClimberLinkSerializable">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ContainsPhoto" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Link" type="tns:ONLClimberCompLink" />
+          <s:element minOccurs="0" maxOccurs="1" name="Climber" type="tns:ONLclimber" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="tns:ONLGroupSerializable" />
+          <s:element minOccurs="0" maxOccurs="1" name="Team" type="tns:ONLTeamSerializable" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ONLClimberCompLink">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="iid" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="climber_id" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="comp_id" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="secretary_id" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="group_id" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="team_id" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="qf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="lead" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="speed" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="boulder" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="rankingLead" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="rankingSpeed" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="rankingBoulder" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="vk" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="nopoints" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="appl_type" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="is_changeble" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="queue_pos" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="sys_date_create" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="sys_date_update" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="updOpIid" nillable="true" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="replacementID" nillable="true" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="queue_Lead" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="queue_Speed" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="queue_Boulder" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ONLClimberCompLink2Reference" type="tns:EntityReferenceOfONLClimberCompLink" />
+              <s:element minOccurs="0" maxOccurs="1" name="ONLclimberReference" type="tns:EntityReferenceOfONLclimber" />
+              <s:element minOccurs="0" maxOccurs="1" name="ONLCompetitionReference" type="tns:EntityReferenceOfONLCompetition" />
+              <s:element minOccurs="0" maxOccurs="1" name="ONLGroupReference" type="tns:EntityReferenceOfONLGroup" />
+              <s:element minOccurs="0" maxOccurs="1" name="ONLoperationReference" type="tns:EntityReferenceOfONLoperation" />
+              <s:element minOccurs="0" maxOccurs="1" name="ONLteamReference" type="tns:EntityReferenceOfONLteam" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfONLClimberCompLink">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfONLclimber">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfONLCompetition">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfONLGroup">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfONLoperation">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfONLteam">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ONLclimber">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="iid" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="surname" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="genderFemale" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="birthdate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="photo" type="s:base64Binary" />
+              <s:element minOccurs="1" maxOccurs="1" name="phLoaded" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="is_del" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="age" nillable="true" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetClimberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClimberResult" type="tns:ONLClimberLinkSerializable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClimbersForCompetition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="GetConfirmedOnly" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="GetPhoto" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="groupID" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="teamID" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfONLClimberLinkSerializable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ONLClimberLinkSerializable" nillable="true" type="tns:ONLClimberLinkSerializable" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetClimbersForCompetitionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClimbersForCompetitionResult" type="tns:ArrayOfONLClimberLinkSerializable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="secretary_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ListHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SecretaryID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Round" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Style" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SecretaryID_Parent" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GroupID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RouteNumber" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Live" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quote" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrevRound_SecretaryID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoundFinished" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdate" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListResult" type="tns:ListHeader" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="secretary_ids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfListHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListHeader" nillable="true" type="tns:ListHeader" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetListsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListsResult" type="tns:ArrayOfListHeader" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ListHeader" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostListResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostLists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lists" type="tns:ArrayOfListHeader" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostListsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostListsResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteListsWhereSecretaryIDIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idToDel" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteListsWhereSecretaryIDInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteListsWhereSecretaryIDInResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteListsNotInSecretaryID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNotToDelete" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteListsNotInSecretaryIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteListsNotInSecretaryIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostLeadResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="res" type="tns:LeadResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LeadResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClimbersResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TextRes" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ClimbersResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ListID_Secretary" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClimberID_Secretary" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Start" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Res" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreQf" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pos" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PostLeadResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostLeadResultResult" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="listDataID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostSpeedResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="res" type="tns:SpeedResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SpeedResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClimbersResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Route1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Route2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TextRes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Qf" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="PostSpeedResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostSpeedResultResult" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="listDataID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostBoulderResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="res" type="tns:BoulderResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BoulderResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClimbersResult">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Tops" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TopAttempts" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Bonuses" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BonusAttempts" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DNS" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="DSQ" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="RouteData" type="tns:ArrayOfBoulderRouteResult" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfBoulderRouteResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BoulderRouteResult" nillable="true" type="tns:BoulderRouteResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BoulderRouteResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RouteNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TopAttempt" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BonusAttempt" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PostBoulderResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostBoulderResultResult" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="listDataID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostBoulderResultList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="results" type="tns:ArrayOfBoulderResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="clearOtherRes" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBoulderResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BoulderResult" nillable="true" type="tns:BoulderResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PostBoulderResultListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostBoulderResultListResult" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="errCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostSpeedResultList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="results" type="tns:ArrayOfSpeedResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="clearOtherRes" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSpeedResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpeedResult" nillable="true" type="tns:SpeedResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PostSpeedResultListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostSpeedResultListResult" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="errCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostLeadResultList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="results" type="tns:ArrayOfLeadResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="clearOtherRes" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLeadResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LeadResult" nillable="true" type="tns:LeadResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PostLeadResultListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostLeadResultListResult" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="errCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLeadResultsForClimber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="listID_Secretary" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="climbers" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLeadResultsForClimberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLeadResultsForClimberResult" type="tns:ArrayOfLeadResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSpeedResultsForClimber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="listID_Secretary" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="climbers" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSpeedResultsForClimberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSpeedResultsForClimberResult" type="tns:ArrayOfSpeedResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBoulderResultsForClimber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="listID_Secretary" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="climbers" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBoulderResultsForClimberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBoulderResultsForClimberResult" type="tns:ArrayOfBoulderResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCompetitionParam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paramName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCompetitionParamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveCompetitionParamResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostCompetitionParam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paramName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paramValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostCompetitionParamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostCompetitionParamResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostCompetitionBinaryParam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paramName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paramValue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="binaryValue" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostCompetitionBinaryParamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostCompetitionBinaryParamResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostPhotoForClimber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="photo" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="climberID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostPhotoForClimberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostPhotoForClimberResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostTeams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="teams" type="tns:ArrayOfONLTeamSerializable" />
+            <s:element minOccurs="1" maxOccurs="1" name="fullRefresh" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostTeamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostTeamsResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostTeam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="team" type="tns:ONLTeamSerializable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostTeamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostTeamResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="grp" type="tns:ONLGroupSerializable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostClimber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serClm" type="tns:ONLClimberLinkSerializable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostClimberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostClimberResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteClimbersNotInIid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="iids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteClimbersNotInIidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteClimbersNotInIidResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteClimbersBySecretaryID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="iids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteClimbersBySecretaryIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteClimbersBySecretaryIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupsNotInIid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="iids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupsNotInIidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteGroupsNotInIidResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTeamsNotInSecretaryId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="iids" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTeamsNotInSecretaryIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTeamsNotInSecretaryIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidateAdminPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateAdminPassword" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAdminPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateAdminPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParamValue" />
+  </wsdl:message>
+  <wsdl:message name="GetParamValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParamValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBinaryParamsStringParamValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBinaryParamsStringParamValues" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBinaryParamsStringParamValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBinaryParamsStringParamValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBinaryParamValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBinaryParamValue" />
+  </wsdl:message>
+  <wsdl:message name="GetBinaryParamValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBinaryParamValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCompetitionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCompetitions" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCompetitionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCompetitionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamsForCompetitionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTeamsForCompetition" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamsForCompetitionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTeamsForCompetitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsForCompetitionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupsForCompetition" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsForCompetitionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsForCompetitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClimberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClimber" />
+  </wsdl:message>
+  <wsdl:message name="GetClimberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClimberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClimbersForCompetitionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClimbersForCompetition" />
+  </wsdl:message>
+  <wsdl:message name="GetClimbersForCompetitionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClimbersForCompetitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLists" />
+  </wsdl:message>
+  <wsdl:message name="GetListsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostListSoapIn">
+    <wsdl:part name="parameters" element="tns:PostList" />
+  </wsdl:message>
+  <wsdl:message name="PostListSoapOut">
+    <wsdl:part name="parameters" element="tns:PostListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostListsSoapIn">
+    <wsdl:part name="parameters" element="tns:PostLists" />
+  </wsdl:message>
+  <wsdl:message name="PostListsSoapOut">
+    <wsdl:part name="parameters" element="tns:PostListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteListsWhereSecretaryIDInSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteListsWhereSecretaryIDIn" />
+  </wsdl:message>
+  <wsdl:message name="DeleteListsWhereSecretaryIDInSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteListsWhereSecretaryIDInResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteListsNotInSecretaryIDSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteListsNotInSecretaryID" />
+  </wsdl:message>
+  <wsdl:message name="DeleteListsNotInSecretaryIDSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteListsNotInSecretaryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostLeadResultSoapIn">
+    <wsdl:part name="parameters" element="tns:PostLeadResult" />
+  </wsdl:message>
+  <wsdl:message name="PostLeadResultSoapOut">
+    <wsdl:part name="parameters" element="tns:PostLeadResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostSpeedResultSoapIn">
+    <wsdl:part name="parameters" element="tns:PostSpeedResult" />
+  </wsdl:message>
+  <wsdl:message name="PostSpeedResultSoapOut">
+    <wsdl:part name="parameters" element="tns:PostSpeedResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostBoulderResultSoapIn">
+    <wsdl:part name="parameters" element="tns:PostBoulderResult" />
+  </wsdl:message>
+  <wsdl:message name="PostBoulderResultSoapOut">
+    <wsdl:part name="parameters" element="tns:PostBoulderResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostBoulderResultListSoapIn">
+    <wsdl:part name="parameters" element="tns:PostBoulderResultList" />
+  </wsdl:message>
+  <wsdl:message name="PostBoulderResultListSoapOut">
+    <wsdl:part name="parameters" element="tns:PostBoulderResultListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostSpeedResultListSoapIn">
+    <wsdl:part name="parameters" element="tns:PostSpeedResultList" />
+  </wsdl:message>
+  <wsdl:message name="PostSpeedResultListSoapOut">
+    <wsdl:part name="parameters" element="tns:PostSpeedResultListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostLeadResultListSoapIn">
+    <wsdl:part name="parameters" element="tns:PostLeadResultList" />
+  </wsdl:message>
+  <wsdl:message name="PostLeadResultListSoapOut">
+    <wsdl:part name="parameters" element="tns:PostLeadResultListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLeadResultsForClimberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLeadResultsForClimber" />
+  </wsdl:message>
+  <wsdl:message name="GetLeadResultsForClimberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLeadResultsForClimberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSpeedResultsForClimberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSpeedResultsForClimber" />
+  </wsdl:message>
+  <wsdl:message name="GetSpeedResultsForClimberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSpeedResultsForClimberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBoulderResultsForClimberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBoulderResultsForClimber" />
+  </wsdl:message>
+  <wsdl:message name="GetBoulderResultsForClimberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBoulderResultsForClimberResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCompetitionParamSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveCompetitionParam" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCompetitionParamSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveCompetitionParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostCompetitionParamSoapIn">
+    <wsdl:part name="parameters" element="tns:PostCompetitionParam" />
+  </wsdl:message>
+  <wsdl:message name="PostCompetitionParamSoapOut">
+    <wsdl:part name="parameters" element="tns:PostCompetitionParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostCompetitionBinaryParamSoapIn">
+    <wsdl:part name="parameters" element="tns:PostCompetitionBinaryParam" />
+  </wsdl:message>
+  <wsdl:message name="PostCompetitionBinaryParamSoapOut">
+    <wsdl:part name="parameters" element="tns:PostCompetitionBinaryParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostPhotoForClimberSoapIn">
+    <wsdl:part name="parameters" element="tns:PostPhotoForClimber" />
+  </wsdl:message>
+  <wsdl:message name="PostPhotoForClimberSoapOut">
+    <wsdl:part name="parameters" element="tns:PostPhotoForClimberResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostTeamsSoapIn">
+    <wsdl:part name="parameters" element="tns:PostTeams" />
+  </wsdl:message>
+  <wsdl:message name="PostTeamsSoapOut">
+    <wsdl:part name="parameters" element="tns:PostTeamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostTeamSoapIn">
+    <wsdl:part name="parameters" element="tns:PostTeam" />
+  </wsdl:message>
+  <wsdl:message name="PostTeamSoapOut">
+    <wsdl:part name="parameters" element="tns:PostTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:PostGroup" />
+  </wsdl:message>
+  <wsdl:message name="PostGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:PostGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostClimberSoapIn">
+    <wsdl:part name="parameters" element="tns:PostClimber" />
+  </wsdl:message>
+  <wsdl:message name="PostClimberSoapOut">
+    <wsdl:part name="parameters" element="tns:PostClimberResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteClimbersNotInIidSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteClimbersNotInIid" />
+  </wsdl:message>
+  <wsdl:message name="DeleteClimbersNotInIidSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteClimbersNotInIidResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteClimbersBySecretaryIDSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteClimbersBySecretaryID" />
+  </wsdl:message>
+  <wsdl:message name="DeleteClimbersBySecretaryIDSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteClimbersBySecretaryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupsNotInIidSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteGroupsNotInIid" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupsNotInIidSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteGroupsNotInIidResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTeamsNotInSecretaryIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTeamsNotInSecretaryId" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTeamsNotInSecretaryIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTeamsNotInSecretaryIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ClimbingWebServiceSoap">
+    <wsdl:operation name="ValidateAdminPassword">
+      <wsdl:input message="tns:ValidateAdminPasswordSoapIn" />
+      <wsdl:output message="tns:ValidateAdminPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamValue">
+      <wsdl:input message="tns:GetParamValueSoapIn" />
+      <wsdl:output message="tns:GetParamValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBinaryParamsStringParamValues">
+      <wsdl:input message="tns:GetAllBinaryParamsStringParamValuesSoapIn" />
+      <wsdl:output message="tns:GetAllBinaryParamsStringParamValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBinaryParamValue">
+      <wsdl:input message="tns:GetBinaryParamValueSoapIn" />
+      <wsdl:output message="tns:GetBinaryParamValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompetitions">
+      <wsdl:input message="tns:GetAllCompetitionsSoapIn" />
+      <wsdl:output message="tns:GetAllCompetitionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamsForCompetition">
+      <wsdl:input message="tns:GetTeamsForCompetitionSoapIn" />
+      <wsdl:output message="tns:GetTeamsForCompetitionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForCompetition">
+      <wsdl:input message="tns:GetGroupsForCompetitionSoapIn" />
+      <wsdl:output message="tns:GetGroupsForCompetitionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClimber">
+      <wsdl:input message="tns:GetClimberSoapIn" />
+      <wsdl:output message="tns:GetClimberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClimbersForCompetition">
+      <wsdl:input message="tns:GetClimbersForCompetitionSoapIn" />
+      <wsdl:output message="tns:GetClimbersForCompetitionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input message="tns:GetListSoapIn" />
+      <wsdl:output message="tns:GetListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLists">
+      <wsdl:input message="tns:GetListsSoapIn" />
+      <wsdl:output message="tns:GetListsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostList">
+      <wsdl:input message="tns:PostListSoapIn" />
+      <wsdl:output message="tns:PostListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostLists">
+      <wsdl:input message="tns:PostListsSoapIn" />
+      <wsdl:output message="tns:PostListsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteListsWhereSecretaryIDIn">
+      <wsdl:input message="tns:DeleteListsWhereSecretaryIDInSoapIn" />
+      <wsdl:output message="tns:DeleteListsWhereSecretaryIDInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteListsNotInSecretaryID">
+      <wsdl:input message="tns:DeleteListsNotInSecretaryIDSoapIn" />
+      <wsdl:output message="tns:DeleteListsNotInSecretaryIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostLeadResult">
+      <wsdl:input message="tns:PostLeadResultSoapIn" />
+      <wsdl:output message="tns:PostLeadResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostSpeedResult">
+      <wsdl:input message="tns:PostSpeedResultSoapIn" />
+      <wsdl:output message="tns:PostSpeedResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostBoulderResult">
+      <wsdl:input message="tns:PostBoulderResultSoapIn" />
+      <wsdl:output message="tns:PostBoulderResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostBoulderResultList">
+      <wsdl:input message="tns:PostBoulderResultListSoapIn" />
+      <wsdl:output message="tns:PostBoulderResultListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostSpeedResultList">
+      <wsdl:input message="tns:PostSpeedResultListSoapIn" />
+      <wsdl:output message="tns:PostSpeedResultListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostLeadResultList">
+      <wsdl:input message="tns:PostLeadResultListSoapIn" />
+      <wsdl:output message="tns:PostLeadResultListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadResultsForClimber">
+      <wsdl:input message="tns:GetLeadResultsForClimberSoapIn" />
+      <wsdl:output message="tns:GetLeadResultsForClimberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeedResultsForClimber">
+      <wsdl:input message="tns:GetSpeedResultsForClimberSoapIn" />
+      <wsdl:output message="tns:GetSpeedResultsForClimberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBoulderResultsForClimber">
+      <wsdl:input message="tns:GetBoulderResultsForClimberSoapIn" />
+      <wsdl:output message="tns:GetBoulderResultsForClimberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCompetitionParam">
+      <wsdl:input message="tns:RemoveCompetitionParamSoapIn" />
+      <wsdl:output message="tns:RemoveCompetitionParamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCompetitionParam">
+      <wsdl:input message="tns:PostCompetitionParamSoapIn" />
+      <wsdl:output message="tns:PostCompetitionParamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCompetitionBinaryParam">
+      <wsdl:input message="tns:PostCompetitionBinaryParamSoapIn" />
+      <wsdl:output message="tns:PostCompetitionBinaryParamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostPhotoForClimber">
+      <wsdl:input message="tns:PostPhotoForClimberSoapIn" />
+      <wsdl:output message="tns:PostPhotoForClimberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostTeams">
+      <wsdl:input message="tns:PostTeamsSoapIn" />
+      <wsdl:output message="tns:PostTeamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostTeam">
+      <wsdl:input message="tns:PostTeamSoapIn" />
+      <wsdl:output message="tns:PostTeamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostGroup">
+      <wsdl:input message="tns:PostGroupSoapIn" />
+      <wsdl:output message="tns:PostGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostClimber">
+      <wsdl:input message="tns:PostClimberSoapIn" />
+      <wsdl:output message="tns:PostClimberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClimbersNotInIid">
+      <wsdl:input message="tns:DeleteClimbersNotInIidSoapIn" />
+      <wsdl:output message="tns:DeleteClimbersNotInIidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClimbersBySecretaryID">
+      <wsdl:input message="tns:DeleteClimbersBySecretaryIDSoapIn" />
+      <wsdl:output message="tns:DeleteClimbersBySecretaryIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupsNotInIid">
+      <wsdl:input message="tns:DeleteGroupsNotInIidSoapIn" />
+      <wsdl:output message="tns:DeleteGroupsNotInIidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeamsNotInSecretaryId">
+      <wsdl:input message="tns:DeleteTeamsNotInSecretaryIdSoapIn" />
+      <wsdl:output message="tns:DeleteTeamsNotInSecretaryIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClimbingWebServiceSoap" type="tns:ClimbingWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateAdminPassword">
+      <soap:operation soapAction="http://climbing-competition.org/ValidateAdminPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamValue">
+      <soap:operation soapAction="http://climbing-competition.org/GetParamValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBinaryParamsStringParamValues">
+      <soap:operation soapAction="http://climbing-competition.org/GetAllBinaryParamsStringParamValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBinaryParamValue">
+      <soap:operation soapAction="http://climbing-competition.org/GetBinaryParamValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompetitions">
+      <soap:operation soapAction="http://climbing-competition.org/GetAllCompetitions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamsForCompetition">
+      <soap:operation soapAction="http://climbing-competition.org/GetTeamsForCompetition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForCompetition">
+      <soap:operation soapAction="http://climbing-competition.org/GetGroupsForCompetition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClimber">
+      <soap:operation soapAction="http://climbing-competition.org/GetClimber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClimbersForCompetition">
+      <soap:operation soapAction="http://climbing-competition.org/GetClimbersForCompetition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap:operation soapAction="http://climbing-competition.org/GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLists">
+      <soap:operation soapAction="http://climbing-competition.org/GetLists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostList">
+      <soap:operation soapAction="http://climbing-competition.org/PostList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostLists">
+      <soap:operation soapAction="http://climbing-competition.org/PostLists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteListsWhereSecretaryIDIn">
+      <soap:operation soapAction="http://climbing-competition.org/DeleteListsWhereSecretaryIDIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteListsNotInSecretaryID">
+      <soap:operation soapAction="http://climbing-competition.org/DeleteListsNotInSecretaryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostLeadResult">
+      <soap:operation soapAction="http://climbing-competition.org/PostLeadResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostSpeedResult">
+      <soap:operation soapAction="http://climbing-competition.org/PostSpeedResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostBoulderResult">
+      <soap:operation soapAction="http://climbing-competition.org/PostBoulderResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostBoulderResultList">
+      <soap:operation soapAction="http://climbing-competition.org/PostBoulderResultList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostSpeedResultList">
+      <soap:operation soapAction="http://climbing-competition.org/PostSpeedResultList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostLeadResultList">
+      <soap:operation soapAction="http://climbing-competition.org/PostLeadResultList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadResultsForClimber">
+      <soap:operation soapAction="http://climbing-competition.org/GetLeadResultsForClimber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeedResultsForClimber">
+      <soap:operation soapAction="http://climbing-competition.org/GetSpeedResultsForClimber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoulderResultsForClimber">
+      <soap:operation soapAction="http://climbing-competition.org/GetBoulderResultsForClimber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCompetitionParam">
+      <soap:operation soapAction="http://climbing-competition.org/RemoveCompetitionParam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCompetitionParam">
+      <soap:operation soapAction="http://climbing-competition.org/PostCompetitionParam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCompetitionBinaryParam">
+      <soap:operation soapAction="http://climbing-competition.org/PostCompetitionBinaryParam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostPhotoForClimber">
+      <soap:operation soapAction="http://climbing-competition.org/PostPhotoForClimber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostTeams">
+      <soap:operation soapAction="http://climbing-competition.org/PostTeams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostTeam">
+      <soap:operation soapAction="http://climbing-competition.org/PostTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostGroup">
+      <soap:operation soapAction="http://climbing-competition.org/PostGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostClimber">
+      <soap:operation soapAction="http://climbing-competition.org/PostClimber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClimbersNotInIid">
+      <soap:operation soapAction="http://climbing-competition.org/DeleteClimbersNotInIid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClimbersBySecretaryID">
+      <soap:operation soapAction="http://climbing-competition.org/DeleteClimbersBySecretaryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupsNotInIid">
+      <soap:operation soapAction="http://climbing-competition.org/DeleteGroupsNotInIid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeamsNotInSecretaryId">
+      <soap:operation soapAction="http://climbing-competition.org/DeleteTeamsNotInSecretaryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClimbingWebServiceSoap12" type="tns:ClimbingWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateAdminPassword">
+      <soap12:operation soapAction="http://climbing-competition.org/ValidateAdminPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamValue">
+      <soap12:operation soapAction="http://climbing-competition.org/GetParamValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBinaryParamsStringParamValues">
+      <soap12:operation soapAction="http://climbing-competition.org/GetAllBinaryParamsStringParamValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBinaryParamValue">
+      <soap12:operation soapAction="http://climbing-competition.org/GetBinaryParamValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompetitions">
+      <soap12:operation soapAction="http://climbing-competition.org/GetAllCompetitions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamsForCompetition">
+      <soap12:operation soapAction="http://climbing-competition.org/GetTeamsForCompetition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForCompetition">
+      <soap12:operation soapAction="http://climbing-competition.org/GetGroupsForCompetition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClimber">
+      <soap12:operation soapAction="http://climbing-competition.org/GetClimber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClimbersForCompetition">
+      <soap12:operation soapAction="http://climbing-competition.org/GetClimbersForCompetition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap12:operation soapAction="http://climbing-competition.org/GetList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLists">
+      <soap12:operation soapAction="http://climbing-competition.org/GetLists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostList">
+      <soap12:operation soapAction="http://climbing-competition.org/PostList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostLists">
+      <soap12:operation soapAction="http://climbing-competition.org/PostLists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteListsWhereSecretaryIDIn">
+      <soap12:operation soapAction="http://climbing-competition.org/DeleteListsWhereSecretaryIDIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteListsNotInSecretaryID">
+      <soap12:operation soapAction="http://climbing-competition.org/DeleteListsNotInSecretaryID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostLeadResult">
+      <soap12:operation soapAction="http://climbing-competition.org/PostLeadResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostSpeedResult">
+      <soap12:operation soapAction="http://climbing-competition.org/PostSpeedResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostBoulderResult">
+      <soap12:operation soapAction="http://climbing-competition.org/PostBoulderResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostBoulderResultList">
+      <soap12:operation soapAction="http://climbing-competition.org/PostBoulderResultList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostSpeedResultList">
+      <soap12:operation soapAction="http://climbing-competition.org/PostSpeedResultList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostLeadResultList">
+      <soap12:operation soapAction="http://climbing-competition.org/PostLeadResultList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadResultsForClimber">
+      <soap12:operation soapAction="http://climbing-competition.org/GetLeadResultsForClimber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeedResultsForClimber">
+      <soap12:operation soapAction="http://climbing-competition.org/GetSpeedResultsForClimber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoulderResultsForClimber">
+      <soap12:operation soapAction="http://climbing-competition.org/GetBoulderResultsForClimber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCompetitionParam">
+      <soap12:operation soapAction="http://climbing-competition.org/RemoveCompetitionParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCompetitionParam">
+      <soap12:operation soapAction="http://climbing-competition.org/PostCompetitionParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCompetitionBinaryParam">
+      <soap12:operation soapAction="http://climbing-competition.org/PostCompetitionBinaryParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostPhotoForClimber">
+      <soap12:operation soapAction="http://climbing-competition.org/PostPhotoForClimber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostTeams">
+      <soap12:operation soapAction="http://climbing-competition.org/PostTeams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostTeam">
+      <soap12:operation soapAction="http://climbing-competition.org/PostTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostGroup">
+      <soap12:operation soapAction="http://climbing-competition.org/PostGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostClimber">
+      <soap12:operation soapAction="http://climbing-competition.org/PostClimber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClimbersNotInIid">
+      <soap12:operation soapAction="http://climbing-competition.org/DeleteClimbersNotInIid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClimbersBySecretaryID">
+      <soap12:operation soapAction="http://climbing-competition.org/DeleteClimbersBySecretaryID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupsNotInIid">
+      <soap12:operation soapAction="http://climbing-competition.org/DeleteGroupsNotInIid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeamsNotInSecretaryId">
+      <soap12:operation soapAction="http://climbing-competition.org/DeleteTeamsNotInSecretaryId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClimbingWebService">
+    <wsdl:port name="ClimbingWebServiceSoap" binding="tns:ClimbingWebServiceSoap">
+      <soap:address location="http://localhost:1191/ClimbingWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClimbingWebServiceSoap12" binding="tns:ClimbingWebServiceSoap12">
+      <soap12:address location="http://localhost:1191/ClimbingWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

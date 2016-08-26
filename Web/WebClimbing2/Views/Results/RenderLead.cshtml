@@ -1,0 +1,36 @@
+﻿@using Extensions
+@model ClimbingEntities.Lists.ListHeader
+<table>
+    <thead>
+        <tr>
+            <td>Место</td>
+            <td>Фамилия, Имя</td>
+            <td>Г.р.</td>
+            <td>Команда</td>
+            <td>Разряд</td>
+            <td>Рез-т</td>
+            <td>Балл</td>
+            <td>Ст.№</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model.PreloadedSortedResults.OfType<ClimbingEntities.Lists.ListLineLead>().Where(l => !l.PreQf).OrderBy(p=>p.Pos))
+        {
+            <tr 
+                @if (m.Qf != ClimbingCompetition.Common.NextRoundQf.NotQf)
+                {
+                    @:style = "background-color:lightgreen"
+                }
+                >
+                <td>@m.PosText</td>
+                <td>@m.Climber.Person.FullName</td>
+                <td>@m.Climber.Person.YearOfBirth</td>
+                <td>@m.Climber.Team</td>
+                <td>@m.Climber.Qf.EnumFriendlyValue()</td>
+                <td>@m.ResText</td>
+                <td>@(m.Points.HasValue ? m.Points.Value.ToString("0.#") : string.Empty)</td>
+                <td>@m.Start</td>
+            </tr>
+        }
+    </tbody>
+</table>

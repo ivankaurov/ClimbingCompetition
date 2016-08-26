@@ -1,0 +1,130 @@
+﻿@model IEnumerable<ClimberApplication>
+@{
+    ViewBag.Title = "ConfirmClimbers";
+    RegionModel reg = ViewBag.DefaultRegion;
+    
+    long? regionId = (reg == null) ? null : new long?(reg.Iid);
+    CompetitionModel comp = ViewBag.Comp;
+    int styleCount = 0;
+    if (comp.Lead)
+    {
+        styleCount++;
+    }
+    if (comp.Speed)
+    {
+        styleCount++;
+    }
+    if (comp.Boulder)
+    {
+        styleCount++;
+    }
+}
+@section scripts {
+    <script src="~/Scripts/ControllerScriptis/Registration/ConfirmClimbers.js" type="text/javascript"></script>
+}
+<h2>ConfirmClimbers</h2>
+@Html.ValidationSummary(false)
+@using (Html.BeginForm("ConfirmClimbers", "Registration", new { compId = comp.Iid, regionId = regionId }, FormMethod.Post))
+{
+    <table>
+        <thead>
+            <tr>
+                <td rowspan="2"></td>
+                <td rowspan="2">@Html.DisplayNameFor(m => m.DisplayName)</td>
+                <td rowspan="2">@Html.DisplayNameFor(m => m.GenderP)</td>
+                <td rowspan="2">@Html.DisplayNameFor(m => m.YearOfBirth)</td>
+                <td rowspan="2">@Html.DisplayNameFor(m => m.GroupName)</td>
+                <td rowspan="2">@Html.DisplayNameFor(m => m.Team)</td>
+                <td rowspan="2">@Html.DisplayNameFor(m => m.Qf)</td>
+                <td colspan="@styleCount">Участие в видах</td>
+                <td rowspan="2">@Html.DisplayNameFor(m => m.Confirmed)</td>
+            </tr>
+            <tr>
+                @if (comp.Lead)
+                {
+                    <td>@Html.DisplayNameFor(m => m.Lead)</td>
+                }
+                @if (comp.Speed)
+                {
+                    <td>@Html.DisplayNameFor(m => m.Speed)</td>
+                }
+                @if (comp.Boulder)
+                {
+                    <td>@Html.DisplayNameFor(m => m.Boulder)</td>
+                }
+            </tr>
+        </thead>
+        <tbody>
+           @* @for (int i = 0; i < data.Length; i++) *@
+           @{
+               int indx = 0;
+               String strH;
+           }
+           @foreach (var clm in Model)
+           {
+               indx++;
+               strH = String.Format("data[{0}].", indx);
+                <tr>
+                    <td>
+                        @indx
+                        @Html.Hidden("data.Index", indx)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => clm.DisplayName)
+                        @Html.Hidden(strH + "Surname", clm.Surname)
+                        @Html.Hidden(strH + "Name", clm.Name)
+                    </td>
+                    <td>
+                        @clm.GenderP.GetFriendlyValue()
+                        @Html.Hidden(strH + "GenderP", clm.GenderP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => clm.YearOfBirth)
+                        @Html.Hidden(strH + "YearOfBirth", clm.YearOfBirth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => clm.GroupName)
+                        @Html.Hidden(strH + "GroupId", clm.GroupId)
+                        @Html.Hidden(strH + "GroupName", clm.GroupName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => clm.Team.Name)
+                        @Html.Hidden(strH + "TeamId", clm.TeamId)
+                    </td>
+                    <td>
+                        @clm.Qf.GetFriendlyValue()
+                        @Html.Hidden(strH + "Qf", clm.Qf)
+                    </td>
+                    @if (comp.Lead)
+                    {
+                        <td>
+                            @clm.Lead.GetFriendlyValue()
+                            @Html.Hidden(strH + "Lead", clm.Lead)
+                        </td>
+                    }
+                    @if (comp.Speed)
+                    {
+                        <td>
+                            @clm.Speed.GetFriendlyValue()
+                            @Html.Hidden(strH + "Speed", clm.Speed)
+                        </td>
+                    }
+                    @if (comp.Boulder)
+                    {
+                        <td>
+                            @clm.Boulder.GetFriendlyValue()
+                            @Html.Hidden(strH + "Boulder", clm.Boulder)
+                        </td>
+                    }
+                    <td>
+                        @Html.CheckBox(strH + "Confirmed", clm.Confirmed, new { @class = Constants.HIDE_WHEN_EDIT })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @Html.Hidden("goback", false, new { @id = "goback" })
+    <input type="submit" value="Подтвердить" onclick="btnSubmit_Click()" class="@Constants.HIDE_WHEN_EDIT" />
+    <br />
+    <input type="submit" value="Назад" onclick="btnBack_Click()" class="@Constants.HIDE_WHEN_EDIT" />
+}

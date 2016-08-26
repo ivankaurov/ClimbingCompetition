@@ -1,0 +1,220 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="WebAppl.master.cs"
+Inherits="WebClimbing._MPWebAppl" EnableTheming="true"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Чемпионат Санкт-Петербурга - 2011</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="keywords" 
+    content=" невские вертикали скалолазание в санкт-петербурге скалолаз скалы скалодром скальники комитет спортивного скалолазание Санкт-Петербург соревнования рейтинг результаты положения стартовый протокол итоговый трудность скорость боулдеринг сборная Россия кубок чемпионат этап climbing climb climber competition Red Fox Ладога школа №495 хибинская весна хибины апатиты скалодром 2010" />
+    <meta name="description" content="невские вертикали скалолазание 2011" />
+</head>
+<body>
+<!--<asp:Panel ID="mainPanel111" runat="server" BackColor="#FF8000">-->
+    <form id="form1" runat="server">
+    <div style="background-image: inherit">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+            <Scripts>
+                <asp:ScriptReference Path="~/scriptLib.js" />
+            </Scripts>
+            <Services>
+                <asp:ServiceReference Path="~/AJAXService.svc" />
+            </Services>
+        </asp:ScriptManager>
+        <table width="100%">
+            <tr>
+                <td>
+                <asp:HyperLink ID="hlOrgLeft" runat="server" ImageUrl="~/files/links/spb.jpg" SkinID="appSkin" 
+                      Text="" Height="136px" BorderColor="Transparent"
+                        NavigateUrl="http://spbclimbing.ru" Target="_blank"></asp:HyperLink>
+                    
+                   
+                </td>
+                <td align="center" valign="middle">
+                    <asp:Label ID="lblH" runat="server" Font-Bold="True" Font-Size="XX-Large"
+                        Font-Names="Comic Sans MS" ForeColor="#FF3300" />
+                </td>
+                <td align="center">
+                <asp:HyperLink ID="hlOrgRight" runat="server" ImageUrl="~/files/links/cfr.gif"
+                      Text="" Height="136px" BorderColor="Transparent"
+                        NavigateUrl="http://c-f-r.ru" Target="_blank" SkinID="appSkin" BorderStyle="None"></asp:HyperLink>
+                </td>        
+            </tr>
+            <tr>
+                <td colspan="3">
+                <br />
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                <div>
+                    <asp:HyperLink ID="hlVideo" runat="server" NavigateUrl="~/VideoPlayer.aspx" Visible = "false"
+                            Text="Видео трансляция" Font-Underline="False"></asp:HyperLink><br /><br />
+
+                    <asp:HyperLink ID="hlLists" runat="server" NavigateUrl="~/ResultService.aspx"
+                            Text="Результаты ONLINE" Font-Underline="False"></asp:HyperLink><br /><br />
+
+                    <asp:HyperLink ID="hlRes" runat="server"
+                            Text="Результаты (Excel)" Font-Underline="False"></asp:HyperLink><br /><br />
+
+                    <asp:HyperLink ID="hlClimbers" runat="server" NavigateUrl="~/ClimbersList.aspx"
+                            Text="Список участников" Font-Underline="False"></asp:HyperLink>
+                </div><br />
+                <div>
+                
+                    <asp:HyperLink ID="hlAccom" runat="server"
+                    Font-Underline="false" Text="Размещение" /><br /><br />
+                    
+                    
+                    <asp:HyperLink ID="hlRasp" runat="server"
+                     Text="Расписание соревнований" Font-Underline="False"></asp:HyperLink><br /><br />
+
+                    <asp:HyperLink ID="hlInfos" runat="server"
+                     Text="Положение" Font-Underline="False"></asp:HyperLink>
+                     <br /><br />
+                     
+                     <asp:HyperLink ID="titul" runat="server"
+                     Text="Титул положения" Font-Underline="False"></asp:HyperLink><br /><br />
+                     
+                     
+                     <asp:HyperLink ID="hlRegl" runat="server"
+                     Text="Регламент" Font-Underline="False" ></asp:HyperLink><br /><br />
+
+                     <asp:HyperLink ID="hlReglTitul" runat="server"
+                     Text="Титул регламента" Font-Underline="False" ></asp:HyperLink><br /><br />
+                     
+                     <asp:Panel ID="panelAdditionalFiles" runat="server" Visible="false">
+                        <asp:GridView ID="gvAdditionalFiles" runat="server" Visible="true" AlternatingRowStyle-BackColor="Transparent"
+                         RowStyle-BackColor="Transparent"
+                         AutoGenerateColumns="false" DataKeyNames="link" ShowHeader="false">
+                            <Columns>
+                                <asp:BoundField DataField="link" Visible="false" />
+                                <asp:HyperLinkField DataNavigateUrlFields="link"
+                                 DataNavigateUrlFormatString="{0}" DataTextField="linktext" ItemStyle-HorizontalAlign="Left"
+                                 ItemStyle-Font-Underline="false" />
+                            </Columns>
+                         </asp:GridView>
+                     </asp:Panel>
+                     
+                </div><br /><br />
+                <div>
+                    <asp:LoginStatus ID="lgnStat" runat="server" LoginText="Войти в систему" Font-Underline="false"
+                     LogoutText="Выйти из системы" LogoutAction="RedirectToLoginPage"/>
+                     <br /><br />
+                     <asp:LoginView ID="lgnView" runat="server">
+                        <LoggedInTemplate>
+                            <asp:HyperLink ID="hlChangePwd" runat="server"
+                             Text="Сменить пароль" NavigateUrl="~/Apps/ChangePassword.aspx"></asp:HyperLink>
+                        </LoggedInTemplate>
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="ADB">
+                            <ContentTemplate>
+                                <asp:HyperLink ID="hlCompManag" runat="server"
+                                 NavigateUrl="~/Apps/UserAccountManagement/DBManagement/CompetitionManagement.aspx"
+                                 Text="Управление соревнованиями" Font-Underline="false" />
+                            </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                        <AnonymousTemplate></AnonymousTemplate>
+                     </asp:LoginView>
+                     <br />
+                     <asp:Panel ID="panelCompAdminLinks" runat="server" Visible="false">
+                     <asp:HyperLink ID="hlUserManagement" runat="server" NavigateUrl="~/Apps/UserAccountManagement/UserManagement.aspx"
+                        Text="Управление пользователями" Font-Underline="false" />
+                        <br />
+                        <asp:HyperLink ID="hlTeamManagement" runat="server" NavigateUrl="~/Apps/UserAccountManagement/TeamsManagement.aspx"
+                        Text="Управление командами" Font-Underline="false" />
+                        <br />
+                        <asp:HyperLink ID="hlGroupManagement" runat="server" NavigateUrl="~/Apps/UserAccountManagement/GroupsManagement.aspx"
+                        Text="Управление группами" Font-Underline="false" />
+                        <br />
+                        <asp:HyperLink ID="hlSetApps" Text="Неподтверждённые заявки" runat="server"
+                        NavigateUrl="~/Apps/AppConfirm.aspx" Font-Underline="false" />
+                        </asp:Panel>
+                </div>
+                <br />
+                <div>
+                    <asp:HyperLink ID="hlApps" runat="server" NavigateUrl="~/Apps/Applications.aspx"
+                     Text="Заявки" Font-Underline="False"></asp:HyperLink>
+                     <br />
+                     <asp:HyperLink ID="hlUM" runat="server" NavigateUrl="~/files/content/users_manual.doc"
+                     Text="Инструкция по заполнению заявочной формы" Font-Size="Small" Font-Underline="false" />
+                </div>
+                
+                </td>
+                <td style="width:auto" valign="top">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                </td>
+                <td valign="top">
+                <!-- 
+                При необходимости вывесить логотипы спонсоров разкоментировать этот раздел
+                -->
+                
+                <asp:Panel ID="panelSponsors" runat="server" Font-Bold="true" ForeColor="#FF0000" Font-Size="Large">
+                    <asp:Label ID="lblSponsors" runat="server" Text="Спонсоры:" />
+                    <br />
+                    <asp:GridView ID="gvSponsors" runat="server" AutoGenerateColumns="false" Width="136px" ShowHeader="false"
+                     RowStyle-BackColor="Transparent" AlternatingRowStyle-BackColor="Transparent">
+                        <Columns>
+                            <asp:ImageField HeaderText="" ItemStyle-HorizontalAlign="Center"
+                                            ItemStyle-VerticalAlign="Middle"
+                                            DataImageUrlField="img_src"
+                                            AlternateText="Sponsor" ControlStyle-Width="136px" />
+                        </Columns>
+                    </asp:GridView>
+                </asp:Panel>
+                <br />
+                <asp:Panel ID="panelPartners" runat="server" Font-Bold="true" ForeColor="#FF0000" Font-Size="Large">
+                    <asp:Label ID="lblPartnersHeader" runat="server" Text="Партнеры федерации:" />
+                    <br />
+                    <asp:GridView ID="gvPartners" runat="server" AutoGenerateColumns="false" Width="136px" ShowHeader="false"
+                    RowStyle-BackColor="Transparent" AlternatingRowStyle-BackColor="Transparent">
+                        <Columns>
+                            <asp:ImageField HeaderText="" ItemStyle-HorizontalAlign="Justify"
+                                            ItemStyle-VerticalAlign="Middle"
+                                            DataImageUrlField="img_src"
+                                            AlternateText="Partner" ItemStyle-Wrap="False" ControlStyle-Width="136px" />
+                        </Columns>
+                    </asp:GridView>
+                </asp:Panel>
+                <br />
+                
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="left">
+                    <asp:HyperLink ID="hlCompSelect" runat="server" NavigateUrl="~/Default.aspx?no_redirect=true"
+                      Text="Выбрать соревнования" Font-Size="Small" Font-Underline="false" />
+                </td>
+            </tr>
+            <tr><td colspan="2">
+                <asp:Label ID="lbl" runat="server" /><br />
+                <asp:Label ID="lblAlert" runat="server" Text="При использовании материалов с данного ресурса ссылка на данный сайт ОБЯЗАТЕЛЬНА"></asp:Label>
+                <br />
+            </td></tr>
+        </table>
+        
+
+    </div>
+    <!-- Доп. информация типа счётчика и информера погоды с ГисМетео -->
+    
+    <div>
+    
+    <EMBED src="http://rp5.ru/informer/120x60/1/21.swf" loop="false" menu="false" quality="high" scale="noscale" wmode="transparent" bgcolor="#CCCCCC" flashvars="id=7285&lang=ru" WIDTH="120" HEIGHT="60" NAME="loader" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE= "http://www.macromedia.com/go/getflashplayer"></EMBED>
+    <!--Openstat--><span id="openstat2131045"></span><script type="text/javascript">
+                                                         var openstat = { counter: 2131045, image: 5045, next: openstat, track_links: "all" }; document.write(unescape("%3Cscript%20src=%22http" +
+(("https:" == document.location.protocol) ? "s" : "") +
+"://openstat.net/cnt.js%22%20defer=%22defer%22%3E%3C/script%3E"));
+</script><!--/Openstat-->
+    </div>
+    <br />
+        
+    </form>
+
+<!--    </asp:Panel> -->
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebClimbing.Models.AgeGroupModelWrapper>
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts {
+    <script src="~/Scripts/ControllerScriptis/AgeGroupsController.js" type="text/javascript"></script>
+}
+<h2>Index</h2>
+@if (ViewBag.Scs)
+{
+    <p class="message-success">Данные обновлены</p>
+}
+
+@using (Html.BeginForm("Index", "AgeGroups", FormMethod.Post))
+{
+    @Html.ValidationSummary(false)
+    <table width="100%" id="tbl">
+        <tr>
+            <th>№</th>
+            <th>@Html.DisplayNameFor(m => m.Value.FullName)</th>
+            <th>@Html.DisplayNameFor(m => m.Value.SecretaryName)</th>
+            <th>@Html.DisplayNameFor(m => m.Value.GenderCode)</th>
+            <th>@Html.DisplayNameFor(m => m.Value.MinAge)</th>
+            <th>@Html.DisplayNameFor(m => m.Value.MaxAge)</th>
+            <th></th>
+        </tr>
+        @{int i = 0;}
+        @foreach (var item in Model)
+        {
+        <tr>
+            @Html.Action("GroupEdit", new { prefix = i++, model = item })
+        </tr>
+        }
+    </table>
+    @Html.Hidden("nextId", i)
+    <p>
+        <a href="#" id="newGroup">Добавить группу</a>
+    </p>
+    <input type="submit" value="Сохранить" />
+}

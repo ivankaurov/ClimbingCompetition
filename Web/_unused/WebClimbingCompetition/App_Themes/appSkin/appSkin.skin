@@ -1,0 +1,21 @@
+﻿<%--
+Шаблон обложки по умолчанию. Следующие виды обложек выступают исключительно в качестве примеров.
+
+1. Именованная обложка элементов управления. SkinId должен быть уникальным, поскольку дублирующие значения SkinId для элементов управления одного типа в одной теме не допускаются.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+ <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Обложка по умолчанию. SkinId не определен. В одной теме допускается использование только одной обложки по умолчанию для элементов управления одного типа.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<asp:GridView runat="server" BackColor="White" >
+    <AlternatingRowStyle BackColor="#CCCCFF" />
+    <HeaderStyle Font-Bold="True" HorizontalAlign="Center" VerticalAlign="Middle" BackColor="LightGray" />
+     
+</asp:GridView>
+<asp:HyperLink runat="server" Font-Underline="False" BorderStyle="None"></asp:HyperLink>
+
