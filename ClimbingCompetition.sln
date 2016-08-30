@@ -6,7 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{352614E1-94EF-4746-8208-E75559E337C3}"
 	ProjectSection(SolutionItems) = preProject
 		General\ClimbingCompetition.snk = General\ClimbingCompetition.snk
-		General\LICENSE = General\LICENSE
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{CF046A1A-2698-4A4E-B47D-8628BE2DBB44}"
@@ -60,6 +59,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingPresentation", "Desktop\_Exe\ClimbingPresentation\ClimbingPresentation.csproj", "{7E743AED-2E57-4F9F-BC06-996009D9C146}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingCompetition", "Desktop\_Exe\ClimbingCompetition\ClimbingCompetition.csproj", "{939DF63C-A92C-4492-8CDB-CB5ADEFD2F89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_License", "_License", "{DA64E8D3-66DD-421B-812A-D40D4950054C}"
+	ProjectSection(SolutionItems) = preProject
+		_License\LICENSE = _License\LICENSE
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyrightHeaderEditor", "_License\CopyrightHeaderEditor\CopyrightHeaderEditor.csproj", "{E54DE3BE-9F36-48EF-8BC9-171221FF80CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Installer", "_Installer", "{61294EC7-93AC-4F46-B274-79BD6F3A46D9}"
 EndProject
@@ -239,6 +245,14 @@ Global
 		{939DF63C-A92C-4492-8CDB-CB5ADEFD2F89}.Release|Any CPU.Build.0 = Release|Any CPU
 		{939DF63C-A92C-4492-8CDB-CB5ADEFD2F89}.Release|x86.ActiveCfg = Release|x86
 		{939DF63C-A92C-4492-8CDB-CB5ADEFD2F89}.Release|x86.Build.0 = Release|x86
+		{E54DE3BE-9F36-48EF-8BC9-171221FF80CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E54DE3BE-9F36-48EF-8BC9-171221FF80CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E54DE3BE-9F36-48EF-8BC9-171221FF80CF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E54DE3BE-9F36-48EF-8BC9-171221FF80CF}.Debug|x86.Build.0 = Debug|Any CPU
+		{E54DE3BE-9F36-48EF-8BC9-171221FF80CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E54DE3BE-9F36-48EF-8BC9-171221FF80CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E54DE3BE-9F36-48EF-8BC9-171221FF80CF}.Release|x86.ActiveCfg = Release|Any CPU
+		{E54DE3BE-9F36-48EF-8BC9-171221FF80CF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -267,6 +281,7 @@ Global
 		{AC45F319-7AD7-4DDE-8F62-2044AF0EE969} = {506FDBFF-FF00-41D3-BEE0-51D4C131C87D}
 		{7E743AED-2E57-4F9F-BC06-996009D9C146} = {506FDBFF-FF00-41D3-BEE0-51D4C131C87D}
 		{939DF63C-A92C-4492-8CDB-CB5ADEFD2F89} = {506FDBFF-FF00-41D3-BEE0-51D4C131C87D}
+		{E54DE3BE-9F36-48EF-8BC9-171221FF80CF} = {DA64E8D3-66DD-421B-812A-D40D4950054C}
 		{61294EC7-93AC-4F46-B274-79BD6F3A46D9} = {AE9E976C-BB8A-4F8E-A866-7ECD4F97841E}
 	EndGlobalSection
 EndGlobal
