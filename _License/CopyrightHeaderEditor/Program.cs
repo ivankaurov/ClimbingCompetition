@@ -106,7 +106,8 @@ namespace CopyrightHeaderEditor
         {
             foreach (var csFile in directory.EnumerateFiles("*.cs"))
             {
-                if (!csFile.Name.ToLowerInvariant().EndsWith("designer.cs"))
+                var lowerName = csFile.Name.ToLowerInvariant();
+                if (!lowerName.EndsWith(".designer.cs") && !lowerName.EndsWith(".g.cs") && !lowerName.EndsWith(".g.i.cs"))
                 {
                     Program.ProcessCSfile(csFile);
                 }
