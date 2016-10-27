@@ -1,0 +1,167 @@
+﻿@model ClimberApplication
+@{
+    CompetitionModel comp = ViewBag.Comp;
+    List<RegionModel> regions = ViewBag.RegionList;
+    long? selectedRegionId = ViewBag.DefaultRegionId;
+    //SelectList slRegions = new SelectList(regions, "Iid", "Name", selectedRegionId);
+        
+    int i = ViewBag.Index;
+    
+    bool allowEditName = ((ViewBag.AllowEditName == null) ? true : (bool)ViewBag.AllowEditName);
+    //String functionName = String.Format("surnameChanged({0})", i);
+
+    object simpleHtmlAttr = new { @class = Constants.FRM_EDITOR_CLASS };
+    
+    
+    var data = new ClimberApplication[i + 1];
+    data[i] = Model;
+    String itemsPrefix = String.Format("data[{0}].", i);
+    String divId = String.Format("div_edit_{0}", i);
+    bool removeCancel = ViewBag.RemoveCancel == null ? false : (bool)ViewBag.RemoveCancel;
+    object nameHtmlAttr, surnameHtmlAttr;
+    String hiddenSurnameId = String.Format("hidden_surname_{0}", i);
+    String hiddenNameId = String.Format("hidden_name_{0}", i);
+    if(removeCancel)
+    {
+        nameHtmlAttr = new { id = String.Format("name_{0}", i), @class = Constants.FRM_EDITOR_CLASS };
+        surnameHtmlAttr = new { id = String.Format("surname_{0}", i), @class = Constants.FRM_EDITOR_CLASS };
+    }
+    else
+    {
+        nameHtmlAttr = new { id = String.Format("name_{0}", i), @class = Constants.FRM_EDITOR_CLASS, onkeyup = String.Format("surnameChanged({0},\'name\')", i) };
+        surnameHtmlAttr = new { id = String.Format("surname_{0}", i), @class = Constants.FRM_EDITOR_CLASS, onkeyup = String.Format("surnameChanged({0},\'surname\')", i) };
+    }
+}
+
+<div class="edit-climber" id="@divId">
+    <h3>@Model.ModelHeader</h3>
+    @Html.Hidden("data.Index", i)
+    @Html.Hidden(String.Format("comp_{0}", i), comp.Iid)
+    @Html.HiddenFor(mbox => data[i].ApplicationId)
+    @Html.HiddenFor(mbox => data[i].ModelHeader)
+    <table>
+        <tr>
+            <td>@Html.LabelFor(mbox => mbox.Surname)</td>
+            <td>
+            @if(allowEditName)
+            {
+                @Html.TextBoxFor(mbox => data[i].Surname, surnameHtmlAttr)
+                @Html.Hidden(hiddenSurnameId, Model == null ? String.Empty : Model.Surname, new { id = hiddenSurnameId })
+            }
+            else
+            {
+                @Html.DisplayFor(m => m.Surname)
+                @Html.HiddenFor(m => data[i].Surname)
+            }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(mbox => mbox.Name)</td>
+            <td>
+                @if(allowEditName)
+                {
+                    @Html.TextBoxFor(mbox => data[i].Name, nameHtmlAttr)
+                    @Html.Hidden(hiddenNameId, Model == null ? String.Empty : Model.Name, new { id = hiddenNameId })
+                }
+                else
+                {
+                    @Html.DisplayFor(m => m.Name)
+                    @Html.HiddenFor(m => data[i].Name)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(mbox=>mbox.GenderP)</td>
+            <td>
+                @if(allowEditName)
+                {
+                    @Html.EnumDropDownList(itemsPrefix + "GenderP", Model.GenderP, 
+                                            htmlAttr: new { id = String.Format("gender_{0}", i), @class = Constants.FRM_EDITOR_CLASS },
+                                            nullValueString:"<Пол>")
+                }
+                else
+                {
+                    @Model.GenderP.GetFriendlyValue()
+                    @Html.HiddenFor(m => data[i].GenderP)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(mbox => mbox.YearOfBirth)</td>
+            <td>
+                @if (allowEditName)
+                {
+                    @Html.TextBoxFor(m => data[i].YearOfBirth, new { id = String.Format("year_{0}", i), @class = Constants.FRM_EDITOR_CLASS })
+                }
+                else
+                {
+                    @Html.DisplayFor(m => m.YearOfBirth)
+                    @Html.HiddenFor(m => data[i].YearOfBirth)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Team)</td>
+            <td>
+                @Html.Hidden(String.Format("many_reg_{0}", i), regions.Count > 0)
+                @if (allowEditName)
+                {
+                    
+                    if(regions.Count==1)
+                    {
+                        @regions[0].Name
+                        Model.TeamId = regions[0].Iid;
+                        @Html.HiddenFor(m => data[i].TeamId, new { id = String.Format("region_{0}", i) })
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(m => data[i].TeamId, new SelectList(regions, "Iid", "Name", data[i].TeamId ?? selectedRegionId), "<Команда>", new { @class = Constants.FRM_EDITOR_CLASS, id = String.Format("region_{0}", i) })
+                    }
+                }
+                else
+                {
+                    @Model.Team.Name
+                    @Html.HiddenFor(m => data[i].TeamId)
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(mbox => mbox.Qf)</td>
+            <td>
+                @Html.EnumDropDownList(itemsPrefix + "Qf", Model.Qf, htmlAttr: new { id = String.Format("qf_{0}", i), @class = Constants.FRM_EDITOR_CLASS }, nullValueString: "<Разряд>")
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(mbox => mbox.GroupName)</td>
+            <td>@Model.GroupName</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center" style="font-weight:bold">Участие в видах</td>
+        </tr>
+        @if (comp.Lead)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(mbox => mbox.Lead)</td>
+                <td>@Html.EnumDropDownList(itemsPrefix + "Lead", Model.Lead, htmlAttr: simpleHtmlAttr)</td>
+            </tr>
+        }
+        @if (comp.Speed)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(mbox => mbox.Speed)</td>
+                <td>@Html.EnumDropDownList(itemsPrefix + "Speed", Model.Speed, htmlAttr: simpleHtmlAttr)</td>
+            </tr>
+        }
+        @if (comp.Boulder)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(mbox => mbox.Boulder)</td>
+                <td>@Html.EnumDropDownList(itemsPrefix + "Boulder", Model.Boulder, htmlAttr: simpleHtmlAttr)</td>
+            </tr>
+        }
+    </table>
+    @if(!removeCancel)
+    {
+        <button onclick="$('#@divId').remove()" class="@Constants.HIDE_WHEN_EDIT">Отмена</button>
+    }
+</div>

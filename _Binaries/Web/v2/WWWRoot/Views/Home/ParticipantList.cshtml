@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ClimbingEntities.Competitions.ClimberOnCompetition>
+@{
+    ViewBag.Title = "ParticipantList";
+    var first = Model.FirstOrDefault();
+    String compName = first == null ? String.Empty : first.Competition.Name;
+    object htmlAttr = new { onchange = "$(this.form).submit()" };
+    int i = 0;
+}
+
+<h2>Список участников @compName</h2>
+@using (Html.BeginForm("ParticipantList", "Home", new { id = ViewBag.CompId }, FormMethod.Get))
+{
+    <p>
+        @Html.DropDownList("groupId", (IEnumerable<SelectListItem>)ViewBag.Groups, "<все группы>", htmlAttr)
+    </p>
+    <p>
+        @Html.DropDownList("teamId", (IEnumerable<SelectListItem>)ViewBag.Teams, "<все команды>", htmlAttr)
+    </p>
+}
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td></td>
+                <td>Фамилия</td>
+                <td>Имя</td>
+                <td>Г.р.</td>
+                <td>Разряд</td>
+                <td>Команда</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var p in Model)
+            {
+
+                <tr>
+                    <td>@(++i)</td>
+                    <td>@p.Person.Surname</td>
+                    <td>@p.Person.Name</td>
+                    <td>@p.Person.YearOfBirth</td>
+                    <td>@Extensions.StringExtensions.EnumFriendlyValue(p.Qf)</td>
+                    <td>@p.Team</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

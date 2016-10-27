@@ -1,0 +1,47 @@
+﻿@model WebClimbing.Models.UserAuthentication.ValidationModel
+
+@{
+    ViewBag.Title = "Установка пароля";
+}
+
+<h2>Установка пароля</h2>
+
+<p class="message-error">@ViewBag.StatusMessage</p>
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Установка пароля</legend>
+
+        @Html.HiddenFor(model => model.Token)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ConfirmationPassword)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ConfirmationPassword)
+            @Html.ValidationMessageFor(model => model.ConfirmationPassword)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+

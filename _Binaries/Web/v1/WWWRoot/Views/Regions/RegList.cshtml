@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebClimbing.Models.RegionModel>
+@{
+    bool admin = ViewBag.AllowEdit;
+    RegionModel selectedValue = ViewBag.Selected;
+    long? selectedId = selectedValue == null ? null : new long?(selectedValue.Iid);
+}
+<div id="@ViewBag.DivID">
+@if (admin)
+{
+<p>
+    @Html.ActionLink("Новый регион", "Create", new { parent = selectedId })
+</p>
+}
+<table>
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        @if (admin)
+        {
+            <th></th>
+        }
+    </tr>
+@{
+    int i = 0;
+}
+@foreach (var item in Model) {
+    <tr>
+        <td>@(++i)</td>
+        <td>
+            @if (item.Children.Count > 0)
+            {
+                @Html.ActionLink(item.Name, "Index", new { id = item.Iid })
+            }
+            else
+            {
+                @Html.DisplayFor(model => item.Name)
+            }
+        </td>
+        @if (admin)
+        {
+        <td>
+            @Html.ActionLink("Правка", "Edit", new { id = item.Iid })
+            |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.Iid })
+        </td>
+        }
+    </tr>
+}
+
+</table>
+@if (selectedValue != null)
+{
+    @Html.ActionLink("На уровень вверх", "Index", new { id = selectedValue.IidParent })
+}
+</div>

@@ -1,0 +1,64 @@
+﻿@model WebClimbing.Models.AgeGroupModelWrapper
+@{
+    String sJqueryId = String.Format("_{0}_line", ViewBag.Prefix), sTmp;
+    int prefix = ViewBag.Prefix;
+    sTmp = String.Format("table-edit {0}", sJqueryId);
+    var oAttr = new { @class = sTmp };
+    String sPrefix = String.Format("{1}[{0}].", prefix, AgeGroupsController.IndexPostArgName);
+}
+<td>
+    @(prefix + 1)
+    @Html.Hidden(AgeGroupsController.IndexPostArgName + ".Index", prefix)
+</td>
+<td>
+    
+    @Html.TextBox(sPrefix + "Value.FullName", Model.Value.FullName, oAttr)
+</td>
+<td>
+    @Html.TextBox(sPrefix + "Value.SecretaryName", Model.Value.SecretaryName, oAttr)
+</td>
+<td>
+    @{sTmp = sPrefix + "Value.GenderProperty";}
+    @if (Model.ReadOnly)
+    {
+        @Html.Hidden(sTmp, Model.Value.GenderProperty)
+        @Model.Value.GenderProperty.GetFriendlyValue()
+    }
+    else
+    {
+        @Html.EnumDropDownList(sTmp, (Gender?)Model.Value.GenderProperty, String.Empty)
+    }
+</td>
+<td>
+    @{sTmp = sPrefix + "Value.MinAge";}
+    @if (Model.ReadOnly)
+    {
+        @Html.Hidden(sTmp, Model.Value.MinAge)
+        @(Model.Value.MinAge == null ? String.Empty : Model.Value.MinAge.Value.ToString())
+    }
+    else
+    {
+        @Html.TextBox(sTmp, Model.Value.MinAge, oAttr)
+    }
+</td>
+<td>
+    @{sTmp = sPrefix + "Value.MaxAge";}
+    @if (Model.ReadOnly)
+    {
+        @Html.Hidden(sTmp, Model.Value.MaxAge)
+        @(Model.Value.MaxAge == null ? String.Empty : Model.Value.MaxAge.Value.ToString())
+    }
+    else
+    {
+        @Html.TextBox(sTmp, Model.Value.MaxAge, oAttr)
+    }
+</td>
+<td>
+   @if (!Model.ReadOnly)
+   {
+       <a href='#' id='@sJqueryId' class='delete-row'>Удалить</a>
+   }
+   @Html.Hidden(sPrefix + "IsNew", Model.IsNew, new { id = sJqueryId + "_new" })
+   @Html.Hidden(sPrefix + "ToDelete", false, new { id = sJqueryId + "_del" })
+   @Html.Hidden(sPrefix + "Value.Iid", Model.Value.Iid)
+</td>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AccountRegionModel>
+@{
+    UserProfileModel userModel = ViewBag.UserModel;
+    bool saved = ViewBag.Saved == null ? false : (bool)ViewBag.Saved;
+    ViewBag.Title = String.Format("Права для {0}", userModel.Name);
+    AccountRegionModel[] data = Model == null ? new AccountRegionModel[0] : Model.ToArray();
+}
+
+<h2>@ViewBag.Title</h2>
+@if (saved)
+{
+     <p class="message-success">Данные сохранены</p>
+}
+@Html.ValidationSummary(false)
+@using (Html.BeginForm("RegionRights", "Account", FormMethod.Post, new { id = userModel.Iid }))
+{
+    <table>
+        <thead>
+            <tr>
+                <td></td>
+                <td>@Html.DisplayNameFor(m => m.RegionName)</td>
+                <td>@Html.DisplayNameFor(m => m.Role)</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < data.Length; i++)
+            {
+                <tr>
+                    <td>
+                        @(i+1)
+                        @Html.Hidden("data.Index", i)
+                        @Html.Hidden(String.Format("data[{0}].RegionId", i), data[i].RegionId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => data[i].RegionName)
+                        @Html.Hidden(String.Format("data[{0}].RegionName", i), data[i].RegionName)
+                    </td>
+                    <td>
+                        @Html.EnumDropDownList(String.Format("data[{0}].Role", i), data[i].Role, "Нет прав")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="Сохранить" />
+}
+@Html.ActionLink("К списку пользователей", "Index", new { zone = userModel.RegionId == null ? null : userModel.Region.IidParent })

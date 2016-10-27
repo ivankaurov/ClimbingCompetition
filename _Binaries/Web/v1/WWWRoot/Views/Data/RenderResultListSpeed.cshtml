@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SpeedResultLine>
+@{
+    ListHeaderModel header = ViewBag.Header;
+    ViewBag.Title = String.Format("{0}{1} {2}{3}", header.Live ? "Live! " : String.Empty, header.Round,
+                       header.GroupId == null ? String.Empty : (header.Group.AgeGroup.SecretaryName + " "), header.Style);
+    bool secQf = header.SecondQfWithBestFirst;
+}
+@*<div id="@ViewBag.DivID">*@
+    @Html.Hidden("is_live", header.Live)
+    @Html.Hidden("refresh_period", 20)
+<h2>@ViewBag.Title</h2>
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.PosText)</th>
+        <th>@Html.DisplayNameFor(model => model.Climber)</th>
+        <th>@Html.DisplayNameFor(model => model.Climber.TeamList)</th>
+        <th>@Html.DisplayNameFor(model => model.Climber.Age)</th>
+        <th>@Html.DisplayNameFor(model => model.Climber.Qf)</th>
+        <th>@Html.DisplayNameFor(model => model.Route1Text)</th>
+        <th>@Html.DisplayNameFor(model => model.Route2Text)</th>
+        @if (secQf)
+        {
+            <th>@Html.DisplayNameFor(model => model.PreviousRound)</th>
+            <th>Лучшее</th>
+        }
+        else
+        {
+            <th>@Html.DisplayNameFor(model => model.ResText)</th>    
+        }
+        
+        <th>@Html.DisplayNameFor(model => model.StartNumber)</th>
+    </tr>
+    @foreach (var item in Model.Where(r => !r.PreQf))
+    {
+        <tr class="@(String.IsNullOrEmpty(item.Qf)?String.Empty:"qf")">
+            <td>@Html.DisplayFor(m => item.PosText)</td>
+            <td>@Html.DisplayFor(m => item.Climber.ClimberName)</td>
+            <td>@Html.DisplayFor(m => item.Climber.TeamList)</td>
+            <td>@Html.DisplayFor(m => item.Climber.Age)</td>
+            <td>@item.Climber.Qf.GetFriendlyValue()</td>
+            <td>@Html.DisplayFor(m => item.Route1Text)</td>
+            <td>@Html.DisplayFor(m => item.Route2Text)</td>
+            @if (secQf)
+            {
+                <td>@Html.DisplayFor(m=>item.PreviousRound)</td>
+            }
+            <td>@Html.DisplayFor(m => item.TextResult)</td>
+            <td>@Html.DisplayFor(m => item.StartNumber)</td>
+        </tr>
+    }
+</table>
+@*</div>*@

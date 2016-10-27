@@ -1,0 +1,66 @@
+﻿@model IEnumerable<UserSendEmail>
+@{
+    UserSendEmail[] items = Model.ToArray();
+    String subj, body;
+    int messagesSent;
+    subj = ((string)ViewData["subject"]) ?? String.Empty;
+    body = ((string)ViewData["body"]) ?? String.Empty;
+    messagesSent = ((int?)ViewBag.MessageSent) ?? 0;
+}
+<div id="@ViewBag.DivId">
+    @if (messagesSent > 0)
+    {
+        <div class="message-success">@String.Format("Отправлено {0} сообщений", messagesSent)</div>
+    }
+    @Html.ValidationSummary(false)
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>@Html.DisplayNameFor(m => m.UserName)</th>
+                <th>@Html.DisplayNameFor(m => m.Email)</th>
+                <th>@Html.DisplayNameFor(m => m.TeamName)</th>
+                <th>@Html.DisplayNameFor(m => m.Confirmed)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < items.Length; i++)
+            {
+                <tr>
+                <td>
+                    @(i + 1)
+                    @Html.Hidden("items.Index", i)
+                    @Html.HiddenFor(m => items[i].UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => items[i].UserName)
+                    @Html.HiddenFor(m => items[i].UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => items[i].Email)
+                    @Html.HiddenFor(m => items[i].Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => items[i].TeamName)
+                    @Html.HiddenFor(m => items[i].TeamName)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(m => items[i].Confirmed)
+                </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="editor-label">
+        <label for="subject">Тема</label>
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("subject", subj, new { id = "subject" })
+    </div>
+    <div class="editor-label">
+        <label for="body">Сообщение</label>
+    </div>
+    <div class="editor-field">
+        @Html.TextArea("body", body, new { id = "body" })
+    </div>
+</div>

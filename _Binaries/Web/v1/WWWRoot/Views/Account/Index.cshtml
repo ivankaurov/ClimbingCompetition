@@ -1,0 +1,66 @@
+﻿@using WebClimbing.Models
+@model IEnumerable<WebClimbing.Models.UserAuthentication.UserProfileModel>
+
+@{
+    ViewBag.Title = "Пользователи";
+    bool allowEdit = ViewBag.AllowEdit == null ? false : (bool)ViewBag.AllowEdit;
+    String message = ViewBag.Message == null ? null : ViewBag.Message;
+    object htmlAttr = new { onchange = "$(this.form).submit()" };
+    SelectList zones = ViewBag.Zones;
+    UserProfileModel user = User.GetDbUser(new ClimbingContext());
+}
+@if (!String.IsNullOrEmpty(message))
+{
+    <p class="message-success">@message</p>
+}
+@if (allowEdit)
+{
+    @Html.ActionLink("Новый пользователь", "CreateNew")
+}
+@using (Html.BeginForm("Index", "Account", FormMethod.Get))
+{
+    @Html.DropDownList("zone", zones, "Россия", htmlAttr);
+}
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>@Html.DisplayNameFor(m => m.Name)</th>
+            <th>@Html.DisplayNameFor(m => m.Email)</th>
+            <th>@Html.DisplayNameFor(m => m.Region)</th>
+            <th>@Html.DisplayNameFor(m => m.Inactive)</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach (var usr in Model)
+        {
+            allowEdit = user.CanEditOtherUser(usr);
+            <tr>
+                <td>@(++i)</td>
+                @if(allowEdit)
+                {
+                    <td>@Html.ActionLink(usr.Name, "Edit", new { id = usr.Iid })</td>
+                }
+                else
+                {
+                    <td>@Html.DisplayFor(m => usr.Name)</td>
+                }
+                <td>@Html.DisplayFor(m => usr.Email)</td>
+                <td>@Html.DisplayFor(m => usr.Region.Name)</td>
+                <td>@Html.DisplayFor(m => usr.Inactive)</td>
+                <td>@Html.ActionLink("Права на регионы", "RegionRights", new { id = usr.Iid })</td>
+                <td>
+                    @if (allowEdit)
+                    {
+                        @Html.ActionLink("Удалить", "DeleteUser", new { id = usr.Iid })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

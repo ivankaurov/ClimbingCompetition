@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CompetitionModel>
+@{
+    ClimbingContext db = ViewBag.Db;       
+}
+<div id="@ViewBag.DivID">
+    @if (User.IsInRole(db, RoleEnum.Admin, (long?)ViewBag.Region))
+    {
+    <p>
+        @Html.ActionLink("Новые соревнования", "Create", new { comp_year = ViewBag.Year, comp_region = ViewBag.Region })
+    </p>
+    }
+    <table>
+        <tr>
+            <th></th>
+            <th>@Html.DisplayNameFor(model=>model.Start)</th>
+            <th>@Html.DisplayNameFor(model=>model.End)</th>
+            <th>@Html.DisplayNameFor(model=>model.RegionId)</th>
+            <th>@Html.DisplayNameFor(model=>model.Lead)</th>
+            <th>@Html.DisplayNameFor(model=>model.Speed)</th>
+            <th>@Html.DisplayNameFor(model=>model.Boulder)</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.Lists.Count > 0)
+                    {
+                        @Html.ActionLink(String.Format("Результаты: {0}", item.Name), "Index", "Data", new { id = item.Iid }, null)
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => item.Name)
+                    }
+                </td>
+                <td>@item.Start.ToString("dd.MM.yyyy")</td>
+                <td>@item.End.ToString("dd.MM.yyyy")</td>
+                <td>@Html.DisplayFor(model=>item.Region.Name)</td>
+                <td>@Html.DisplayFor(model=>item.Lead)</td>
+                <td>@Html.DisplayFor(model=>item.Speed)</td>
+                <td>@Html.DisplayFor(model=>item.Boulder)</td>
+                <td>
+                    @if (item.Climbers.Count > 0)
+                    {
+                        @Html.ActionLink("Список участников", "Climbers", new { id = item.Iid })
+                    }
+                    @if (item.AllowedToEdit(User.GetDbUser(db, false)))
+                    {                       
+                        @:| @Html.ActionLink("Подать заявку", "Index", "Registration", new { id = item.Iid }, null)  
+                    }
+                    @if (User.IsInRoleComp(db, RoleEnum.Admin, item.Iid))
+                    {
+                        @:| @Html.ActionLink("Пользователи", "Roles", new { id = item.Iid })
+                    }
+                    @if (User.IsInRole(db, RoleEnum.Admin, item.Region.IidParent))
+                    {
+                        @:| @Html.ActionLink("Правка", "Edit", new { id = item.Iid })
+                        @:| @Html.ActionLink("Удалить", "Delete", new { id = item.Iid })
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>

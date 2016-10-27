@@ -1,0 +1,49 @@
+﻿@model CompetitionDeleteModel
+
+@{
+    ViewBag.Title = "Удаление соревнований " + Model.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Вы уверены, что хотите удалить ЭТО?</h3>
+@Html.ValidationSummary(false)
+@using (Html.BeginForm())
+{
+<fieldset>
+
+    @Html.HiddenFor(m => m.Iid)
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Region)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Region)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.From)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.From)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.To)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.To)
+    </div>
+</fieldset>
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("К списку соревнований", "Index")
+    </p>
+}

@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.ApTitle = "ClimbingCompetition";
+    bool CFRBanners = ViewBag.CFR == null ? true : ViewBag.CFR;
+}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - @ViewBag.ApTitle</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryscrollto")
+        @RenderSection("scripts", required: false)
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("WebClimbing", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Календарь", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Регионы", "Index", "Regions")</li>
+                            @if (Request.IsAuthenticated && User.AllowRegistration(new ClimbingContext()))
+                            {
+                                <li>@Html.ActionLink("Пользователи", "Index", "Account")</li>
+                            }
+                            @*
+                            <li>@Html.ActionLink("О программе", "About", "Home")</li>
+                            <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                            *@
+                            <li><a href="mailto:ivan.kaurov@gmail.com">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            <table>
+                <tr>
+                    <td colspan="2" align="center">
+                        @RenderSection("featured", required: false)
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        @if (CFRBanners) {
+                            <p> @*
+                                <a href="http://c-f-r.ru" target="_blank">
+                                    <img src="~/Images/PartnersCFR/CFR.gif" width="160" alt="Федерация Скалолазания России" />
+                                </a>
+                                *@
+                                <a href="http://spbclimbing.ru/" target="_blank">
+                                    <img src="~/Images/spb.jpg" width="160" alt="Спортивная Федерация Скалолазания Санкт-Петербурга" />
+                                </a>
+                            </p>
+                        @* 
+                        <p>
+                            <img src="~/Images/PartnersCFR/txt-partners.gif" alt="Партнеры ФСР">
+                        </p>
+                        <p>
+                            <object width="160" height="259" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
+                                <param name="movie" value="/UserFiles/Image/partners/rf160x259.swf">
+                                <param name="quality" value="high"> <embed width="160" height="259" src="~/Images/PartnersCFR/rf160x259.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash">
+                            </object>
+                        </p>
+                        <p>    
+                            <a href="http://www.doorhan.ru/"><img width="160" height="82" src="~/Images/PartnersCFR/dh.gif" alt="Ворота, автоматические ворота, гаражные ворота, автоматика для ворот, рольставни, складские системы"></a>
+                        </p>
+                        <p>
+                            <a href="http://trial-sport.ru/" target="_blank"><img src="~/Images/PartnersCFR/trialsport.gif" alt="Триал-спорт"></a>
+                        </p>
+                        <p>
+                            <a href="http://walltopia.ru/"><img width="160" height="50" src="~/Images/PartnersCFR/wt.gif" alt="Walltopia - один из крупнейших европейских производителей скалодромов для помещений и открытых площадок"></a>
+                        </p>
+                        <p>
+                            <a href="http://c-f-r.ru/inf/projects/partners_halls"><img width="160" height="60" src="~/Images/PartnersCFR/bigwall.gif" alt="Скалодром BigWall"></a>
+                        </p>*@
+                                        }
+                    </td>
+                    <td valign="top" align="left">
+                        <section class="content-wrapper main-content clear-fix">
+                            @RenderBody()
+                        </section>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - @ViewBag.ApTitle</p>
+                </div>
+            </div>
+        </footer>
+        
+    </body>
+</html>

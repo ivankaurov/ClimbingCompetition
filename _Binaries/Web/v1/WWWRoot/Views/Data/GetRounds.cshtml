@@ -1,0 +1,45 @@
+﻿@{
+    String divId = "resultlist";
+    object htmlAttr = new { onchange = "$(this.form).submit()", id = "round_list" };
+}
+<div id="@ViewBag.DivID">
+@using (Ajax.BeginForm("GetList", new { divId = divId },
+    new AjaxOptions
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = divId,
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "ajax-loadr",
+        OnBegin = String.Format("listLoadStarted('{0}')", divId),
+        OnFailure = "listLoadFailed",
+        OnComplete = String.Format("listLoadSucceded('{0}')", divId)
+    }))
+{
+    <img src="~/Images/orderedList0.png" alt="Загрузка..." style="display:none" id="ajax-loadr" />
+    <div class="editor-label">
+        <label for="reg_select">Раунд:</label> 
+    </div>
+    <div class="editor-field">
+        @Html.DropDownList("listId", (SelectList)ViewBag.Rounds, htmlAttr)
+    </div>
+}
+    <div id="timerStrip">
+        <p></p>
+        Автообновление: <input id="cbRefresh" type="checkbox" style="display:none" checked="checked" onchange="cbRefresh_Changed('@divId')" />
+        <br />
+        <button onclick="updateList('@divId')" class="btn-refresh">Обновить протокол</button>
+    </div>
+    <div id="@divId">
+@if (ViewBag.SelectedRound != null)
+{
+    @Html.Action("GetList", new { listId = ViewBag.SelectedRound, divId = divId })
+    <script type="text/javascript">
+        listLoadSucceded('@divId');
+    </script>
+}
+@*else
+{
+    <div id="@divId" />
+}*@
+        </div>
+</div>
