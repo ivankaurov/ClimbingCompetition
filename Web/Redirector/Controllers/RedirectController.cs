@@ -46,7 +46,7 @@ namespace Redirector.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectPermanent("http://win.c-f-r.ru" + Request.RawUrl);
+            return Redirect("http://win.c-f-r.ru" + Request.RawUrl);
         }
     }
 }
