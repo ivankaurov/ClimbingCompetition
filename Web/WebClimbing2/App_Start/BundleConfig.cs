@@ -36,7 +36,6 @@
 
 ﻿using System.Web;
 using System.Web.Optimization;
-
 namespace WebClimbing2
 {
     public class BundleConfig
