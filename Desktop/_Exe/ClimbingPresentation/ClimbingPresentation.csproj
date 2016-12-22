@@ -141,6 +141,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\General\AssemblyInfoHeader.cs">
+      <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
     <Compile Include="ClimberPicture.xaml.cs">
       <DependentUpon>ClimberPicture.xaml</DependentUpon>
     </Compile>

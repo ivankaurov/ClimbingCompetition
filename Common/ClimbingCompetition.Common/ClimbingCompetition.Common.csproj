@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\General\AssemblyInfoHeader.cs">
+      <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
     <Compile Include="API\ApiAgeGroup.cs" />
     <Compile Include="API\ApiCompetition.cs" />
     <Compile Include="API\ApiListHeader.cs" />

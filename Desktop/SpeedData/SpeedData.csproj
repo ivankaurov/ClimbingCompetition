@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\General\AssemblyInfoHeader.cs">
+      <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
     <Compile Include="EKBListener.cs" />
     <Compile Include="IvanovoListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

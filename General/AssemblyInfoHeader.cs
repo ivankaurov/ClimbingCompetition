@@ -1,4 +1,4 @@
-// <copyright file="AssemblyInfo.cs">
+// <copyright file="AssemblyInfoHeader.cs">
 // Copyright © 2016 All Rights Reserved
 // This file is part of ClimbingCompetition.
 //
@@ -32,13 +32,37 @@
 // вместе с этой программой. Если это не так, см. <http://www.gnu.org/licenses/>.)
 // </copyright>
 // <author>Ivan Kaurov</author>
-// <date>30.08.2016 23:51</date>
+// <date>22.12.2016 13:17</date>
 
 using System.Reflection;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Resources;
-using System;
 
-[assembly: AssemblyTitle("Climbing Competition")]
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[assembly: AssemblyDescription("ClimbingCompetition component")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("Спортивная Федерация Скалолазания Санкт-Петербурга")]
+[assembly: AssemblyProduct("ClimbingCompetition")]
+[assembly: AssemblyCopyright("Copyright © 2007-2017")]
 
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
+
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Build and Revision Numbers 
+// by using the '*' as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("2017.1.1.1")]
+[assembly: AssemblyFileVersion("2017.1.1.1")]
+[assembly: NeutralResourcesLanguage("ru")]

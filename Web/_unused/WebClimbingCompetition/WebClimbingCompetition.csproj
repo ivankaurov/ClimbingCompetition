@@ -71,6 +71,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\General\AssemblyInfoHeader.cs">
+      <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
     <Compile Include="AJAXService.svc.cs">
       <DependentUpon>AJAXService.svc</DependentUpon>
     </Compile>

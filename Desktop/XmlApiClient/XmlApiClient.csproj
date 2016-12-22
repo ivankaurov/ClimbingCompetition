@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\General\AssemblyInfoHeader.cs">
+      <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
     <Compile Include="AsyncRequestResult.cs" />
     <Compile Include="XmlClient.AgeGroups.cs" />
     <Compile Include="XmlClient.Climbers.cs" />

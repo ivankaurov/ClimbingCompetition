@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\General\AssemblyInfoHeader.cs">
+      <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
     <Compile Include="DataEventArgs.cs" />
     <Compile Include="EnumDisplayAttribute.cs" />
     <Compile Include="MyConcurrentDictionary.cs" />

@@ -59,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\General\AssemblyInfoHeader.cs">
+      <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
     <Compile Include="AgeGroups\AgeGroup.cs" />
     <Compile Include="ClimbingBaseObject.cs" />
     <Compile Include="ClimbingContext.cs" />

@@ -5,6 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{352614E1-94EF-4746-8208-E75559E337C3}"
 	ProjectSection(SolutionItems) = preProject
+		General\AssemblyInfoHeader.cs = General\AssemblyInfoHeader.cs
 		General\ClimbingCompetition.snk = General\ClimbingCompetition.snk
 	EndProjectSection
 EndProject
@@ -200,11 +201,9 @@ Global
 		{B811A9F1-EC7E-4C22-AD66-E17330DF8406}.Release|x86.ActiveCfg = Release|Any CPU
 		{B811A9F1-EC7E-4C22-AD66-E17330DF8406}.Release|x86.Build.0 = Release|Any CPU
 		{419295E7-87DA-4B0D-9998-7D888206D7FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{419295E7-87DA-4B0D-9998-7D888206D7FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{419295E7-87DA-4B0D-9998-7D888206D7FB}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{419295E7-87DA-4B0D-9998-7D888206D7FB}.Debug|x86.Build.0 = Debug|Any CPU
 		{419295E7-87DA-4B0D-9998-7D888206D7FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{419295E7-87DA-4B0D-9998-7D888206D7FB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{419295E7-87DA-4B0D-9998-7D888206D7FB}.Release|x86.ActiveCfg = Release|Any CPU
 		{419295E7-87DA-4B0D-9998-7D888206D7FB}.Release|x86.Build.0 = Release|Any CPU
 		{CA32F2C6-A09A-4FF5-B579-AF61D20F3319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -216,11 +215,9 @@ Global
 		{CA32F2C6-A09A-4FF5-B579-AF61D20F3319}.Release|x86.ActiveCfg = Release|Any CPU
 		{CA32F2C6-A09A-4FF5-B579-AF61D20F3319}.Release|x86.Build.0 = Release|Any CPU
 		{7A7A3978-9B67-4152-B379-658B9973F921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A7A3978-9B67-4152-B379-658B9973F921}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A7A3978-9B67-4152-B379-658B9973F921}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{7A7A3978-9B67-4152-B379-658B9973F921}.Debug|x86.Build.0 = Debug|Any CPU
 		{7A7A3978-9B67-4152-B379-658B9973F921}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A7A3978-9B67-4152-B379-658B9973F921}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A7A3978-9B67-4152-B379-658B9973F921}.Release|x86.ActiveCfg = Release|Any CPU
 		{7A7A3978-9B67-4152-B379-658B9973F921}.Release|x86.Build.0 = Release|Any CPU
 		{AC45F319-7AD7-4DDE-8F62-2044AF0EE969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

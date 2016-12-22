@@ -59,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\General\AssemblyInfoHeader.cs">
+      <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
     <Compile Include="Attributes\LoggableAttribute.cs" />
     <Compile Include="BaseContext.Init.cs" />
     <Compile Include="BaseObject.Rights.cs" />

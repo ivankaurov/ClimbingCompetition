@@ -54,6 +54,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\General\AssemblyInfoHeader.cs">
+      <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
     <Compile Include="DialogRoutedEventArgs.cs" />
     <Compile Include="NewRemoteConnectionControl.xaml.cs">
       <DependentUpon>NewRemoteConnectionControl.xaml</DependentUpon>
