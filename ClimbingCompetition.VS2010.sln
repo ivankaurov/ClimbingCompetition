@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validate", "Desktop\Validate\Validate.csproj", "{548DE521-ECFE-44DC-9535-1B30711B5B13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingLib", "Common\SortingLib\SortingLib.csproj", "{6FB6DF2C-51A4-4F87-B592-17173885D49E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlApiData", "Common\XmlApiData\XmlApiData.csproj", "{EECFD1C6-D0C6-4241-9B62-31D3AB47DC87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{548DE521-ECFE-44DC-9535-1B30711B5B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548DE521-ECFE-44DC-9535-1B30711B5B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548DE521-ECFE-44DC-9535-1B30711B5B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548DE521-ECFE-44DC-9535-1B30711B5B13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FB6DF2C-51A4-4F87-B592-17173885D49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB6DF2C-51A4-4F87-B592-17173885D49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB6DF2C-51A4-4F87-B592-17173885D49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB6DF2C-51A4-4F87-B592-17173885D49E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EECFD1C6-D0C6-4241-9B62-31D3AB47DC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EECFD1C6-D0C6-4241-9B62-31D3AB47DC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EECFD1C6-D0C6-4241-9B62-31D3AB47DC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EECFD1C6-D0C6-4241-9B62-31D3AB47DC87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
