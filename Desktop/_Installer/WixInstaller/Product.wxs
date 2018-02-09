@@ -1,30 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="ClimbingCompetition" Language="1049" Version="1.0.0.0" Manufacturer="IvanK" UpgradeCode="f84afe98-7816-4f04-b74c-3f14a0d5fe58">
+	<Product Id="*" Name="ClimbingCompetition" Language="1049" Version="18.2.10" Manufacturer="IvanK" UpgradeCode="f84afe98-7816-4f04-b74c-3f14a0d5fe58">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+		<!--<MediaTemplate />-->
+    <Media Id="1" Cabinet="cab1.cab" EmbedCab="yes" />
 
 		<Feature Id="ClimbingCompetition" Title="ClimbingCompetition" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="Shared" />
+      <ComponentGroupRef Id="ClimbingCompetition" />
+      <!--<ComponentRef Id="ApplicationStartMenuShortcuts"/>
+      <ComponentRef Id="DesktopShortcuts"/>-->
 		</Feature>
+    <Feature Id="ClimbingPresentation" Title="ClimbingPresentation" Level="1">
+      <ComponentGroupRef Id="Shared" />
+      <ComponentGroupRef Id="ClimbingPresentation" />
+      <!--<ComponentRef Id="ApplicationStartMenuShortcuts"/>
+      <ComponentRef Id="DesktopShortcuts"/>-->
+    </Feature>
+    <Feature Id="BoulderTimer" Title="BoulderTimer" Level="1">
+      <ComponentGroupRef Id="Shared" />
+      <ComponentGroupRef Id="BoulderTimer" />
+      <!--<ComponentRef Id="ApplicationStartMenuShortcuts"/>
+      <ComponentRef Id="DesktopShortcuts"/>-->
+    </Feature>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER"></Property>
+    <UIRef Id="WixUI_InstallDir"/>
 	</Product>
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="ClimbingCompetition" />
+        <Directory Id="INSTALLFOLDER" Name="ClimbingCompetition">
+          <Directory Id="ResourcesEn" Name="en" />
+          <Directory Id="ResourcesEnUs" Name="en-US" />
+          <Directory Id="ResourcesRu" Name="ru" />
+          <Directory Id="Sound" Name="Sound" />
+          <Directory Id="Templates" Name="Templates" />
+        </Directory>
 			</Directory>
+
+      <Directory Id="ProgramMenuFolder">
+      </Directory>
+
+      <Directory Id="DesktopFolder" />
 		</Directory>
+    
 	</Fragment>
 
+  <Fragment>
+    <DirectoryRef Id="ProgramMenuFolder">
+      <Component Id="ApplicationStartMenuShortcuts" Guid="{1DAEFAEA-556B-4D83-AFAA-CA60AE0FC4D6}">
+        <Shortcut Id="Climbing.Sm" Name="ClimbingCompetition" Description="Программа ввода результатов" Target="[INSTALLFOLDER]Climbing.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="ClimbingPresentation.Sm" Name="ClimbingPresentation" Description="Программа просмотра результатов" Target="[INSTALLFOLDER]ClimbingPresentation.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="BoulderTimer.Sm" Name="BoulderTimer" Description="Таймер для боулдеринга" Target="[INSTALLFOLDER]BoulderTimer.exe" WorkingDirectory="INSTALLFOLDER" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcuts" Guid="{81E12167-C2E7-4E3C-85DA-84758969B035}">
+        <Shortcut Id="Climbing.Ink" Name="ClimbingCompetition" Description="Программа ввода результатов" Target="[INSTALLFOLDER]Climbing.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="ClimbingPresentation.Ink" Name="ClimbingPresentation" Description="Программа просмотра результатов" Target="[INSTALLFOLDER]ClimbingPresentation.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="BoulderTimer.Ink" Name="BoulderTimer" Description="Таймер для боулдеринга" Target="[INSTALLFOLDER]BoulderTimer.exe" WorkingDirectory="INSTALLFOLDER" />
+      </Component>
+    </DirectoryRef>
+    
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ResourcesEn">
+      <Component Id="Resources.en" Guid="{E1CBB775-708A-4A8C-89BC-98A56A187921}">
+        <File Id="Climbing.Resources.dll.en" Source="$(var.ClimbingCompetition.TargetDir)en\Climbing.resources.dll" Name="Climbing.resources.dll" Vital="yes" />
+        <File Id="UserForms.Resources.dll.en" Source="$(var.UserForms.TargetDir)en\UserForms.resources.dll" Name="UserForms.resources.dll" Vital="yes" />
+      </Component>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="ResourcesEnUs">
+      <Component Id="Resources.EnUs" Guid="{4FD70F6E-409E-4502-B84E-68173AF9E2E8}">
+        <File Id="Climbing.Resources.dll.EnUs" Source="$(var.ClimbingCompetition.TargetDir)en-us\Climbing.resources.dll" Name="Climbing.resources.dll" Vital="yes" />
+        <File Id="UserForms.Resources.dll.EnUs" Source="$(var.UserForms.TargetDir)en-us\UserForms.resources.dll" Name="UserForms.resources.dll" Vital="yes" />
+      </Component>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="ResourcesRu">
+      <Component Id="Resources.ru" Guid="{687EED9C-E7ED-4818-A3D3-2BFDED66BDAC}">
+        <File Id="ClimbingCompetition.Common.dll.ru" Source="$(var.ClimbingCompetition.Common.TargetDir)ru\ClimbingCompetition.Common.resources.dll" Name="ClimbingCompetition.Common.resources.dll" Vital="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="Sound">
+      <Component Id="Sound" Guid="{65979EE1-5008-4853-A7CE-615DB939E246}">
+        <File Id="OneMinuteLeft" Source="$(var.UserForms.TargetDir)Sound\01-осталась одна минута.wav" Name="01-осталась одна минута.wav" Vital="yes" />
+        <File Id="GetReady" Source="$(var.UserForms.TargetDir)Sound\02-приготовиться к переходу.wav" Name="02-приготовиться к переходу.wav" Vital="yes" />
+        <File Id="Rotate" Source="$(var.UserForms.TargetDir)Sound\03-переход.wav" Name="03-переход.wav" Vital="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="Templates">
+      <Component Id="Templates" Guid="{F9B522AD-438B-4E8D-97AF-F7FE016F32EB}">
+        <File Id="anketa" Source="$(var.ClimbingCompetition.TargetDir)Templates\anketa.dot" Name="anketa.dot" Vital="yes" />
+        <File Id="badges" Source="$(var.ClimbingCompetition.TargetDir)Templates\badges.dot" Name="badges.dot" Vital="yes" />
+        <File Id="deleg1" Source="$(var.ClimbingCompetition.TargetDir)Templates\deleg1.dot" Name="deleg1.dot" Vital="yes" />
+        <File Id="fsr_banner.png" Source="$(var.ClimbingCompetition.TargetDir)Templates\fsr_banner.png" Name="fsr_banner.png" Vital="yes" />
+        <File Id="judge" Source="$(var.ClimbingCompetition.TargetDir)Templates\judge.dot" Name="judge.dot" Vital="yes" />
+        <File Id="jury_rep" Source="$(var.ClimbingCompetition.TargetDir)Templates\jury_rep.dot" Name="jury_rep.dot" Vital="yes" />
+        <File Id="mand" Source="$(var.ClimbingCompetition.TargetDir)Templates\mand.dot" Name="mand.dot" Vital="yes" />
+        <File Id="medals" Source="$(var.ClimbingCompetition.TargetDir)Templates\medals.dot" Name="medals.dot" Vital="yes" />
+        <File Id="P_Kord" Source="$(var.ClimbingCompetition.TargetDir)Templates\P_Kord.xlt" Name="P_Kord.xlt" Vital="yes" />
+        <File Id="rep1" Source="$(var.ClimbingCompetition.TargetDir)Templates\rep1.dot" Name="rep1.dot" Vital="yes" />
+        <File Id="rep2" Source="$(var.ClimbingCompetition.TargetDir)Templates\rep2.dot" Name="rep2.dot" Vital="yes" />
+        <File Id="tb" Source="$(var.ClimbingCompetition.TargetDir)Templates\tb.dot" Name="tb.dot" Vital="yes" />
+        <File Id="ExcelDefaultBook" Source="$(var.ClimbingCompetition.TargetDir)Templates\Книга.xlt" Name="Книга.xlt" Vital="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  
 	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
-		</ComponentGroup>
+    <ComponentGroup Id="BoulderTimer" Directory="INSTALLFOLDER">
+      <Component Id="BoulderTimer.exe" Guid="{9C8B3CA2-E939-494E-A976-9FFFD0FA8F73}">
+        <File Id="BoulderTimer.exe" Source="$(var.BoulderTimer.TargetPath)" Name="BoulderTimer.exe" Vital="yes" />
+        <File Id="BoulderTimer.exe.config" Source="$(var.BoulderTimer.TargetDir)BoulderTimer.exe.config" Name="BoulderTimer.exe.config" Vital="yes" />
+      </Component>
+      <ComponentRef Id="Sound"/>
+    </ComponentGroup>
+    
+    <ComponentGroup Id="ClimbingCompetition" Directory="INSTALLFOLDER">
+      <Component Id="Climbing.exe" Guid="{63424AA7-8321-41F4-BB69-A469E1E4C52A}">
+        <File Id="Climbing.exe" Source="$(var.ClimbingCompetition.TargetPath)" Name="Climbing.exe" Vital="yes" />
+        <File Id="Climbing.exe.config" Source="$(var.ClimbingCompetition.TargetDir)Climbing.exe.config" Name="Climbing.exe.config" Vital="yes" />
+      </Component>
+      <Component Id="Climbing.Resources" Guid="{7D8C5933-86ED-42C2-A4DF-AE96809FB534}">
+        <File Id="IFSC_Rules.pdf" Source="$(var.ClimbingCompetition.TargetDir)IFSC_Rules.pdf" Name="IFSC_Rules.pdf" Vital="yes" />
+        <File Id="LocalRules.pdf" Source="$(var.ClimbingCompetition.TargetDir)Правила соревнований.pdf" Name="Правила соревнований.pdf" Vital="yes" />
+        <File Id="UsersManual.pdf" Source="$(var.ClimbingCompetition.TargetDir)Руководство пользователя.pdf" Name="Руководство пользователя.pdf" Vital="yes" />
+      </Component>
+      <ComponentRef Id="Sound" />
+      <ComponentRef Id="Templates" />
+    </ComponentGroup>
+
+    <ComponentGroup Id="ClimbingPresentation" Directory="INSTALLFOLDER">
+      <Component Id="ClimbingPresentation.exe" Guid="{C5E9BBED-07DB-4EBC-AA37-8999745472E6}">
+        <File Id="ClimbingPresentation.exe" Source="$(var.ClimbingPresentation.TargetPath)" Name="ClimbingPresentation.exe" Vital="yes" />
+        <File Id="ClimbingPresentation.exe.config" Source="$(var.ClimbingPresentation.TargetDir)ClimbingPresentation.exe.config" Name="ClimbingPresentation.exe.config" Vital="yes" />
+      </Component>
+      <Component Id="ListShow.dll" Guid="{A26C2A91-6F83-45C3-B788-A47C55C54DEE}">
+        <File Id="ListShow.dll" Source="$(var.ClimbingPresentation.TargetPath)" Name="ListShow.dll" Vital="yes" />
+        <File Id="ListShow.dll.config" Source="$(var.ClimbingPresentation.TargetDir)ListShow.dll.config" Name="ListShow.dll.config" Vital="yes" />
+      </Component>
+    </ComponentGroup>
+    
+    <ComponentGroup Id="Shared" Directory="INSTALLFOLDER">
+      <Component Id="ClimbingCompetition.Client.dll" Guid="{10E223D0-69E4-4EF3-B54F-36D8A488E4CB}">
+        <File Id="ClimbingCompetition.Client.dll" Source="$(var.ClimbingCompetition.Client.TargetPath)" Name="ClimbingCompetition.Client.dll" Vital="yes" />
+      </Component>
+      <Component Id="ClimbingCompetition.Common.dll" Guid="{F61D0444-989B-4B74-8C2C-A644E24D7FDB}">
+        <File Id="ClimbingCompetition.Common.dll" Source="$(var.ClimbingCompetition.Common.TargetPath)" Name="ClimbingCompetition.Common.dll" Vital="yes" />
+      </Component>
+      <Component Id="clm.ico" Guid="{EA8E0463-BB24-4BB5-A4FE-E91507EC6821}">
+        <File Id="clm.ico" Source="$(var.ClimbingCompetition.TargetDir)clm.ico" Name="clm.ico" Vital="yes" />
+      </Component>
+      <Component Id="Crypto.dll" Guid="{FC0175A8-56AA-4C8A-9AC9-429EF1937191}">
+        <File Id="Crypto.dll" Source="$(var.Crypto.TargetPath)" Name="Crypto.dll" Vital="yes" />
+      </Component>
+      <Component Id="Extensions.dll" Guid="{9971E405-6E3F-4CC0-BFA4-FEAECA6C30A5}">
+        <File Id="Extensions.dll" Source="$(var.Extensions.TargetPath)" Name="Extensions.dll" Vital="yes" />
+      </Component>
+      <Component Id="ListLib.dll" Guid="{4B83B4E8-3203-4378-979C-080C5ECEE65E}">
+        <File Id="ListLib.dll" Source="$(var.Validate.TargetPath)" Name="ListLib.dll" Vital="yes" />
+      </Component>
+      <Component Id="Interop" Guid="{05AE6409-5229-4EAE-835A-52B931F89DFE}">
+        <File Id="Microsoft.Office.Interop.Excel.dll" Source="$(var.UserForms.TargetDir)Microsoft.Office.Interop.Excel.dll" Name="Microsoft.Office.Interop.Excel.dll" Vital="yes" />
+        <File Id="Microsoft.Office.Interop.Word.dll" Source="$(var.UserForms.TargetDir)Microsoft.Office.Interop.Word.dll" Name="Microsoft.Office.Interop.Word.dll" Vital="yes" />
+        <File Id="Microsoft.Vbe.Interop.dll" Source="$(var.UserForms.TargetDir)Microsoft.Vbe.Interop.dll" Name="Microsoft.Vbe.Interop.dll" Vital="yes" />
+        <File Id="Office.dll" Source="$(var.UserForms.TargetDir)Office.dll" Name="Office.dll" Vital="yes" />
+      </Component>
+      <Component Id="Newtonsoft.Json.dll" Guid="{4E8A541D-7689-4628-8F82-9299B5C54A10}">
+        <File Id="Newtonsoft.Json.dll" Source="$(var.ClimbingCompetition.Client.TargetDir)Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Vital="yes" />
+      </Component>
+      <Component Id="SortingLib.dll" Guid="{48067AC5-8C5E-45C1-AB9D-D591307ACD18}">
+        <File Id="SortingLib.dll" Source="$(var.SortingLib.TargetPath)" Name="SortingLib.dll" Vital="yes" />
+      </Component>
+      <Component Id="SpeedData.dll" Guid="{BC1058BE-702C-479B-940D-A8FC1B6D3BA5}">
+        <File Id="SpeedData.dll" Source="$(var.SpeedData.TargetPath)" Name="SpeedData.dll" Vital="yes" />
+      </Component>
+      <Component Id="UserForms.dll" Guid="{5D4D5ACC-20EE-4B19-890F-E44AD23D8188}">
+        <File Id="UserForms.dll" Source="$(var.UserForms.TargetPath)" Name="UserForms.dll" Vital="yes" />
+        <File Id="UserForms.dll.config" Source="$(var.UserForms.TargetDir)UserForms.dll.config" Name="UserForms.dll.config" Vital="yes" />
+        <File Id="UserForms.XmlSerializers.dll" Source="$(var.UserForms.TargetDir)UserForms.XmlSerializers.dll" Name="UserForms.XmlSerializers.dll" Vital="yes" />
+      </Component>
+      <Component Id="WPF.Common.dll" Guid="{0B319154-C317-4528-AC4B-4BD17AEC02F8}">
+        <File Id="WPF.Common.dll" Source="$(var.WPF.Common.TargetPath)" Name="WPF.Common.dll" Vital="yes" />
+      </Component>
+      <Component Id="XmlApiClient.dll" Guid="{A61FA5A0-D574-4099-A48A-059B33BD6ED1}">
+        <File Id="XmlApiClient.dll" Source="$(var.XmlApiClient.TargetPath)" Name="XmlApiClient.dll" Vital="yes" />
+      </Component>
+      <Component Id="XmlApiData.dll" Guid="{B7AD4A1E-D1C4-400C-85C4-53260C516DF3}">
+        <File Id="XmlApiData.dll" Source="$(var.XmlApiData.TargetPath)" Name="XmlApiData.dll" Vital="yes" />
+      </Component>
+      <ComponentRef Id="Resources.en" />
+      <ComponentRef Id="Resources.EnUs" />
+      <ComponentRef Id="Resources.ru" />
+    </ComponentGroup>
+    
 	</Fragment>
 </Wix>
