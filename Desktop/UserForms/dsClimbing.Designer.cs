@@ -13540,12 +13540,12 @@ WHERE     (iid = @iid)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._photoRemoteTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PhotoRemote.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._pointsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Points.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._photoRemoteTableAdapter.Update(updatedRows));
+                    result = (result + this._pointsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13555,15 +13555,6 @@ WHERE     (iid = @iid)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._positionsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._pointsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Points.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pointsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13585,6 +13576,15 @@ WHERE     (iid = @iid)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._photoRemoteTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PhotoRemote.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._photoRemoteTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -13603,11 +13603,11 @@ WHERE     (iid = @iid)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._photoRemoteTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PhotoRemote.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._pointsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Points.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._photoRemoteTableAdapter.Update(addedRows));
+                    result = (result + this._pointsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -13616,14 +13616,6 @@ WHERE     (iid = @iid)";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._positionsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._pointsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Points.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pointsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -13643,6 +13635,14 @@ WHERE     (iid = @iid)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._photoRemoteTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PhotoRemote.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._photoRemoteTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -13653,6 +13653,14 @@ WHERE     (iid = @iid)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(dsClimbing dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._photoRemoteTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PhotoRemote.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._photoRemoteTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._listsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.lists.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -13669,14 +13677,6 @@ WHERE     (iid = @iid)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pointsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Points.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._pointsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._positionsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.positions.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -13685,11 +13685,11 @@ WHERE     (iid = @iid)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._photoRemoteTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PhotoRemote.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._pointsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Points.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._photoRemoteTableAdapter.Update(deletedRows));
+                    result = (result + this._pointsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
