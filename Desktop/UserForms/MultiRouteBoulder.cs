@@ -329,6 +329,7 @@ namespace ClimbingCompetition
                 tran = cn.BeginTransaction();
             else
                 tran = tr;
+            var internationalRules = (SettingsForm.GetSpeedRules(cn, tran) & SpeedRules.InternationalRules) == SpeedRules.InternationalRules;
             bool transactionSuccess = false;
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -408,7 +409,9 @@ namespace ClimbingCompetition
                         }
                         if (hasClimbed)
                         {
-                            long res = t * 100000000000 + (MAXAT - tA) * 10000000 + b * 100000 + (MAXAT - bA) * 10 + SIMPLERES;
+                            long res = internationalRules
+                                ? t * 100000000000 + b * 1000000000 + (MAXAT - tA) * 100000 + (MAXAT - bA) * 10 + SIMPLERES
+                                : t * 100000000000 + (MAXAT - tA) * 10000000 + b * 100000 + (MAXAT - bA) * 10 + SIMPLERES;
                             cmd.Parameters[7].Value = res;
                         }
                         else
