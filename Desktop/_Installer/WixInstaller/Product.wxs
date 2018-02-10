@@ -161,8 +161,8 @@
         <File Id="ClimbingPresentation.exe.config" Source="$(var.ClimbingPresentation.TargetDir)ClimbingPresentation.exe.config" Name="ClimbingPresentation.exe.config" Vital="yes" />
       </Component>
       <Component Id="ListShow.dll" Guid="{A26C2A91-6F83-45C3-B788-A47C55C54DEE}">
-        <File Id="ListShow.dll" Source="$(var.ClimbingPresentation.TargetPath)" Name="ListShow.dll" Vital="yes" />
-        <File Id="ListShow.dll.config" Source="$(var.ClimbingPresentation.TargetDir)ListShow.dll.config" Name="ListShow.dll.config" Vital="yes" />
+        <File Id="ListShow.dll" Source="$(var.ListShow.TargetPath)" Name="ListShow.dll" Vital="yes" />
+        <File Id="ListShow.dll.config" Source="$(var.ListShow.TargetDir)ListShow.dll.config" Name="ListShow.dll.config" Vital="yes" />
       </Component>
     </ComponentGroup>
     
