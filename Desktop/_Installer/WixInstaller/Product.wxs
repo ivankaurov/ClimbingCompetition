@@ -7,23 +7,25 @@
 		<!--<MediaTemplate />-->
     <Media Id="1" Cabinet="cab1.cab" EmbedCab="yes" />
 
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)..\..\..\_License\GnuGpl3-ru.rtf" />
+    
 		<Feature Id="ClimbingCompetition" Title="ClimbingCompetition" Level="1">
 			<ComponentGroupRef Id="Shared" />
       <ComponentGroupRef Id="ClimbingCompetition" />
-      <!--<ComponentRef Id="ApplicationStartMenuShortcuts"/>
-      <ComponentRef Id="DesktopShortcuts"/>-->
+      <ComponentRef Id="ApplicationStartMenuShortcuts"/>
+      <ComponentRef Id="DesktopShortcuts"/>
 		</Feature>
     <Feature Id="ClimbingPresentation" Title="ClimbingPresentation" Level="1">
       <ComponentGroupRef Id="Shared" />
       <ComponentGroupRef Id="ClimbingPresentation" />
-      <!--<ComponentRef Id="ApplicationStartMenuShortcuts"/>
-      <ComponentRef Id="DesktopShortcuts"/>-->
+      <ComponentRef Id="ApplicationStartMenuShortcuts"/>
+      <ComponentRef Id="DesktopShortcuts"/>
     </Feature>
     <Feature Id="BoulderTimer" Title="BoulderTimer" Level="1">
       <ComponentGroupRef Id="Shared" />
       <ComponentGroupRef Id="BoulderTimer" />
-      <!--<ComponentRef Id="ApplicationStartMenuShortcuts"/>
-      <ComponentRef Id="DesktopShortcuts"/>-->
+      <ComponentRef Id="ApplicationStartMenuShortcuts"/>
+      <ComponentRef Id="DesktopShortcuts"/>
     </Feature>
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER"></Property>
     <UIRef Id="WixUI_InstallDir"/>
@@ -42,6 +44,7 @@
 			</Directory>
 
       <Directory Id="ProgramMenuFolder">
+        <Directory Id="ProgramMenuApp" />
       </Directory>
 
       <Directory Id="DesktopFolder" />
@@ -50,11 +53,18 @@
 	</Fragment>
 
   <Fragment>
-    <DirectoryRef Id="ProgramMenuFolder">
+    <DirectoryRef Id="ProgramMenuApp">
       <Component Id="ApplicationStartMenuShortcuts" Guid="{1DAEFAEA-556B-4D83-AFAA-CA60AE0FC4D6}">
         <Shortcut Id="Climbing.Sm" Name="ClimbingCompetition" Description="Программа ввода результатов" Target="[INSTALLFOLDER]Climbing.exe" WorkingDirectory="INSTALLFOLDER" />
         <Shortcut Id="ClimbingPresentation.Sm" Name="ClimbingPresentation" Description="Программа просмотра результатов" Target="[INSTALLFOLDER]ClimbingPresentation.exe" WorkingDirectory="INSTALLFOLDER" />
         <Shortcut Id="BoulderTimer.Sm" Name="BoulderTimer" Description="Таймер для боулдеринга" Target="[INSTALLFOLDER]BoulderTimer.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="ProgramMenuApp" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software\IvanK\ClimbingCompetition"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes"/>
       </Component>
     </DirectoryRef>
 
@@ -63,6 +73,12 @@
         <Shortcut Id="Climbing.Ink" Name="ClimbingCompetition" Description="Программа ввода результатов" Target="[INSTALLFOLDER]Climbing.exe" WorkingDirectory="INSTALLFOLDER" />
         <Shortcut Id="ClimbingPresentation.Ink" Name="ClimbingPresentation" Description="Программа просмотра результатов" Target="[INSTALLFOLDER]ClimbingPresentation.exe" WorkingDirectory="INSTALLFOLDER" />
         <Shortcut Id="BoulderTimer.Ink" Name="BoulderTimer" Description="Таймер для боулдеринга" Target="[INSTALLFOLDER]BoulderTimer.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\IvanK\ClimbingCompetition"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes"/>
       </Component>
     </DirectoryRef>
     
