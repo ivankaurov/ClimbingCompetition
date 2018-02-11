@@ -56,7 +56,7 @@ namespace ClimbingCompetition
         public const string DSQ = "дискв.";
         public const string ClmNUM = "ClimberID";
         public const string ResNUM = "ResIid";
-        public const int NYARES = 5, DSQRES = 8, SIMPLERES = 9, MAXAT = 9999;
+        public const long NYARES = 5, DSQRES = 8, SIMPLERES = 9, MAXAT = 9999;
         public enum ListType { Start, Res, Print, Full }
         private readonly int listID;
         private readonly int routeNumber;
@@ -361,7 +361,7 @@ namespace ClimbingCompetition
                     bool dsq = (dr[dsqCol] == DBNull.Value ? false : Convert.ToBoolean(dr[dsqCol]));
                     long id = Convert.ToInt64(dr[iidCol]);
                     cmd.Parameters[0].Value = id;
-                    int t = 0, tA = 0, b = 0, bA = 0;
+                    long t = 0, tA = 0, b = 0, bA = 0;
                     int? top, bonus;
                     if (nya)
                     {
@@ -409,7 +409,7 @@ namespace ClimbingCompetition
                         }
                         if (hasClimbed)
                         {
-                            long res = internationalRules
+                            var res = internationalRules
                                 ? t * 100000000000 + b * 1000000000 + (MAXAT - tA) * 100000 + (MAXAT - bA) * 10 + SIMPLERES
                                 : t * 100000000000 + (MAXAT - tA) * 10000000 + b * 100000 + (MAXAT - bA) * 10 + SIMPLERES;
                             cmd.Parameters[7].Value = res;
