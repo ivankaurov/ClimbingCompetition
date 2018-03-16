@@ -2063,21 +2063,31 @@ namespace ClimbingCompetition
         /// <returns></returns>
         public static string GetVersion()
         {
-            string version = "";
+            try
+            {
+                var version = Application.ProductVersion;
+                if (!string.IsNullOrWhiteSpace(version))
+                {
+                    return version;
+                }
+            }
+            catch { }
+
             try
             {
                 System.Reflection.Assembly asm;
                 asm = System.Reflection.Assembly.GetEntryAssembly();
                 if (asm == null)
                     asm = System.Reflection.Assembly.GetExecutingAssembly();
+                
                 if (asm != null)
                 {
                     Version v = asm.GetName().Version;
-                    version = v.Major.ToString() + "." + v.Minor.ToString() + "." + v.Build.ToString();
+                    return v.Major.ToString() + "." + v.Minor.ToString() + "." + v.Build.ToString();
                 }
             }
             catch { }
-            return version;
+            return string.Empty;
         }
 
         /// <summary>

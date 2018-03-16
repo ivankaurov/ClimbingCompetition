@@ -42,11 +42,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyDescription("ClimbingCompetition component")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Спортивная Федерация Скалолазания Санкт-Петербурга")]
 [assembly: AssemblyProduct("ClimbingCompetition")]
-[assembly: AssemblyCopyright("Copyright © 2007-2017")]
+[assembly: AssemblyCopyright("Copyright © 2007-2018")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -67,3 +66,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("18.2.11.1")]
 [assembly: NeutralResourcesLanguage("ru")]
 [assembly: AssemblyInformationalVersion("18.2-rc2")]
+[assembly: AssemblyDescription("Новые версии приложения тут: https://github.com/ivankaurov/ClimbingCompetition/releases")]
