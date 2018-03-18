@@ -84,7 +84,7 @@ namespace ClimbingCompetition
         {
             get
             {
-                return StaticClass.GetVersion() + " сборка " + Assembly.GetExecutingAssembly().GetName().Version.Revision.ToString();
+                return StaticClass.GetVersion();
             }
         }
 
@@ -123,7 +123,7 @@ namespace ClimbingCompetition
                 {
                     return "";
                 }
-                return ((AssemblyCopyrightAttribute)attributes[0]).Copyright + DateTime.Now.Year.ToString();
+                return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
             }
         }
 

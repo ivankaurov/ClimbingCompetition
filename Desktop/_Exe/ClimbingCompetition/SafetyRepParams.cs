@@ -45,12 +45,27 @@ using System.Reflection;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
+using System.Linq;
 
 namespace ClimbingCompetition
 {
     public partial class SafetyRepParams : ClimbingCompetition.BaseForm
     {
+        private static readonly HashSet<char> AllowedCharacters;
+
         int? selectedTeam = null;
+
+        static SafetyRepParams()
+        {
+            AllowedCharacters = new HashSet<char>(
+                Enumerable.Range('a', 26)
+                .Concat(Enumerable.Range('A', 26))
+                .Concat(Enumerable.Range('1', 9))
+                .Concat(Enumerable.Range('а', 32))
+                .Concat(Enumerable.Range('А', 32))
+                .Concat(new int[] { '0', '_', '-', 'Ё', 'ё', 'Я', 'я', '.', ' ' })
+                .Select(n => (char)n));
+        }
 
         public SafetyRepParams(SqlConnection baseCn, string competitionTitle, int? selectedTeam)
             : base(baseCn, competitionTitle, null)
@@ -172,6 +187,18 @@ namespace ClimbingCompetition
                 def.Save();
             }
 
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(dir) && !Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "Невозможно проверить наличие/создать директорию " + dir + ":" + Environment.NewLine + ex.ToString());
+                return false;
+            }
 
             TBReports<T> rep = new TBReports<T>(cn, ToPrint, dir, this);
             if (cn.State != ConnectionState.Open)
@@ -227,6 +254,16 @@ namespace ClimbingCompetition
         {
             if (PrintData<Excel.Application>(ReportToPrint.APPL_REP))
                 this.Close();
+        }
+
+        private static string PrepareTeamName(string teamName)
+        {
+            if (string.IsNullOrWhiteSpace(teamName))
+            {
+                return string.Empty;
+            }
+
+            return new string(teamName.Select(c => AllowedCharacters.Contains(c) ? c : '_').ToArray());
         }
 
         class TBReports<T> where T:class
@@ -413,8 +450,8 @@ namespace ClimbingCompetition
 
                             }
 
-                            sTeam = currentIid.ToString() + (String.IsNullOrEmpty(sTeam) ? String.Empty : "_" + sTeam);
-                            ws.Name = sTeam;
+                            sTeam = currentIid.ToString("00") + "_" + PrepareTeamName(sTeam);
+                            ws.Name = sTeam.Length > 31 ? sTeam.Substring(0, 31) : sTeam;
 
                             range = ws.get_Range(ws.Cells[rowStart, 1], ws.Cells[curRow, 15]);
                             range.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -528,7 +565,7 @@ namespace ClimbingCompetition
                     finally { rdr.Close(); }
                     if (!String.IsNullOrEmpty(dirToSave))
                     {
-                        string fileName = Path.Combine(dirToSave, currentIid.ToString(idTemplate) + "_" + sTeam + ".doc");
+                        string fileName = Path.Combine(dirToSave, currentIid.ToString(idTemplate) + "_" + PrepareTeamName(sTeam) + ".doc");
                         if (File.Exists(fileName))
                             File.Delete(fileName);
                         object format = Word.WdSaveFormat.wdFormatDocument97;
@@ -550,9 +587,23 @@ namespace ClimbingCompetition
                                 ps[0] = fName;
                                 ps[1] = format;
                             }
-                            saveMethod.Invoke(doc, ps);
 
-                            //doc.SaveAs2(ref fName, ref format);
+                            try
+                            {
+                                saveMethod.Invoke(doc, ps);
+                            }
+                            catch(Exception exOriginal)
+                            {
+                                try
+                                {
+                                    doc.SaveAs2(ref fName, ref format);
+                                }
+                                catch (Exception newException)
+                                {
+                                    throw new AggregateException(exOriginal, newException);
+                                }
+                            }
+
                             ((Word._Application)app).Quit();
                         }
                         catch (Exception ex)

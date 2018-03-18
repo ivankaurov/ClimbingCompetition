@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="ClimbingCompetition" Language="1049" Version="18.2.11" Manufacturer="IvanK" UpgradeCode="f84afe98-7816-4f04-b74c-3f14a0d5fe58">
+	<Product Id="*" Name="ClimbingCompetition" Language="1049" Version="18.3.18" Manufacturer="IvanK" UpgradeCode="f84afe98-7816-4f04-b74c-3f14a0d5fe58">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." AllowDowngrades="no" AllowSameVersionUpgrades="yes" />

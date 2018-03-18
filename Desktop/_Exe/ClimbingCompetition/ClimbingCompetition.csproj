@@ -326,6 +326,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutBoxMy.resx">
+      <DependentUpon>AboutBoxMy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LocalizedStrings.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LocalizedStrings.en-US.Designer.cs</LastGenOutput>
