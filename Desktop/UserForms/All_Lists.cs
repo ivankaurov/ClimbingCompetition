@@ -520,6 +520,11 @@ namespace ClimbingCompetition
                     case "Скорость":
                         cbRound.Items.Add("Квалификация");
                         break;
+
+                    case "Многоборье":
+                        cbRound.Items.Add("Квалификация");
+                        cbRound.Items.Add("Финал");
+                        break;
                 }
                 cbRound.Items.Add("Итоговый протокол");
             }
@@ -1390,6 +1395,11 @@ namespace ClimbingCompetition
                     cbRound.Items.Add("1/2 финала");
                     cbRound.Items.Add("Финал");
                     cbRound.Items.Add("Суперфинал");
+                    break;
+
+                case "Многоборье":
+                    cbRound.Items.Add("Квалификация");
+                    cbRound.Items.Add("Финал");
                     break;
 #endif
                 case "Скорость":
