@@ -72,9 +72,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(29, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(329, 13);
+            this.label2.Size = new System.Drawing.Size(334, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "что итоговые протоколы созданы и не непроведенных раундов";
+            this.label2.Text = "что итоговые протоколы созданы и нет непроведенных раундов";
             // 
             // btnCreateList
             // 

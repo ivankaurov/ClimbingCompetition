@@ -115,6 +115,14 @@
       <Project>{5d4b25c9-3f4d-4f4d-be76-cce4a4f052d3}</Project>
       <Name>Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\UserForms.All\UserForms.All.csproj">
+      <Project>{B17CC181-6ED7-4532-A96E-B936B3366B88}</Project>
+      <Name>UserForms.All</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UserForms.WPF\UserForms.WPF.csproj">
+      <Project>{B5B0D887-4121-45EA-AF75-37672B01DE01}</Project>
+      <Name>UserForms.WPF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WPF.Common\WPF.Common.csproj">
       <Project>{f12a4b6c-fea9-4696-abea-77e5d89156cf}</Project>
       <Name>WPF.Common</Name>

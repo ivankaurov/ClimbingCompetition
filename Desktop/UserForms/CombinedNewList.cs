@@ -13,7 +13,7 @@ namespace ClimbingCompetition
     {
         public enum CombinedNewListType
         {
-            NewList,
+            NewList, 
         }
 
         public CombinedNewList()
