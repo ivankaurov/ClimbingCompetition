@@ -64,7 +64,8 @@
     <Compile Include="..\..\General\AssemblyInfoHeader.cs">
       <Link>Properties\AssemblyInfoHeader.cs</Link>
     </Compile>
-    <Compile Include="DialogRoutedEventArgs.cs" />
+    <Compile Include="BaseWpfControl.cs" />
+    <Compile Include="DataRoutedEventArgs.cs" />
     <Compile Include="NewRemoteConnectionControl.xaml.cs">
       <DependentUpon>NewRemoteConnectionControl.xaml</DependentUpon>
     </Compile>

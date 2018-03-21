@@ -61,9 +61,9 @@ namespace ClimbingCompetition
             this.control1.DialogClosed += this.WpfControl_DialogClosed;
         }
 
-        private void WpfControl_DialogClosed(object sender, DialogRoutedEventArgs e)
+        private void WpfControl_DialogClosed(object sender, DataRoutedEventArgs<DialogResult> e)
         {
-            this.DialogResult = e.DialogResult;
+            this.DialogResult = e.Data;
             this.Close();
         }
     }

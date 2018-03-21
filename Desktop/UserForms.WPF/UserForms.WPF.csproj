@@ -42,15 +42,20 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\General\AssemblyInfoHeader.cs">
       <Link>Properties\AssemblyInfoHeader.cs</Link>
+    </Compile>
+    <Compile Include="CombinedNewListWpf.xaml.cs">
+      <DependentUpon>CombinedNewListWpf.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,11 +64,21 @@
       <Project>{D81A5019-F636-4980-B1E1-4AAA4DB8C5A4}</Project>
       <Name>UserForms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WPF.Common\WPF.Common.csproj">
+      <Project>{F12A4B6C-FEA9-4696-ABEA-77E5D89156CF}</Project>
+      <Name>WPF.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\General\ClimbingCompetition.snk">
       <Link>ClimbingCompetition.snk</Link>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CombinedNewListWpf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

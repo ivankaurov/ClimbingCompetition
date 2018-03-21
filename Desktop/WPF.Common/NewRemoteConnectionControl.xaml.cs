@@ -50,31 +50,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WF = System.Windows.Forms;
 
 namespace ClimbingCompetition.WPF
 {
     /// <summary>
     /// Interaction logic for NewRemoteConnectionControl.xaml
     /// </summary>
-    public partial class NewRemoteConnectionControl : System.Windows.Controls.UserControl
+    public partial class NewRemoteConnectionControl : BaseWpfControl
     {
         private readonly SqlConnection cn;
         private readonly ServiceConnectionModel connectionModel;
-
-        private static readonly RoutedEvent DialogClosedRoutedEvent =
-            EventManager.RegisterRoutedEvent("DialogClosed", RoutingStrategy.Bubble, typeof(DialogRoutedEventHandler), typeof(NewRemoteConnectionControl));
-
-        public event DialogRoutedEventHandler DialogClosed
-        {
-            add { AddHandler(DialogClosedRoutedEvent, value); }
-            remove { RemoveHandler(DialogClosedRoutedEvent, value); }
-        }
-
-        private void RaiseDialogClosedEvent(System.Windows.Forms.DialogResult dialogResult)
-        {
-            var eventArgs = new DialogRoutedEventArgs(dialogResult, DialogClosedRoutedEvent);
-            RaiseEvent(eventArgs);
-        }
 
         [Obsolete("Designer only", true)]
         public NewRemoteConnectionControl()
