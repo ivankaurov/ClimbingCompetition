@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AGE" xml:space="preserve">
     <value>Г.р.</value>
@@ -137,6 +137,12 @@
   </data>
   <data name="CLIMBER_NAME" xml:space="preserve">
     <value>Фамилия, Имя</value>
+  </data>
+  <data name="COMBINED" xml:space="preserve">
+    <value>Многоборье</value>
+  </data>
+  <data name="COMBINED_S" xml:space="preserve">
+    <value>Мн.</value>
   </data>
   <data name="DELETE" xml:space="preserve">
     <value>Удалить</value>
@@ -223,7 +229,10 @@
     <value>Рейтинг (место)</value>
   </data>
   <data name="SCR_RANK_BOULDER_COL" xml:space="preserve">
-    <value>Рейт.Б.</value>
+    <value>Рейт.Боулд.</value>
+  </data>
+  <data name="SCR_RANK_COMBINED_COL" xml:space="preserve">
+    <value>Рейт.Мн.</value>
   </data>
   <data name="SCR_RANK_LEAD_COL" xml:space="preserve">
     <value>Рейт.Тр.</value>

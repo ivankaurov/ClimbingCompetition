@@ -124,6 +124,24 @@ namespace ClimbingCompetition {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Многоборье.
+        /// </summary>
+        public static string COMBINED {
+            get {
+                return ResourceManager.GetString("COMBINED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Мн..
+        /// </summary>
+        public static string COMBINED_S {
+            get {
+                return ResourceManager.GetString("COMBINED_S", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Удалить.
         /// </summary>
         public static string DELETE {
@@ -376,11 +394,20 @@ namespace ClimbingCompetition {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Рейт.Б..
+        ///   Looks up a localized string similar to Рейт.Боулд..
         /// </summary>
         public static string SCR_RANK_BOULDER_COL {
             get {
                 return ResourceManager.GetString("SCR_RANK_BOULDER_COL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Рейт.Мн..
+        /// </summary>
+        public static string SCR_RANK_COMBINED_COL {
+            get {
+                return ResourceManager.GetString("SCR_RANK_COMBINED_COL", resourceCulture);
             }
         }
         

@@ -1007,12 +1007,14 @@ namespace ClimbingCompetition
     "[rankingLead] [int] NULL ," +
     "[rankingSpeed] [int] NULL ," +
     "[rankingBoulder] [int] NULL ," +
+    "[rankingCombined] [int] NULL ," +
     "[vk] [bit] NOT NULL CONSTRAINT [DF_Participants_vk] DEFAULT (0)," +
     "[noPoints] [bit] NOT NULL CONSTRAINT [DF_Participants_noPoints] DEFAULT (0)," +
     "[lateAppl] [bit] NOT NULL CONSTRAINT [DF_Participants_lateAppl] DEFAULT (0)," +
     "[lead] [smallint] NOT NULL DEFAULT (1)," +
     "[speed] [smallint] NOT NULL DEFAULT (1)," +
     "[boulder] [smallint] NOT NULL DEFAULT (1)," +
+    "[combined] [smallint] NOT NULL DEFAULT (1)," +
     "[photo] [image] NULL ," +
     "[changed] BIT NOT NULL DEFAULT 1, " +
     "CONSTRAINT [PK_Participants] PRIMARY KEY  CLUSTERED " +

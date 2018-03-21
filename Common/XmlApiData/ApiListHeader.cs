@@ -49,7 +49,7 @@ namespace XmlApiData
         BoulderGroups, BoulderSimple, BoulderSuper,
         TeamLead, TeamSpeed, TeamBoulder, TeamGeneral,
         Combined,
-        General, Unknown
+        General, Unknown, OlympicCombined
     }
 
     [XmlType("ListHeaderCollection", IncludeInSchema = true, Namespace = XmlApiDataConstants.NAMESPACE)]

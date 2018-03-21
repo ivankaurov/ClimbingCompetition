@@ -90,6 +90,7 @@ namespace ClimbingCompetition
         public static string SCR_RANK_LEAD_COL = "Р.Тр.";
         public static string SCR_RANK_SPEED_COL = "Р.Ск.";
         public static string SCR_RANK_BOULDER_COL = "Р.Б.";
+        public static string SCR_RANK_COMBINED_COL = "Р.Мн.";
         public static string BIB = "Номер";
         public static string SURNAME = "Фамилия";
         public static string NAME = "Имя";
@@ -100,9 +101,11 @@ namespace ClimbingCompetition
         public static string LEAD = "Трудность";
         public static string SPEED = "Скорость";
         public static string BOULDER = "Боулдеринг";
+        public static string COMBINED = "Многоборье";
         public static string LEAD_S = "Тр.";
         public static string SPEED_S = "Ск.";
         public static string BOULDER_S = "Боулд.";
+        public static string COMBINED_S = "Мн.";
         public static string SCR_NEW_BIB = "Нов.номер";
         public static string SCR_FEMALE = "ж";
         public static string BIB_F = "Инд.№";
@@ -164,6 +167,8 @@ namespace ClimbingCompetition
             SortingClass.CheckColumn("Teams", "chief_ord", "VARCHAR(255) NOT NULL DEFAULT ''", this.cn);
             SortingClass.CheckColumn("Participants", "name_ord", "VARCHAR(255) NOT NULL DEFAULT ''", this.cn);
             SortingClass.CheckColumn("Participants", "license", "BIGINT NULL", this.cn);
+            SortingClass.CheckColumn("Participants", "combined", "SMALLINT NOT NULL DEFAULT 1", cn);
+            SortingClass.CheckColumn("Participants", "rankingCombined", "INT NULL", cn);
             SortingClass.CheckGlobalIDColumns(this.cn);
 
             try
@@ -1525,8 +1530,8 @@ namespace ClimbingCompetition
                 da.SelectCommand.Connection = cn;
                 string initSelect = "SELECT p.iid AS [" + BIB + "], p.surname AS [" + SURNAME + "], p.name " +
                             "AS [" + NAME + "], dbo.fn_getTeamName(p.iid,NULL) AS [" + TEAM_ST + "], p.age AS [" + AGE_ST + "], p.Qf AS [" + QF_ST + "], g.name AS [" + GROUP + "], " +
-                            "p.rankingLead AS [" + LEAD + "], p.rankingSpeed AS [" + SPEED + "], p.rankingBoulder AS [" + BOULDER + "], " +
-                            "p.lead AS [" + LEAD_S + "], p.speed AS [" + SPEED_S + "], p.boulder AS [" + BOULDER_S + "],p.iid AS [" + SCR_NEW_BIB + "] " +
+                            "p.rankingLead AS [" + LEAD + "], p.rankingSpeed AS [" + SPEED + "], p.rankingBoulder AS [" + BOULDER + "], p.rankingCombined AS [" + COMBINED + "], " +
+                            "p.lead AS [" + LEAD_S + "], p.speed AS [" + SPEED_S + "], p.boulder AS [" + BOULDER_S + "], p.combined AS [" + COMBINED_S + "],p.iid AS [" + SCR_NEW_BIB + "] " +
                             "FROM Participants p INNER JOIN Teams t ON p.team_id = t.iid INNER JOIN Groups g " +
                             "ON p.group_id = g.iid ";
                 if (cbPartGroups.SelectedIndex == 0)
@@ -1569,6 +1574,8 @@ namespace ClimbingCompetition
                     catch { }
                     try { dataTable.Columns[BOULDER].ColumnName = SCR_RANK_BOULDER_COL; }
                     catch { }
+                    try { dataTable.Columns[COMBINED].ColumnName = SCR_RANK_COMBINED_COL; }
+                    catch { }
                     dg.Columns.Clear();
                     //foreach (DataColumn dc in dataTable)
                     //{
@@ -1581,6 +1588,7 @@ namespace ClimbingCompetition
                         DataGridViewColumn clmn = dg.Columns[i];
                         if ((clmn.HeaderText.Equals(LEAD_S, StringComparison.InvariantCultureIgnoreCase) ||
                             clmn.HeaderText.Equals(SPEED_S, StringComparison.InvariantCultureIgnoreCase) ||
+                            clmn.HeaderText.Equals(COMBINED_S, StringComparison.InvariantCultureIgnoreCase) ||
                             clmn.HeaderText.Equals(BOULDER_S, StringComparison.InvariantCultureIgnoreCase))
                             && !(clmn is DataGridViewComboBoxColumn))
                         {
@@ -1851,14 +1859,16 @@ namespace ClimbingCompetition
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
                 cmd.CommandText = "UPDATE Participants SET iid=@n_i, rankingBoulder = @b, rankingLead=@l, " +
-                    "rankingSpeed=@s, lead=@lead, speed=@speed, boulder=@boulder WHERE iid=@iid";
+                    "rankingSpeed=@s, rankingCombined=@rcm, lead=@lead, speed=@speed, boulder=@boulder, combined=@combined WHERE iid=@iid";
                 cmd.Parameters.Add("@b", SqlDbType.Int, 4, SCR_RANK_BOULDER_COL);
                 cmd.Parameters.Add("@s", SqlDbType.Int, 4, SCR_RANK_SPEED_COL);
                 cmd.Parameters.Add("@l", SqlDbType.Int, 4, SCR_RANK_LEAD_COL);
+                cmd.Parameters.Add("@rcm", SqlDbType.Int, 4, SCR_RANK_COMBINED_COL);
                 cmd.Parameters.Add("@iid", SqlDbType.Int, 4, "Номер");
-                cmd.Parameters.Add("@lead", SqlDbType.SmallInt, 2, "Тр.");
-                cmd.Parameters.Add("@speed", SqlDbType.SmallInt, 2, "Ск.");
-                cmd.Parameters.Add("@boulder", SqlDbType.SmallInt, 2, "Боулд.");
+                cmd.Parameters.Add("@lead", SqlDbType.SmallInt, 2, LEAD_S);
+                cmd.Parameters.Add("@speed", SqlDbType.SmallInt, 2, SPEED_S);
+                cmd.Parameters.Add("@boulder", SqlDbType.SmallInt, 2, BOULDER_S);
+                cmd.Parameters.Add("@combined", SqlDbType.SmallInt, 2, COMBINED_S);
                 cmd.Parameters.Add("@n_i", SqlDbType.Int, 4, "Нов.номер");
                 cmd.Transaction = cn.BeginTransaction();
                 string sError = "";
@@ -2787,7 +2797,7 @@ namespace ClimbingCompetition
                 Excel.Range tmpRange;
 
                 #region DetectionRankingColumns
-                char[] styles = new char[7];
+                char[] styles = new char[9];
                 for (int iii = 0; iii < styles.Length; iii++)
                     styles[iii] = (char)0;
                 for (char cc = 'A'; cc <= 'Z'; cc++)
@@ -2816,7 +2826,7 @@ namespace ClimbingCompetition
                         }
                         else
                         {
-                            nI = tmpRange.Text.ToString().ToLower().IndexOf("бо");
+                            nI = tmpRange.Text.ToString().ToLower().IndexOf("боу");
                             if (nI > -1)
                             {
                                 if (tmpRange.Text.ToString().ToLower().IndexOf("ре") > -1)
@@ -2826,8 +2836,19 @@ namespace ClimbingCompetition
                                         styles[4] = cc;
                             }
                             else
-                                if (tmpRange.Text.ToString().ToLower().IndexOf("поз") == 0)
-                                    styles[6] = cc;
+                            {
+                                nI = tmpRange.Text.ToString().ToLower().IndexOf("мн");
+                                if (nI > -1)
+                                {
+                                    if (tmpRange.Text.ToString().ToLower().IndexOf("ре") > -1)
+                                        styles[7] = cc;
+                                    else
+                                        if (nI == 0)
+                                            styles[6] = cc;
+                                }
+                                else if (tmpRange.Text.ToString().ToLower().IndexOf("поз") == 0)
+                                    styles[8] = cc;
+                            }
                         }
                     }
 #else
@@ -3005,7 +3026,7 @@ namespace ClimbingCompetition
                         }
 
                         //int[] strt = new int[7];
-                        object[] strt = new object[7];
+                        object[] strt = new object[9];
                         for (int iii = 0; iii < strt.Length; iii++)
                             if (iii % 2 == 0)
                                 strt[iii] = false;
@@ -3054,8 +3075,8 @@ namespace ClimbingCompetition
                         {
                             //MessageBox.Show("Участник "+strSurname+' '+strName+" уже есть в списке.");
                             cmd.CommandText = "UPDATE Participants SET qf = '" + strQf +
-                                "', lead = @l, speed = @s, boulder = @b, rankingLead = @rl, rankingSpeed = @rs, " +
-                                "rankingBoulder = @rb, lateAppl = @la, vk = @vk WHERE iid = " + iid.ToString();
+                                "', lead = @l, speed = @s, boulder = @b, combined = @cm, rankingLead = @rl, rankingSpeed = @rs, " +
+                                "rankingBoulder = @rb, rankingCombined = @rcm, lateAppl = @la, vk = @vk WHERE iid = " + iid.ToString();
                             cmd.Parameters.Clear();
 
                             cmd.Parameters.Add("@l", SqlDbType.SmallInt);
@@ -3064,10 +3085,13 @@ namespace ClimbingCompetition
 
                             cmd.Parameters.Add("@b", SqlDbType.SmallInt);
 
+                            cmd.Parameters.Add("@cm", SqlDbType.SmallInt);
+
 #if FULL
                             cmd.Parameters[0].Value = strt[0];
                             cmd.Parameters[1].Value = strt[2];
                             cmd.Parameters[2].Value = strt[4];
+                            cmd.Parameters[3].Value = strt[6];
 #else
                         cmd.Parameters[0].Value = false;
                         cmd.Parameters[2].Value = false;
@@ -3075,31 +3099,34 @@ namespace ClimbingCompetition
 #endif
 
                             cmd.Parameters.Add("@rl", SqlDbType.Int);
-                            cmd.Parameters[3].Value = strt[1];
+                            cmd.Parameters[4].Value = strt[1];
                             //if (strt[1] == 0)
                             //    cmd.Parameters[3].Value = DBNull.Value;
                             //else
                             //    cmd.Parameters[3].Value = strt[1];
 
                             cmd.Parameters.Add("@rs", SqlDbType.Int);
-                            cmd.Parameters[4].Value = strt[3];
+                            cmd.Parameters[5].Value = strt[3];
                             //if (strt[3] == 0)
                             //    cmd.Parameters[4].Value = DBNull.Value;
                             //else
                             //    cmd.Parameters[4].Value = strt[3];
 
                             cmd.Parameters.Add("@rb", SqlDbType.Int);
-                            cmd.Parameters[5].Value = strt[5];
+                            cmd.Parameters[6].Value = strt[5];
                             //if (strt[5] == 0)
                             //    cmd.Parameters[5].Value = DBNull.Value;
                             //else
                             //    cmd.Parameters[5].Value = strt[5];
 
+                            cmd.Parameters.Add("@rcm", SqlDbType.Int);
+                            cmd.Parameters[7].Value = strt[7];
+
                             cmd.Parameters.Add("@la", SqlDbType.Bit);
-                            cmd.Parameters[6].Value = strt[6];
+                            cmd.Parameters[8].Value = strt[8];
 
                             cmd.Parameters.Add("@vk", SqlDbType.Bit);
-                            cmd.Parameters[7].Value = vk;
+                            cmd.Parameters[9].Value = vk;
                             try
                             {
                                 cmd.ExecuteNonQuery();
@@ -3155,8 +3182,8 @@ namespace ClimbingCompetition
                         //bool lateAppl = (tmpRange.Text.ToString() != "");
 
                         cmd.CommandText = "INSERT INTO Participants(name, surname, age, genderFemale, " +
-                            "qf, team_id, group_id, lead, speed, boulder, rankingLead, rankingSpeed, rankingBoulder, lateAppl, vk, name_ord, iid) " +
-                            "VALUES (@name, @surname, @age, @gF, @qf, @t_id, @g_id, @l, @s, @b, @rl, @rs, @rb, @la, @vk, '', @iid)";
+                            "qf, team_id, group_id, lead, speed, boulder, combined, rankingLead, rankingSpeed, rankingBoulder, rankingCombined, lateAppl, vk, name_ord, iid) " +
+                            "VALUES (@name, @surname, @age, @gF, @qf, @t_id, @g_id, @l, @s, @b, @cm, @rl, @rs, @rb, @rcm, @la, @vk, '', @iid)";
                         cmd.Parameters.Clear();
 
                         cmd.Parameters.Add("@name", SqlDbType.VarChar, 50);
@@ -3182,46 +3209,52 @@ namespace ClimbingCompetition
                         cmd.Parameters.Add("@l", SqlDbType.SmallInt);
                         cmd.Parameters.Add("@s", SqlDbType.SmallInt);
                         cmd.Parameters.Add("@b", SqlDbType.SmallInt);
+                        cmd.Parameters.Add("@cm", SqlDbType.SmallInt);
 #if FULL
                         cmd.Parameters[7].Value = strt[0];
 
                         cmd.Parameters[8].Value = strt[2];
 
                         cmd.Parameters[9].Value = strt[4];
+
+                        cmd.Parameters[10].Value = strt[6];
 #else
                     cmd.Parameters[7].Value = false;
                     cmd.Parameters[9].Value = false;
                     cmd.Parameters[8].Value = true;
 #endif
                         cmd.Parameters.Add("@rl", SqlDbType.Int);
-                        cmd.Parameters[10].Value = strt[1];
+                        cmd.Parameters[11].Value = strt[1];
                         //if (strt[1] == 0)
                         //    cmd.Parameters[10].Value = DBNull.Value;
                         //else
                         //    cmd.Parameters[10].Value = strt[1];
 
                         cmd.Parameters.Add("@rs", SqlDbType.Int);
-                        cmd.Parameters[11].Value = strt[3];
+                        cmd.Parameters[12].Value = strt[3];
                         //if (strt[3] == 0)
                         //    cmd.Parameters[11].Value = DBNull.Value;
                         //else
                         //    cmd.Parameters[11].Value = strt[3];
 
                         cmd.Parameters.Add("@rb", SqlDbType.Int);
-                        cmd.Parameters[12].Value = strt[5];
+                        cmd.Parameters[13].Value = strt[5];
                         //if (strt[5] == 0)
                         //    cmd.Parameters[12].Value = DBNull.Value;
                         //else
                         //    cmd.Parameters[12].Value = strt[5];
 
+                        cmd.Parameters.Add("@rcm", SqlDbType.Int);
+                        cmd.Parameters[14].Value = strt[7];
+
                         cmd.Parameters.Add("@la", SqlDbType.Bit);
-                        cmd.Parameters[13].Value = strt[6];
+                        cmd.Parameters[15].Value = strt[8];
 
                         cmd.Parameters.Add("@vk", SqlDbType.Bit);
-                        cmd.Parameters[14].Value = vk;
+                        cmd.Parameters[16].Value = vk;
 
                         cmd.Parameters.Add("@iid", SqlDbType.Int);
-                        cmd.Parameters[15].Value = iid;
+                        cmd.Parameters[17].Value = iid;
 
                         try
                         {
@@ -3334,7 +3367,7 @@ namespace ClimbingCompetition
                 cmd.Parameters.Add("@iid", SqlDbType.Int);
                 int iLAppl;
 #if FULL
-                iLAppl = 15;
+                iLAppl = 17;
 #else
             iLAppl = 10;
 #endif
@@ -3376,10 +3409,12 @@ namespace ClimbingCompetition
                     ws.Cells[i + 5, 10] = GetRowValue(rd, SPEED_S);
                     //if (Convert.ToBoolean(rd["Боулд."]))
                     ws.Cells[i + 5, 11] = GetRowValue(rd, BOULDER_S);
+                    ws.Cells[i + 5, 12] = GetRowValue(rd, COMBINED_S);
 
-                    ws.Cells[i + 5, 12] = rd[SCR_RANK_LEAD_COL].ToString();
-                    ws.Cells[i + 5, 13] = rd[SCR_RANK_SPEED_COL].ToString();
-                    ws.Cells[i + 5, 14] = rd[SCR_RANK_BOULDER_COL].ToString();
+                    ws.Cells[i + 5, 13] = rd[SCR_RANK_LEAD_COL].ToString();
+                    ws.Cells[i + 5, 14] = rd[SCR_RANK_SPEED_COL].ToString();
+                    ws.Cells[i + 5, 15] = rd[SCR_RANK_BOULDER_COL].ToString();
+                    ws.Cells[i + 5, 16] = rd[SCR_RANK_COMBINED_COL].ToString();
 #else
                 ws.Cells[i + 5, 9] = rd[rankSpeedCol].ToString();
 #endif
@@ -3394,19 +3429,21 @@ namespace ClimbingCompetition
                 ws.Cells[5, 8] = GROUP;
                 Excel.Range dta;
 #if FULL
-                dta = ws.get_Range("I4", "K4");
+                dta = ws.get_Range("I4", "L4");
                 dta.Merge(Type.Missing);
                 dta.Cells[1, 1] = SCR_PARTICIPATIONS;
                 ws.Cells[5, 9] = LEAD;
                 ws.Cells[5, 10] = SPEED;
                 ws.Cells[5, 11] = BOULDER;
+                ws.Cells[5, 12] = COMBINED;
 
-                dta = ws.get_Range("L4", "N4");
+                dta = ws.get_Range("M4", "P4");
                 dta.Merge(Type.Missing);
                 dta.Cells[1, 1] = SCR_RANK_ALL;
-                ws.Cells[5, 12] = SCR_RANK_LEAD_COL;
-                ws.Cells[5, 13] = SCR_RANK_SPEED_COL;
-                ws.Cells[5, 14] = SCR_RANK_BOULDER_COL;
+                ws.Cells[5, 13] = SCR_RANK_LEAD_COL;
+                ws.Cells[5, 14] = SCR_RANK_SPEED_COL;
+                ws.Cells[5, 15] = SCR_RANK_BOULDER_COL;
+                ws.Cells[5, 16] = SCR_RANK_COMBINED_COL;
 #else
             ws.Cells[5, iLAppl - 1] = "Рейтинг (место)";
 #endif
@@ -3417,11 +3454,11 @@ namespace ClimbingCompetition
                 dta.Style = "MyStyle";
                 dta.Columns.AutoFit();
 
-                dta = ws.get_Range("I4", 'N' + (i + 5).ToString());
+                dta = ws.get_Range("I4", 'P' + (i + 5).ToString());
                 dta.Style = "MyStyle";
                 dta.Columns.AutoFit();
 
-                dta = ws.get_Range("O5", 'P' + (i + 5).ToString());
+                dta = ws.get_Range("Q5", 'R' + (i + 5).ToString());
                 dta.Style = "MyStyle";
                 dta.Columns.AutoFit();
 #else

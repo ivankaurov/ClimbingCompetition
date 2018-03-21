@@ -119,7 +119,7 @@ namespace ClimbingCompetition
             SortingClass.CheckColumn("lists", "projNum", "INT NOT NULL DEFAULT 1", cn);
 
             SortingClass.CheckColumn("lists", "listType", "VARCHAR(255) NOT NULL DEFAULT '" + ListTypeEnum.Unknown + "'", cn);
-            RecalculateLists(cn, false, null);
+            RecalculateLists(cn, null);
 
             AccountForm.CreateTeamSecondLinkTable(cn, null);
 
@@ -261,7 +261,7 @@ namespace ClimbingCompetition
             }
         }
 
-        public static void RecalculateLists(SqlConnection cn, bool recalculateAll, SqlTransaction tranP)
+        public static void RecalculateLists(SqlConnection cn, SqlTransaction tranP)
         {
             SqlTransaction tran;
             if (tranP == null)
@@ -273,9 +273,7 @@ namespace ClimbingCompetition
                 List<ListToRecalc> lists = new List<ListToRecalc>();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "SELECT iid, style, round FROM lists(NOLOCK)";
-                if (!recalculateAll)
-                    cmd.CommandText += " WHERE listType = '" + ListTypeEnum.Unknown.ToString() + "'";
+                cmd.CommandText = "SELECT iid, style, round FROM lists(NOLOCK)" + " WHERE listType = '" + ListTypeEnum.Unknown.ToString() + "'";
                 cmd.Transaction = tran;
                 SqlDataReader rdr = cmd.ExecuteReader();
                 try
@@ -521,7 +519,7 @@ namespace ClimbingCompetition
                         cbRound.Items.Add("Квалификация");
                         break;
 
-                    case "Многоборье":
+                    case "Олимпийское многоборье":
                         cbRound.Items.Add("Квалификация");
                         cbRound.Items.Add("Финал");
                         break;
@@ -1397,7 +1395,7 @@ namespace ClimbingCompetition
                     cbRound.Items.Add("Суперфинал");
                     break;
 
-                case "Многоборье":
+                case "Олимпийское многоборье":
                     cbRound.Items.Add("Квалификация");
                     cbRound.Items.Add("Финал");
                     break;

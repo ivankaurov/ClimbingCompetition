@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AGE" xml:space="preserve">
     <value>Age</value>
@@ -137,6 +137,12 @@
   </data>
   <data name="CLIMBER_NAME" xml:space="preserve">
     <value>Surname, Name</value>
+  </data>
+  <data name="COMBINED" xml:space="preserve">
+    <value>Combined</value>
+  </data>
+  <data name="COMBINED_S" xml:space="preserve">
+    <value>C</value>
   </data>
   <data name="DELETE" xml:space="preserve">
     <value>Delete</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="SCR_RANK_BOULDER_COL" xml:space="preserve">
     <value>Rank.Boulder</value>
+  </data>
+  <data name="SCR_RANK_COMBINED_COL" xml:space="preserve">
+    <value>Rank.Combined</value>
   </data>
   <data name="SCR_RANK_LEAD_COL" xml:space="preserve">
     <value>Rank.Lead</value>
