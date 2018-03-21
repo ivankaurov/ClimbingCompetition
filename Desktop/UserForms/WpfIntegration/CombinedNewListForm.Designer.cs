@@ -1,6 +1,6 @@
-﻿namespace ClimbingCompetition
+﻿namespace ClimbingCompetition.UserForms.WpfIntegration
 {
-    partial class NewRemoteConnectionForm
+    partial class CombinedNewListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // NewRemoteConnectionForm
+            // CombinedNewListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 101);
-            this.Name = "NewRemoteConnectionForm";
-            this.Text = "Настройка соединения с сервером";
+            this.ClientSize = new System.Drawing.Size(373, 257);
+            this.ControlBox = false;
+            this.Name = "CombinedNewListForm";
+            this.Text = "Новый протокол многоборья";
             this.ResumeLayout(false);
 
         }

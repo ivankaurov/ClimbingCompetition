@@ -65,11 +65,15 @@
       <Link>Properties\AssemblyInfoHeader.cs</Link>
     </Compile>
     <Compile Include="BaseWpfControl.cs" />
+    <Compile Include="BaseWpfControlFactory.cs" />
     <Compile Include="DataRoutedEventArgs.cs" />
+    <Compile Include="IWpfControlFactory.cs" />
     <Compile Include="NewRemoteConnectionControl.xaml.cs">
       <DependentUpon>NewRemoteConnectionControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewRemoteConnectionControlFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleWpfControlFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="NewRemoteConnectionControl.xaml">

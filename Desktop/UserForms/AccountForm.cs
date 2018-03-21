@@ -3015,7 +3015,7 @@ END
                 return;
             if (MessageBox.Show("Внимание! Данная операция может занять много времени. Продолжить?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                 return;
-            SaveFileDialog sfd = new SaveFileDialog();
+            var sfd = new System.Windows.Forms.SaveFileDialog();
             sfd.Filter = "Файлы резервной копии БД (*.bak)|*.bak";
             sfd.FilterIndex = 0;
             sfd.FileName = cbDatabase.Text + ".bak";
@@ -3119,7 +3119,7 @@ END
                 return;
             if (MessageBox.Show("Внимание! Данная операция может занять много времени. Продолжить?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                 return;
-            OpenFileDialog ofd = new OpenFileDialog();
+            var ofd = new System.Windows.Forms.OpenFileDialog();
             ofd.Filter = "Файлы резервной копии БД (*.bak)|*.bak|Все файлы (*.*)|*.*";
             ofd.FilterIndex = 0;
             if (ofd.ShowDialog() == DialogResult.Cancel)
@@ -3215,7 +3215,7 @@ END
                         "ВНИМАНИЕ!!! Не располагайте основной файл БД на сменных дисках!!!\r\n" +
                         "Для стабильной работы программы данный файл должен быть расположен\r\n" +
                         "на жёстком диске Вашего сервера т.к. доступ к нему производится ПОСТОЯННО!!!");
-                    SaveFileDialog sfd = new SaveFileDialog();
+                    var sfd = new System.Windows.Forms.SaveFileDialog();
                     sfd.Title = "Укажите файл для хранения данных";
                     sfd.Filter = "Файл БД (*.mdf)|*.mdf";
                     sfd.FilterIndex = 0;

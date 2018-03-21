@@ -44,27 +44,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ClimbingCompetition.UserForms.WpfIntegration;
 
 namespace ClimbingCompetition
 {
-    public partial class NewRemoteConnectionForm : BaseForm
+    public partial class NewRemoteConnectionForm : WpfContainerForm
     {
-        readonly WPF.NewRemoteConnectionControl control1;
-
         public NewRemoteConnectionForm(string competitionTitle, SqlConnection cn)
-            : base(cn, competitionTitle)
+            : base(cn, competitionTitle, NewRemoteConnectionControlFactory.Instance)
         {
             InitializeComponent();
-
-            this.control1 = new NewRemoteConnectionControl(cn);
-            this.elementHost1.Child = this.control1;
-            this.control1.DialogClosed += this.WpfControl_DialogClosed;
-        }
-
-        private void WpfControl_DialogClosed(object sender, DataRoutedEventArgs<DialogResult> e)
-        {
-            this.DialogResult = e.Data;
-            this.Close();
         }
     }
 }

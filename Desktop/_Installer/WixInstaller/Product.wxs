@@ -205,7 +205,6 @@
         <File Id="UserForms.dll.config" Source="$(var.UserForms.TargetDir)UserForms.dll.config" Name="UserForms.dll.config" Vital="yes" />
         <File Id="UserForms.XmlSerializers.dll" Source="$(var.UserForms.TargetDir)UserForms.XmlSerializers.dll" Name="UserForms.XmlSerializers.dll" Vital="yes" />
         <File Id="ClimbingCompetition.UserForms.Wpf.dll" Source="$(var.UserForms.WPF.TargetPath)" Name="ClimbingCompetition.UserForms.Wpf.dll" Vital="yes" />
-        <File Id="ClimbingCompetition.UserForms.All.dll" Source="$(var.UserForms.All.TargetPath)" Name="ClimbingCompetition.UserForms.All.dll" Vital="yes" />
       </Component>
       <Component Id="WPF.Common.dll" Guid="{0B319154-C317-4528-AC4B-4BD17AEC02F8}">
         <File Id="WPF.Common.dll" Source="$(var.WPF.Common.TargetPath)" Name="WPF.Common.dll" Vital="yes" />

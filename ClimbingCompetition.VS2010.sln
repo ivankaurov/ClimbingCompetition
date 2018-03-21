@@ -35,8 +35,6 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixInstaller", "Desktop\_In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserForms.WPF", "Desktop\UserForms.WPF\UserForms.WPF.csproj", "{B5B0D887-4121-45EA-AF75-37672B01DE01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserForms.All", "Desktop\UserForms.All\UserForms.All.csproj", "{B17CC181-6ED7-4532-A96E-B936B3366B88}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -216,16 +214,6 @@ Global
 		{B5B0D887-4121-45EA-AF75-37672B01DE01}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B5B0D887-4121-45EA-AF75-37672B01DE01}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B5B0D887-4121-45EA-AF75-37672B01DE01}.Release|x86.ActiveCfg = Release|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{B17CC181-6ED7-4532-A96E-B936B3366B88}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

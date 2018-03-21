@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using System.Globalization;
 using ClimbingCompetition.WPF;
 
+using WF = System.Windows.Forms;
+
 namespace ClimbingCompetition.UserForms.Wpf
 {
     /// <summary>
@@ -21,21 +23,36 @@ namespace ClimbingCompetition.UserForms.Wpf
     /// </summary>
     public partial class CombinedNewListWpf : BaseWpfControl
     {
-        public enum CombinedNewListType { NewList, BasedOnExisting, Cancel }
+        public enum CombinedNewListType { NewList, BasedOnExisting, }
 
         public CombinedNewListWpf()
         {
             InitializeComponent();
         }
 
+        public CombinedNewListType? Result { get; private set; }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            if (this.radioButtonBasedOnExisting.IsChecked.GetValueOrDefault(false))
+            {
+                this.Result = CombinedNewListType.BasedOnExisting;
+                this.RaiseDialogClosedEvent(WF.DialogResult.OK);
+            }
+            else if (this.radioButtonNewList.IsChecked.GetValueOrDefault(false))
+            {
+                this.Result = CombinedNewListType.NewList;
+                this.RaiseDialogClosedEvent(WF.DialogResult.OK);
+            }
+            else
+            {
+                MessageBox.Show("Способ создания протокола не выбран.");
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            this.RaiseDialogClosedEvent(WF.DialogResult.Cancel);
         }
     }
 }

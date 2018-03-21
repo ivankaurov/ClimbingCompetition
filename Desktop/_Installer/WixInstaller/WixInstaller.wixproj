@@ -88,14 +88,6 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
-    <ProjectReference Include="..\..\UserForms.All\UserForms.All.csproj">
-      <Name>UserForms.All</Name>
-      <Project>{b17cc181-6ed7-4532-a96e-b936b3366b88}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
     <ProjectReference Include="..\..\UserForms.WPF\UserForms.WPF.csproj">
       <Name>UserForms.WPF</Name>
       <Project>{b5b0d887-4121-45ea-af75-37672b01de01}</Project>
