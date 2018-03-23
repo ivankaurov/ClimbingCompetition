@@ -61,7 +61,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bouldering.
+        ///   Looks up a localized string similar to Боулдеринг.
         /// </summary>
         public static string Bouldering {
             get {
@@ -70,7 +70,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Combined.
+        ///   Looks up a localized string similar to Многоборье.
         /// </summary>
         public static string Combined {
             get {
@@ -79,7 +79,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DNS.
+        ///   Looks up a localized string similar to н/я.
         /// </summary>
         public static string DNS {
             get {
@@ -88,7 +88,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DSQ.
+        ///   Looks up a localized string similar to дискв..
         /// </summary>
         public static string DSQ {
             get {
@@ -97,7 +97,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Female.
+        ///   Looks up a localized string similar to Женский.
         /// </summary>
         public static string Female {
             get {
@@ -106,7 +106,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Final.
+        ///   Looks up a localized string similar to Финал.
         /// </summary>
         public static string Final {
             get {
@@ -115,7 +115,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to General results.
+        ///   Looks up a localized string similar to Итоговый протокол.
         /// </summary>
         public static string GeneralResults {
             get {
@@ -124,7 +124,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lead.
+        ///   Looks up a localized string similar to Трудность.
         /// </summary>
         public static string Lead {
             get {
@@ -133,7 +133,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Male.
+        ///   Looks up a localized string similar to Мужской.
         /// </summary>
         public static string Male {
             get {
@@ -142,7 +142,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Qualification.
+        ///   Looks up a localized string similar to Квалификация.
         /// </summary>
         public static string Qualification {
             get {
@@ -151,7 +151,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1/8 final.
+        ///   Looks up a localized string similar to 1/8 финала.
         /// </summary>
         public static string RoundOf16 {
             get {
@@ -160,7 +160,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1/4 final.
+        ///   Looks up a localized string similar to 1/4 финала.
         /// </summary>
         public static string RoundOf8 {
             get {
@@ -169,7 +169,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Route.
+        ///   Looks up a localized string similar to Трасса.
         /// </summary>
         public static string Route {
             get {
@@ -178,7 +178,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Semifinal.
+        ///   Looks up a localized string similar to 1/2 финала.
         /// </summary>
         public static string Semifinal {
             get {
@@ -187,7 +187,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Speed.
+        ///   Looks up a localized string similar to Скорость.
         /// </summary>
         public static string Speed {
             get {
@@ -196,7 +196,7 @@ namespace ClimbingCompetition.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Superfinal.
+        ///   Looks up a localized string similar to Суперфинал.
         /// </summary>
         public static string Superfinal {
             get {
