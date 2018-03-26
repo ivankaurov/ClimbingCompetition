@@ -112,57 +112,57 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bouldering" xml:space="preserve">
-    <value>Bouldering</value>
+    <value>Боулдеринг</value>
   </data>
   <data name="Combined" xml:space="preserve">
-    <value>Combined</value>
+    <value>Многоборье</value>
   </data>
   <data name="DNS" xml:space="preserve">
-    <value>DNS</value>
+    <value>н/я</value>
   </data>
   <data name="DSQ" xml:space="preserve">
-    <value>DSQ</value>
+    <value>дискв.</value>
   </data>
   <data name="Female" xml:space="preserve">
-    <value>Female</value>
+    <value>Женский</value>
   </data>
   <data name="Final" xml:space="preserve">
-    <value>Final</value>
+    <value>Финал</value>
   </data>
   <data name="GeneralResults" xml:space="preserve">
-    <value>General results</value>
+    <value>Итоговый протокол</value>
   </data>
   <data name="Lead" xml:space="preserve">
-    <value>Lead</value>
+    <value>Трудность</value>
   </data>
   <data name="Male" xml:space="preserve">
-    <value>Male</value>
+    <value>Мужской</value>
   </data>
   <data name="Qualification" xml:space="preserve">
-    <value>Qualification</value>
+    <value>Квалификация</value>
   </data>
   <data name="RoundOf16" xml:space="preserve">
-    <value>1/8 final</value>
+    <value>1/8 финала</value>
   </data>
   <data name="RoundOf8" xml:space="preserve">
-    <value>1/4 final</value>
+    <value>1/4 финала</value>
   </data>
   <data name="Route" xml:space="preserve">
-    <value>Route</value>
+    <value>Трасса</value>
   </data>
   <data name="Semifinal" xml:space="preserve">
-    <value>Semifinal</value>
+    <value>1/2 финала</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Speed</value>
+    <value>Скорость</value>
   </data>
   <data name="Superfinal" xml:space="preserve">
-    <value>Superfinal</value>
+    <value>Суперфинал</value>
   </data>
 </root>

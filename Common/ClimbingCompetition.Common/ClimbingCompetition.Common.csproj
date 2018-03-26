@@ -98,7 +98,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonTranslations.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonTranslations.ru.resx" />
+    <EmbeddedResource Include="CommonTranslations.ru-RU.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\General\ClimbingCompetition.snk">

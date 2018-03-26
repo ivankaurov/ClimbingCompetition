@@ -325,6 +325,7 @@ namespace ClimbingCompetition
         private void LoadUpdatedBoulderResults()
         {
             ServiceHelper.CheckRemoteIdColumn("boulderResults", this.cn, this.currentTransaction);
+            ServiceHelper.CheckRemoteIdColumn("boulderRoutes", this.cn, this.currentTransaction);
             var toUpdate = new List<long>();
             using (var cmd = this.CreateCommand())
             {
@@ -426,6 +427,7 @@ namespace ClimbingCompetition
             string remoteIid;
 
             ServiceHelper.CheckRemoteIdColumn("boulderResults", this.cn, this.currentTransaction);
+            ServiceHelper.CheckRemoteIdColumn("boulderRoutes", this.cn, this.currentTransaction);
 
             using (var cmd = this.CreateCommand())
             {
@@ -448,7 +450,8 @@ namespace ClimbingCompetition
                               .ToArray();
             this.PostBoulderResults(lists);
 
-            ServiceClient.Instance.ClearUnneededListResults(lists.Select(l => l.Iid), remoteIid);
+            // TODO: RESEARCH
+            ////ServiceClient.Instance.ClearUnneededListResults(lists.Select(l => l.Iid), remoteIid);
         }
 
         public string LoadSingleList(int iid, bool loadLines)
