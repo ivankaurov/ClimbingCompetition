@@ -34,6 +34,7 @@
 // <author>Ivan Kaurov</author>
 // <date>30.08.2016 23:51</date>
 
+#if NET40
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -139,3 +140,4 @@ namespace Extensions
         }
     }
 }
+#endif

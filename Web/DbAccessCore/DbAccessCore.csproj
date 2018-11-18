@@ -118,10 +118,6 @@
       <Project>{9FBD4CA9-28A6-4D7B-BA4D-EB335645583B}</Project>
       <Name>Crypto</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\Extension4\Extension4.csproj">
-      <Project>{198ab466-1939-4142-b8f3-bd495f078e8b}</Project>
-      <Name>Extension4</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Common\Extensions\Extensions.csproj">
       <Project>{5D4B25C9-3F4D-4F4D-BE76-CCE4A4F052D3}</Project>
       <Name>Extensions</Name>
