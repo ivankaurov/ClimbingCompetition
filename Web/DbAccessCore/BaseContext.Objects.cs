@@ -43,7 +43,9 @@ using DbAccessCore.Users;
 using DbAccessCore.Log;
 using System.Collections.Concurrent;
 using System.Reflection;
-
+#if NETSTANDARD20
+using Microsoft.EntityFrameworkCore;
+#endif
 namespace DbAccessCore
 {
     partial class BaseContext

@@ -34,7 +34,7 @@
 // <author>Ivan Kaurov</author>
 // <date>30.08.2016 23:51</date>
 
-#if NET40
+#if NET40 || NET451
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
