@@ -38,7 +38,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.Entity;
 using DbAccessCore.Users;
 using Extensions;
 using System.Threading;
@@ -47,11 +46,17 @@ using DbAccessCore.Log;
 using System.Net;
 using System.Data;
 using System.Data.SqlClient;
+#if NET40 || NET451
+using System.Data.Entity;
+#else
+using Microsoft.EntityFrameworkCore;
+#endif
 
 namespace DbAccessCore
 {
     partial class BaseContext
     {
+#if NET40 || NET451
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DbActiveUser>()
@@ -114,6 +119,70 @@ namespace DbAccessCore
 
             base.OnModelCreating(modelBuilder);
         }
+#else
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<DbActiveUser>()
+                .HasOne(au => au.User)
+                .WithMany(u => u.ActiveLogins)
+                .HasForeignKey(au => au.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<DbAudit>()
+                .HasOne(a => a.User)
+                .WithMany(u => u.Audit)
+                .HasForeignKey(a => a.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<DbUserGroup>()
+                .HasMany(gr => gr.Users)
+                .WithOne(u => u.Group)
+                .HasForeignKey(u => u.GroupId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<DbUser>()
+                .HasMany(u => u.Groups)
+                .WithOne(g => g.User)
+                .HasForeignKey(g => g.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<DbSecurityEntity>()
+                .HasMany(se => se.Rights)
+                .WithOne(sbj => sbj.Object)
+                .HasForeignKey(sbj => sbj.ObjectId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<BaseObject>()
+                .HasMany(sbj => sbj.RightsForThisObject)
+                .WithOne(ace => ace.Subject)
+                .HasForeignKey(ace => ace.SubjectId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<LogicTransaction>()
+                .HasMany(lt => lt.Objects)
+                .WithOne(lo => lo.Ltr)
+                .HasForeignKey(lo => lo.LtrIid)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<LogicTransaction>()
+                .HasMany(lt => lt.Children)
+                .WithOne(ct => ct.ParentTransaction)
+                .HasForeignKey(ct => ct.ParentTransactionIid)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<LogicTransactionObject>()
+                .HasMany(lt => lt.Params)
+                .WithOne(lt => lt.LtrObj)
+                .HasForeignKey(lt => lt.LtrObjIid)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Windows.WindowDescriptor>()
+                .HasMany(wnd => wnd.ChildWindows)
+                .WithOne(wndC => wndC.ParentWindow)
+                .HasForeignKey(wndC => wndC.ParentWindowId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Windows.WindowDescriptor>()
+                .HasMany(wnd => wnd.ChildActions)
+                .WithOne(act => act.ParentWindow)
+                .HasForeignKey(act => act.ParentWindowId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            base.OnModelCreating(modelBuilder);
+        }
+#endif
 
         readonly bool createdForInitOnly;
         protected BaseContext(String connectionString)

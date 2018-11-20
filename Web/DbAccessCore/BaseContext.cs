@@ -38,10 +38,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Data;
 using System.Net;
+#if NET451 || NET40
+using System.Data.Entity;
+#else
+using Microsoft.EntityFrameworkCore;
+#endif
 
 namespace DbAccessCore
 {
@@ -78,6 +82,7 @@ namespace DbAccessCore
         public Boolean IsWebContext { get { return web; } }
         protected internal virtual Boolean AdminAllowAll { get { return true; } }
 
+#if NET40 || NET451
         protected sealed override void Dispose(bool disposing)
         {
             if (!createdForInitOnly && disposing)
@@ -89,6 +94,19 @@ namespace DbAccessCore
             }
             base.Dispose(disposing);
         }
+#else
+        public sealed override void Dispose()
+        {
+            if (!createdForInitOnly)
+            {
+                OnDispose();
+                LogOut(!(isClone || web));
+                if (ownConnection)
+                    connection.Dispose();
+            }
+            base.Dispose();
+        }
+#endif
 
         protected virtual void OnDispose()
         {
@@ -96,7 +114,11 @@ namespace DbAccessCore
 
         public Log.LogicTransaction BeginLtr(String name = null)
         {
-            return this.LogicTransactions1.Add(new Log.LogicTransaction(name, this));
+            return this.LogicTransactions1.Add(new Log.LogicTransaction(name, this))
+#if !(NET40 || NET451)
+                .Entity
+#endif
+                ;
         }
     }
 }

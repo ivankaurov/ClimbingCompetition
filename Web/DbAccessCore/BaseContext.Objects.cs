@@ -38,12 +38,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.Entity;
 using DbAccessCore.Users;
 using DbAccessCore.Log;
 using System.Collections.Concurrent;
 using System.Reflection;
-#if NETSTANDARD20
+#if NET40 || NET451
+using System.Data.Entity;
+#else
 using Microsoft.EntityFrameworkCore;
 #endif
 namespace DbAccessCore

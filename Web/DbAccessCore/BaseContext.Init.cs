@@ -58,7 +58,11 @@ namespace DbAccessCore
                 adminGroup = this.UserGroups.Add(new Users.DbUserGroup(this, ADMIN_GROUP)
                 {
                     Name = CoreTranslations.Admins
-                });
+                })
+#if !(NET40 || NET451)
+                .Entity
+#endif
+                ;
             adminGroup.AddUser(user, this);
         }
 
@@ -109,7 +113,12 @@ namespace DbAccessCore
                 {
                     ChildActions = new List<Windows.ActionDescriptor>(),
                     ChildWindows = new List<Windows.WindowDescriptor>()
-                });
+                })
+#if !(NET40 || NET451)
+                .Entity
+#endif
+                ;
+
                 if (ltr != null)
                     ltr.AddCreatedObject(window, this);
             }
@@ -156,10 +165,16 @@ namespace DbAccessCore
             notifier.OnInitProgress(55, CoreTranslations.InitDbAdmin);
             var user = this.Users.FirstOrDefault(u => u.UserName.Equals(applicationAdminUser, StringComparison.OrdinalIgnoreCase));
             if (user == null)
+            {
                 user = this.Users.Add(new Users.DbUser(this)
                 {
                     UserName = applicationAdminUser
-                });
+                })
+#if !(NET40 || NET451)
+                .Entity
+#endif
+                ;
+            }
             user.LogicallyDeleted = false;
             user.AllowMultipleLogins = false;
             user.NeedChangePassword = false;
@@ -201,7 +216,12 @@ namespace DbAccessCore
                     {
                         result.SetInitializer(WhatToDo.CreateOrUpdate);
                     }
+#if NET40 || NET451
                     result.Database.ExecuteSqlCommand("select top 1 * from sys.tables");
+#else
+                    result.Users.FirstOrDefault();
+#endif
+
                 }
                 BaseContext context = null;
                 try
@@ -220,6 +240,7 @@ namespace DbAccessCore
             }, token);
         }
 
+#if NET40 || NET451
         protected static Task InitDatabaseAsync(String serverName, String databaseName, String projectName,
                                                              String sqlServerUser, String sqlServerPassword,
                                                              String applicationAdminUser, String applicationAdminPassword,
@@ -257,7 +278,12 @@ namespace DbAccessCore
                 var cmd = new SqlCommand("select count(*) from master..sysdatabases where name = @dbName", new SqlConnection(systemConnectionString));
                 cmd.Parameters.Add("@dbName", System.Data.SqlDbType.NVarChar, 255).Value = databaseName;
 
-                tskInitSql = cmd.ExecuteScalarAsync(res => Convert.ToInt32(res) > 0)
+                tskInitSql =
+#if NET40 || NET451
+                    cmd.ExecuteScalarAsync(res => Convert.ToInt32(res) > 0)
+#else
+                    cmd.ExecuteScalarAsync().ContinueWith(t => Convert.ToInt32(t.Result) > 0)
+#endif
                                 .ContinueWith(tsk =>
                                 {
                                     if (tsk.Result)
@@ -343,5 +369,6 @@ namespace DbAccessCore
                         throw tsk.Exception;
                 }, resultCts.Token, TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default);
         }
+#endif
     }
 }

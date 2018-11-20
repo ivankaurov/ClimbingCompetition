@@ -44,13 +44,22 @@ using Crypto;
 using System.Threading;
 using System.Threading.Tasks;
 using Extensions;
+#if NET40 || NET451
 using System.Data.Entity;
+#else
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
+#endif
 
 namespace DbAccessCore
 {
     partial class BaseContext
     {
+#if NET40 || NET451
         private DbContextTransaction currentTransaction;
+#else
+        private IDbContextTransaction currentTransaction;
+#endif
         private readonly object physicalTransactionLocker = new object();
 
         public bool HasTransaction
@@ -107,7 +116,11 @@ namespace DbAccessCore
                     if (commandText != null)
                         cmd.CommandText = commandText;
                     if (this.currentTransaction != null)
+#if NET40 || NET451
                         cmd.Transaction = this.currentTransaction.UnderlyingTransaction as SqlTransaction;
+#else
+                        cmd.Transaction = this.currentTransaction.GetDbTransaction() as SqlTransaction;
+#endif
                     return cmd;
                 }
                 catch
@@ -261,7 +274,12 @@ end", BaseObject.IID_SIZE, DB_HASH, sbLeftData, CREATE_IID_PROC);
                         declare @sResult varchar({0})
                         exec dbo.{1} @RP_sNewIid = @sResult out, @P_sDBHASH = '{2}'
                         select @sResult result
-                        ", BaseObject.IID_SIZE, CREATE_IID_PROC, DB_HASH)).ExecuteScalarAsync(res => (String)res);
+                        ", BaseObject.IID_SIZE, CREATE_IID_PROC, DB_HASH))
+#if NET40 || NET451
+                        .ExecuteScalarAsync(res => (String)res);
+#else
+                        .ExecuteScalarAsync().ContinueWith(t => t.Result?.ToString());
+#endif
         }
     }
 }
