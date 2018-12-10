@@ -167,7 +167,7 @@ namespace DbAccessCore
 
         DateTime? GetLoginTime(int spid)
         {
-            using (var cmd = CreateCommand("select login_time from master.sys.sysprocesses(nolock) where spid=@spid"))
+            using (var cmd = CreateCommand("select login_time from sys.sysprocesses(nolock) where spid=@spid"))
             {
                 cmd.Parameters.Add("@spid", SqlDbType.Int).Value = spid;
                 return SqlExecuteScalar(cmd, res => Convert.ToDateTime(res).ToUniversalTime());

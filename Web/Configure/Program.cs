@@ -1,5 +1,6 @@
 ﻿namespace ClimbingCompetition.Web.Configure
 {
+    using ClimbingEntities;
     using System;
     using System.Threading.Tasks;
 
@@ -15,7 +16,12 @@
             try
             {
                 Console.WriteLine("Configuring DB");
-                await Task.CompletedTask;
+                await ClimbingContext2.InitExistingDatabase(
+                    "",
+                    "",
+                    "",
+                     DbAccessCore.BaseContext.WhatToDo.CreateOrUpdate);
+
                 Console.WriteLine("Configure completed!");
             }
             catch (Exception ex)

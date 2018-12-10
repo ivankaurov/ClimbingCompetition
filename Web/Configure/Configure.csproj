@@ -23,4 +23,8 @@
     <None Include="..\..\General\ClimbingCompetition.snk" Link="Properties\ClimbingCompetition.snk" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClimbingEntities\ClimbingEntities.csproj" />
+  </ItemGroup>
+
 </Project>
