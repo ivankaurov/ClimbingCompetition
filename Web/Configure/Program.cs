@@ -2,6 +2,7 @@
 {
     using ClimbingEntities;
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
 
     internal static class Program
@@ -16,11 +17,26 @@
             try
             {
                 Console.WriteLine("Configuring DB");
-                await ClimbingContext2.InitExistingDatabase(
+                using (var ctx = await ClimbingContext2.InitExistingDatabase(
                     "",
                     "",
                     "",
-                     DbAccessCore.BaseContext.WhatToDo.CreateOrUpdate);
+                     DbAccessCore.BaseContext.WhatToDo.CreateOrUpdate))
+                {
+                    var t = ctx.Teams.FirstOrDefault(tx => tx.Code == 78);
+                    if (t == null)
+                    {
+                        t = new ClimbingEntities.Teams.Team(ctx)
+                        {
+                            Code = 78,
+                            Name = "Санкт-Петербург",
+                        };
+                        t.CalculateFullCode();
+                        ctx.Teams.Add(t);
+
+                        var n = await ctx.SaveChangesAsync();
+                    }
+                }
 
                 Console.WriteLine("Configure completed!");
             }
