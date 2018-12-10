@@ -11,33 +11,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{3526
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{CF046A1A-2698-4A4E-B47D-8628BE2DBB44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlApiData", "Common\XmlApiData\XmlApiData.csproj", "{EECFD1C6-D0C6-4241-9B62-31D3AB47DC87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XmlApiData", "Common\XmlApiData\XmlApiData.csproj", "{EECFD1C6-D0C6-4241-9B62-31D3AB47DC87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingLib", "Common\SortingLib\SortingLib.csproj", "{6FB6DF2C-51A4-4F87-B592-17173885D49E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingLib", "Common\SortingLib\SortingLib.csproj", "{6FB6DF2C-51A4-4F87-B592-17173885D49E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{AE9E976C-BB8A-4F8E-A866-7ECD4F97841E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlApiClient", "Desktop\XmlApiClient\XmlApiClient.csproj", "{8E3E9383-0C30-4170-9FA9-270D803DCBAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Common\Extensions\Extensions.csproj", "{5D4B25C9-3F4D-4F4D-BE76-CCE4A4F052D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions", "Common\Extensions\Extensions.csproj", "{5D4B25C9-3F4D-4F4D-BE76-CCE4A4F052D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extension4", "Common\Extension4\Extension4.csproj", "{198AB466-1939-4142-B8F3-BD495F078E8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extension4", "Common\Extension4\Extension4.csproj", "{198AB466-1939-4142-B8F3-BD495F078E8B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validate", "Desktop\Validate\Validate.csproj", "{548DE521-ECFE-44DC-9535-1B30711B5B13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedData", "Desktop\SpeedData\SpeedData.csproj", "{EFF1511E-7746-406A-BCF9-439171EC2DCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto", "Common\Crypto\Crypto.csproj", "{9FBD4CA9-28A6-4D7B-BA4D-EB335645583B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crypto", "Common\Crypto\Crypto.csproj", "{9FBD4CA9-28A6-4D7B-BA4D-EB335645583B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingCompetition.Common", "Common\ClimbingCompetition.Common\ClimbingCompetition.Common.csproj", "{6EB0774E-0AD5-45CB-B6F4-D29155D4E899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimbingCompetition.Common", "Common\ClimbingCompetition.Common\ClimbingCompetition.Common.csproj", "{6EB0774E-0AD5-45CB-B6F4-D29155D4E899}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingCompetition.Client", "Desktop\ClimbingCompetition.Client\ClimbingCompetition.Client.csproj", "{9B559011-3FC7-4FC8-8454-52AFDD6E99BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{D99AF0F7-D048-45EC-9C5D-34922F224D8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbAccessCore", "Web\DbAccessCore\DbAccessCore.csproj", "{3F8053A1-BF8E-4152-A6F5-544250FAD32E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbAccessCore", "Web\DbAccessCore\DbAccessCore.csproj", "{3F8053A1-BF8E-4152-A6F5-544250FAD32E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingEntities", "Web\ClimbingEntities\ClimbingEntities.csproj", "{2BD6D3BB-72AF-4114-823A-3F2CB8E67CBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimbingEntities", "Web\ClimbingEntities\ClimbingEntities.csproj", "{2BD6D3BB-72AF-4114-823A-3F2CB8E67CBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Common", "Desktop\WPF.Common\WPF.Common.csproj", "{F12A4B6C-FEA9-4696-ABEA-77E5D89156CF}"
 EndProject
@@ -72,7 +72,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Installer", "_Installer", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redirector", "Web\Redirector\Redirector.csproj", "{06954222-8C47-4315-AC87-C403CDE4BA49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClimbing2NetCore", "Web\WebClimbing2NetCore\WebClimbing2NetCore.csproj", "{6B4594A9-DBC1-4A6B-BC94-D59223C6C9A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClimbing2NetCore", "Web\WebClimbing2NetCore\WebClimbing2NetCore.csproj", "{6B4594A9-DBC1-4A6B-BC94-D59223C6C9A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configure", "Web\Configure\Configure.csproj", "{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -270,6 +272,14 @@ Global
 		{6B4594A9-DBC1-4A6B-BC94-D59223C6C9A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B4594A9-DBC1-4A6B-BC94-D59223C6C9A1}.Release|x86.ActiveCfg = Release|Any CPU
 		{6B4594A9-DBC1-4A6B-BC94-D59223C6C9A1}.Release|x86.Build.0 = Release|Any CPU
+		{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369}.Debug|x86.Build.0 = Debug|Any CPU
+		{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369}.Release|x86.ActiveCfg = Release|Any CPU
+		{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -302,6 +312,7 @@ Global
 		{61294EC7-93AC-4F46-B274-79BD6F3A46D9} = {AE9E976C-BB8A-4F8E-A866-7ECD4F97841E}
 		{06954222-8C47-4315-AC87-C403CDE4BA49} = {D99AF0F7-D048-45EC-9C5D-34922F224D8C}
 		{6B4594A9-DBC1-4A6B-BC94-D59223C6C9A1} = {D99AF0F7-D048-45EC-9C5D-34922F224D8C}
+		{B1B09E6D-3E5C-4A19-9CE7-3B809FF21369} = {D99AF0F7-D048-45EC-9C5D-34922F224D8C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50C3C102-F1B7-4D44-B8AF-11D2EB4B14F4}
