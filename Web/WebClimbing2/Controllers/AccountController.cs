@@ -62,7 +62,8 @@ namespace WebClimbing2.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var dbUserByLogin = this.Context.Users.FirstOrDefault(u => u.UserName == model.UserName);
+            var name = model.UserName;
+            var dbUserByLogin = this.Context.Users.FirstOrDefault(u => u.UserName == name);
 
             if (dbUserByLogin == null && model.UserName.Contains("@"))
             {

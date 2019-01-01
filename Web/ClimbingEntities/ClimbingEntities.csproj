@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net40;net451</TargetFrameworks>
-    <AssemblyName>ClimbingCompetition.ClimbingEntities</AssemblyName>
+    <AssemblyName>ClimbingEntities</AssemblyName>
     <DefaultNamespace>ClimbingEntities</DefaultNamespace>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
