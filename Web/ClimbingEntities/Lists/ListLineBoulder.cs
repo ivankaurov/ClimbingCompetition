@@ -134,11 +134,11 @@ namespace ClimbingEntities.Lists
             if (n != 0)
                 return n;
 
-            n = this.TopAttempts.CompareTo(br.TopAttempts);
+            n = br.Bonuses.CompareTo(this.Bonuses);
             if (n != 0)
                 return n;
 
-            n = br.Bonuses.CompareTo(this.Bonuses);
+            n = this.TopAttempts.CompareTo(br.TopAttempts);
             if (n != 0)
                 return n;
 
